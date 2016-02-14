@@ -1,0 +1,643 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC0238861BE4497B0060F4B8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC0238851BE4497B0060F4B8 /* Settings.bundle */; };
+		DC11A7B31C092FD300FD54C3 /* ChargerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC11A7B11C092FD300FD54C3 /* ChargerDetailViewController.swift */; };
+		DC11A7B41C092FD300FD54C3 /* ChargerDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC11A7B21C092FD300FD54C3 /* ChargerDetailViewController.xib */; };
+		DC1ED1631BE29572007C09D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED1621BE29572007C09D1 /* AppDelegate.swift */; };
+		DC1ED1651BE29572007C09D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED1641BE29572007C09D1 /* ViewController.swift */; };
+		DC1ED1681BE29572007C09D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC1ED1661BE29572007C09D1 /* Main.storyboard */; };
+		DC1ED16B1BE29572007C09D1 /* Spark.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED1691BE29572007C09D1 /* Spark.xcdatamodeld */; };
+		DC1ED16D1BE29572007C09D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC1ED16C1BE29572007C09D1 /* Assets.xcassets */; };
+		DC1ED1701BE29572007C09D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC1ED16E1BE29572007C09D1 /* LaunchScreen.storyboard */; };
+		DC1ED17B1BE29572007C09D1 /* SparkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED17A1BE29572007C09D1 /* SparkTests.swift */; };
+		DC1ED1861BE29572007C09D1 /* SparkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED1851BE29572007C09D1 /* SparkUITests.swift */; };
+		DC24E3601C5B83760070AC3E /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */; };
+		DC4451291C5B6E4C005DC334 /* placeholder_charger_img.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4451281C5B6E4C005DC334 /* placeholder_charger_img.png */; };
+		DC4EB7AD1BE9717800B75FFC /* NearbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */; };
+		DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */; };
+		DC68F6731BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6691BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift */; };
+		DC68F6741BE345B4000EFFF4 /* ChargerPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F66A1BE345B4000EFFF4 /* ChargerPrimary.swift */; };
+		DC68F6771BE345B4000EFFF4 /* ChargerDetails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F66D1BE345B4000EFFF4 /* ChargerDetails+CoreDataProperties.swift */; };
+		DC68F6781BE345B4000EFFF4 /* ChargerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F66E1BE345B4000EFFF4 /* ChargerDetails.swift */; };
+		DC68F6791BE345B4000EFFF4 /* Connection+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F66F1BE345B4000EFFF4 /* Connection+CoreDataProperties.swift */; };
+		DC68F67A1BE345B4000EFFF4 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6701BE345B4000EFFF4 /* Connection.swift */; };
+		DC68F67B1BE345B4000EFFF4 /* Comment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6711BE345B4000EFFF4 /* Comment+CoreDataProperties.swift */; };
+		DC68F67C1BE345B4000EFFF4 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6721BE345B4000EFFF4 /* Comment.swift */; };
+		DC68F6831BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6811BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift */; };
+		DC68F6841BE34B11000EFFF4 /* ChargerOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */; };
+		DC68F6861BE34C23000EFFF4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6851BE34C23000EFFF4 /* MapViewController.swift */; };
+		DC85CABD1C5A137700AB2786 /* ConnectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */; };
+		DC85CABE1C5A137700AB2786 /* ConnectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */; };
+		DCB3E2361BE65102003AB6C9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB3E2351BE65102003AB6C9 /* LocationManager.swift */; };
+		DCC862BC1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */; };
+		DCD7983B1BE5814F00C62863 /* AnnotationCharger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD7983A1BE5814F00C62863 /* AnnotationCharger.swift */; };
+		DCDC2C371C613A42004BEF91 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDC2C361C613A42004BEF91 /* SettingsViewController.swift */; };
+		DCFDBFDA1BE3E6E10011D191 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFDBFD91BE3E6E10011D191 /* DataManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC1ED1771BE29572007C09D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC1ED1571BE29572007C09D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC1ED15E1BE29572007C09D1;
+			remoteInfo = Spark;
+		};
+		DC1ED1821BE29572007C09D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC1ED1571BE29572007C09D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC1ED15E1BE29572007C09D1;
+			remoteInfo = Spark;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DC0238851BE4497B0060F4B8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		DC11A7B11C092FD300FD54C3 /* ChargerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargerDetailViewController.swift; sourceTree = "<group>"; };
+		DC11A7B21C092FD300FD54C3 /* ChargerDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChargerDetailViewController.xib; sourceTree = "<group>"; };
+		DC1ED15F1BE29572007C09D1 /* SparkMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparkMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC1ED1621BE29572007C09D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DC1ED1641BE29572007C09D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DC1ED1671BE29572007C09D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DC1ED16A1BE29572007C09D1 /* Spark.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Spark.xcdatamodel; sourceTree = "<group>"; };
+		DC1ED16C1BE29572007C09D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC1ED16F1BE29572007C09D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DC1ED1711BE29572007C09D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC1ED1761BE29572007C09D1 /* SparkMap.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkMap.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC1ED17A1BE29572007C09D1 /* SparkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkTests.swift; sourceTree = "<group>"; };
+		DC1ED17C1BE29572007C09D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC1ED1811BE29572007C09D1 /* SparkMap.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkMap.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC1ED1851BE29572007C09D1 /* SparkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkUITests.swift; sourceTree = "<group>"; };
+		DC1ED1871BE29572007C09D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC1ED1931BE296A4007C09D1 /* Spark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Spark.entitlements; sourceTree = "<group>"; };
+		DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
+		DC2F421B1C68C4A300579F18 /* Spark v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v2.xcdatamodel"; sourceTree = "<group>"; };
+		DC4451281C5B6E4C005DC334 /* placeholder_charger_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_charger_img.png; sourceTree = "<group>"; };
+		DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyTableViewCell.swift; sourceTree = "<group>"; };
+		DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearbyTableViewCell.xib; sourceTree = "<group>"; };
+		DC68F6691BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChargerPrimary+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DC68F66A1BE345B4000EFFF4 /* ChargerPrimary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargerPrimary.swift; sourceTree = "<group>"; };
+		DC68F66D1BE345B4000EFFF4 /* ChargerDetails+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChargerDetails+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DC68F66E1BE345B4000EFFF4 /* ChargerDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargerDetails.swift; sourceTree = "<group>"; };
+		DC68F66F1BE345B4000EFFF4 /* Connection+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Connection+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DC68F6701BE345B4000EFFF4 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		DC68F6711BE345B4000EFFF4 /* Comment+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Comment+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DC68F6721BE345B4000EFFF4 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		DC68F6811BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChargerOperator+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargerOperator.swift; sourceTree = "<group>"; };
+		DC68F6851BE34C23000EFFF4 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionTableViewCell.swift; sourceTree = "<group>"; };
+		DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionTableViewCell.xib; sourceTree = "<group>"; };
+		DCB3E2351BE65102003AB6C9 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCenterCoordinateSingelton.swift; sourceTree = "<group>"; };
+		DCD7983A1BE5814F00C62863 /* AnnotationCharger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationCharger.swift; sourceTree = "<group>"; };
+		DCDC2C361C613A42004BEF91 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DCFDBFD91BE3E6E10011D191 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC1ED15C1BE29572007C09D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC1ED1731BE29572007C09D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC1ED17E1BE29572007C09D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC1ED1561BE29572007C09D1 = {
+			isa = PBXGroup;
+			children = (
+				DC1ED1611BE29572007C09D1 /* Spark */,
+				DC1ED1791BE29572007C09D1 /* SparkTests */,
+				DC1ED1841BE29572007C09D1 /* SparkUITests */,
+				DC1ED1601BE29572007C09D1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC1ED1601BE29572007C09D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC1ED15F1BE29572007C09D1 /* SparkMap.app */,
+				DC1ED1761BE29572007C09D1 /* SparkMap.xctest */,
+				DC1ED1811BE29572007C09D1 /* SparkMap.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC1ED1611BE29572007C09D1 /* Spark */ = {
+			isa = PBXGroup;
+			children = (
+				DC4451281C5B6E4C005DC334 /* placeholder_charger_img.png */,
+				DC68F6811BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift */,
+				DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */,
+				DC68F6691BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift */,
+				DC68F66A1BE345B4000EFFF4 /* ChargerPrimary.swift */,
+				DC68F66D1BE345B4000EFFF4 /* ChargerDetails+CoreDataProperties.swift */,
+				DC68F66E1BE345B4000EFFF4 /* ChargerDetails.swift */,
+				DC68F66F1BE345B4000EFFF4 /* Connection+CoreDataProperties.swift */,
+				DC68F6701BE345B4000EFFF4 /* Connection.swift */,
+				DC68F6711BE345B4000EFFF4 /* Comment+CoreDataProperties.swift */,
+				DC68F6721BE345B4000EFFF4 /* Comment.swift */,
+				DC1ED1931BE296A4007C09D1 /* Spark.entitlements */,
+				DC1ED1621BE29572007C09D1 /* AppDelegate.swift */,
+				DC1ED1641BE29572007C09D1 /* ViewController.swift */,
+				DC1ED1661BE29572007C09D1 /* Main.storyboard */,
+				DC1ED16C1BE29572007C09D1 /* Assets.xcassets */,
+				DC1ED16E1BE29572007C09D1 /* LaunchScreen.storyboard */,
+				DC1ED1711BE29572007C09D1 /* Info.plist */,
+				DC1ED1691BE29572007C09D1 /* Spark.xcdatamodeld */,
+				DC68F6851BE34C23000EFFF4 /* MapViewController.swift */,
+				DCFDBFD91BE3E6E10011D191 /* DataManager.swift */,
+				DC0238851BE4497B0060F4B8 /* Settings.bundle */,
+				DCD7983A1BE5814F00C62863 /* AnnotationCharger.swift */,
+				DCB3E2351BE65102003AB6C9 /* LocationManager.swift */,
+				DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */,
+				DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */,
+				DC11A7B11C092FD300FD54C3 /* ChargerDetailViewController.swift */,
+				DC11A7B21C092FD300FD54C3 /* ChargerDetailViewController.xib */,
+				DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */,
+				DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */,
+				DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */,
+				DCDC2C361C613A42004BEF91 /* SettingsViewController.swift */,
+				DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */,
+			);
+			path = Spark;
+			sourceTree = "<group>";
+		};
+		DC1ED1791BE29572007C09D1 /* SparkTests */ = {
+			isa = PBXGroup;
+			children = (
+				DC1ED17A1BE29572007C09D1 /* SparkTests.swift */,
+				DC1ED17C1BE29572007C09D1 /* Info.plist */,
+			);
+			path = SparkTests;
+			sourceTree = "<group>";
+		};
+		DC1ED1841BE29572007C09D1 /* SparkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DC1ED1851BE29572007C09D1 /* SparkUITests.swift */,
+				DC1ED1871BE29572007C09D1 /* Info.plist */,
+			);
+			path = SparkUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC1ED15E1BE29572007C09D1 /* SparkMap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC1ED18A1BE29572007C09D1 /* Build configuration list for PBXNativeTarget "SparkMap" */;
+			buildPhases = (
+				DC1ED15B1BE29572007C09D1 /* Sources */,
+				DC1ED15C1BE29572007C09D1 /* Frameworks */,
+				DC1ED15D1BE29572007C09D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SparkMap;
+			productName = Spark;
+			productReference = DC1ED15F1BE29572007C09D1 /* SparkMap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DC1ED1751BE29572007C09D1 /* SparkMapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC1ED18D1BE29572007C09D1 /* Build configuration list for PBXNativeTarget "SparkMapTests" */;
+			buildPhases = (
+				DC1ED1721BE29572007C09D1 /* Sources */,
+				DC1ED1731BE29572007C09D1 /* Frameworks */,
+				DC1ED1741BE29572007C09D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC1ED1781BE29572007C09D1 /* PBXTargetDependency */,
+			);
+			name = SparkMapTests;
+			productName = SparkTests;
+			productReference = DC1ED1761BE29572007C09D1 /* SparkMap.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DC1ED1801BE29572007C09D1 /* SparkMapUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC1ED1901BE29572007C09D1 /* Build configuration list for PBXNativeTarget "SparkMapUITests" */;
+			buildPhases = (
+				DC1ED17D1BE29572007C09D1 /* Sources */,
+				DC1ED17E1BE29572007C09D1 /* Frameworks */,
+				DC1ED17F1BE29572007C09D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC1ED1831BE29572007C09D1 /* PBXTargetDependency */,
+			);
+			name = SparkMapUITests;
+			productName = SparkUITests;
+			productReference = DC1ED1811BE29572007C09D1 /* SparkMap.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC1ED1571BE29572007C09D1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Zygote Labs";
+				TargetAttributes = {
+					DC1ED15E1BE29572007C09D1 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = WAEHDX6R94;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
+					DC1ED1751BE29572007C09D1 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = DC1ED15E1BE29572007C09D1;
+					};
+					DC1ED1801BE29572007C09D1 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = DC1ED15E1BE29572007C09D1;
+					};
+				};
+			};
+			buildConfigurationList = DC1ED15A1BE29572007C09D1 /* Build configuration list for PBXProject "SparkMap" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC1ED1561BE29572007C09D1;
+			productRefGroup = DC1ED1601BE29572007C09D1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC1ED15E1BE29572007C09D1 /* SparkMap */,
+				DC1ED1751BE29572007C09D1 /* SparkMapTests */,
+				DC1ED1801BE29572007C09D1 /* SparkMapUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC1ED15D1BE29572007C09D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC4451291C5B6E4C005DC334 /* placeholder_charger_img.png in Resources */,
+				DC0238861BE4497B0060F4B8 /* Settings.bundle in Resources */,
+				DC85CABE1C5A137700AB2786 /* ConnectionTableViewCell.xib in Resources */,
+				DC1ED1701BE29572007C09D1 /* LaunchScreen.storyboard in Resources */,
+				DC11A7B41C092FD300FD54C3 /* ChargerDetailViewController.xib in Resources */,
+				DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */,
+				DC1ED16D1BE29572007C09D1 /* Assets.xcassets in Resources */,
+				DC1ED1681BE29572007C09D1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC1ED1741BE29572007C09D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC1ED17F1BE29572007C09D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC1ED15B1BE29572007C09D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC1ED16B1BE29572007C09D1 /* Spark.xcdatamodeld in Sources */,
+				DCB3E2361BE65102003AB6C9 /* LocationManager.swift in Sources */,
+				DCFDBFDA1BE3E6E10011D191 /* DataManager.swift in Sources */,
+				DC68F67A1BE345B4000EFFF4 /* Connection.swift in Sources */,
+				DC4EB7AD1BE9717800B75FFC /* NearbyTableViewCell.swift in Sources */,
+				DC68F6791BE345B4000EFFF4 /* Connection+CoreDataProperties.swift in Sources */,
+				DC68F6741BE345B4000EFFF4 /* ChargerPrimary.swift in Sources */,
+				DC68F6731BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift in Sources */,
+				DC68F6781BE345B4000EFFF4 /* ChargerDetails.swift in Sources */,
+				DC1ED1651BE29572007C09D1 /* ViewController.swift in Sources */,
+				DC68F67C1BE345B4000EFFF4 /* Comment.swift in Sources */,
+				DCD7983B1BE5814F00C62863 /* AnnotationCharger.swift in Sources */,
+				DC1ED1631BE29572007C09D1 /* AppDelegate.swift in Sources */,
+				DC68F6841BE34B11000EFFF4 /* ChargerOperator.swift in Sources */,
+				DCDC2C371C613A42004BEF91 /* SettingsViewController.swift in Sources */,
+				DC11A7B31C092FD300FD54C3 /* ChargerDetailViewController.swift in Sources */,
+				DC68F6831BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift in Sources */,
+				DC68F67B1BE345B4000EFFF4 /* Comment+CoreDataProperties.swift in Sources */,
+				DCC862BC1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift in Sources */,
+				DC24E3601C5B83760070AC3E /* SwiftSpinner.swift in Sources */,
+				DC68F6771BE345B4000EFFF4 /* ChargerDetails+CoreDataProperties.swift in Sources */,
+				DC68F6861BE34C23000EFFF4 /* MapViewController.swift in Sources */,
+				DC85CABD1C5A137700AB2786 /* ConnectionTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC1ED1721BE29572007C09D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC1ED17B1BE29572007C09D1 /* SparkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC1ED17D1BE29572007C09D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC1ED1861BE29572007C09D1 /* SparkUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DC1ED1781BE29572007C09D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC1ED15E1BE29572007C09D1 /* SparkMap */;
+			targetProxy = DC1ED1771BE29572007C09D1 /* PBXContainerItemProxy */;
+		};
+		DC1ED1831BE29572007C09D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC1ED15E1BE29572007C09D1 /* SparkMap */;
+			targetProxy = DC1ED1821BE29572007C09D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DC1ED1661BE29572007C09D1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC1ED1671BE29572007C09D1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DC1ED16E1BE29572007C09D1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC1ED16F1BE29572007C09D1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC1ED1881BE29572007C09D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC1ED1891BE29572007C09D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DC1ED18B1BE29572007C09D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Spark/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.zygotelabs.sparkmap;
+				PRODUCT_NAME = SparkMap;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		DC1ED18C1BE29572007C09D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Spark/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.zygotelabs.sparkmap;
+				PRODUCT_NAME = SparkMap;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		DC1ED18E1BE29572007C09D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SparkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.zygotelabs.SparkTests;
+				PRODUCT_NAME = SparkMap;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SparkMap.app/SparkMap";
+			};
+			name = Debug;
+		};
+		DC1ED18F1BE29572007C09D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SparkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.zygotelabs.SparkTests;
+				PRODUCT_NAME = SparkMap;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SparkMap.app/SparkMap";
+			};
+			name = Release;
+		};
+		DC1ED1911BE29572007C09D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SparkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.zygotelabs.SparkUITests;
+				PRODUCT_NAME = SparkMap;
+				TEST_TARGET_NAME = Spark;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		DC1ED1921BE29572007C09D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SparkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.zygotelabs.SparkUITests;
+				PRODUCT_NAME = SparkMap;
+				TEST_TARGET_NAME = Spark;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC1ED15A1BE29572007C09D1 /* Build configuration list for PBXProject "SparkMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC1ED1881BE29572007C09D1 /* Debug */,
+				DC1ED1891BE29572007C09D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC1ED18A1BE29572007C09D1 /* Build configuration list for PBXNativeTarget "SparkMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC1ED18B1BE29572007C09D1 /* Debug */,
+				DC1ED18C1BE29572007C09D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC1ED18D1BE29572007C09D1 /* Build configuration list for PBXNativeTarget "SparkMapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC1ED18E1BE29572007C09D1 /* Debug */,
+				DC1ED18F1BE29572007C09D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC1ED1901BE29572007C09D1 /* Build configuration list for PBXNativeTarget "SparkMapUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC1ED1911BE29572007C09D1 /* Debug */,
+				DC1ED1921BE29572007C09D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DC1ED1691BE29572007C09D1 /* Spark.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DC2F421B1C68C4A300579F18 /* Spark v2.xcdatamodel */,
+				DC1ED16A1BE29572007C09D1 /* Spark.xcdatamodel */,
+			);
+			currentVersion = DC2F421B1C68C4A300579F18 /* Spark v2.xcdatamodel */;
+			path = Spark.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DC1ED1571BE29572007C09D1 /* Project object */;
+}
