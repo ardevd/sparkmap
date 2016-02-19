@@ -31,19 +31,18 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
         self.navigationController!.navigationBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         
-        let nib = UINib(nibName: "NearbyTableViewCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: "net.zygotelabs.cell")
+        // Register 3d Touch capabilties
+        registerForceTouchCapability()
         
-        // Register notification listener
+        // Register notification listeners
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTableView:", name: "ChargerDataUpdate", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateChargersFromLocation:", name: "LocationUpdate", object: nil)
         
-        // Register 3d Touch capabilties
-        registerForceTouchCapability()
         updateChargersListFromMapCenter()
-        
+        let nib = UINib(nibName: "NearbyTableViewCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "net.zygotelabs.cell")
     }
-    
+      
     func updateChargersListFromMapCenter(){
         let centerGeoCoordinate = MapCenterCoordinateSingelton.center.coordinate
         chargers = dataManager.retrieveNearbyChargerData(Latitude: centerGeoCoordinate.latitude, Longitude: centerGeoCoordinate.longitude)!
@@ -63,7 +62,7 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
     }
     
     func compareChargerDistance(firstCharger: ChargerPrimary, secondCharger: ChargerPrimary) -> Bool {
-
+        
         let location1 = CLLocation(latitude: firstCharger.chargerLatitude, longitude: firstCharger.chargerLongitude)
         let location2 = CLLocation(latitude: secondCharger.chargerLatitude, longitude: secondCharger.chargerLongitude)
         let mapLocationCoordinate = MapCenterCoordinateSingelton.center.coordinate
