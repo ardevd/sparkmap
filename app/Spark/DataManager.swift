@@ -312,6 +312,10 @@ class DataManager: NSObject {
                                             chargerDetails.chargerContact = chargerContact
                                         }
                                         
+                                        if let chargerContactNumber = addressData["ContactTelephone1"] as? String {
+                                            chargerDetails.chargerPrimaryContactNumber = chargerContactNumber
+                                        }
+                                        
                                         if let postcode = addressData["Postcode"] as? String {
                                             chargerDetails.chargerPostcode = postcode
                                         }

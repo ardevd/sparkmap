@@ -19,7 +19,6 @@
 		DC1ED17B1BE29572007C09D1 /* SparkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED17A1BE29572007C09D1 /* SparkTests.swift */; };
 		DC1ED1861BE29572007C09D1 /* SparkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED1851BE29572007C09D1 /* SparkUITests.swift */; };
 		DC24E3601C5B83760070AC3E /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */; };
-		DC4451291C5B6E4C005DC334 /* placeholder_charger_img.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4451281C5B6E4C005DC334 /* placeholder_charger_img.png */; };
 		DC4EB7AD1BE9717800B75FFC /* NearbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */; };
 		DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */; };
 		DC68F6731BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6691BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift */; };
@@ -80,7 +79,6 @@
 		DC1ED1931BE296A4007C09D1 /* Spark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Spark.entitlements; sourceTree = "<group>"; };
 		DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
 		DC2F421B1C68C4A300579F18 /* Spark v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v2.xcdatamodel"; sourceTree = "<group>"; };
-		DC4451281C5B6E4C005DC334 /* placeholder_charger_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_charger_img.png; sourceTree = "<group>"; };
 		DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyTableViewCell.swift; sourceTree = "<group>"; };
 		DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearbyTableViewCell.xib; sourceTree = "<group>"; };
 		DC68F6691BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChargerPrimary+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -96,6 +94,7 @@
 		DC68F6851BE34C23000EFFF4 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionTableViewCell.swift; sourceTree = "<group>"; };
 		DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionTableViewCell.xib; sourceTree = "<group>"; };
+		DCABF7A01C77CAB000B9FEE2 /* Spark v 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v 3.xcdatamodel"; sourceTree = "<group>"; };
 		DCB3E2351BE65102003AB6C9 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCenterCoordinateSingelton.swift; sourceTree = "<group>"; };
 		DCD7983A1BE5814F00C62863 /* AnnotationCharger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationCharger.swift; sourceTree = "<group>"; };
@@ -151,7 +150,6 @@
 		DC1ED1611BE29572007C09D1 /* Spark */ = {
 			isa = PBXGroup;
 			children = (
-				DC4451281C5B6E4C005DC334 /* placeholder_charger_img.png */,
 				DC68F6811BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift */,
 				DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */,
 				DC68F6691BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift */,
@@ -316,7 +314,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC4451291C5B6E4C005DC334 /* placeholder_charger_img.png in Resources */,
 				DC0238861BE4497B0060F4B8 /* Settings.bundle in Resources */,
 				DC85CABE1C5A137700AB2786 /* ConnectionTableViewCell.xib in Resources */,
 				DC1ED1701BE29572007C09D1 /* LaunchScreen.storyboard in Resources */,
@@ -629,6 +626,7 @@
 		DC1ED1691BE29572007C09D1 /* Spark.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				DCABF7A01C77CAB000B9FEE2 /* Spark v 3.xcdatamodel */,
 				DC2F421B1C68C4A300579F18 /* Spark v2.xcdatamodel */,
 				DC1ED16A1BE29572007C09D1 /* Spark.xcdatamodel */,
 			);

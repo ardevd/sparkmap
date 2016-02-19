@@ -2,7 +2,7 @@
 //  ChargerDetails+CoreDataProperties.swift
 //  SparkMap
 //
-//  Created by Edvard Holst on 08/02/16.
+//  Created by Edvard Holst on 19/02/16.
 //  Copyright © 2016 Zygote Labs. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -25,6 +25,7 @@ extension ChargerDetails {
     @NSManaged var chargerRecentlyVerified: Bool
     @NSManaged var chargerTown: String?
     @NSManaged var chargerUsageType: String?
+    @NSManaged var chargerPrimaryContactNumber: String?
     @NSManaged var chargerPrimary: ChargerPrimary?
     @NSManaged var comments: NSSet?
     @NSManaged var connections: NSSet?

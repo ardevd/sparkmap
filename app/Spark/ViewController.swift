@@ -42,7 +42,7 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
         let nib = UINib(nibName: "NearbyTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "net.zygotelabs.cell")
     }
-      
+    
     func updateChargersListFromMapCenter(){
         let centerGeoCoordinate = MapCenterCoordinateSingelton.center.coordinate
         chargers = dataManager.retrieveNearbyChargerData(Latitude: centerGeoCoordinate.latitude, Longitude: centerGeoCoordinate.longitude)!
