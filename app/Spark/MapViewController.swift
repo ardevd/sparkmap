@@ -67,10 +67,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             locationManager.requestStartLocationUpdate()
             mapView.showsUserLocation = false
         }
+
+    }
+    
+    override func viewDidLayoutSubviews() {
         
         // Update map center singelton
         updateMapCenterCoordinateSingelton()
-        
     }
     
     func enableUserLocationInMap(notification: NSNotification) {
