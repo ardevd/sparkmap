@@ -151,7 +151,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         
         pin?.leftCalloutAccessoryView = thumbnailImageView
         if (annotation is AnnotationCharger) {
-            pin?.pinTintColor = UIColor(red: 152/255, green: 184/255, blue: 206/255, alpha: 1.0)
+            pin?.pinTintColor = UIColor(red: 140/255, green: 186/255, blue: 50/255, alpha: 1.0)
         } else {
             return nil
         }
