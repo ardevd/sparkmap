@@ -62,7 +62,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             imageThumbnail.userInteractionEnabled = true
             imageThumbnail.addGestureRecognizer(tapGestureRecognizer)
             
-            if let image = UIImage(named: "placeholder_charger_img.png") {
+            if let image = UIImage(named: "PlaceholderImageIcon") {
                 imageThumbnail.image = image
             }
         }
