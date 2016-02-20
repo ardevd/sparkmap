@@ -630,7 +630,7 @@
 				DC2F421B1C68C4A300579F18 /* Spark v2.xcdatamodel */,
 				DC1ED16A1BE29572007C09D1 /* Spark.xcdatamodel */,
 			);
-			currentVersion = DC2F421B1C68C4A300579F18 /* Spark v2.xcdatamodel */;
+			currentVersion = DCABF7A01C77CAB000B9FEE2 /* Spark v 3.xcdatamodel */;
 			path = Spark.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
