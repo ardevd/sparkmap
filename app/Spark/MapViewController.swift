@@ -107,6 +107,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             mapView.mapType = .Standard
         case 1:
             mapView.mapType = .Satellite
+        case 2:
+            mapView.mapType = .Hybrid
         default:
             break;
         }
