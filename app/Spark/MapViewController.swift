@@ -50,7 +50,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         
         // Register notification listeners
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateAnnotationsFromNotification:", name: "ChargerDataUpdate", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateAnnotationsFromNotification:", name: "SettingsUpdate", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatedSettingsRefresh:", name: "SettingsUpdate", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateRegionFromNotification:", name: "LocationUpdate", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "enableUserLocationInMap:", name: "LocationAuthorized", object: nil)
         
@@ -91,6 +91,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     
     func updateAnnotationsFromNotification(notification: NSNotification){
         updateAnnotations()
+    }
+    
+    func updatedSettingsRefresh(notifcation: NSNotification){
+        updateAnnotations()
+       updateMapTypeFromSettings()
+    }
+    
+    func updateMapTypeFromSettings() {
+        let mapTypeFromSettings = NSUserDefaults.standardUserDefaults().integerForKey("mapType")
+        
+        switch mapTypeFromSettings
+        {
+        case 0:
+            mapView.mapType = .Standard
+        case 1:
+            mapView.mapType = .Satellite
+        default:
+            break;
+        }
     }
     
     

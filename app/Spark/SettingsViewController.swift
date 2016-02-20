@@ -12,6 +12,7 @@ class SettingsViewController: UITableViewController {
     
     @IBOutlet var switchOfflineMode: UISwitch!
     @IBOutlet var switchFastcharge: UISwitch!
+    @IBOutlet var segmentControlMapType: UISegmentedControl!
     @IBOutlet var cellSchuko: UITableViewCell!
     @IBOutlet var cellChademo: UITableViewCell!
     @IBOutlet var cellType2: UITableViewCell!
@@ -71,7 +72,7 @@ class SettingsViewController: UITableViewController {
             textFieldAmps.text = String(ampsMinimumFromSettings)
         }
     
-        
+        segmentControlMapType.selectedSegmentIndex = NSUserDefaults.standardUserDefaults().integerForKey("mapType")
 
     }
     
@@ -83,6 +84,8 @@ class SettingsViewController: UITableViewController {
         defaults.setBool(switchOfflineMode.on, forKey: "offlineMode")
         // Fastcharging Only
         defaults.setBool(switchFastcharge.on, forKey: "fastchargeOnly")
+        // Map Type
+        defaults.setInteger(segmentControlMapType.selectedSegmentIndex, forKey: "mapType")
         // Connection Type IDs
         defaults.setObject(connectionTypeIDs, forKey: "connectionFilterIds")
         // Min Amps
