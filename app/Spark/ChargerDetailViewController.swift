@@ -66,14 +66,13 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                 imageThumbnail.image = image
             }
         }
-        
-        addAndConfigureNavigationButton()
-        
     }
     
     func addAndConfigureNavigationButton() {
+        
         self.navigationItem.setRightBarButtonItem(UIBarButtonItem(title: "Navigate", style: .Plain, target: self, action: "navigateButtonTapped"), animated: true)
         self.navigationItem.rightBarButtonItem?.image = UIImage(named: "CarIcon")
+        
     }
     
     func navigateButtonTapped() {
@@ -192,6 +191,8 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         
         if let subtitle = charger?.chargerSubtitle {
             labelSubtitle.text = subtitle
+            // Configure navigation button
+            addAndConfigureNavigationButton()
         }
         
         if let numberOfPoints = charger?.chargerNumberOfPoints {
