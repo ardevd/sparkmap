@@ -68,11 +68,21 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         }
     }
     
-    func addAndConfigureNavigationButton() {
+    func generateNavigationButton() -> UIBarButtonItem {
+        // Button that lets user navigate to charger address.
+        let navigationButtonItem = UIBarButtonItem(title: "Navigate", style: .Plain, target: self, action: "navigateButtonTapped")
+        navigationButtonItem.image = UIImage(named: "CarIcon")
         
-        self.navigationItem.setRightBarButtonItem(UIBarButtonItem(title: "Navigate", style: .Plain, target: self, action: "navigateButtonTapped"), animated: true)
-        self.navigationItem.rightBarButtonItem?.image = UIImage(named: "CarIcon")
+        return navigationButtonItem
         
+    }
+    
+    func generateCallButton() -> UIBarButtonItem {
+        // Button that lets user call the number associated wtih the charging station.
+        let callButtonItem = UIBarButtonItem(title: "Call", style: .Plain, target: self, action: "callButtonTapped")
+        callButtonItem.image = UIImage(named: "CallIcon")
+        
+        return callButtonItem
     }
     
     func navigateButtonTapped() {
@@ -87,6 +97,14 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             MKLaunchOptionsDirectionsModeDriving]
         
         mapItem.openInMapsWithLaunchOptions(options)
+    }
+    
+    func callButtonTapped() {
+        let phoneNumber = charger?.chargerDetails?.chargerPrimaryContactNumber?.stringByReplacingOccurrencesOfString(" ", withString: "")
+        
+        if let callUrl = NSURL(string: "tel:\(phoneNumber!)") {
+            UIApplication.sharedApplication().openURL(callUrl)
+        }
     }
     
     
@@ -184,6 +202,9 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     }
     
     func setChargerInfoToOutlets(){
+        var navigationButtonItems = [UIBarButtonItem]()
+        
+        
         if let title = charger?.chargerTitle {
             labelTitle.text = title
             self.title = title
@@ -192,7 +213,13 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         if let subtitle = charger?.chargerSubtitle {
             labelSubtitle.text = subtitle
             // Configure navigation button
-            addAndConfigureNavigationButton()
+            navigationButtonItems.append(generateNavigationButton())
+        }
+        
+        if let primaryPhoneNumber = charger?.chargerDetails?.chargerPrimaryContactNumber {
+            if primaryPhoneNumber.characters.count > 3 {
+                navigationButtonItems.append(generateCallButton())
+            }
         }
         
         if let numberOfPoints = charger?.chargerNumberOfPoints {
@@ -226,6 +253,9 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         if let chargerIsOperational = charger?.chargerIsOperational {
             updateChargerOperationalStatus(chargerIsOperational)
         }
+        
+        self.navigationItem.setRightBarButtonItems(navigationButtonItems, animated: true)
+        
     }
     
     func updateChargerOperationalStatus(isOperational: Bool){
