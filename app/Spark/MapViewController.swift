@@ -67,7 +67,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             locationManager.requestStartLocationUpdate()
             mapView.showsUserLocation = false
         }
-
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -95,7 +95,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     
     func updatedSettingsRefresh(notifcation: NSNotification){
         updateAnnotations()
-       updateMapTypeFromSettings()
+        updateMapTypeFromSettings()
     }
     
     func updateMapTypeFromSettings() {
@@ -171,22 +171,30 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "net.zygotelabs.pin")
             
         }
-        let thumbnailImageView = UIImageView(frame: CGRectMake(0, 0, 59, 59))
-        
-        pin?.leftCalloutAccessoryView = thumbnailImageView
+
         if (annotation is AnnotationCharger) {
             pin?.pinTintColor = UIColor(red: 140/255, green: 186/255, blue: 50/255, alpha: 1.0)
+            
+            if let chargerAnnotationView = annotation as? AnnotationCharger {
+                let charger = chargerAnnotationView.charger
+                let numberOfPoints = charger.chargerNumberOfPoints
+                
+                let connectionCountLabel = UILabel(frame: CGRectMake(5, 5, 19, 19))
+                connectionCountLabel.textColor = UIColor(red: 223/255, green: 105/225, blue: 93/225, alpha: 1.0)
+                if (numberOfPoints > 0) {
+                    connectionCountLabel.text = String(numberOfPoints)
+                }
+                pin?.leftCalloutAccessoryView = connectionCountLabel
+
+                pin?.enabled = true
+                pin?.canShowCallout = true
+                pin?.selected = true
+                let button = UIButton(type: UIButtonType.DetailDisclosure)
+                pin?.rightCalloutAccessoryView = button
+            }
         } else {
             return nil
         }
-        
-        
-        //pin?.pinTintColor = UIColor.blueColor()
-        pin?.enabled = true
-        pin?.canShowCallout = true
-        pin?.selected = true
-        let button = UIButton(type: UIButtonType.DetailDisclosure)
-        pin?.rightCalloutAccessoryView = button
         
         return pin
     }
@@ -195,7 +203,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     func mapView(mapView: MKMapView, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
         if control == annotationView.rightCalloutAccessoryView {
-            //print("Disclosure Pressed!")
             if let chargerAnnotation = annotationView.annotation as? AnnotationCharger {
                 
                 
@@ -273,7 +280,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     func updateMapCenterCoordinateSingelton(){
         //Update singelton point
         MapCenterCoordinateSingelton.center.coordinate = mapView.centerCoordinate
-
+        
     }
     
 }
