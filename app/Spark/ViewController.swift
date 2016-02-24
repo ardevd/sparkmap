@@ -54,11 +54,14 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
         dispatch_async(queue) { () -> Void in
             // Sort chargers
             self.chargers.sortInPlace { (charger1, charger2) -> Bool in
-                
                 self.compareChargerDistance(charger1, secondCharger: charger2)
             }
-            self.tableView.reloadData()
+            // Reload table view data in the main queue
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
         }
+        
     }
     
     func compareChargerDistance(firstCharger: ChargerPrimary, secondCharger: ChargerPrimary) -> Bool {
