@@ -179,7 +179,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
                 let charger = chargerAnnotationView.charger
                 let numberOfPoints = charger.chargerNumberOfPoints
                 
-                let connectionCountLabel = UILabel(frame: CGRectMake(5, 5, 19, 19))
+                let connectionCountLabel = UILabel(frame: CGRectMake(0, 0, 29, 29))
                 connectionCountLabel.textColor = UIColor(red: 223/255, green: 105/225, blue: 93/225, alpha: 1.0)
                 if (numberOfPoints > 0) {
                     connectionCountLabel.text = String(numberOfPoints)
