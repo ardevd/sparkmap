@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import Contacts
 
-class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate {
     // Outlets
     @IBOutlet var imageThumbnail: UIImageView!
     @IBOutlet var labelTitle: UILabel!
@@ -20,6 +20,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     @IBOutlet var labelStatus: UILabel!
     @IBOutlet var chargingPointTableView: UITableView!
     @IBOutlet var dataLastUpdateTimeLabel: UILabel!
+    @IBOutlet var labelTransportETA: UILabel!
     @IBOutlet var indicatorImageLoader: UIActivityIndicatorView!
     
     // Views
@@ -27,6 +28,12 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     @IBOutlet var viewChargerStatus: UIView!
     @IBOutlet var viewHeader: UIView!
     @IBOutlet var viewLastUpdateTime: UIView!
+    
+    // Location
+    var locationManager: CLLocationManager?
+    /* We will use this property to keep track on whether
+    or not positioning is active */
+    var isActive: Bool = false
     
     
     var charger: ChargerPrimary?
@@ -65,6 +72,31 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             if let image = UIImage(named: "PlaceholderImageIcon") {
                 imageThumbnail.image = image
             }
+        }
+        
+        // Check location permission and start location update.
+        if checkLocationAuthorization(){
+            locationManager?.desiredAccuracy = 50
+            locationManager?.distanceFilter = 50
+            locationManager?.startUpdatingLocation()
+            isActive = true
+        }
+    }
+    
+    func checkLocationAuthorization() -> Bool{
+        let authStatus = CLLocationManager.authorizationStatus()
+        
+        switch authStatus {
+        case CLAuthorizationStatus.AuthorizedWhenInUse:
+            // Permission already granted
+            locationManager = CLLocationManager()
+            locationManager?.delegate = self
+            return true
+            
+        default:
+            // Permission not granted.
+            return false
+            
         }
     }
     
@@ -348,4 +380,29 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         return cell
     }
     
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // Location has been updated.
+        if let location = locations.last {
+            calculateDestinationETA(location.coordinate)
+        }
+        
+    }
+    
+    func calculateDestinationETA(userLocation: CLLocationCoordinate2D){
+        // Calulcate driving ETA to charger
+        let request = MKDirectionsRequest()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: userLocation, addressDictionary: nil))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: (charger?.chargerLatitude)!, longitude: (charger?.chargerLongitude)!), addressDictionary: nil))
+        request.transportType = .Automobile
+        let directions = MKDirections(request: request)
+        directions.calculateETAWithCompletionHandler { response, error -> Void in
+            if let err = error {
+                self.labelTransportETA.text = err.userInfo["NSLocalizedFailureReason"] as? String
+                return
+            }
+            let travelTime = Double(round(100 * (response!.expectedTravelTime/60))/100)
+            self.labelTransportETA.text = "\(travelTime) minutes travel time"
+            
+        }
+    }
 }
