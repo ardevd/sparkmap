@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import MapKit
 
 class DataManager: NSObject {
     
@@ -386,6 +387,8 @@ class DataManager: NSObject {
                                 
                                 do{
                                     try moc.save()
+                                    // Data is saved, store location
+                                    LastUpdateLocationSingelton.center.location = CLLocation(latitude: latitude, longitude: longitude)
                                     // Data is saved, send notification
                                     NSNotificationCenter.defaultCenter().postNotificationName("ChargerDataUpdate", object: nil)
                                     SwiftSpinner.hide()

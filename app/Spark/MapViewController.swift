@@ -33,7 +33,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     @IBOutlet var mapView: MKMapView!
     @IBOutlet weak var actionButton: UIBarButtonItem!
     
-    
+    // User map interaction bool
+    var userInteractionOverride: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +82,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     }
     
     func updateRegionFromNotification(notification: NSNotification) {
+        
         if let latValue = notification.userInfo?["latitude"] as? CLLocationDegrees {
             if let longValue = notification.userInfo?["longitude"] as? CLLocationDegrees {
                 let locationCoordinate : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latValue, longitude: longValue)
@@ -171,7 +173,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "net.zygotelabs.pin")
             
         }
-
+        
         if (annotation is AnnotationCharger) {
             pin?.pinTintColor = UIColor(red: 140/255, green: 186/255, blue: 50/255, alpha: 1.0)
             
@@ -185,7 +187,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
                     connectionCountLabel.text = String(numberOfPoints)
                 }
                 pin?.leftCalloutAccessoryView = connectionCountLabel
-
+                
                 pin?.enabled = true
                 pin?.canShowCallout = true
                 pin?.selected = true
@@ -217,6 +219,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         }
     }
     
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        // Map region was updated. Update data if we think the user dragged the map.
+        
+        if (!userInteractionOverride) {
+            if (DistanceToLocationManager.distanceFromLastDataUpdateLocation(CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)) > 5000) {
+            // Show stored annotations for the new location
+            updateAnnotations()
+            // Download charging station data for the area
+            getAnnotationsFromNewLocation(mapView.centerCoordinate)
+            }
+        }
+        
+    }
+    
     
     @IBAction func showSearchBar(sender: AnyObject) {
         
@@ -245,6 +261,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             }
             
             let center = mapItem.placemark.coordinate
+            self.userInteractionOverride = true
             self.mapView.setRegion(localSearchResponse.boundingRegion, animated: true)
             NSNotificationCenter.defaultCenter().postNotificationName("LocationUpdate", object: nil, userInfo: ["latitude": center.latitude, "longitude": center.longitude])
             
@@ -267,7 +284,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     
     func updateCurrentMapRegion(coordinate: CLLocationCoordinate2D, distance: CLLocationDistance) {
         let region = MKCoordinateRegionMakeWithDistance(coordinate, distance, distance)
+        userInteractionOverride = true
         mapView.region = region
+        userInteractionOverride = false
         
         updateMapCenterCoordinateSingelton()
         
