@@ -54,7 +54,8 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
         dispatch_async(queue) { () -> Void in
             // Sort chargers
             self.chargers.sortInPlace { (charger1, charger2) -> Bool in
-                self.compareChargerDistance(charger1, secondCharger: charger2)
+                //self.compareChargerDistance(charger1, secondCharger: charger2)
+                DistanceToLocationManager.compareChargerDistance(charger1, secondCharger: charger2)
             }
             // Reload table view data in the main queue
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -64,23 +65,7 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
         
     }
     
-    func compareChargerDistance(firstCharger: ChargerPrimary, secondCharger: ChargerPrimary) -> Bool {
-        
-        let location1 = CLLocation(latitude: firstCharger.chargerLatitude, longitude: firstCharger.chargerLongitude)
-        let location2 = CLLocation(latitude: secondCharger.chargerLatitude, longitude: secondCharger.chargerLongitude)
-        let mapLocationCoordinate = MapCenterCoordinateSingelton.center.coordinate
-        let mapLocation = CLLocation(latitude: mapLocationCoordinate.latitude, longitude: mapLocationCoordinate.longitude)
-        let distanceToFirstLocation = location1.distanceFromLocation(mapLocation)
-        let distanceToSecondLocation = location2.distanceFromLocation(mapLocation)
-        
-        if (distanceToFirstLocation < distanceToSecondLocation) {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    
+
     func registerForceTouchCapability(){
         
         if( traitCollection.forceTouchCapability == .Available){
