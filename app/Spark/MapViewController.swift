@@ -13,6 +13,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     
     var chargers: [ChargerPrimary] = [ChargerPrimary]()
     lazy var dataManager: DataManager = DataManager()
+    lazy var searchAnnotation: MKPointAnnotation = MKPointAnnotation()
+    var haveSearchResult: Bool = false
     var locationManager: LocationManager = LocationManager()
     
     lazy var searchController:UISearchController  = { [unowned self] in
@@ -83,6 +85,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     
     func updateRegionFromNotification(notification: NSNotification) {
         
+        if let searchResultAnnotation = notification.userInfo?["searchResultAnnotation"] as? MKPointAnnotation {
+            //mapView.addAnnotation(searchResultAnnotation)
+            searchAnnotation = searchResultAnnotation
+            haveSearchResult = true
+        }
+        
         if let latValue = notification.userInfo?["latitude"] as? CLLocationDegrees {
             if let longValue = notification.userInfo?["longitude"] as? CLLocationDegrees {
                 let locationCoordinate : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latValue, longitude: longValue)
@@ -142,6 +150,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             }
             
             self.mapView.addAnnotations(annotations)
+            
+            if (self.haveSearchResult) {
+                self.mapView.addAnnotation(self.searchAnnotation)
+                self.haveSearchResult = false
+            }
         })
         
     }
@@ -224,10 +237,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         
         if (!userInteractionOverride) {
             if (DistanceToLocationManager.distanceFromLastDataUpdateLocation(CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)) > 5000) {
-            // Show stored annotations for the new location
-            updateAnnotations()
-            // Download charging station data for the area
-            getAnnotationsFromNewLocation(mapView.centerCoordinate)
+                // Show stored annotations for the new location
+                updateAnnotations()
+                // Download charging station data for the area
+                getAnnotationsFromNewLocation(mapView.centerCoordinate)
             }
         }
         
@@ -261,9 +274,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             }
             
             let center = mapItem.placemark.coordinate
+            //Drop annotation here
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = mapItem.placemark.coordinate
+            annotation.title = mapItem.placemark.title
             self.userInteractionOverride = true
             self.mapView.setRegion(localSearchResponse.boundingRegion, animated: true)
-            NSNotificationCenter.defaultCenter().postNotificationName("LocationUpdate", object: nil, userInfo: ["latitude": center.latitude, "longitude": center.longitude])
+            NSNotificationCenter.defaultCenter().postNotificationName("LocationUpdate", object: nil, userInfo: ["latitude": center.latitude, "longitude": center.longitude, "searchResultAnnotation": annotation])
             
         }
         
@@ -291,7 +308,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         updateMapCenterCoordinateSingelton()
         
         // Show stored annotations for the new location
-        updateAnnotations()
+        if (!haveSearchResult){
+            updateAnnotations()
+        }
         // Download charging station data for the area
         getAnnotationsFromNewLocation(coordinate)
     }
