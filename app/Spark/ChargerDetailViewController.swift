@@ -203,8 +203,6 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     }
     
     
-    
-    
     func toggleFullImage(img: AnyObject)
     {
         

@@ -32,6 +32,8 @@
 		DC68F6831BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6811BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift */; };
 		DC68F6841BE34B11000EFFF4 /* ChargerOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */; };
 		DC68F6861BE34C23000EFFF4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6851BE34C23000EFFF4 /* MapViewController.swift */; };
+		DC7C8C5F1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C8C5E1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift */; };
+		DC7C8C611C7F3A06003D5C37 /* DistanceToLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C8C601C7F3A06003D5C37 /* DistanceToLocationManager.swift */; };
 		DC85CABD1C5A137700AB2786 /* ConnectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */; };
 		DC85CABE1C5A137700AB2786 /* ConnectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */; };
 		DCB3E2361BE65102003AB6C9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB3E2351BE65102003AB6C9 /* LocationManager.swift */; };
@@ -92,6 +94,8 @@
 		DC68F6811BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChargerOperator+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargerOperator.swift; sourceTree = "<group>"; };
 		DC68F6851BE34C23000EFFF4 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DC7C8C5E1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastDataUpdateLocationSingelton.swift; sourceTree = "<group>"; };
+		DC7C8C601C7F3A06003D5C37 /* DistanceToLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceToLocationManager.swift; sourceTree = "<group>"; };
 		DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionTableViewCell.swift; sourceTree = "<group>"; };
 		DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionTableViewCell.xib; sourceTree = "<group>"; };
 		DCABF7A01C77CAB000B9FEE2 /* Spark v 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */,
 				DCDC2C361C613A42004BEF91 /* SettingsViewController.swift */,
 				DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */,
+				DC7C8C5E1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift */,
+				DC7C8C601C7F3A06003D5C37 /* DistanceToLocationManager.swift */,
 			);
 			path = Spark;
 			sourceTree = "<group>";
@@ -347,9 +353,11 @@
 			files = (
 				DC1ED16B1BE29572007C09D1 /* Spark.xcdatamodeld in Sources */,
 				DCB3E2361BE65102003AB6C9 /* LocationManager.swift in Sources */,
+				DC7C8C611C7F3A06003D5C37 /* DistanceToLocationManager.swift in Sources */,
 				DCFDBFDA1BE3E6E10011D191 /* DataManager.swift in Sources */,
 				DC68F67A1BE345B4000EFFF4 /* Connection.swift in Sources */,
 				DC4EB7AD1BE9717800B75FFC /* NearbyTableViewCell.swift in Sources */,
+				DC7C8C5F1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift in Sources */,
 				DC68F6791BE345B4000EFFF4 /* Connection+CoreDataProperties.swift in Sources */,
 				DC68F6741BE345B4000EFFF4 /* ChargerPrimary.swift in Sources */,
 				DC68F6731BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift in Sources */,
