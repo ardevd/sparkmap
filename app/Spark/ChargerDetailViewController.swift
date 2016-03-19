@@ -318,7 +318,14 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                 {
                     func displayImage()
                     {
-                        self.imageThumbnail.image = UIImage(data: data!)
+                        // Animate the fade in of the image
+                        UIView.animateWithDuration(1.0, animations: {
+                            self.imageThumbnail.alpha = 0.0
+                            self.imageThumbnail.image = UIImage(data: data!)
+                            self.imageThumbnail.alpha = 1.0
+                        })
+                        
+                        
                     }
                     
                     dispatch_async(dispatch_get_main_queue(), displayImage)
