@@ -119,7 +119,7 @@ public class SwiftSpinner: UIView {
             // Orientation change observer
             NSNotificationCenter.defaultCenter().addObserver(
                 spinner,
-                selector: "updateFrame",
+                selector: #selector(SwiftSpinner.updateFrame),
                 name: UIApplicationDidChangeStatusBarOrientationNotification,
                 object: nil)
         }

@@ -78,7 +78,7 @@ class UserPhotoSubmissionManager: NSObject {
     
     
     func createBodyWithParameters(chargerId: String, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
-        var body = NSMutableData();
+        let body = NSMutableData();
         
         
         let filename = "\(chargerId).jpg"
