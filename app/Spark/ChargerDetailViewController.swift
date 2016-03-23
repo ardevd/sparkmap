@@ -102,7 +102,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     func generateNavigationButton() -> UIBarButtonItem {
         // Button that lets user navigate to charger address.
-        let navigationButtonItem = UIBarButtonItem(title: "Navigate", style: .Plain, target: self, action: "navigateButtonTapped")
+        let navigationButtonItem = UIBarButtonItem(title: "Navigate", style: .Plain, target: self, action: #selector(ChargerDetailViewController.navigateButtonTapped))
         navigationButtonItem.image = UIImage(named: "CarIcon")
         
         return navigationButtonItem
@@ -111,7 +111,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     func generateCallButton() -> UIBarButtonItem {
         // Button that lets user call the number associated wtih the charging station.
-        let callButtonItem = UIBarButtonItem(title: "Call", style: .Plain, target: self, action: "callButtonTapped")
+        let callButtonItem = UIBarButtonItem(title: "Call", style: .Plain, target: self, action: #selector(ChargerDetailViewController.callButtonTapped))
         callButtonItem.image = UIImage(named: "CallIcon")
         
         return callButtonItem
@@ -183,11 +183,9 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     func grabAndLoadUserPhoto(img: AnyObject)
     {
-        
         imagePicker =  UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .Camera
-        
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
@@ -195,11 +193,16 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         imagePicker.dismissViewControllerAnimated(true, completion: nil)
         imageThumbnail.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
+        let userPhotoSubmissionManager = UserPhotoSubmissionManager()
+        if let chargerId = charger?.chargerId{
+            userPhotoSubmissionManager.myImageUploadRequest(imageThumbnail, chargerId: chargerId)
+        }
+        
         // Show UIAlertController to user.
-        let alert = UIAlertController(title: "Photo Submission", message: "This feature is not yet available", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Photo Submission", message: "Your photo will been submitted for review. Thank you!", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
-        //TODO: Upload image to own server for manual submission
+
     }
     
     
