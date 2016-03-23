@@ -38,6 +38,7 @@
 		DC85CABE1C5A137700AB2786 /* ConnectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */; };
 		DCB3E2361BE65102003AB6C9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB3E2351BE65102003AB6C9 /* LocationManager.swift */; };
 		DCC862BC1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */; };
+		DCD04B781CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD04B771CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift */; };
 		DCD7983B1BE5814F00C62863 /* AnnotationCharger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD7983A1BE5814F00C62863 /* AnnotationCharger.swift */; };
 		DCDC2C371C613A42004BEF91 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDC2C361C613A42004BEF91 /* SettingsViewController.swift */; };
 		DCFDBFDA1BE3E6E10011D191 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFDBFD91BE3E6E10011D191 /* DataManager.swift */; };
@@ -101,6 +102,7 @@
 		DCABF7A01C77CAB000B9FEE2 /* Spark v 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v 3.xcdatamodel"; sourceTree = "<group>"; };
 		DCB3E2351BE65102003AB6C9 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCenterCoordinateSingelton.swift; sourceTree = "<group>"; };
+		DCD04B771CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPhotoSubmissionManager.swift; sourceTree = "<group>"; };
 		DCD7983A1BE5814F00C62863 /* AnnotationCharger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationCharger.swift; sourceTree = "<group>"; };
 		DCDC2C361C613A42004BEF91 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DCFDBFD91BE3E6E10011D191 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */,
 				DC7C8C5E1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift */,
 				DC7C8C601C7F3A06003D5C37 /* DistanceToLocationManager.swift */,
+				DCD04B771CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift */,
 			);
 			path = Spark;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				DCFDBFDA1BE3E6E10011D191 /* DataManager.swift in Sources */,
 				DC68F67A1BE345B4000EFFF4 /* Connection.swift in Sources */,
 				DC4EB7AD1BE9717800B75FFC /* NearbyTableViewCell.swift in Sources */,
+				DCD04B781CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift in Sources */,
 				DC7C8C5F1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift in Sources */,
 				DC68F6791BE345B4000EFFF4 /* Connection+CoreDataProperties.swift in Sources */,
 				DC68F6741BE345B4000EFFF4 /* ChargerPrimary.swift in Sources */,
