@@ -35,8 +35,8 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
         registerForceTouchCapability()
         
         // Register notification listeners
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTableView:", name: "ChargerDataUpdate", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateChargersFromLocation:", name: "LocationUpdate", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateTableView(_:)), name: "ChargerDataUpdate", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateChargersFromLocation(_:)), name: "LocationUpdate", object: nil)
         
         updateChargersListFromMapCenter()
         let nib = UINib(nibName: "NearbyTableViewCell", bundle: nil)

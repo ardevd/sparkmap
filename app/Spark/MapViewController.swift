@@ -52,10 +52,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         self.tabBarController?.tabBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
         
         // Register notification listeners
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateAnnotationsFromNotification:", name: "ChargerDataUpdate", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatedSettingsRefresh:", name: "SettingsUpdate", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateRegionFromNotification:", name: "LocationUpdate", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "enableUserLocationInMap:", name: "LocationAuthorized", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updateAnnotationsFromNotification(_:)), name: "ChargerDataUpdate", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updatedSettingsRefresh(_:)), name: "SettingsUpdate", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updateRegionFromNotification(_:)), name: "LocationUpdate", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.enableUserLocationInMap(_:)), name: "LocationAuthorized", object: nil)
         
         // Location Authorization
         let authStatus = CLLocationManager.authorizationStatus()

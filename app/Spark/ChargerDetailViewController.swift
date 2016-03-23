@@ -60,12 +60,12 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         if let thumbnailImageURL = charger?.chargerImage {
             downloadThumbnailImage(thumbnailImageURL)
             // Add gestureRecognizer if we have loaded an image
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action:Selector("toggleFullImage:"))
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(ChargerDetailViewController.toggleFullImage(_:)))
             imageThumbnail.userInteractionEnabled = true
             imageThumbnail.addGestureRecognizer(tapGestureRecognizer)
         } else {
             // Add gestureRecognizer that lets user take and upload photo
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action:Selector("grabAndLoadUserPhoto:"))
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(ChargerDetailViewController.grabAndLoadUserPhoto(_:)))
             imageThumbnail.userInteractionEnabled = true
             imageThumbnail.addGestureRecognizer(tapGestureRecognizer)
             
