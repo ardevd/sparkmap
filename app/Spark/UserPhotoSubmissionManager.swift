@@ -15,7 +15,7 @@ class UserPhotoSubmissionManager: NSObject {
     {
         
         let userImage = userImageView.image!
-        let myUrl = NSURL(string: "https://sparkmap.zygotelabs.net/test.php");
+        let myUrl = NSURL(string: "https://sparkmap.zygotelabs.net/photo_upload.php");
         
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";
@@ -57,8 +57,6 @@ class UserPhotoSubmissionManager: NSObject {
                 //TODO: Show user feedback
                 //self.myActivityIndicator.stopAnimating()
             });
-
-            
         }
         
         task.resume()
