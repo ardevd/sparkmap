@@ -35,8 +35,6 @@ class UserPhotoSubmissionManager: NSObject {
         
         request.HTTPBody = createBodyWithParameters(chargerId, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
         
-        
-        
         //myActivityIndicator.startAnimating();
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -58,17 +56,8 @@ class UserPhotoSubmissionManager: NSObject {
             dispatch_async(dispatch_get_main_queue(),{
                 //TODO: Show user feedback
                 //self.myActivityIndicator.stopAnimating()
-                //self.myImageView.image = nil;
             });
-            
-            /*
-            if let parseJSON = json {
-            var firstNameValue = parseJSON["firstName"] as? String
-            println("firstNameValue: \(firstNameValue)")
-            }
-            */
-            
-            
+
             
         }
         
@@ -79,10 +68,8 @@ class UserPhotoSubmissionManager: NSObject {
     
     func createBodyWithParameters(chargerId: String, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
         let body = NSMutableData();
-        
-        
-        let filename = "\(chargerId).jpg"
-        
+        let timeInterval = NSDate().timeIntervalSince1970
+        let filename = "\(chargerId)_\(timeInterval).jpg"
         let mimetype = "image/jpg"
         
         body.appendString("--\(boundary)\r\n")
@@ -90,15 +77,10 @@ class UserPhotoSubmissionManager: NSObject {
         body.appendString("Content-Type: \(mimetype)\r\n\r\n")
         body.appendData(imageDataKey)
         body.appendString("\r\n")
-        
-        
-        
         body.appendString("--\(boundary)--\r\n")
         
         return body
     }
-    
-    
     
     
     func generateBoundaryString() -> String {
