@@ -21,7 +21,7 @@
                                 <rect key="frame" x="261" y="236" width="128" height="128"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.16470588235294117" green="0.23921568627450979" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.27450980392156865" green="0.33725490196078434" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="upP-DS-g5E" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="D3a-JS-cEc"/>
                             <constraint firstItem="upP-DS-g5E" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lbs-HR-ctd"/>
