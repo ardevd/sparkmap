@@ -19,13 +19,11 @@ class UserPhotoSubmissionManager: NSObject {
         
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";
-
         
         let boundary = generateBoundaryString()
         
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        
-        
+                
         let imageData = UIImageJPEGRepresentation(userImage, 1)
         
         if(imageData==nil)
@@ -35,6 +33,7 @@ class UserPhotoSubmissionManager: NSObject {
         
         request.HTTPBody = createBodyWithParameters(chargerId, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
         
+        //TODO: Add an activity indicator and use it here.
         //myActivityIndicator.startAnimating();
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -46,15 +45,15 @@ class UserPhotoSubmissionManager: NSObject {
             }
             
             // You can print out response object
-            NSLog("******* response = \(response)")
+            // NSLog("******* response = \(response)")
             
             // Print out reponse body
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            NSLog("****** response data = \(responseString!)")
+            // NSLog("****** response data = \(responseString!)")
             
             
             dispatch_async(dispatch_get_main_queue(),{
-                //TODO: Show user feedback
+                //TODO: Dismiss user feedback
                 //self.myActivityIndicator.stopAnimating()
             });
         }
@@ -79,7 +78,6 @@ class UserPhotoSubmissionManager: NSObject {
         
         return body
     }
-    
     
     func generateBoundaryString() -> String {
         return "Boundary-\(NSUUID().UUIDString)"
