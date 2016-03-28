@@ -156,7 +156,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     }
     
     @IBAction func animateDateView() {
-        UIView.animateWithDuration(1.0, animations: {
+        UIView.animateWithDuration(0.5, animations: {
             if (self.viewLastUpdateTime.alpha > 0){
                 self.viewLastUpdateTime.alpha = 0.0
             }else {
