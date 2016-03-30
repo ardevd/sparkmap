@@ -193,16 +193,29 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         imagePicker.dismissViewControllerAnimated(true, completion: nil)
         imageThumbnail.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
-        let userPhotoSubmissionManager = UserPhotoSubmissionManager()
-        if let chargerId = charger?.chargerId{
-            userPhotoSubmissionManager.myImageUploadRequest(imageThumbnail, chargerId: chargerId)
+        // Ask user for confirmation before uploading photo.
+        //Action
+        let photoUploadAction = UIAlertAction(title: "Yes", style: .Default) { (alert: UIAlertAction!) -> Void in
+            // User confirmed. Post the photo
+            let userPhotoSubmissionManager = UserPhotoSubmissionManager()
+            if let chargerId = self.charger?.chargerId{
+                userPhotoSubmissionManager.myImageUploadRequest(self.imageThumbnail, chargerId: chargerId)
+                self.showPhotoSubmissionConfirmationAlert()
+            }
         }
+        //AlertController
+        let photoSubmissionRequestAlert = UIAlertController(title: "Photo Submission", message: "Awesome. Go ahead and upload the photo?", preferredStyle: UIAlertControllerStyle.Alert)
+        photoSubmissionRequestAlert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default, handler: nil))
+        photoSubmissionRequestAlert.addAction(photoUploadAction)
+        self.presentViewController(photoSubmissionRequestAlert, animated: true, completion: nil)
         
+    }
+    
+    func showPhotoSubmissionConfirmationAlert(){
         // Show UIAlertController to user.
-        let alert = UIAlertController(title: "Photo Submission", message: "Your photo will been submitted for review. Thank you!", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-
+        let photoSubmissionConfirmationAlert = UIAlertController(title: "Photo Submission", message: "Your photo will been submitted for review. Thank you for sharing!", preferredStyle: UIAlertControllerStyle.Alert)
+        photoSubmissionConfirmationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(photoSubmissionConfirmationAlert, animated: true, completion: nil)
     }
     
     
