@@ -69,12 +69,12 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
     func registerForceTouchCapability(){
         
         if( traitCollection.forceTouchCapability == .Available){
-            registerForPreviewingWithDelegate(self, sourceView: view)
+            registerForPreviewingWithDelegate(self, sourceView: tableView)
         }
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        
+    
         // Set up peeking
         guard let indexPath = tableView?.indexPathForRowAtPoint(location) else { return nil }
         
