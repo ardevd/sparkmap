@@ -183,10 +183,29 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     func grabAndLoadUserPhoto(img: AnyObject)
     {
+        /* Define a UIImagePickerController that lets the user 
+           supply a photo of a charging station */
+        
         imagePicker =  UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .Camera
-        presentViewController(imagePicker, animated: true, completion: nil)
+        
+        //Camera Source Action
+        let cameraSourceAction = UIAlertAction(title: "Take a Photo", style: .Default) { (alert: UIAlertAction!) -> Void in
+            self.imagePicker.sourceType = .Camera
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+        }
+        
+        //Album Source Action
+        let albumSourceAction = UIAlertAction(title: "Photo Library", style: .Default) { (alert: UIAlertAction!) -> Void in
+            self.imagePicker.sourceType = .PhotoLibrary
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+        }
+        
+        // Ask user whether to grab photo from the camera or the photo album.
+        let photoSourcePromptAlert = UIAlertController(title: "Photo Submission", message: "Submit a photo for this charging station", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        photoSourcePromptAlert.addAction(cameraSourceAction)
+        photoSourcePromptAlert.addAction(albumSourceAction)
+        self.presentViewController(photoSourcePromptAlert, animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
