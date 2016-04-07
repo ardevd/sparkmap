@@ -103,8 +103,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "435"
             endingLineNumber = "435"
-            landmarkName = "ChargerDetailViewController"
-            landmarkType = "3">
+            landmarkName = "calculateDestinationETA(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

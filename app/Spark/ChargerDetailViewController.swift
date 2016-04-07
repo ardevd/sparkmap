@@ -102,7 +102,8 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     func generateNavigationButton() -> UIBarButtonItem {
         // Button that lets user navigate to charger address.
-        let navigationButtonItem = UIBarButtonItem(title: "Navigate", style: .Plain, target: self, action: #selector(ChargerDetailViewController.navigateButtonTapped))
+        let navigateTitle = NSLocalizedString("Navigate", comment: "Navigate")
+        let navigationButtonItem = UIBarButtonItem(title: navigateTitle, style: .Plain, target: self, action: #selector(ChargerDetailViewController.navigateButtonTapped))
         navigationButtonItem.image = UIImage(named: "CarIcon")
         
         return navigationButtonItem
@@ -190,13 +191,15 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         imagePicker.delegate = self
         
         //Camera Source Action
-        let cameraSourceAction = UIAlertAction(title: "Take a Photo", style: .Default) { (alert: UIAlertAction!) -> Void in
+        let cameraSourceTitle = NSLocalizedString("Camera_Source", comment: "Take a Photo")
+        let cameraSourceAction = UIAlertAction(title: cameraSourceTitle, style: .Default) { (alert: UIAlertAction!) -> Void in
             self.imagePicker.sourceType = .Camera
             self.presentViewController(self.imagePicker, animated: true, completion: nil)
         }
         
         //Album Source Action
-        let albumSourceAction = UIAlertAction(title: "Photo Library", style: .Default) { (alert: UIAlertAction!) -> Void in
+        let albumSourceTitle = NSLocalizedString("Photo_Library", comment: "Photo Library")
+        let albumSourceAction = UIAlertAction(title: albumSourceTitle, style: .Default) { (alert: UIAlertAction!) -> Void in
             self.imagePicker.sourceType = .PhotoLibrary
             self.presentViewController(self.imagePicker, animated: true, completion: nil)
         }

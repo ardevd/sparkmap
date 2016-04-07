@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DC0238861BE4497B0060F4B8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC0238851BE4497B0060F4B8 /* Settings.bundle */; };
 		DC11A7B31C092FD300FD54C3 /* ChargerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC11A7B11C092FD300FD54C3 /* ChargerDetailViewController.swift */; };
-		DC11A7B41C092FD300FD54C3 /* ChargerDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC11A7B21C092FD300FD54C3 /* ChargerDetailViewController.xib */; };
+		DC1A2DF01CB6D69400C2C01F /* ChargerDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC1A2DF21CB6D69400C2C01F /* ChargerDetailViewController.xib */; };
 		DC1ED1631BE29572007C09D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED1621BE29572007C09D1 /* AppDelegate.swift */; };
 		DC1ED1651BE29572007C09D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED1641BE29572007C09D1 /* ViewController.swift */; };
 		DC1ED1681BE29572007C09D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC1ED1661BE29572007C09D1 /* Main.storyboard */; };
@@ -64,7 +64,7 @@
 /* Begin PBXFileReference section */
 		DC0238851BE4497B0060F4B8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		DC11A7B11C092FD300FD54C3 /* ChargerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargerDetailViewController.swift; sourceTree = "<group>"; };
-		DC11A7B21C092FD300FD54C3 /* ChargerDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChargerDetailViewController.xib; sourceTree = "<group>"; };
+		DC1A2DF11CB6D69400C2C01F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ChargerDetailViewController.xib; sourceTree = "<group>"; };
 		DC1ED15F1BE29572007C09D1 /* SparkMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparkMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC1ED1621BE29572007C09D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC1ED1641BE29572007C09D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 				DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */,
 				DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */,
 				DC11A7B11C092FD300FD54C3 /* ChargerDetailViewController.swift */,
-				DC11A7B21C092FD300FD54C3 /* ChargerDetailViewController.xib */,
+				DC1A2DF21CB6D69400C2C01F /* ChargerDetailViewController.xib */,
 				DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */,
 				DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */,
 				DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */,
@@ -326,7 +326,7 @@
 				DC0238861BE4497B0060F4B8 /* Settings.bundle in Resources */,
 				DC85CABE1C5A137700AB2786 /* ConnectionTableViewCell.xib in Resources */,
 				DC1ED1701BE29572007C09D1 /* LaunchScreen.storyboard in Resources */,
-				DC11A7B41C092FD300FD54C3 /* ChargerDetailViewController.xib in Resources */,
+				DC1A2DF01CB6D69400C2C01F /* ChargerDetailViewController.xib in Resources */,
 				DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */,
 				DC1ED16D1BE29572007C09D1 /* Assets.xcassets in Resources */,
 				DC1ED1681BE29572007C09D1 /* Main.storyboard in Resources */,
@@ -415,6 +415,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		DC1A2DF21CB6D69400C2C01F /* ChargerDetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC1A2DF11CB6D69400C2C01F /* Base */,
+			);
+			name = ChargerDetailViewController.xib;
+			sourceTree = "<group>";
+		};
 		DC1ED1661BE29572007C09D1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
