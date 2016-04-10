@@ -51,18 +51,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         self.tabBarController?.tabBar.tintColor = UIColor(red: 221/255, green: 106/255, blue: 88/255, alpha: 1.0)
         self.tabBarController?.tabBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
         
-    }
-    
-    override func viewDidLayoutSubviews() {
-        
-        // Update map center singelton
-        updateMapCenterCoordinateSingelton()
-    }
-
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-
-         // Location Authorization
+        // Location Authorization
         let authStatus = CLLocationManager.authorizationStatus()
         
         switch authStatus {
@@ -76,8 +65,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             mapView.showsUserLocation = false
         }
         
-
+        
         registerNotificationListeners()
+
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        // Update map center singelton
+        updateMapCenterCoordinateSingelton()
     }
 
     func registerNotificationListeners() {
