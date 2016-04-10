@@ -119,6 +119,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     
     func updateAnnotationsFromNotification(notification: NSNotification){
         if isNewCenterFarFromOldCenter(){
+            updateMapCenterCoordinateSingelton()
             updateAnnotations()
         }
     }
@@ -325,12 +326,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         mapView.region = region
         userInteractionOverride = false
         
-        updateMapCenterCoordinateSingelton()
-        
         // Show stored annotations for the new location
         if (!haveSearchResult){
             updateAnnotations()
         }
+        
         // Download charging station data for the area
         getAnnotationsFromNewLocation(coordinate)
     }
