@@ -81,7 +81,7 @@ class DataManager: NSObject {
             // Optionally add connection type predicate
             if let connectionTypeIDsFromSettings = NSUserDefaults.standardUserDefaults().arrayForKey("connectionFilterIds") as? [Int] {
                 if (connectionTypeIDsFromSettings.count > 0) {
-                    fetchChargersSubPredicates.append(NSPredicate(format: "chargerLatitude BETWEEN {%f,%f} AND chargerLongitude BETWEEN {%f,%f} AND ANY chargerDetails.connections.connectionTypeId IN %@", (latitude-0.15), (latitude+0.15), (longitude-0.15), (longitude+0.15), connectionTypeIDsFromSettings))
+                    fetchChargersSubPredicates.append(NSPredicate(format: "chargerLatitude BETWEEN {%f,%f} AND chargerLongitude BETWEEN {%f,%f} AND ANY chargerDetails.connections.connectionTypeId IN %@", (latitude-0.20), (latitude+0.20), (longitude-0.20), (longitude+0.20), connectionTypeIDsFromSettings))
                 }
             }
             
@@ -143,7 +143,7 @@ class DataManager: NSObject {
         let offlineMode = defaults.boolForKey("offlineMode")
         if (!offlineMode){
             // TODO - Add option to select units of measurements
-            guard let url = NSURL(string: "https://api.openchargemap.io/v2/poi/?output=json&verbose=false&maxresults=100&includecomments=true&distanceunit=KM&latitude=\(latitude)&longitude=\(longitude)") else { return }
+            guard let url = NSURL(string: "https://api.openchargemap.io/v2/poi/?output=json&verbose=false&maxresults=500&includecomments=true&distanceunit=KM&latitude=\(latitude)&longitude=\(longitude)") else { return }
             
             // HTTP GET
             let urlRequest = NSURLRequest(URL: url)
