@@ -65,10 +65,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             mapView.showsUserLocation = false
         }
         
-        
         registerNotificationListeners()
-
         
+    }
+    
+    func isNewCenterFarFromOldCenter() -> Bool {
+        let newCenter = mapView.centerCoordinate
+        let newCenterLocation = CLLocation(latitude: newCenter.latitude, longitude: newCenter.longitude)
+        let oldCenter = MapCenterCoordinateSingelton.center.coordinate
+        let oldCenterLocation = CLLocation(latitude: oldCenter.latitude, longitude: oldCenter.longitude)
+        
+        if newCenterLocation.distanceFromLocation(oldCenterLocation) > 100 {
+            return true
+        }
+        
+        return false
     }
     
     override func viewDidLayoutSubviews() {
@@ -76,14 +87,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         // Update map center singelton
         updateMapCenterCoordinateSingelton()
     }
-
+    
     func registerNotificationListeners() {
         // Register notification listeners
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updateAnnotationsFromNotification(_:)), name: "ChargerDataUpdate", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updatedSettingsRefresh(_:)), name: "SettingsUpdate", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updateRegionFromNotification(_:)), name: "LocationUpdate", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.enableUserLocationInMap(_:)), name: "LocationAuthorized", object: nil)
-
+        
     }
     
     func enableUserLocationInMap(notification: NSNotification) {
@@ -107,7 +118,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     }
     
     func updateAnnotationsFromNotification(notification: NSNotification){
-        updateAnnotations()
+        if isNewCenterFarFromOldCenter(){
+            updateAnnotations()
+        }
     }
     
     func updatedSettingsRefresh(notifcation: NSNotification){
