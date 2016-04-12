@@ -242,7 +242,6 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     func toggleFullImage(img: AnyObject)
     {
-        
         UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.95, initialSpringVelocity: 8, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
             
             if (self.imageThumbnail.frame == self.viewHeader.layer.bounds){

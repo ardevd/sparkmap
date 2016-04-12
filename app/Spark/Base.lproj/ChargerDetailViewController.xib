@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChargerDetailViewController" customModule="SparkMap" customModuleProvider="target">
             <connections>
+                <outlet property="buttonLastUpdateTime" destination="M3g-6f-yNs" id="j6i-88-fzz"/>
                 <outlet property="chargingPointTableView" destination="4de-Ge-SaW" id="Umm-Kt-ps0"/>
                 <outlet property="dataLastUpdateTimeLabel" destination="vVV-5e-n9w" id="f93-PI-DNK"/>
                 <outlet property="imageThumbnail" destination="RJH-4q-i9x" id="kqk-uU-bvw"/>
