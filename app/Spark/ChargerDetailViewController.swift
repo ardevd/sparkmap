@@ -22,6 +22,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     @IBOutlet var dataLastUpdateTimeLabel: UILabel!
     @IBOutlet var labelTransportETA: UILabel!
     @IBOutlet var indicatorImageLoader: UIActivityIndicatorView!
+    @IBOutlet var buttonLastUpdateTime: UIButton!
     
     // Views
     @IBOutlet var viewNumberOfPoints: UIView!
@@ -124,7 +125,6 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         let placemark = MKPlacemark(coordinate: chargingPointPlaceCoordinate, addressDictionary: addressDictionary)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = labelSubtitle.text
-        
         
         let options = [MKLaunchOptionsDirectionsModeKey:
             MKLaunchOptionsDirectionsModeDriving]
@@ -240,7 +240,6 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         self.presentViewController(photoSubmissionConfirmationAlert, animated: true, completion: nil)
     }
     
-    
     func toggleFullImage(img: AnyObject)
     {
         
@@ -248,10 +247,13 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             
             if (self.imageThumbnail.frame == self.viewHeader.layer.bounds){
                 self.imageThumbnail.frame = self.originalThumbnailImageFrame!
+                self.buttonLastUpdateTime.alpha = 1
                 self.manipulateThumbnailImage()
             }else{
                 self.imageThumbnail.frame = self.viewHeader.layer.bounds
                 self.imageThumbnail.layer.cornerRadius = 0
+                self.buttonLastUpdateTime.alpha = 0
+                self.viewLastUpdateTime.alpha = 0
                 self.showingLargeImage = true
                 
             }
