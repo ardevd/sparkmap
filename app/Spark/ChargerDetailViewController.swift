@@ -33,7 +33,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     // Location
     var locationManager: CLLocationManager?
     /* We will use this property to keep track on whether
-    or not positioning is active */
+     or not positioning is active */
     var isActive: Bool = false
     
     
@@ -185,8 +185,8 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     func grabAndLoadUserPhoto(img: AnyObject)
     {
-        /* Define a UIImagePickerController that lets the user 
-           supply a photo of a charging station */
+        /* Define a UIImagePickerController that lets the user
+         supply a photo of a charging station */
         
         imagePicker =  UIImagePickerController()
         imagePicker.delegate = self
@@ -222,7 +222,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         //Action
         let yesString = NSLocalizedString("Yes", comment: "Yes")
         let noString = NSLocalizedString("No", comment: "No")
-        let okString = NSLocalizedString("OK", comment: "OK")
+        
         let photoUploadAction = UIAlertAction(title: yesString, style: .Default) { (alert: UIAlertAction!) -> Void in
             // User confirmed. Post the photo
             let userPhotoSubmissionManager = UserPhotoSubmissionManager()
@@ -233,7 +233,8 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         }
         //AlertController
         let photoSubmissionConfirmationRequestString = NSLocalizedString("Awesome. Go ahead and upload the photo?", comment: "Photo submission request message")
-        let photoSubmissionRequestAlert = UIAlertController(title: photoSubmissionTitleString, message: photoSubmissionConfirmationRequestString, preferredStyle: UIAlertControllerStyle.Alert)
+        let photoSubmissionConfirmationTitleString = NSLocalizedString("Upload photo", comment: "Photo Submitted")
+        let photoSubmissionRequestAlert = UIAlertController(title: photoSubmissionConfirmationTitleString, message: photoSubmissionConfirmationRequestString, preferredStyle: UIAlertControllerStyle.Alert)
         photoSubmissionRequestAlert.addAction(UIAlertAction(title: noString, style: UIAlertActionStyle.Default, handler: nil))
         photoSubmissionRequestAlert.addAction(photoUploadAction)
         self.presentViewController(photoSubmissionRequestAlert, animated: true, completion: nil)
@@ -242,8 +243,10 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     func showPhotoSubmissionConfirmationAlert(){
         // Show UIAlertController to user.
+        let okString = NSLocalizedString("OK", comment: "OK")
+        let photoSubmittedTitleString = NSLocalizedString("Photo Submitted", comment: "Photo Submitted")
         let photoSubmissionConfirmationString = NSLocalizedString("Your photo will be submitted for review. Thank you!", comment: "Photo submission confirmation message")
-        let photoSubmissionConfirmationAlert = UIAlertController(title: photoSubmissionTitleString, message: photoSubmissionConfirmationString, preferredStyle: UIAlertControllerStyle.Alert)
+        let photoSubmissionConfirmationAlert = UIAlertController(title: photoSubmittedTitleString, message: photoSubmissionConfirmationString, preferredStyle: UIAlertControllerStyle.Alert)
         photoSubmissionConfirmationAlert.addAction(UIAlertAction(title: okString, style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(photoSubmissionConfirmationAlert, animated: true, completion: nil)
     }
@@ -321,144 +324,141 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             let noAccessInfoAvailableString = NSLocalizedString("No Access Information Available", comment: "No Access Information")
             if accessComment.characters.count >= 1 {
                 labelAccess.text = accessComment
-            } else {
-
+            }
                 labelAccess.text = noAccessInfoAvailableString
-        } else {
-            labelAccess.text = noAccessInfoAvailableString
+            }
+            
+            if let chargerIsOperational = charger?.chargerIsOperational {
+                updateChargerOperationalStatus(chargerIsOperational)
+            }
+            
+            self.navigationItem.setRightBarButtonItems(navigationButtonItems, animated: true)
+            
         }
         
-        if let chargerIsOperational = charger?.chargerIsOperational {
-            updateChargerOperationalStatus(chargerIsOperational)
+        func updateChargerOperationalStatus(isOperational: Bool){
+            //TODO: Implement "Offline" Indication.
+            if (isOperational){
+                let statusOperationalString = NSLocalizedString("Operational", comment: "Charging Status Operational")
+                labelStatus.text = statusOperationalString
+            } else {
+                let statusUnknownString = NSLocalizedString("Unknown", comment: "Charging Status Unknown")
+                labelStatus.text = statusUnknownString
+                UIView.animateWithDuration(1.0, animations: {
+                    self.viewChargerStatus.backgroundColor = UIColor(red: 234/255, green: 155/255, blue: 3/255, alpha: 1.0)
+                })
+            }
         }
         
-        self.navigationItem.setRightBarButtonItems(navigationButtonItems, animated: true)
-        
-    }
-    
-    func updateChargerOperationalStatus(isOperational: Bool){
-        //TODO: Implement "Offline" Indication.
-        if (isOperational){
-            let statusOperationalString = NSLocalizedString("Operational", comment: "Charging Status Operational")
-            labelStatus.text = statusOperationalString
-        } else {
-            let statusUnknownString = NSLocalizedString("Unknown", comment: "Charging Status Unknown")
-            labelStatus.text = statusUnknownString
-            UIView.animateWithDuration(1.0, animations: {
-                self.viewChargerStatus.backgroundColor = UIColor(red: 234/255, green: 155/255, blue: 3/255, alpha: 1.0)
-            })
+        override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+            // Dispose of any resources that can be recreated.
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func downloadThumbnailImage(imageUrl: String){
-        if let url = NSURL(string: imageUrl) {
-            indicatorImageLoader.startAnimating()
-            let request: NSURLRequest = NSURLRequest(URL: url)
-            let session = NSURLSession.sharedSession()
-            let task = session.dataTaskWithRequest(request){
-                (data, response, error) -> Void in
-                
-                
-                if (error == nil && data != nil)
-                {
-                    func displayImage()
+        
+        func downloadThumbnailImage(imageUrl: String){
+            if let url = NSURL(string: imageUrl) {
+                indicatorImageLoader.startAnimating()
+                let request: NSURLRequest = NSURLRequest(URL: url)
+                let session = NSURLSession.sharedSession()
+                let task = session.dataTaskWithRequest(request){
+                    (data, response, error) -> Void in
+                    
+                    
+                    if (error == nil && data != nil)
                     {
-                        // Animate the fade in of the image
-                        UIView.animateWithDuration(1.0, animations: {
-                            self.imageThumbnail.alpha = 0.0
-                            self.imageThumbnail.image = UIImage(data: data!)
-                            self.imageThumbnail.alpha = 1.0
-                        })
+                        func displayImage()
+                        {
+                            // Animate the fade in of the image
+                            UIView.animateWithDuration(1.0, animations: {
+                                self.imageThumbnail.alpha = 0.0
+                                self.imageThumbnail.image = UIImage(data: data!)
+                                self.imageThumbnail.alpha = 1.0
+                            })
+                            
+                            
+                        }
                         
-                        
+                        dispatch_async(dispatch_get_main_queue(), displayImage)
                     }
                     
-                    dispatch_async(dispatch_get_main_queue(), displayImage)
+                    func dismissActivityIndicator(){
+                        self.indicatorImageLoader.stopAnimating()
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue(), dismissActivityIndicator)
+                    
+                    
                 }
                 
-                func dismissActivityIndicator(){
-                    self.indicatorImageLoader.stopAnimating()
+                task.resume()
+                
+            }
+        }
+        
+        func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+            return 1
+        }
+        
+        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return connections.count
+        }
+        
+        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCellWithIdentifier("net.zygotelabs.connectioncell", forIndexPath: indexPath) as! ConnectionTableViewCell
+            
+            cell.connectionTypeLabel?.text = (connections[indexPath.row] as Connection).connectionTypeTitle
+            
+            //Only show Quantity if > 0
+            let connectionQuantity = (connections[indexPath.row] as Connection).connectionQuantity
+            if (connectionQuantity > 0) {
+                cell.connectionQuantityLabel?.text = String(connectionQuantity) + "x"
+                // If total connection quantity is unavaible, we calculate and display.
+                if (totalChargingPointQuantityAvailable == false) {
+                    labelNumberOfPoints.text = String(Int(labelNumberOfPoints.text!)! + Int(connectionQuantity))
                 }
-                
-                dispatch_async(dispatch_get_main_queue(), dismissActivityIndicator)
-                
-                
+            } else {
+                cell.connectionQuantityLabel?.text = ""
             }
             
-            task.resume()
+            var connectionPowerParams = ""
+            let connectionCurrent = (connections[indexPath.row] as Connection).connectionAmp
+            if (connectionCurrent > 0){
+                connectionPowerParams = String((connections[indexPath.row] as Connection).connectionAmp) + "A"
+            }
+            let connectionPower = (connections[indexPath.row] as Connection).connectionPowerKW
+            if (connectionPower > 0) {
+                connectionPowerParams += "/" + (String((connections[indexPath.row] as Connection).connectionPowerKW) + "KW")
+            }
+            
+            cell.connectionAmpLabel?.text = connectionPowerParams
+            
+            return cell
+        }
+        
+        func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            // Location has been updated.
+            if let location = locations.last {
+                calculateDestinationETA(location.coordinate)
+            }
             
         }
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return connections.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("net.zygotelabs.connectioncell", forIndexPath: indexPath) as! ConnectionTableViewCell
         
-        cell.connectionTypeLabel?.text = (connections[indexPath.row] as Connection).connectionTypeTitle
-        
-        //Only show Quantity if > 0
-        let connectionQuantity = (connections[indexPath.row] as Connection).connectionQuantity
-        if (connectionQuantity > 0) {
-            cell.connectionQuantityLabel?.text = String(connectionQuantity) + "x"
-            // If total connection quantity is unavaible, we calculate and display.
-            if (totalChargingPointQuantityAvailable == false) {
-                labelNumberOfPoints.text = String(Int(labelNumberOfPoints.text!)! + Int(connectionQuantity))
+        func calculateDestinationETA(userLocation: CLLocationCoordinate2D){
+            // Calulcate driving ETA to charger
+            let request = MKDirectionsRequest()
+            request.source = MKMapItem(placemark: MKPlacemark(coordinate: userLocation, addressDictionary: nil))
+            request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: (charger?.chargerLatitude)!, longitude: (charger?.chargerLongitude)!), addressDictionary: nil))
+            request.transportType = .Automobile
+            let directions = MKDirections(request: request)
+            directions.calculateETAWithCompletionHandler { response, error -> Void in
+                if let err = error {
+                    self.labelTransportETA.text = err.userInfo["NSLocalizedFailureReason"] as? String
+                    return
+                }
+                let travelTime = String(Double(round(100 * (response!.expectedTravelTime/60))/100))
+                let travelTimeString = String.localizedStringWithFormat(NSLocalizedString("%@ minutes of travel time", comment: "Minutes of travel time"), travelTime)
+                self.labelTransportETA.text = travelTimeString
+                
             }
-        } else {
-            cell.connectionQuantityLabel?.text = ""
         }
-        
-        var connectionPowerParams = ""
-        let connectionCurrent = (connections[indexPath.row] as Connection).connectionAmp
-        if (connectionCurrent > 0){
-            connectionPowerParams = String((connections[indexPath.row] as Connection).connectionAmp) + "A"
-        }
-        let connectionPower = (connections[indexPath.row] as Connection).connectionPowerKW
-        if (connectionPower > 0) {
-            connectionPowerParams += "/" + (String((connections[indexPath.row] as Connection).connectionPowerKW) + "KW")
-        }
-        
-        cell.connectionAmpLabel?.text = connectionPowerParams
-        
-        return cell
-    }
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // Location has been updated.
-        if let location = locations.last {
-            calculateDestinationETA(location.coordinate)
-        }
-        
-    }
-    
-    func calculateDestinationETA(userLocation: CLLocationCoordinate2D){
-        // Calulcate driving ETA to charger
-        let request = MKDirectionsRequest()
-        request.source = MKMapItem(placemark: MKPlacemark(coordinate: userLocation, addressDictionary: nil))
-        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: (charger?.chargerLatitude)!, longitude: (charger?.chargerLongitude)!), addressDictionary: nil))
-        request.transportType = .Automobile
-        let directions = MKDirections(request: request)
-        directions.calculateETAWithCompletionHandler { response, error -> Void in
-            if let err = error {
-                self.labelTransportETA.text = err.userInfo["NSLocalizedFailureReason"] as? String
-                return
-            }
-            let travelTime = Double(round(100 * (response!.expectedTravelTime/60))/100)
-            let travelTimeString = String.localizedStringWithFormat(NSLocalizedString("%@ minutes of travel time", comment: "Minutes of travel time"), travelTime)
-            self.labelTransportETA.text = travelTimeString
-            
-        }
-    }
 }
