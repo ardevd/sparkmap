@@ -113,7 +113,8 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     func generateCallButton() -> UIBarButtonItem {
         // Button that lets user call the number associated wtih the charging station.
-        let callButtonItem = UIBarButtonItem(title: "Call", style: .Plain, target: self, action: #selector(ChargerDetailViewController.callButtonTapped))
+        let callString = NSLocalizedString("Call", comment: "Call Button String")
+        let callButtonItem = UIBarButtonItem(title: callString, style: .Plain, target: self, action: #selector(ChargerDetailViewController.callButtonTapped))
         callButtonItem.image = UIImage(named: "CallIcon")
         
         return callButtonItem
@@ -191,21 +192,23 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         imagePicker.delegate = self
         
         //Camera Source Action
-        let cameraSourceTitle = NSLocalizedString("Camera_Source", comment: "Take a Photo")
-        let cameraSourceAction = UIAlertAction(title: cameraSourceTitle, style: .Default) { (alert: UIAlertAction!) -> Void in
+        let cameraSourceString = NSLocalizedString("Camera", comment: "Camera Source")
+        let cameraSourceAction = UIAlertAction(title: cameraSourceString, style: .Default) { (alert: UIAlertAction!) -> Void in
             self.imagePicker.sourceType = .Camera
             self.presentViewController(self.imagePicker, animated: true, completion: nil)
         }
         
         //Album Source Action
-        let albumSourceTitle = NSLocalizedString("Photo_Library", comment: "Photo Library")
-        let albumSourceAction = UIAlertAction(title: albumSourceTitle, style: .Default) { (alert: UIAlertAction!) -> Void in
+        let albumSourceString = NSLocalizedString("Photo Library", comment: "Library Source")
+        let albumSourceAction = UIAlertAction(title: albumSourceString, style: .Default) { (alert: UIAlertAction!) -> Void in
             self.imagePicker.sourceType = .PhotoLibrary
             self.presentViewController(self.imagePicker, animated: true, completion: nil)
         }
         
         // Ask user whether to grab photo from the camera or the photo album.
-        let photoSourcePromptAlert = UIAlertController(title: "Photo Submission", message: "Submit a photo for this charging station", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let photoSubmissionTitleString = NSLocalizedString("Photo Submission", comment: "Photo Submission")
+        let photoSubmissionMessageString = NSLocalizedString("Submit a photo for this charging station", comment: "Submit a photo description text")
+        let photoSourcePromptAlert = UIAlertController(title: photoSubmissionTitleString, message: photoSubmissionMessageString, preferredStyle: UIAlertControllerStyle.ActionSheet)
         photoSourcePromptAlert.addAction(cameraSourceAction)
         photoSourcePromptAlert.addAction(albumSourceAction)
         self.presentViewController(photoSourcePromptAlert, animated: true, completion: nil)
@@ -217,7 +220,10 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         
         // Ask user for confirmation before uploading photo.
         //Action
-        let photoUploadAction = UIAlertAction(title: "Yes", style: .Default) { (alert: UIAlertAction!) -> Void in
+        let yesString = NSLocalizedString("Yes", comment: "Yes")
+        let noString = NSLocalizedString("No", comment: "No")
+        let okString = NSLocalizedString("OK", comment: "OK")
+        let photoUploadAction = UIAlertAction(title: yesString, style: .Default) { (alert: UIAlertAction!) -> Void in
             // User confirmed. Post the photo
             let userPhotoSubmissionManager = UserPhotoSubmissionManager()
             if let chargerId = self.charger?.chargerId{
@@ -226,8 +232,9 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             }
         }
         //AlertController
-        let photoSubmissionRequestAlert = UIAlertController(title: "Photo Submission", message: "Awesome. Go ahead and upload the photo?", preferredStyle: UIAlertControllerStyle.Alert)
-        photoSubmissionRequestAlert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default, handler: nil))
+        let photoSubmissionConfirmationRequestString = NSLocalizedString("Awesome. Go ahead and upload the photo?", comment: "Photo submission request message")
+        let photoSubmissionRequestAlert = UIAlertController(title: photoSubmissionTitleString, message: photoSubmissionConfirmationRequestString, preferredStyle: UIAlertControllerStyle.Alert)
+        photoSubmissionRequestAlert.addAction(UIAlertAction(title: noString, style: UIAlertActionStyle.Default, handler: nil))
         photoSubmissionRequestAlert.addAction(photoUploadAction)
         self.presentViewController(photoSubmissionRequestAlert, animated: true, completion: nil)
         
@@ -235,8 +242,9 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     func showPhotoSubmissionConfirmationAlert(){
         // Show UIAlertController to user.
-        let photoSubmissionConfirmationAlert = UIAlertController(title: "Photo Submission", message: "Your photo will been submitted for review. Thank you for sharing!", preferredStyle: UIAlertControllerStyle.Alert)
-        photoSubmissionConfirmationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        let photoSubmissionConfirmationString = NSLocalizedString("Your photo will be submitted for review. Thank you!", comment: "Photo submission confirmation message")
+        let photoSubmissionConfirmationAlert = UIAlertController(title: photoSubmissionTitleString, message: photoSubmissionConfirmationString, preferredStyle: UIAlertControllerStyle.Alert)
+        photoSubmissionConfirmationAlert.addAction(UIAlertAction(title: okString, style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(photoSubmissionConfirmationAlert, animated: true, completion: nil)
     }
     
@@ -310,13 +318,14 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         }
         
         if let accessComment = charger?.chargerDetails?.chargerAccessComment {
+            let noAccessInfoAvailableString = NSLocalizedString("No Access Information Available", comment: "No Access Information")
             if accessComment.characters.count >= 1 {
                 labelAccess.text = accessComment
             } else {
-                labelAccess.text = "No Access Information Available"
-            }
+
+                labelAccess.text = noAccessInfoAvailableString
         } else {
-            labelAccess.text = "No Access Information Available"
+            labelAccess.text = noAccessInfoAvailableString
         }
         
         if let chargerIsOperational = charger?.chargerIsOperational {
@@ -330,9 +339,11 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     func updateChargerOperationalStatus(isOperational: Bool){
         //TODO: Implement "Offline" Indication.
         if (isOperational){
-            labelStatus.text = "Operational"
+            let statusOperationalString = NSLocalizedString("Operational", comment: "Charging Status Operational")
+            labelStatus.text = statusOperationalString
         } else {
-            labelStatus.text = "Unknown"
+            let statusUnknownString = NSLocalizedString("Unknown", comment: "Charging Status Unknown")
+            labelStatus.text = statusUnknownString
             UIView.animateWithDuration(1.0, animations: {
                 self.viewChargerStatus.backgroundColor = UIColor(red: 234/255, green: 155/255, blue: 3/255, alpha: 1.0)
             })
@@ -445,7 +456,8 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                 return
             }
             let travelTime = Double(round(100 * (response!.expectedTravelTime/60))/100)
-            self.labelTransportETA.text = "\(travelTime) minutes travel time"
+            let travelTimeString = String.localizedStringWithFormat(NSLocalizedString("%@ minutes of travel time", comment: "Minutes of travel time"), travelTime)
+            self.labelTransportETA.text = travelTimeString
             
         }
     }

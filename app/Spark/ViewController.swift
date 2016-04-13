@@ -128,7 +128,8 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
         let mapLocationCoordinate = MapCenterCoordinateSingelton.center.coordinate
         let mapLocation = CLLocation(latitude: mapLocationCoordinate.latitude, longitude: mapLocationCoordinate.longitude)
         let distance = chargerLocation.distanceFromLocation(mapLocation)
-        cell.cellDistance?.text = String(Int(distance)) + " meters"
+        let metersString = NSLocalizedString("meters", comment: "Meters")
+        cell.cellDistance?.text = String(Int(distance)) + " " + metersString
         return cell
     }
     

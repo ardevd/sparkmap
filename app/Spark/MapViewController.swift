@@ -21,7 +21,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.hidesNavigationBarDuringPresentation = false
         self.searchController.searchBar.delegate = self
-        self.searchController.searchBar.placeholder = "Search for a place or address"
+        let searchbarPlaceholderString = NSLocalizedString("Search for a place or address", comment: "Searchbar placeholder string")
+        self.searchController.searchBar.placeholder = searchbarPlaceholderString
         
         return self.searchController
         }()
@@ -288,8 +289,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         localSearch.startWithCompletionHandler { (localSearchResponse, error) -> Void in
             
             guard let localSearchResponse = localSearchResponse, mapItem = localSearchResponse.mapItems.first else {
-                let alertController = UIAlertController(title: nil, message: "Place Not Found", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                let placeNotFoundString = NSLocalizedString("Place Not Found", comment: "User search location not found")
+                let dismissString = NSLocalizedString("Dismiss", comment: "Dismiss")
+                let alertController = UIAlertController(title: nil, message: placeNotFoundString, preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: dismissString, style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alertController, animated: true, completion: nil)
                 return
             }
