@@ -15,6 +15,7 @@ class SettingsViewController: UITableViewController {
     @IBOutlet var segmentControlMapType: UISegmentedControl!
     @IBOutlet var cellSchuko: UITableViewCell!
     @IBOutlet var cellChademo: UITableViewCell!
+    @IBOutlet var cellCCS: UITableViewCell!
     @IBOutlet var cellType2: UITableViewCell!
     @IBOutlet var cellTesla: UITableViewCell!
     @IBOutlet var textFieldAmps: UITextField!
@@ -23,6 +24,7 @@ class SettingsViewController: UITableViewController {
     let connectionIdChademo = 2
     let connectionIdType2 = 25
     let connectionIdTeslaSupercharger = 27
+    let connectionIdCCS = 33
     
     var connectionTypeIDs = [Int]()
     
@@ -63,6 +65,8 @@ class SettingsViewController: UITableViewController {
                     cellChademo.accessoryType = .Checkmark
                 } else if (idAsInt == connectionIdTeslaSupercharger) {
                     cellTesla.accessoryType = .Checkmark
+                } else if (idAsInt == connectionIdCCS) {
+                    cellCCS.accessoryType = .Checkmark
                 }
             }
         }
@@ -129,14 +133,22 @@ class SettingsViewController: UITableViewController {
         let row = indexPath.row
         
         if (section == 1){
-            if (row == 0){
+            if (row == 0) {
+                //CCS
+                if (connectionTypeFilterToggle(connectionIdCCS)){
+                    cell?.accessoryType = .Checkmark
+                } else {
+                    cell?.accessoryType = .None
+                }
+                }
+            if (row == 1) {
                 //Chuko
                 if (connectionTypeFilterToggle(connectionIdSchuko)){
                     cell?.accessoryType = .Checkmark
                 } else {
                     cell?.accessoryType = .None
                 }
-            } else if (row == 1) {
+            } else if (row == 2) {
                 //Chademo
                 if (connectionTypeFilterToggle(connectionIdChademo)){
                     cell?.accessoryType = .Checkmark
@@ -144,14 +156,14 @@ class SettingsViewController: UITableViewController {
                     cell?.accessoryType = .None
                 }
 
-            } else if (row == 2) {
+            } else if (row == 3) {
                 // Type 2
                 if (connectionTypeFilterToggle(connectionIdType2)){
                     cell?.accessoryType = .Checkmark
                 } else {
                     cell?.accessoryType = .None
                 }
-            } else if (row == 3) {
+            } else if (row == 4) {
                 // Tesla Supercharger
                 if (connectionTypeFilterToggle(connectionIdTeslaSupercharger)){
                     cell?.accessoryType = .Checkmark
