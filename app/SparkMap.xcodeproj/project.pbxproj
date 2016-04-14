@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		DC0238861BE4497B0060F4B8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC0238851BE4497B0060F4B8 /* Settings.bundle */; };
 		DC11A7B31C092FD300FD54C3 /* ChargerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC11A7B11C092FD300FD54C3 /* ChargerDetailViewController.swift */; };
+		DC14111E1CC00D7600F68C83 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC14111D1CC00D7600F68C83 /* InfoPlist.strings */; };
+		DC1411201CC00D9500F68C83 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC14111F1CC00D9500F68C83 /* InfoPlist.strings */; };
+		DC1411221CC00DAF00F68C83 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC1411211CC00DAF00F68C83 /* InfoPlist.strings */; };
+		DC1411241CC00DC300F68C83 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC1411231CC00DC300F68C83 /* InfoPlist.strings */; };
+		DC1411271CC00DEE00F68C83 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC1411291CC00DEE00F68C83 /* InfoPlist.strings */; };
+		DC14112C1CC00DEE00F68C83 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC14112E1CC00DEE00F68C83 /* Localizable.strings */; };
 		DC1A2DF01CB6D69400C2C01F /* ChargerDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC1A2DF21CB6D69400C2C01F /* ChargerDetailViewController.xib */; };
 		DC1ED1631BE29572007C09D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED1621BE29572007C09D1 /* AppDelegate.swift */; };
 		DC1ED1651BE29572007C09D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED1641BE29572007C09D1 /* ViewController.swift */; };
@@ -32,8 +38,14 @@
 		DC68F6831BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6811BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift */; };
 		DC68F6841BE34B11000EFFF4 /* ChargerOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */; };
 		DC68F6861BE34C23000EFFF4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6851BE34C23000EFFF4 /* MapViewController.swift */; };
+		DC78F21F1CC0289F009FF03E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC78F2211CC0289F009FF03E /* InfoPlist.strings */; };
+		DC78F2231CC028A0009FF03E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC78F2221CC028A0009FF03E /* InfoPlist.strings */; };
+		DC78F2251CC028BE009FF03E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC78F2241CC028BE009FF03E /* InfoPlist.strings */; };
 		DC7C8C5F1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C8C5E1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift */; };
 		DC7C8C611C7F3A06003D5C37 /* DistanceToLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C8C601C7F3A06003D5C37 /* DistanceToLocationManager.swift */; };
+		DC7F79001CC006EA006CBD42 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC7F78FF1CC006EA006CBD42 /* InfoPlist.strings */; };
+		DC7F79021CC006F8006CBD42 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC7F79011CC006F8006CBD42 /* InfoPlist.strings */; };
+		DC7F79041CC00710006CBD42 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC7F79031CC00710006CBD42 /* InfoPlist.strings */; };
 		DC85CABD1C5A137700AB2786 /* ConnectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */; };
 		DC85CABE1C5A137700AB2786 /* ConnectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */; };
 		DCB3E2361BE65102003AB6C9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB3E2351BE65102003AB6C9 /* LocationManager.swift */; };
@@ -41,6 +53,7 @@
 		DCD04B781CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD04B771CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift */; };
 		DCD7983B1BE5814F00C62863 /* AnnotationCharger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD7983A1BE5814F00C62863 /* AnnotationCharger.swift */; };
 		DCDC2C371C613A42004BEF91 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDC2C361C613A42004BEF91 /* SettingsViewController.swift */; };
+		DCF1F2C41CC004760045EA77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCF1F2C31CC004760045EA77 /* InfoPlist.strings */; };
 		DCFDBFDA1BE3E6E10011D191 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFDBFD91BE3E6E10011D191 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +77,12 @@
 /* Begin PBXFileReference section */
 		DC0238851BE4497B0060F4B8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		DC11A7B11C092FD300FD54C3 /* ChargerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargerDetailViewController.swift; sourceTree = "<group>"; };
+		DC14111D1CC00D7600F68C83 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC14111F1CC00D9500F68C83 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC1411211CC00DAF00F68C83 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC1411231CC00DC300F68C83 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC1411281CC00DEE00F68C83 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DC14112D1CC00DEE00F68C83 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DC1A2DF11CB6D69400C2C01F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ChargerDetailViewController.xib; sourceTree = "<group>"; };
 		DC1ED15F1BE29572007C09D1 /* SparkMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparkMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC1ED1621BE29572007C09D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,16 +114,26 @@
 		DC68F6811BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChargerOperator+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargerOperator.swift; sourceTree = "<group>"; };
 		DC68F6851BE34C23000EFFF4 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DC78F2201CC0289F009FF03E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DC78F2221CC028A0009FF03E /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC78F2241CC028BE009FF03E /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC7C8C5E1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastDataUpdateLocationSingelton.swift; sourceTree = "<group>"; };
 		DC7C8C601C7F3A06003D5C37 /* DistanceToLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceToLocationManager.swift; sourceTree = "<group>"; };
+		DC7F78FF1CC006EA006CBD42 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC7F79011CC006F8006CBD42 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC7F79031CC00710006CBD42 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionTableViewCell.swift; sourceTree = "<group>"; };
 		DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionTableViewCell.xib; sourceTree = "<group>"; };
+		DCAA484A1CC0027800114FF2 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
+		DCAA484B1CC0027800114FF2 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DCAA484C1CC0027800114FF2 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/ChargerDetailViewController.strings; sourceTree = "<group>"; };
 		DCABF7A01C77CAB000B9FEE2 /* Spark v 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v 3.xcdatamodel"; sourceTree = "<group>"; };
 		DCB3E2351BE65102003AB6C9 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCenterCoordinateSingelton.swift; sourceTree = "<group>"; };
 		DCD04B771CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPhotoSubmissionManager.swift; sourceTree = "<group>"; };
 		DCD7983A1BE5814F00C62863 /* AnnotationCharger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationCharger.swift; sourceTree = "<group>"; };
 		DCDC2C361C613A42004BEF91 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DCF1F2C31CC004760045EA77 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DCFDBFD91BE3E6E10011D191 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +185,8 @@
 		DC1ED1611BE29572007C09D1 /* Spark */ = {
 			isa = PBXGroup;
 			children = (
+				DC78F2211CC0289F009FF03E /* InfoPlist.strings */,
+				DC14112E1CC00DEE00F68C83 /* Localizable.strings */,
 				DC68F6811BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift */,
 				DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */,
 				DC68F6691BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift */,
@@ -198,6 +229,8 @@
 		DC1ED1791BE29572007C09D1 /* SparkTests */ = {
 			isa = PBXGroup;
 			children = (
+				DC78F2241CC028BE009FF03E /* InfoPlist.strings */,
+				DC78F2221CC028A0009FF03E /* InfoPlist.strings */,
 				DC1ED17A1BE29572007C09D1 /* SparkTests.swift */,
 				DC1ED17C1BE29572007C09D1 /* Info.plist */,
 			);
@@ -207,6 +240,15 @@
 		DC1ED1841BE29572007C09D1 /* SparkUITests */ = {
 			isa = PBXGroup;
 			children = (
+				DC1411291CC00DEE00F68C83 /* InfoPlist.strings */,
+				DC1411231CC00DC300F68C83 /* InfoPlist.strings */,
+				DC1411211CC00DAF00F68C83 /* InfoPlist.strings */,
+				DC14111F1CC00D9500F68C83 /* InfoPlist.strings */,
+				DC14111D1CC00D7600F68C83 /* InfoPlist.strings */,
+				DC7F79031CC00710006CBD42 /* InfoPlist.strings */,
+				DC7F79011CC006F8006CBD42 /* InfoPlist.strings */,
+				DC7F78FF1CC006EA006CBD42 /* InfoPlist.strings */,
+				DCF1F2C31CC004760045EA77 /* InfoPlist.strings */,
 				DC1ED1851BE29572007C09D1 /* SparkUITests.swift */,
 				DC1ED1871BE29572007C09D1 /* Info.plist */,
 			);
@@ -328,7 +370,9 @@
 				DC1ED1701BE29572007C09D1 /* LaunchScreen.storyboard in Resources */,
 				DC1A2DF01CB6D69400C2C01F /* ChargerDetailViewController.xib in Resources */,
 				DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */,
+				DC14112C1CC00DEE00F68C83 /* Localizable.strings in Resources */,
 				DC1ED16D1BE29572007C09D1 /* Assets.xcassets in Resources */,
+				DC78F21F1CC0289F009FF03E /* InfoPlist.strings in Resources */,
 				DC1ED1681BE29572007C09D1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +381,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC78F2231CC028A0009FF03E /* InfoPlist.strings in Resources */,
+				DC78F2251CC028BE009FF03E /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +390,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCF1F2C41CC004760045EA77 /* InfoPlist.strings in Resources */,
+				DC1411241CC00DC300F68C83 /* InfoPlist.strings in Resources */,
+				DC1411221CC00DAF00F68C83 /* InfoPlist.strings in Resources */,
+				DC1411201CC00D9500F68C83 /* InfoPlist.strings in Resources */,
+				DC7F79041CC00710006CBD42 /* InfoPlist.strings in Resources */,
+				DC7F79021CC006F8006CBD42 /* InfoPlist.strings in Resources */,
+				DC7F79001CC006EA006CBD42 /* InfoPlist.strings in Resources */,
+				DC1411271CC00DEE00F68C83 /* InfoPlist.strings in Resources */,
+				DC14111E1CC00D7600F68C83 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,10 +470,27 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		DC1411291CC00DEE00F68C83 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC1411281CC00DEE00F68C83 /* nb */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DC14112E1CC00DEE00F68C83 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC14112D1CC00DEE00F68C83 /* nb */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		DC1A2DF21CB6D69400C2C01F /* ChargerDetailViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DC1A2DF11CB6D69400C2C01F /* Base */,
+				DCAA484C1CC0027800114FF2 /* nb */,
 			);
 			name = ChargerDetailViewController.xib;
 			sourceTree = "<group>";
@@ -427,6 +499,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DC1ED1671BE29572007C09D1 /* Base */,
+				DCAA484A1CC0027800114FF2 /* nb */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -435,8 +508,17 @@
 			isa = PBXVariantGroup;
 			children = (
 				DC1ED16F1BE29572007C09D1 /* Base */,
+				DCAA484B1CC0027800114FF2 /* nb */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DC78F2211CC0289F009FF03E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC78F2201CC0289F009FF03E /* nb */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
