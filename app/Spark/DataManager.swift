@@ -143,7 +143,7 @@ class DataManager: NSObject {
         let offlineMode = defaults.boolForKey("offlineMode")
         if (!offlineMode){
             // TODO - Add option to select units of measurements
-            guard let url = NSURL(string: "https://api.openchargemap.io/v2/poi/?output=json&verbose=false&maxresults=500&includecomments=true&distanceunit=KM&latitude=\(latitude)&longitude=\(longitude)") else { return }
+            guard let url = NSURL(string: "https://api.openchargemap.io/v2/poi/?output=json&verbose=false&maxresults=400&includecomments=true&distanceunit=KM&latitude=\(latitude)&longitude=\(longitude)") else { return }
             
             // HTTP GET
             let urlRequest = NSURLRequest(URL: url)

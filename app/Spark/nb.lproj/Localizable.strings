@@ -1,0 +1,63 @@
+/* Minutes of travel time */
+"%@ minutes of travel time" = "%@ minutters reisetid";
+
+/* Photo submission request message */
+"Awesome. Go ahead and upload the photo?" = "Fantastisk. Laste opp bildet?";
+
+/* Call Button String */
+"Call" = "Ring";
+
+/* Camera Source */
+"Camera" = "Kamera";
+
+/* Dismiss */
+"Dismiss" = "OK";
+
+/* Navigate */
+"Navigate" = "Naviger";
+
+/* No */
+"No" = "Nei";
+
+/* No Access Information */
+"No Access Information Available" = "Ingen Adkomstinformasjon Tilgjengelig";
+
+/* OK */
+"OK" = "OK";
+
+/* Charging Status Operational */
+"Operational" = "Operasjonell";
+
+/* Library Source */
+"Photo Library" = "Bildebibliotek";
+
+/* Photo Submission */
+"Photo Submission" = "Laste Opp Bilde";
+
+/* Photo Submitted */
+"Photo Submitted" = "Bilde Lastet opp";
+
+/* User search location not found */
+"Place Not Found" = "Sted Ikke Funnet";
+
+/* Searchbar placeholder string */
+"Search for a place or address" = "Søk etter sted eller addresse";
+
+/* Submit a photo description text */
+"Submit a photo for this charging station" = "Last opp et bilde av denne ladestasjonen";
+
+/* Charging Status Unknown */
+"Unknown" = "Ukjent";
+
+/* Photo Submitted */
+"Upload photo" = "Last opp bilde";
+
+/* Yes */
+"Yes" = "Ja";
+
+/* Photo submission confirmation message */
+"Your photo will be submitted for review. Thank you!" = "Bildet ditt blir lastet opp for godkjenning. Tusen takk!";
+
+/* Meters */
+"meters" = "meter";
+

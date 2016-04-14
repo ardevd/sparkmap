@@ -1,0 +1,75 @@
+/* Class = "UILabel"; text = "Tesla Supercharger"; ObjectID = "3EE-6E-eF6"; */
+"3EE-6E-eF6.text" = "Tesla Supercharger";
+
+/* Class = "UINavigationItem"; title = "SparkMap"; ObjectID = "7jm-AF-pRD"; */
+"7jm-AF-pRD.title" = "SparkMap";
+
+/* Class = "UILabel"; text = "Current Minimum"; ObjectID = "7oU-lZ-E8z"; */
+"7oU-lZ-E8z.text" = "Strømstyrke (Minimum)";
+
+/* Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "A6x-oa-c8i"; */
+"A6x-oa-c8i.headerTitle" = "Generelt";
+
+/* Class = "UILabel"; text = "A"; ObjectID = "CeW-Yx-1Ec"; */
+"CeW-Yx-1Ec.text" = "A";
+
+/* Class = "UITableViewController"; title = "SettingsViewController"; ObjectID = "EfW-kw-zzq"; */
+"EfW-kw-zzq.title" = "SettingsViewController";
+
+/* Class = "UITextField"; placeholder = "Amps"; ObjectID = "IDt-1U-VB1"; */
+"IDt-1U-VB1.placeholder" = "Amp";
+
+/* Class = "UITableViewSection"; footerTitle = "Deselect to show all types"; ObjectID = "KcT-PD-Aa9"; */
+"KcT-PD-Aa9.footerTitle" = "Fjern samtlige valg for å vise alle typer";
+
+/* Class = "UITableViewSection"; headerTitle = "Connection Types"; ObjectID = "KcT-PD-Aa9"; */
+"KcT-PD-Aa9.headerTitle" = "Ladetyper";
+
+/* Class = "UILabel"; text = "Fast Charging Only"; ObjectID = "N6D-bM-vkg"; */
+"N6D-bM-vkg.text" = "Kun Hurtigladere";
+
+/* Class = "UITableViewSection"; headerTitle = "Other Parameters"; ObjectID = "NPs-lc-Ssu"; */
+"NPs-lc-Ssu.headerTitle" = "Andre Parametere";
+
+/* Class = "UILabel"; text = "CEE 7/4 - Schuko"; ObjectID = "OAW-sw-JYg"; */
+"OAW-sw-JYg.text" = "CEE 7/4 - Schuko";
+
+/* Class = "UINavigationItem"; title = "Nearby"; ObjectID = "QRc-bz-ImP"; */
+"QRc-bz-ImP.title" = "Nærheten";
+
+/* Class = "UILabel"; text = "Mennekes (Type 2)"; ObjectID = "S1d-jw-WBR"; */
+"S1d-jw-WBR.text" = "Mennekes (Type 2)";
+
+/* Class = "UITabBarItem"; title = "Nearby"; ObjectID = "aPs-vh-iVd"; */
+"aPs-vh-iVd.title" = "Nærheten";
+
+/* Class = "UITabBarItem"; title = "Map"; ObjectID = "fBx-le-nth"; */
+"fBx-le-nth.title" = "Kart";
+
+/* Class = "UILabel"; text = "CHAdeMO"; ObjectID = "hE6-Vt-Iw2"; */
+"hE6-Vt-Iw2.text" = "CHAdeMO";
+
+/* Class = "UILabel"; text = "Combo (CCS)"; ObjectID = "kqa-ep-x8Y"; */
+"kqa-ep-x8Y.text" = "Combo (CCS)";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "lvC-aP-V72"; */
+"lvC-aP-V72.title" = "Innstillinger";
+
+/* Class = "UINavigationController"; title = "SettingsPopoverNavController"; ObjectID = "nGe-bh-aT6"; */
+"nGe-bh-aT6.title" = "SettingsPopoverNavController";
+
+/* Class = "UISegmentedControl"; nqM-Y8-84n.segmentTitles[0] = "Normal"; ObjectID = "nqM-Y8-84n"; */
+"nqM-Y8-84n.segmentTitles[0]" = "Normal";
+
+/* Class = "UISegmentedControl"; nqM-Y8-84n.segmentTitles[1] = "Satellite"; ObjectID = "nqM-Y8-84n"; */
+"nqM-Y8-84n.segmentTitles[1]" = "Sattelitt";
+
+/* Class = "UISegmentedControl"; nqM-Y8-84n.segmentTitles[2] = "Hybrid"; ObjectID = "nqM-Y8-84n"; */
+"nqM-Y8-84n.segmentTitles[2]" = "Hybrid";
+
+/* Class = "UILabel"; text = "Map Type"; ObjectID = "wjz-xz-VyA"; */
+"wjz-xz-VyA.text" = "Karttype";
+
+/* Class = "UILabel"; text = "Offline Mode"; ObjectID = "zZV-Lt-BNI"; */
+"zZV-Lt-BNI.text" = "Offline Mode";
+
