@@ -123,9 +123,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         if isNewCenterFarFromOldCenter() || !haveLoadedInitialChargerData{
             updateMapCenterCoordinateSingelton()
             updateAnnotations()
-        } else {
-            haveLoadedInitialChargerData = true
         }
+        
     }
     
     func updatedSettingsRefresh(notifcation: NSNotification){
@@ -171,6 +170,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
                 chargerAnnotation.subtitle = charger.chargerSubtitle
                 
                 annotations.append(chargerAnnotation)
+                self.haveLoadedInitialChargerData = true
+
                 
             }
             
