@@ -62,9 +62,8 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
                 self.tableView.reloadData()
             })
         }
-        
     }
-    
+
 
     func registerForceTouchCapability(){
         

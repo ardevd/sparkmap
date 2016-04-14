@@ -6,9 +6,9 @@
         <attribute name="chargerAddress2" optional="YES" attributeType="String" maxValueString="300" syncable="YES"/>
         <attribute name="chargerContact" optional="YES" attributeType="String" maxValueString="150" syncable="YES"/>
         <attribute name="chargerCountry" optional="YES" attributeType="String" maxValueString="150" syncable="YES"/>
-        <attribute name="chargerGeneralComment" optional="YES" attributeType="String" maxValueString="500" syncable="YES"/>
+        <attribute name="chargerGeneralComment" optional="YES" attributeType="String" maxValueString="1000" syncable="YES"/>
         <attribute name="chargerPostcode" optional="YES" attributeType="String" maxValueString="20" syncable="YES"/>
-        <attribute name="chargerPrimaryContactNumber" optional="YES" attributeType="String" maxValueString="50" syncable="YES"/>
+        <attribute name="chargerPrimaryContactNumber" optional="YES" attributeType="String" maxValueString="100" syncable="YES"/>
         <attribute name="chargerProvince" optional="YES" attributeType="String" maxValueString="300" syncable="YES"/>
         <attribute name="chargerRecentlyVerified" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="chargerTown" optional="YES" attributeType="String" maxValueString="300" syncable="YES"/>
@@ -34,7 +34,7 @@
         <attribute name="chargerIsOperational" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="chargerLatitude" optional="YES" attributeType="Double" minValueString="-90" maxValueString="90" syncable="YES"/>
         <attribute name="chargerLongitude" optional="YES" attributeType="Double" minValueString="-180" maxValueString="180" syncable="YES"/>
-        <attribute name="chargerNumberOfPoints" optional="YES" attributeType="Integer 64" minValueString="0" maxValueString="100" defaultValueString="0" syncable="YES"/>
+        <attribute name="chargerNumberOfPoints" optional="YES" attributeType="Integer 64" minValueString="0" maxValueString="1000" defaultValueString="0" syncable="YES"/>
         <attribute name="chargerSubtitle" optional="YES" attributeType="String" maxValueString="300" syncable="YES"/>
         <attribute name="chargerTitle" optional="YES" attributeType="String" maxValueString="300" syncable="YES"/>
         <relationship name="chargerDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChargerDetails" inverseName="chargerPrimary" inverseEntity="ChargerDetails" syncable="YES"/>
@@ -75,7 +75,7 @@
     </entity>
     <elements>
         <element name="ChargerDetails" positionX="-441" positionY="-27" width="128" height="268"/>
-        <element name="ChargerOperator" positionX="-902" positionY="27" width="128" height="118"/>
+        <element name="ChargerOperator" positionX="-902" positionY="45" width="128" height="118"/>
         <element name="ChargerPrimary" positionX="-684" positionY="2" width="128" height="253"/>
         <element name="Comment" positionX="-245" positionY="-36" width="128" height="118"/>
         <element name="Connection" positionX="-234" positionY="104" width="128" height="178"/>
