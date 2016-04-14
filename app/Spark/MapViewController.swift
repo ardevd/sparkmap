@@ -15,6 +15,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     lazy var dataManager: DataManager = DataManager()
     lazy var searchAnnotation: MKPointAnnotation = MKPointAnnotation()
     var haveSearchResult: Bool = false
+    var haveLoadedInitialChargerData: Bool = false
     var locationManager: LocationManager = LocationManager()
     
     lazy var searchController:UISearchController  = { [unowned self] in
@@ -119,9 +120,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     }
     
     func updateAnnotationsFromNotification(notification: NSNotification){
-        if isNewCenterFarFromOldCenter(){
+        if isNewCenterFarFromOldCenter() || !haveLoadedInitialChargerData{
             updateMapCenterCoordinateSingelton()
             updateAnnotations()
+        } else {
+            haveLoadedInitialChargerData = true
         }
     }
     
