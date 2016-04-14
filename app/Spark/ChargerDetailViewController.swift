@@ -320,145 +320,150 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             
         }
         
+        let noAccessInfoAvailableString = NSLocalizedString("No Access Information Available", comment: "No Access Information")
         if let accessComment = charger?.chargerDetails?.chargerAccessComment {
-            let noAccessInfoAvailableString = NSLocalizedString("No Access Information Available", comment: "No Access Information")
+            
             if accessComment.characters.count >= 1 {
                 labelAccess.text = accessComment
-            }
+            } else {
                 labelAccess.text = noAccessInfoAvailableString
             }
-            
-            if let chargerIsOperational = charger?.chargerIsOperational {
-                updateChargerOperationalStatus(chargerIsOperational)
-            }
-            
-            self.navigationItem.setRightBarButtonItems(navigationButtonItems, animated: true)
-            
+        }
+        else {
+            labelAccess.text = noAccessInfoAvailableString
         }
         
-        func updateChargerOperationalStatus(isOperational: Bool){
-            //TODO: Implement "Offline" Indication.
-            if (isOperational){
-                let statusOperationalString = NSLocalizedString("Operational", comment: "Charging Status Operational")
-                labelStatus.text = statusOperationalString
-            } else {
-                let statusUnknownString = NSLocalizedString("Unknown", comment: "Charging Status Unknown")
-                labelStatus.text = statusUnknownString
-                UIView.animateWithDuration(1.0, animations: {
-                    self.viewChargerStatus.backgroundColor = UIColor(red: 234/255, green: 155/255, blue: 3/255, alpha: 1.0)
-                })
-            }
+        if let chargerIsOperational = charger?.chargerIsOperational {
+            updateChargerOperationalStatus(chargerIsOperational)
         }
         
-        override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
-            // Dispose of any resources that can be recreated.
-        }
+        self.navigationItem.setRightBarButtonItems(navigationButtonItems, animated: true)
         
-        func downloadThumbnailImage(imageUrl: String){
-            if let url = NSURL(string: imageUrl) {
-                indicatorImageLoader.startAnimating()
-                let request: NSURLRequest = NSURLRequest(URL: url)
-                let session = NSURLSession.sharedSession()
-                let task = session.dataTaskWithRequest(request){
-                    (data, response, error) -> Void in
-                    
-                    
-                    if (error == nil && data != nil)
+    }
+    
+    func updateChargerOperationalStatus(isOperational: Bool){
+        //TODO: Implement "Offline" Indication.
+        if (isOperational){
+            let statusOperationalString = NSLocalizedString("Operational", comment: "Charging Status Operational")
+            labelStatus.text = statusOperationalString
+        } else {
+            let statusUnknownString = NSLocalizedString("Unknown", comment: "Charging Status Unknown")
+            labelStatus.text = statusUnknownString
+            UIView.animateWithDuration(1.0, animations: {
+                self.viewChargerStatus.backgroundColor = UIColor(red: 234/255, green: 155/255, blue: 3/255, alpha: 1.0)
+            })
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func downloadThumbnailImage(imageUrl: String){
+        if let url = NSURL(string: imageUrl) {
+            indicatorImageLoader.startAnimating()
+            let request: NSURLRequest = NSURLRequest(URL: url)
+            let session = NSURLSession.sharedSession()
+            let task = session.dataTaskWithRequest(request){
+                (data, response, error) -> Void in
+                
+                
+                if (error == nil && data != nil)
+                {
+                    func displayImage()
                     {
-                        func displayImage()
-                        {
-                            // Animate the fade in of the image
-                            UIView.animateWithDuration(1.0, animations: {
-                                self.imageThumbnail.alpha = 0.0
-                                self.imageThumbnail.image = UIImage(data: data!)
-                                self.imageThumbnail.alpha = 1.0
-                            })
-                            
-                            
-                        }
+                        // Animate the fade in of the image
+                        UIView.animateWithDuration(1.0, animations: {
+                            self.imageThumbnail.alpha = 0.0
+                            self.imageThumbnail.image = UIImage(data: data!)
+                            self.imageThumbnail.alpha = 1.0
+                        })
                         
-                        dispatch_async(dispatch_get_main_queue(), displayImage)
+                        
                     }
                     
-                    func dismissActivityIndicator(){
-                        self.indicatorImageLoader.stopAnimating()
-                    }
-                    
-                    dispatch_async(dispatch_get_main_queue(), dismissActivityIndicator)
-                    
-                    
+                    dispatch_async(dispatch_get_main_queue(), displayImage)
                 }
                 
-                task.resume()
+                func dismissActivityIndicator(){
+                    self.indicatorImageLoader.stopAnimating()
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), dismissActivityIndicator)
+                
                 
             }
+            
+            task.resume()
+            
+        }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return connections.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("net.zygotelabs.connectioncell", forIndexPath: indexPath) as! ConnectionTableViewCell
+        
+        cell.connectionTypeLabel?.text = (connections[indexPath.row] as Connection).connectionTypeTitle
+        
+        //Only show Quantity if > 0
+        let connectionQuantity = (connections[indexPath.row] as Connection).connectionQuantity
+        if (connectionQuantity > 0) {
+            cell.connectionQuantityLabel?.text = String(connectionQuantity) + "x"
+            // If total connection quantity is unavaible, we calculate and display.
+            if (totalChargingPointQuantityAvailable == false) {
+                labelNumberOfPoints.text = String(Int(labelNumberOfPoints.text!)! + Int(connectionQuantity))
+            }
+        } else {
+            cell.connectionQuantityLabel?.text = ""
         }
         
-        func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-            return 1
+        var connectionPowerParams = ""
+        let connectionCurrent = (connections[indexPath.row] as Connection).connectionAmp
+        if (connectionCurrent > 0){
+            connectionPowerParams = String((connections[indexPath.row] as Connection).connectionAmp) + "A"
+        }
+        let connectionPower = (connections[indexPath.row] as Connection).connectionPowerKW
+        if (connectionPower > 0) {
+            connectionPowerParams += "/" + (String((connections[indexPath.row] as Connection).connectionPowerKW) + "KW")
         }
         
-        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return connections.count
+        cell.connectionAmpLabel?.text = connectionPowerParams
+        
+        return cell
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // Location has been updated.
+        if let location = locations.last {
+            calculateDestinationETA(location.coordinate)
         }
         
-        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCellWithIdentifier("net.zygotelabs.connectioncell", forIndexPath: indexPath) as! ConnectionTableViewCell
-            
-            cell.connectionTypeLabel?.text = (connections[indexPath.row] as Connection).connectionTypeTitle
-            
-            //Only show Quantity if > 0
-            let connectionQuantity = (connections[indexPath.row] as Connection).connectionQuantity
-            if (connectionQuantity > 0) {
-                cell.connectionQuantityLabel?.text = String(connectionQuantity) + "x"
-                // If total connection quantity is unavaible, we calculate and display.
-                if (totalChargingPointQuantityAvailable == false) {
-                    labelNumberOfPoints.text = String(Int(labelNumberOfPoints.text!)! + Int(connectionQuantity))
-                }
-            } else {
-                cell.connectionQuantityLabel?.text = ""
+    }
+    
+    func calculateDestinationETA(userLocation: CLLocationCoordinate2D){
+        // Calulcate driving ETA to charger
+        let request = MKDirectionsRequest()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: userLocation, addressDictionary: nil))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: (charger?.chargerLatitude)!, longitude: (charger?.chargerLongitude)!), addressDictionary: nil))
+        request.transportType = .Automobile
+        let directions = MKDirections(request: request)
+        directions.calculateETAWithCompletionHandler { response, error -> Void in
+            if let err = error {
+                self.labelTransportETA.text = err.userInfo["NSLocalizedFailureReason"] as? String
+                return
             }
-            
-            var connectionPowerParams = ""
-            let connectionCurrent = (connections[indexPath.row] as Connection).connectionAmp
-            if (connectionCurrent > 0){
-                connectionPowerParams = String((connections[indexPath.row] as Connection).connectionAmp) + "A"
-            }
-            let connectionPower = (connections[indexPath.row] as Connection).connectionPowerKW
-            if (connectionPower > 0) {
-                connectionPowerParams += "/" + (String((connections[indexPath.row] as Connection).connectionPowerKW) + "KW")
-            }
-            
-            cell.connectionAmpLabel?.text = connectionPowerParams
-            
-            return cell
-        }
-        
-        func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-            // Location has been updated.
-            if let location = locations.last {
-                calculateDestinationETA(location.coordinate)
-            }
+            let travelTime = String(Double(round(100 * (response!.expectedTravelTime/60))/100))
+            let travelTimeString = String.localizedStringWithFormat(NSLocalizedString("%@ minutes of travel time", comment: "Minutes of travel time"), travelTime)
+            self.labelTransportETA.text = travelTimeString
             
         }
-        
-        func calculateDestinationETA(userLocation: CLLocationCoordinate2D){
-            // Calulcate driving ETA to charger
-            let request = MKDirectionsRequest()
-            request.source = MKMapItem(placemark: MKPlacemark(coordinate: userLocation, addressDictionary: nil))
-            request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: (charger?.chargerLatitude)!, longitude: (charger?.chargerLongitude)!), addressDictionary: nil))
-            request.transportType = .Automobile
-            let directions = MKDirections(request: request)
-            directions.calculateETAWithCompletionHandler { response, error -> Void in
-                if let err = error {
-                    self.labelTransportETA.text = err.userInfo["NSLocalizedFailureReason"] as? String
-                    return
-                }
-                let travelTime = String(Double(round(100 * (response!.expectedTravelTime/60))/100))
-                let travelTimeString = String.localizedStringWithFormat(NSLocalizedString("%@ minutes of travel time", comment: "Minutes of travel time"), travelTime)
-                self.labelTransportETA.text = travelTimeString
-                
-            }
-        }
+    }
 }
