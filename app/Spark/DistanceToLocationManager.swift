@@ -12,10 +12,7 @@ class DistanceToLocationManager {
     
     static func distanceFromLastDataUpdateLocation(currentLocation: CLLocation) -> Double {
         let lastDataUpdateLocation =  LastUpdateLocationSingelton.center.location
-        let distance = currentLocation.distanceFromLocation(lastDataUpdateLocation)
-        //return currentLocation.distanceFromLocation(lastDataUpdateLocation)
-        return distance
-        
+        return currentLocation.distanceFromLocation(lastDataUpdateLocation)
     }
     
     static func compareChargerDistance(firstCharger: ChargerPrimary, secondCharger: ChargerPrimary) -> Bool {
