@@ -153,17 +153,19 @@ class DataManager: NSObject {
             var urlRequest = NSMutableURLRequest(URL: url)
             urlRequest.HTTPMethod = "POST"
             */
-            
-            SwiftSpinner.show("Downloading Data").addTapHandler({
+            let downloadingDataString = NSLocalizedString("Downloading Data", comment: "Downloading Data Spinner Text")
+            let tapToHideSubtitleString = NSLocalizedString("Tap to hide", comment: "Tap to hide subtitle")
+            let dismissString = NSLocalizedString("Dismiss", comment:"Download Spinner dismiss button text")
+            SwiftSpinner.show(downloadingDataString).addTapHandler({
                 SwiftSpinner.hide()
-                }, subtitle: "Tap to hide")
+                }, subtitle: tapToHideSubtitleString)
             // dataTaskWithRequest will handle threading.
             let dataTask = urlSession.dataTaskWithRequest(urlRequest) { (data: NSData?, response: NSURLResponse?, errorSession: NSError?) -> Void in
                 
                 if let err = errorSession {
                     SwiftSpinner.show("\(err.localizedDescription)", animated: false).addTapHandler({
                         SwiftSpinner.hide()
-                        }, subtitle: "Dismiss")
+                        }, subtitle: dismissString)
                     NSLog("\(err), \(err.localizedDescription)")
                     // abort()
                 }
