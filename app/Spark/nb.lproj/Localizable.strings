@@ -10,8 +10,12 @@
 /* Camera Source */
 "Camera" = "Kamera";
 
-/* Dismiss */
+/* Dismiss
+   Download Spinner dismiss button text */
 "Dismiss" = "OK";
+
+/* Downloading Data Spinner Text */
+"Downloading Data" = "Laster ned data";
 
 /* Navigate */
 "Navigate" = "Naviger";
@@ -45,6 +49,9 @@
 
 /* Submit a photo description text */
 "Submit a photo for this charging station" = "Last opp et bilde av denne ladestasjonen";
+
+/* Tap to hide subtitle */
+"Tap to hide" = "Trykk for å skjule";
 
 /* Charging Status Unknown */
 "Unknown" = "Ukjent";
