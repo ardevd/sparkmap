@@ -10,6 +10,9 @@
 /* Camera Source */
 "Camera" = "Kamera";
 
+/* Cancel Action Text */
+"Cancel" = "Avbryt";
+
 /* Dismiss
    Download Spinner dismiss button text */
 "Dismiss" = "OK";
