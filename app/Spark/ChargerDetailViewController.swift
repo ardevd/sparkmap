@@ -191,26 +191,32 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         imagePicker =  UIImagePickerController()
         imagePicker.delegate = self
         
-        //Camera Source Action
+        // Camera Source Action
         let cameraSourceString = NSLocalizedString("Camera", comment: "Camera Source")
         let cameraSourceAction = UIAlertAction(title: cameraSourceString, style: .Default) { (alert: UIAlertAction!) -> Void in
             self.imagePicker.sourceType = .Camera
             self.presentViewController(self.imagePicker, animated: true, completion: nil)
         }
         
-        //Album Source Action
+        // Album Source Action
         let albumSourceString = NSLocalizedString("Photo Library", comment: "Library Source")
         let albumSourceAction = UIAlertAction(title: albumSourceString, style: .Default) { (alert: UIAlertAction!) -> Void in
             self.imagePicker.sourceType = .PhotoLibrary
             self.presentViewController(self.imagePicker, animated: true, completion: nil)
         }
         
+        // Dismiss Action
+        let cancelActionTitle = NSLocalizedString("Cancel", comment: "Cancel Action Text")
+        let cancelAction = UIAlertAction(title: cancelActionTitle, style: .Cancel) { (alert: UIAlertAction!) -> Void in
+                   }
+
         // Ask user whether to grab photo from the camera or the photo album.
         let photoSubmissionTitleString = NSLocalizedString("Photo Submission", comment: "Photo Submission")
         let photoSubmissionMessageString = NSLocalizedString("Submit a photo for this charging station", comment: "Submit a photo description text")
         let photoSourcePromptAlert = UIAlertController(title: photoSubmissionTitleString, message: photoSubmissionMessageString, preferredStyle: UIAlertControllerStyle.ActionSheet)
         photoSourcePromptAlert.addAction(cameraSourceAction)
         photoSourcePromptAlert.addAction(albumSourceAction)
+        photoSourcePromptAlert.addAction(cancelAction)
         self.presentViewController(photoSourcePromptAlert, animated: true, completion: nil)
     }
     
