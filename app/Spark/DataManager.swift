@@ -119,11 +119,8 @@ class DataManager: NSObject {
         }
         
         return chargers
-        
     }
     
-
-    }
     
     func generateBoundaryString() -> String {
         return "Boundary-\(NSUUID().UUIDString)"
@@ -143,9 +140,9 @@ class DataManager: NSObject {
             
             // For a HTTP POST, do the following.
             /*
-            var urlRequest = NSMutableURLRequest(URL: url)
-            urlRequest.HTTPMethod = "POST"
-            */
+             var urlRequest = NSMutableURLRequest(URL: url)
+             urlRequest.HTTPMethod = "POST"
+             */
             let downloadingDataString = NSLocalizedString("Downloading Data", comment: "Downloading Data Spinner Text")
             let tapToHideSubtitleString = NSLocalizedString("Tap to hide", comment: "Tap to hide subtitle")
             let dismissString = NSLocalizedString("Dismiss", comment:"Download Spinner dismiss button text")
@@ -434,10 +431,10 @@ class DataManager: NSObject {
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
             try coordinator.addPersistentStoreWithType(NSSQLiteStoreType,
-                configuration: nil,
-                URL: url,
-                options: [NSMigratePersistentStoresAutomaticallyOption: true,
-                    NSInferMappingModelAutomaticallyOption: true])
+                                                       configuration: nil,
+                                                       URL: url,
+                                                       options: [NSMigratePersistentStoresAutomaticallyOption: true,
+                                                        NSInferMappingModelAutomaticallyOption: true])
         } catch {
             // Report any error we got.
             var dict = [String: AnyObject]()
