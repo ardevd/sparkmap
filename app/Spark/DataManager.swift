@@ -122,14 +122,7 @@ class DataManager: NSObject {
         
     }
     
-    func uploadUserPhoto(){
-//        guard let url = NSURL(string: "https://sparkmap.zygotelabs.net/upload_photo.php") else { return }
-//        let urlRequest = NSMutableURLRequest(URL: url)
-//        urlRequest.HTTPMethod = "POST"
-//        let boundary = generateBoundaryString()
-        //request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        
-        
+
     }
     
     func generateBoundaryString() -> String {
