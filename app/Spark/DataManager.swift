@@ -76,7 +76,9 @@ class DataManager: NSObject {
             var fetchChargersSubPredicates = [NSPredicate]()
             
             // Add default query predicate
-            fetchChargersSubPredicates.append(NSPredicate(format: "chargerLatitude BETWEEN {%f,%f} AND chargerLongitude BETWEEN {%f,%f}", (latitude-0.10), (latitude+0.10), (longitude-0.10), (longitude+0.10)))
+            // Get map span singelton value
+            let mapSpan = MapCoordinateSpanSingelton.span.mapSpan
+            fetchChargersSubPredicates.append(NSPredicate(format: "chargerLatitude BETWEEN {%f,%f} AND chargerLongitude BETWEEN {%f,%f}", (latitude-mapSpan.latitudeDelta * 0.5), (latitude+mapSpan.latitudeDelta * 0.5), (longitude-mapSpan.longitudeDelta * 0.5), (longitude+mapSpan.longitudeDelta * 0.5)))
             
             // Optionally add connection type predicate
             if let connectionTypeIDsFromSettings = NSUserDefaults.standardUserDefaults().arrayForKey("connectionFilterIds") as? [Int] {

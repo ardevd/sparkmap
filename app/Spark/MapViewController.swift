@@ -87,7 +87,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     override func viewDidLayoutSubviews() {
         
         // Update map center singelton
-        updateMapCenterCoordinateSingelton()
+        updateMapViewSingeltons()
     }
     
     func registerNotificationListeners() {
@@ -121,7 +121,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     
     func updateAnnotationsFromNotification(notification: NSNotification){
         if isNewCenterFarFromOldCenter() || !haveLoadedInitialChargerData{
-            updateMapCenterCoordinateSingelton()
+            updateMapViewSingeltons()
             updateAnnotations()
         }
         
@@ -189,7 +189,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         let coordinate = mapView.centerCoordinate
         updateAnnotations()
         getAnnotationsFromNewLocation(coordinate)
-        updateMapCenterCoordinateSingelton()
+        updateMapViewSingeltons()
     }
     
     @IBAction func updateCurrentLocation(){
@@ -342,9 +342,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         getAnnotationsFromNewLocation(coordinate)
     }
     
-    func updateMapCenterCoordinateSingelton(){
-        //Update singelton point
+    func updateMapViewSingeltons(){
+        //Update map center point singelton
         MapCenterCoordinateSingelton.center.coordinate = mapView.centerCoordinate
+        // Update map span singelton
+        MapCoordinateSpanSingelton.span.mapSpan = mapView.region.span
+        
         
     }
     
