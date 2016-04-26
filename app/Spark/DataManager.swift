@@ -132,7 +132,12 @@ class DataManager: NSObject {
     func downloadNearbyChargers(Latitude latitude: Double, Longitude longitude: Double){
         //Check if we are in offline mode first.
         let defaults = NSUserDefaults.standardUserDefaults()
+        // Set defaults. TODO - Do this separately.
+        let appDefaults = ["showDownloadDialog" : true]
+        defaults.registerDefaults(appDefaults)
         let offlineMode = defaults.boolForKey("offlineMode")
+        let showDownloadDialog = defaults.boolForKey("showDownloadDialog")
+        
         if (!offlineMode){
             // TODO - Add option to select units of measurements
             guard let url = NSURL(string: "https://api.openchargemap.io/v2/poi/?output=json&verbose=false&maxresults=400&includecomments=true&distanceunit=KM&latitude=\(latitude)&longitude=\(longitude)") else { return }
@@ -145,12 +150,15 @@ class DataManager: NSObject {
              var urlRequest = NSMutableURLRequest(URL: url)
              urlRequest.HTTPMethod = "POST"
              */
-            let downloadingDataString = NSLocalizedString("Downloading Data", comment: "Downloading Data Spinner Text")
-            let tapToHideSubtitleString = NSLocalizedString("Tap to hide", comment: "Tap to hide subtitle")
+            
             let dismissString = NSLocalizedString("Dismiss", comment:"Download Spinner dismiss button text")
-            SwiftSpinner.show(downloadingDataString).addTapHandler({
-                SwiftSpinner.hide()
-                }, subtitle: tapToHideSubtitleString)
+            if showDownloadDialog{
+                let downloadingDataString = NSLocalizedString("Downloading Data", comment: "Downloading Data Spinner Text")
+                let tapToHideSubtitleString = NSLocalizedString("Tap to hide", comment: "Tap to hide subtitle")
+                SwiftSpinner.show(downloadingDataString).addTapHandler({
+                    SwiftSpinner.hide()
+                    }, subtitle: tapToHideSubtitleString)
+            }
             // dataTaskWithRequest will handle threading.
             let dataTask = urlSession.dataTaskWithRequest(urlRequest) { (data: NSData?, response: NSURLResponse?, errorSession: NSError?) -> Void in
                 

@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UITableViewController {
     
     @IBOutlet var switchOfflineMode: UISwitch!
+    @IBOutlet var switchShowDownloadDialog: UISwitch!
     @IBOutlet var switchFastcharge: UISwitch!
     @IBOutlet var segmentControlMapType: UISegmentedControl!
     @IBOutlet var cellSchuko: UITableViewCell!
@@ -51,6 +52,7 @@ class SettingsViewController: UITableViewController {
     func loadUserSettingsToViews(){
         let defaults = NSUserDefaults.standardUserDefaults()
         switchOfflineMode.setOn(defaults.boolForKey("offlineMode"), animated: true)
+        switchShowDownloadDialog.setOn(defaults.boolForKey("showDownloadDialog"), animated: true)
         switchFastcharge.setOn(defaults.boolForKey("fastchargeOnly"), animated: true)
         if let connectionTypeIDsFromSettings = NSUserDefaults.standardUserDefaults().arrayForKey("connectionFilterIds") {
             
@@ -86,6 +88,8 @@ class SettingsViewController: UITableViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         // Offline Mode
         defaults.setBool(switchOfflineMode.on, forKey: "offlineMode")
+        // Show Download Dialog
+        defaults.setBool(switchShowDownloadDialog.on, forKey: "showDownloadDialog")
         // Fastcharging Only
         defaults.setBool(switchFastcharge.on, forKey: "fastchargeOnly")
         // Map Type
