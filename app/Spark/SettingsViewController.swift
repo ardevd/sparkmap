@@ -52,11 +52,6 @@ class SettingsViewController: UITableViewController {
         dismissSettingsViewController()
     }
     
-    @IBAction func deleteCacheButtonClicked(){
-        dataManager.removeAllChargerData()
-        getAndLoadCacheSize()
-    }
-    
     func getAndLoadCacheSize(){
         let cacheSizeInMB = dataManager.getDataFilesSize() / 1000000
         labelCacheSize.text = String(format: "%d Mb", cacheSizeInMB)
