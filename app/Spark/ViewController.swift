@@ -15,7 +15,6 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
     //Chargers
     var chargers: [ChargerPrimary] = [ChargerPrimary]()
     
-    
     // Views
     @IBOutlet var tableView: UITableView!
     

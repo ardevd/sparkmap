@@ -64,6 +64,24 @@ class DataManager: NSObject {
         
     }
     
+    func removeOldChargerData(){
+        // Remove old charger data to prevent database from growing too big
+        // Delete chargers older than 30 days
+        let fetchRequest = NSFetchRequest()
+        let timestampThirtyDaysAgo = NSDate().timeIntervalSince1970 - 2505600
+        fetchRequest.predicate = NSPredicate(format: "chargerWasAddedDate =< %f", timestampThirtyDaysAgo)
+        let entity = NSEntityDescription.entityForName("ChargerPrimary", inManagedObjectContext: self.secondMoc)
+        fetchRequest.entity = entity
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try self.secondMoc.executeRequest(deleteRequest)
+        } catch {
+            let deleteError = error as NSError
+            NSLog("\(deleteError), \(deleteError.localizedDescription)")
+        }
+    }
+    
     
     func retrieveNearbyChargerData(Latitude latitude: Double, Longitude longitude: Double) -> [ChargerPrimary]?{
         var chargers: [ChargerPrimary] = [ChargerPrimary]()
@@ -384,6 +402,8 @@ class DataManager: NSObject {
                                     }
                                     
                                     chargerPrimary.chargerDetails = chargerDetails
+                                    // Add current timestamp
+                                    chargerPrimary.chargerWasAddedDate = NSDate().timeIntervalSince1970
                                     
                                 }
                                 

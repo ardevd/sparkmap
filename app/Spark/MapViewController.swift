@@ -69,6 +69,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         
         registerNotificationListeners()
         
+        // Clean up stored charging data
+        dataManager.removeOldChargerData()
     }
     
     func isNewCenterFarFromOldCenter() -> Bool {
@@ -96,7 +98,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updatedSettingsRefresh(_:)), name: "SettingsUpdate", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updateRegionFromNotification(_:)), name: "LocationUpdate", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.enableUserLocationInMap(_:)), name: "LocationAuthorized", object: nil)
-        
     }
     
     func enableUserLocationInMap(notification: NSNotification) {
