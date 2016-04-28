@@ -124,7 +124,7 @@
             <objects>
                 <tableViewController title="SettingsViewController" id="EfW-kw-zzq" customClass="SettingsViewController" customModule="SparkMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="ieA-WV-tOr">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -362,6 +362,37 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Data Management" id="TXH-l2-iTh">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="45" id="rmP-NT-jdK">
+                                        <rect key="frame" x="0.0" y="720" width="600" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rmP-NT-jdK" id="kUc-qC-RDX">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cache Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLP-0E-6LU">
+                                                    <rect key="frame" x="21" y="11" width="110" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 Mb" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouG-2z-4zY">
+                                                    <rect key="frame" x="481" y="12" width="105" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.87450980389999999" green="0.41176470590000003" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ouG-2z-4zY" secondAttribute="bottom" constant="3.5" id="Ljh-Qz-e3Z"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ouG-2z-4zY" secondAttribute="trailing" constant="6" id="gBh-lX-QVc"/>
+                                                <constraint firstItem="ouG-2z-4zY" firstAttribute="top" secondItem="kUc-qC-RDX" secondAttribute="topMargin" constant="4" id="v5w-RW-mOR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="EfW-kw-zzq" id="igK-O3-Yqr"/>
@@ -382,12 +413,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="1024"/>
                     <connections>
                         <outlet property="cellCCS" destination="Wci-lj-Vv0" id="YIt-7l-3cG"/>
                         <outlet property="cellChademo" destination="jTz-PD-o3W" id="v3s-Zb-WsA"/>
                         <outlet property="cellSchuko" destination="tN5-DH-zbj" id="Kzr-y7-HV2"/>
                         <outlet property="cellTesla" destination="DVB-MK-c60" id="KqX-Gm-KE9"/>
                         <outlet property="cellType2" destination="fhH-Wr-AT2" id="itQ-ZQ-jxk"/>
+                        <outlet property="labelCacheSize" destination="ouG-2z-4zY" id="E0x-Vn-rBB"/>
                         <outlet property="segmentControlMapType" destination="nqM-Y8-84n" id="SP3-sO-Am7"/>
                         <outlet property="switchFastcharge" destination="IXC-zE-uda" id="xqy-y2-bwy"/>
                         <outlet property="switchOfflineMode" destination="J3i-Je-6oJ" id="kAo-qj-EsS"/>

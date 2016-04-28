@@ -20,6 +20,8 @@ class SettingsViewController: UITableViewController {
     @IBOutlet var cellType2: UITableViewCell!
     @IBOutlet var cellTesla: UITableViewCell!
     @IBOutlet var textFieldAmps: UITextField!
+    @IBOutlet var labelCacheSize: UILabel!
+    @IBOutlet var buttonDeleteCache: UIButton!
     
     let connectionIdSchuko = 28
     let connectionIdChademo = 2
@@ -29,6 +31,8 @@ class SettingsViewController: UITableViewController {
     
     var connectionTypeIDs = [Int]()
     
+    lazy var dataManager: DataManager = DataManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -36,17 +40,26 @@ class SettingsViewController: UITableViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         loadUserSettingsToViews()
+        getAndLoadCacheSize()
     }
-    
     
     @IBAction func cancelButtonClicked(){
         dismissSettingsViewController()
     }
     
     @IBAction func doneButtonClicked(){
-        //TOOD: Save settings
         saveUserSettings()
         dismissSettingsViewController()
+    }
+    
+    @IBAction func deleteCacheButtonClicked(){
+        dataManager.removeAllChargerData()
+        getAndLoadCacheSize()
+    }
+    
+    func getAndLoadCacheSize(){
+        let cacheSizeInMB = dataManager.getDataFilesSize() / 1000000
+        labelCacheSize.text = String(format: "%d Mb", cacheSizeInMB)
     }
     
     func loadUserSettingsToViews(){

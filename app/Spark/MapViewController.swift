@@ -71,6 +71,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         
         // Clean up stored charging data
         dataManager.removeOldChargerData()
+        dataManager.getDataFilesSize()
     }
     
     func isNewCenterFarFromOldCenter() -> Bool {

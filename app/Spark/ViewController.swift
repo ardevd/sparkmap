@@ -111,7 +111,6 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("net.zygotelabs.cell", forIndexPath: indexPath) as! NearbyTableViewCell
-        
         let selectedCharger = chargers[indexPath.row] as ChargerPrimary
         
         cell.cellTitle?.text = (chargers[indexPath.row] as ChargerPrimary).chargerTitle
@@ -125,6 +124,7 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
         let distance = chargerLocation.distanceFromLocation(mapLocation)
         let metersString = NSLocalizedString("meters", comment: "Meters")
         cell.cellDistance?.text = String(Int(distance)) + " " + metersString
+
         return cell
     }
     

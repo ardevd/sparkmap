@@ -64,6 +64,57 @@ class DataManager: NSObject {
         
     }
     
+    func getDataFilesSize() -> UInt64{
+        var filePaths = [String]()
+        // Sqlite file
+        let databaseFileUrl = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SingleViewCoreData.sqlite")
+        let databaseFilePath = databaseFileUrl.path
+        filePaths.append(databaseFilePath!)
+        
+        // wal journal file
+        let walJournalFileUrl = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SingleViewCoreData.sqlite")
+        let walJournalFilePath = walJournalFileUrl.path
+        filePaths.append(walJournalFilePath!)
+        
+        // shm journal file
+        let shmJournalFileUrl = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SingleViewCoreData.sqlite")
+        let shmJournalFilePath = shmJournalFileUrl.path
+        filePaths.append(shmJournalFilePath!)
+        
+        var totalCacheFilesSize : UInt64 = 0
+        
+        for filePath in filePaths {
+            
+            do {
+                let attr : NSDictionary? = try NSFileManager.defaultManager().attributesOfItemAtPath(filePath)
+                
+                if let _attr = attr {
+                    totalCacheFilesSize += _attr.fileSize();
+                }
+            } catch {
+                print("Error: \(error)")
+            }
+        }
+        
+        return totalCacheFilesSize
+    }
+    
+    func removeAllChargerData(){
+        // Remove all charging data from persistent storage
+        let fetchRequest = NSFetchRequest()
+        let entity = NSEntityDescription.entityForName("ChargerPrimary", inManagedObjectContext: self.secondMoc)
+        fetchRequest.entity = entity
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try self.secondMoc.executeRequest(deleteRequest)
+        } catch {
+            let deleteError = error as NSError
+            NSLog("\(deleteError), \(deleteError.localizedDescription)")
+        }
+        
+    }
+    
     func removeOldChargerData(){
         // Remove old charger data to prevent database from growing too big
         // Delete chargers older than 30 days
