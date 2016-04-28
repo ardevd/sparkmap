@@ -66,8 +66,7 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
 
 
     func registerForceTouchCapability(){
-        
-        if( traitCollection.forceTouchCapability == .Available){
+        if(traitCollection.forceTouchCapability == .Available){
             registerForPreviewingWithDelegate(self, sourceView: tableView)
         }
     }
@@ -76,7 +75,6 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
     
         // Set up peeking
         guard let indexPath = tableView?.indexPathForRowAtPoint(location) else { return nil }
-        
         guard let cell = tableView?.cellForRowAtIndexPath(indexPath) else { return nil }
         
         let charger = chargers[indexPath.row]
