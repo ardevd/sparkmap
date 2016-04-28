@@ -2,7 +2,7 @@
 //  ChargerPrimary+CoreDataProperties.swift
 //  SparkMap
 //
-//  Created by Edvard Holst on 14/04/16.
+//  Created by Edvard Holst on 28/04/16.
 //  Copyright © 2016 Zygote Labs. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -26,6 +26,7 @@ extension ChargerPrimary {
     @NSManaged var chargerNumberOfPoints: Int64
     @NSManaged var chargerSubtitle: String?
     @NSManaged var chargerTitle: String?
+    @NSManaged var chargerWasAddedDate: Double
     @NSManaged var chargerDetails: ChargerDetails?
     @NSManaged var chargerOperator: ChargerOperator?
 
