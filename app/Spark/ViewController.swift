@@ -62,8 +62,8 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
             })
         }
     }
-
-
+    
+    
     func registerForceTouchCapability(){
         if(traitCollection.forceTouchCapability == .Available){
             registerForPreviewingWithDelegate(self, sourceView: tableView)
@@ -71,7 +71,7 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-    
+        
         // Set up peeking
         guard let indexPath = tableView?.indexPathForRowAtPoint(location) else { return nil }
         guard let cell = tableView?.cellForRowAtIndexPath(indexPath) else { return nil }
@@ -111,20 +111,22 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("net.zygotelabs.cell", forIndexPath: indexPath) as! NearbyTableViewCell
-        let selectedCharger = chargers[indexPath.row] as ChargerPrimary
         
-        cell.cellTitle?.text = (chargers[indexPath.row] as ChargerPrimary).chargerTitle
-        cell.cellDescription?.text = (chargers[indexPath.row] as ChargerPrimary).chargerSubtitle
+        if let selectedCharger = chargers[indexPath.row] as ChargerPrimary? {
+            
+            cell.cellTitle?.text = (chargers[indexPath.row] as ChargerPrimary).chargerTitle
+            cell.cellDescription?.text = (chargers[indexPath.row] as ChargerPrimary).chargerSubtitle
+            
+            // Calculate distance from current map center location
+            // TODO: Figure out how we can use the value directly from the sorting fuction we already do instead of having to do it twice.
+            let chargerLocation = CLLocation(latitude: selectedCharger.chargerLatitude, longitude: selectedCharger.chargerLongitude)
+            let mapLocationCoordinate = MapCenterCoordinateSingelton.center.coordinate
+            let mapLocation = CLLocation(latitude: mapLocationCoordinate.latitude, longitude: mapLocationCoordinate.longitude)
+            let distance = chargerLocation.distanceFromLocation(mapLocation)
+            let metersString = NSLocalizedString("meters", comment: "Meters")
+            cell.cellDistance?.text = String(Int(distance)) + " " + metersString
+        }
         
-        // Calculate distance from current map center location
-        // TODO: Figure out how we can use the value directly from the sorting fuction we already do instead of having to do it twice.
-        let chargerLocation = CLLocation(latitude: selectedCharger.chargerLatitude, longitude: selectedCharger.chargerLongitude)
-        let mapLocationCoordinate = MapCenterCoordinateSingelton.center.coordinate
-        let mapLocation = CLLocation(latitude: mapLocationCoordinate.latitude, longitude: mapLocationCoordinate.longitude)
-        let distance = chargerLocation.distanceFromLocation(mapLocation)
-        let metersString = NSLocalizedString("meters", comment: "Meters")
-        cell.cellDistance?.text = String(Int(distance)) + " " + metersString
-
         return cell
     }
     
