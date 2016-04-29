@@ -10,6 +10,9 @@
 /* Class = "UILabel"; text = "Unknown"; ObjectID = "Qht-zl-0Be"; */
 "Qht-zl-0Be.text" = "Ukjent";
 
+/* Class = "UILabel"; text = "Recently Verified"; ObjectID = "eG8-X2-6kD"; */
+"eG8-X2-6kD.text" = "Nylig Verifisert";
+
 /* Class = "UILabel"; text = "Status"; ObjectID = "ioz-Ww-6ec"; */
 "ioz-Ww-6ec.text" = "Status";
 
