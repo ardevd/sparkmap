@@ -29,6 +29,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     @IBOutlet var viewChargerStatus: UIView!
     @IBOutlet var viewHeader: UIView!
     @IBOutlet var viewLastUpdateTime: UIView!
+    @IBOutlet var viewRecentlyVerified: UIView!
     
     // Location
     var locationManager: CLLocationManager?
@@ -75,6 +76,8 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             }
         }
         
+        checkAndAnimateRecentlyVerifiedView()
+        
         // Check location permission and start location update.
         if checkLocationAuthorization(){
             locationManager?.desiredAccuracy = 50
@@ -97,7 +100,6 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         default:
             // Permission not granted.
             return false
-            
         }
     }
     
@@ -165,6 +167,17 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                 self.viewLastUpdateTime.alpha = 1.0
             }
         })
+    }
+    
+    func checkAndAnimateRecentlyVerifiedView() {
+        if let isRecentlyVerified = charger?.chargerDetails?.chargerRecentlyVerified {
+            if isRecentlyVerified {
+                // Charger was recently verified. Show the badge.
+                UIView.animateWithDuration(0.5, animations: {
+                    self.viewRecentlyVerified.alpha = 1.0
+                })
+            }
+        }
     }
     
     func addViewAppearanceElements(){
@@ -264,11 +277,13 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             if (self.imageThumbnail.frame == self.viewHeader.layer.bounds){
                 self.imageThumbnail.frame = self.originalThumbnailImageFrame!
                 self.buttonLastUpdateTime.alpha = 1
+                self.checkAndAnimateRecentlyVerifiedView()
                 self.manipulateThumbnailImage()
             }else{
                 self.imageThumbnail.frame = self.viewHeader.layer.bounds
                 self.imageThumbnail.layer.cornerRadius = 0
                 self.buttonLastUpdateTime.alpha = 0
+                self.viewRecentlyVerified.alpha = 0
                 self.viewLastUpdateTime.alpha = 0
                 self.showingLargeImage = true
                 
