@@ -40,6 +40,12 @@
 /* Class = "UILabel"; text = "Mennekes (Type 2)"; ObjectID = "S1d-jw-WBR"; */
 "S1d-jw-WBR.text" = "Mennekes (Type 2)";
 
+/* Class = "UITableViewSection"; headerTitle = "Data Management"; ObjectID = "TXH-l2-iTh"; */
+"TXH-l2-iTh.headerTitle" = "Databehandling";
+
+/* Class = "UILabel"; text = "Cache Size"; ObjectID = "ZLP-0E-6LU"; */
+"ZLP-0E-6LU.text" = "Cachestørrelse";
+
 /* Class = "UITabBarItem"; title = "Nearby"; ObjectID = "aPs-vh-iVd"; */
 "aPs-vh-iVd.title" = "Nærheten";
 
@@ -51,6 +57,9 @@
 
 /* Class = "UILabel"; text = "Combo (CCS)"; ObjectID = "kqa-ep-x8Y"; */
 "kqa-ep-x8Y.text" = "Combo (CCS)";
+
+/* Class = "UILabel"; text = "Show Download Indicator"; ObjectID = "krk-xX-0BL"; */
+"krk-xX-0BL.text" = "Vis Nedlastingindikator";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "lvC-aP-V72"; */
 "lvC-aP-V72.title" = "Innstillinger";
@@ -66,6 +75,9 @@
 
 /* Class = "UISegmentedControl"; nqM-Y8-84n.segmentTitles[2] = "Hybrid"; ObjectID = "nqM-Y8-84n"; */
 "nqM-Y8-84n.segmentTitles[2]" = "Hybrid";
+
+/* Class = "UILabel"; text = "0 Mb"; ObjectID = "ouG-2z-4zY"; */
+"ouG-2z-4zY.text" = "";
 
 /* Class = "UILabel"; text = "Map Type"; ObjectID = "wjz-xz-VyA"; */
 "wjz-xz-VyA.text" = "Karttype";
