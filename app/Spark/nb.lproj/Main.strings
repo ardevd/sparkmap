@@ -76,9 +76,6 @@
 /* Class = "UISegmentedControl"; nqM-Y8-84n.segmentTitles[2] = "Hybrid"; ObjectID = "nqM-Y8-84n"; */
 "nqM-Y8-84n.segmentTitles[2]" = "Hybrid";
 
-/* Class = "UILabel"; text = "0 Mb"; ObjectID = "ouG-2z-4zY"; */
-"ouG-2z-4zY.text" = "";
-
 /* Class = "UILabel"; text = "Map Type"; ObjectID = "wjz-xz-VyA"; */
 "wjz-xz-VyA.text" = "Karttype";
 

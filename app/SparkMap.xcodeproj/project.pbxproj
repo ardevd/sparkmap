@@ -47,6 +47,7 @@
 		DC7F79041CC00710006CBD42 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC7F79031CC00710006CBD42 /* InfoPlist.strings */; };
 		DC85CABD1C5A137700AB2786 /* ConnectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */; };
 		DC85CABE1C5A137700AB2786 /* ConnectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */; };
+		DC8961CE1CD404C700F8145A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC8961CD1CD404C700F8145A /* InfoPlist.strings */; };
 		DCAFABCD1CC679B200C637BE /* MapCoordinateSpanSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAFABCC1CC679B200C637BE /* MapCoordinateSpanSingelton.swift */; };
 		DCB3E2361BE65102003AB6C9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB3E2351BE65102003AB6C9 /* LocationManager.swift */; };
 		DCC862BC1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */; };
@@ -127,6 +128,7 @@
 		DC7F79031CC00710006CBD42 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionTableViewCell.swift; sourceTree = "<group>"; };
 		DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionTableViewCell.xib; sourceTree = "<group>"; };
+		DC8961CD1CD404C700F8145A /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC9479B81CD3F98F0024E3C6 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DCAA484A1CC0027800114FF2 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
 		DCAA484B1CC0027800114FF2 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		DC1ED1791BE29572007C09D1 /* SparkTests */ = {
 			isa = PBXGroup;
 			children = (
+				DC8961CD1CD404C700F8145A /* InfoPlist.strings */,
 				DC9479B81CD3F98F0024E3C6 /* InfoPlist.strings */,
 				DC792C971CC2A10A003667BC /* InfoPlist.strings */,
 				DC792C951CC18CEA003667BC /* InfoPlist.strings */,
@@ -392,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC78F2231CC028A0009FF03E /* InfoPlist.strings in Resources */,
+				DC8961CE1CD404C700F8145A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
