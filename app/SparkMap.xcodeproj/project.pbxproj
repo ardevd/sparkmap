@@ -40,9 +40,6 @@
 		DC68F6861BE34C23000EFFF4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6851BE34C23000EFFF4 /* MapViewController.swift */; };
 		DC78F21F1CC0289F009FF03E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC78F2211CC0289F009FF03E /* InfoPlist.strings */; };
 		DC78F2231CC028A0009FF03E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC78F2221CC028A0009FF03E /* InfoPlist.strings */; };
-		DC78F2251CC028BE009FF03E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC78F2241CC028BE009FF03E /* InfoPlist.strings */; };
-		DC792C961CC18CEA003667BC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC792C951CC18CEA003667BC /* InfoPlist.strings */; };
-		DC792C981CC2A10A003667BC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC792C971CC2A10A003667BC /* InfoPlist.strings */; };
 		DC7C8C5F1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C8C5E1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift */; };
 		DC7C8C611C7F3A06003D5C37 /* DistanceToLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C8C601C7F3A06003D5C37 /* DistanceToLocationManager.swift */; };
 		DC7F79001CC006EA006CBD42 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC7F78FF1CC006EA006CBD42 /* InfoPlist.strings */; };
@@ -50,7 +47,6 @@
 		DC7F79041CC00710006CBD42 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC7F79031CC00710006CBD42 /* InfoPlist.strings */; };
 		DC85CABD1C5A137700AB2786 /* ConnectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */; };
 		DC85CABE1C5A137700AB2786 /* ConnectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */; };
-		DC9479B91CD3F98F0024E3C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC9479B81CD3F98F0024E3C6 /* InfoPlist.strings */; };
 		DCAFABCD1CC679B200C637BE /* MapCoordinateSpanSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAFABCC1CC679B200C637BE /* MapCoordinateSpanSingelton.swift */; };
 		DCB3E2361BE65102003AB6C9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB3E2351BE65102003AB6C9 /* LocationManager.swift */; };
 		DCC862BC1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */; };
@@ -332,7 +328,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Zygote Labs";
 				TargetAttributes = {
 					DC1ED15E1BE29572007C09D1 = {
@@ -396,10 +392,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC78F2231CC028A0009FF03E /* InfoPlist.strings in Resources */,
-				DC792C981CC2A10A003667BC /* InfoPlist.strings in Resources */,
-				DC792C961CC18CEA003667BC /* InfoPlist.strings in Resources */,
-				DC78F2251CC028BE009FF03E /* InfoPlist.strings in Resources */,
-				DC9479B91CD3F98F0024E3C6 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
