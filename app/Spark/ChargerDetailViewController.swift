@@ -389,7 +389,6 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             let task = session.dataTaskWithRequest(request){
                 (data, response, error) -> Void in
                 
-                
                 if (error == nil && data != nil)
                 {
                     func displayImage()
@@ -400,8 +399,6 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                             self.imageThumbnail.image = UIImage(data: data!)
                             self.imageThumbnail.alpha = 1.0
                         })
-                        
-                        
                     }
                     
                     dispatch_async(dispatch_get_main_queue(), displayImage)
@@ -412,12 +409,9 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                 }
                 
                 dispatch_async(dispatch_get_main_queue(), dismissActivityIndicator)
-                
-                
             }
             
             task.resume()
-            
         }
     }
     
