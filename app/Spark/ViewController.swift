@@ -87,7 +87,6 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
-        
         // Set up Popping
         showViewController(viewControllerToCommit, sender: self)
     }

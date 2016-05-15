@@ -221,8 +221,8 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         // Dismiss Action
         let cancelActionTitle = NSLocalizedString("Cancel", comment: "Cancel Action Text")
         let cancelAction = UIAlertAction(title: cancelActionTitle, style: .Cancel) { (alert: UIAlertAction!) -> Void in
-                   }
-
+        }
+        
         // Ask user whether to grab photo from the camera or the photo album.
         let photoSubmissionTitleString = NSLocalizedString("Photo Submission", comment: "Photo Submission")
         let photoSubmissionMessageString = NSLocalizedString("Submit a photo for this charging station", comment: "Submit a photo description text")
@@ -466,7 +466,6 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         if let location = locations.last {
             calculateDestinationETA(location.coordinate)
         }
-        
     }
     
     func calculateDestinationETA(userLocation: CLLocationCoordinate2D){

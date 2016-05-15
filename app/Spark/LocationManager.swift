@@ -66,7 +66,4 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         locationManager?.startUpdatingLocation()
     }
     
-    
-    
 }
-
