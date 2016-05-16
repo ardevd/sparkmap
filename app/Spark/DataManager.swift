@@ -299,6 +299,33 @@ class DataManager: NSObject {
                                         
                                     }
                                     
+                                    // Comments
+                                    if let commentData = element["UserComments"] as? [NSDictionary] {
+                                        for commentElement in commentData {
+                                            
+                                            if let commentText = commentElement["Comment"] as? String {
+                                                if (commentText.characters.count > 0) {
+                                                    let comment = NSEntityDescription.insertNewObjectForEntityForName("Comment", inManagedObjectContext: moc) as! Comment
+                                                    
+                                                    comment.comment = commentText
+                                                    if let commentId = commentElement["ID"] as? NSNumber {
+                                                        comment.commentId = commentId.stringValue
+                                                    }
+                                    
+                                                    if let commentRating = commentElement["Rating"] as? NSNumber {
+                                                        comment.rating = commentRating.intValue
+                                                    }
+                                                    
+                                                    if let commentUsername = commentElement["UserName"] as? String {
+                                                        comment.username = commentUsername
+                                                    }
+                                                    
+                                                    comment.chargerSecondary = chargerDetails
+                                                }
+                                            }
+                                        }
+                                    }
+                                    
                                     // Connections
                                     if let connectionData = element["Connections"] as? [NSDictionary] {
                                         for connectionElement in connectionData {
@@ -523,7 +550,7 @@ class DataManager: NSObject {
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             
             dict[NSUnderlyingErrorKey] = error as NSError
-            let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            let wrappedError = NSError(domain: "SPARKMAP_ERROR_DOMAIN", code: 9999, userInfo: dict)
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")

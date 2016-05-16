@@ -15,7 +15,7 @@ import CoreData
 extension Comment {
 
     @NSManaged var comment: String?
-    @NSManaged var commentId: Int64
+    @NSManaged var commentId: String?
     @NSManaged var rating: Int32
     @NSManaged var username: String?
     @NSManaged var chargerSecondary: ChargerDetails?
