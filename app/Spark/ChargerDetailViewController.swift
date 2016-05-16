@@ -247,7 +247,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             // User confirmed. Post the photo
             let userPhotoSubmissionManager = UserPhotoSubmissionManager()
             if let chargerId = self.charger?.chargerId{
-                userPhotoSubmissionManager.myImageUploadRequest(self.imageThumbnail, chargerId: chargerId)
+                userPhotoSubmissionManager.userPhotoUploadRequest(self.imageThumbnail, chargerId: chargerId)
                 self.showPhotoSubmissionConfirmationAlert()
             }
         }

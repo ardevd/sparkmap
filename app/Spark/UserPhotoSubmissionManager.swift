@@ -11,7 +11,7 @@ import UIKit
 class UserPhotoSubmissionManager: NSObject {
     
     
-    func myImageUploadRequest(userImageView: UIImageView, chargerId: String)
+    func userPhotoUploadRequest(userImageView: UIImageView, chargerId: String)
     {
         
         let userImage = userImageView.image!
