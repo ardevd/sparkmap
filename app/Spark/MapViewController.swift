@@ -248,9 +248,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         if control == annotationView.rightCalloutAccessoryView {
             if let chargerAnnotation = annotationView.annotation as? AnnotationCharger {
                 
-                
                 let charger = chargerAnnotation.charger
-                print(charger.chargerTitle)
                 let vc = ChargerDetailViewController()
                 vc.charger = charger
                 vc.connections = charger.chargerDetails?.connections?.allObjects as! [Connection]
