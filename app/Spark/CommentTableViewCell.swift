@@ -11,6 +11,7 @@ import UIKit
 class CommentTableViewCell: UITableViewCell {
     
     @IBOutlet var commentTextLabel: UILabel?
+    @IBOutlet var commentRatingLabel: UILabel?
 
     override func awakeFromNib() {
         super.awakeFromNib()

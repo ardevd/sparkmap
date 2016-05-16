@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChargerDetailViewController" customModule="SparkMap" customModuleProvider="target">
             <connections>
+                <outlet property="buttonComments" destination="vb3-VA-h90" id="DiG-I1-3q1"/>
                 <outlet property="buttonLastUpdateTime" destination="M3g-6f-yNs" id="j6i-88-fzz"/>
                 <outlet property="chargingPointTableView" destination="4de-Ge-SaW" id="Umm-Kt-ps0"/>
                 <outlet property="dataLastUpdateTimeLabel" destination="vVV-5e-n9w" id="f93-PI-DNK"/>
@@ -111,11 +112,19 @@
                                 <constraint firstAttribute="trailing" secondItem="eG8-X2-6kD" secondAttribute="trailing" constant="2" id="eJO-Mh-ixb"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vb3-VA-h90">
+                            <rect key="frame" x="23" y="64" width="100" height="30"/>
+                            <state key="normal" title="Comments"/>
+                            <connections>
+                                <action selector="showCommentViewController" destination="-1" eventType="primaryActionTriggered" id="Puf-Iv-9SJ"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.21568627450980393" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="Rpx-Kl-Olf" firstAttribute="leading" secondItem="RJH-4q-i9x" secondAttribute="trailing" constant="8" id="1Zq-Sy-Uxp"/>
                         <constraint firstItem="Qmq-y0-sxC" firstAttribute="top" secondItem="OST-qJ-PCa" secondAttribute="bottom" id="6pK-KP-CBs"/>
+                        <constraint firstItem="vb3-VA-h90" firstAttribute="top" secondItem="Qmq-y0-sxC" secondAttribute="bottom" constant="8" id="A1j-PR-lfp"/>
                         <constraint firstItem="RJH-4q-i9x" firstAttribute="centerX" secondItem="KrZ-Gp-D3P" secondAttribute="centerX" id="EVW-eT-Sil"/>
                         <constraint firstItem="Qmq-y0-sxC" firstAttribute="leading" secondItem="KrZ-Gp-D3P" secondAttribute="leading" id="GjZ-BJ-IZV"/>
                         <constraint firstAttribute="height" constant="212" id="M2O-lQ-68B"/>
@@ -126,6 +135,7 @@
                         <constraint firstItem="oEs-js-ewP" firstAttribute="centerX" secondItem="KrZ-Gp-D3P" secondAttribute="centerX" id="hQZ-s9-uyf"/>
                         <constraint firstItem="MFW-g4-3i2" firstAttribute="top" secondItem="oEs-js-ewP" secondAttribute="bottom" constant="5" id="i53-c3-1Ry"/>
                         <constraint firstItem="RJH-4q-i9x" firstAttribute="top" secondItem="KrZ-Gp-D3P" secondAttribute="topMargin" constant="21" id="mMx-eo-PTn"/>
+                        <constraint firstItem="vb3-VA-h90" firstAttribute="leading" secondItem="KrZ-Gp-D3P" secondAttribute="leading" constant="23" id="oca-VV-wY9"/>
                         <constraint firstItem="oEs-js-ewP" firstAttribute="top" secondItem="RJH-4q-i9x" secondAttribute="bottom" constant="10" id="sKL-nV-jmW"/>
                         <constraint firstItem="M3g-6f-yNs" firstAttribute="trailing" secondItem="KrZ-Gp-D3P" secondAttribute="trailingMargin" id="spr-M8-VdH"/>
                         <constraint firstItem="Rpx-Kl-Olf" firstAttribute="top" secondItem="M3g-6f-yNs" secondAttribute="bottom" constant="3" id="szM-Iv-OIa"/>

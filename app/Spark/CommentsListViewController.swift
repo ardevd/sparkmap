@@ -24,6 +24,8 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         let nib = UINib(nibName: "CommentTableViewCell", bundle: nil)
         chargerCommentsTableView.registerNib(nib, forCellReuseIdentifier: "net.zygotelabs.commentcell")
         chargerCommentsTableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        chargerTitleLabel.text = charger?.chargerTitle
 
         // Do any additional setup after loading the view.
     }
@@ -40,6 +42,7 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         let cell = tableView.dequeueReusableCellWithIdentifier("net.zygotelabs.commentcell", forIndexPath: indexPath) as! CommentTableViewCell
         
         cell.commentTextLabel?.text = (comments[indexPath.row] as Comment).comment
+        cell.commentRatingLabel?.text = String((comments[indexPath.row] as Comment).rating)
         return cell
     }
 

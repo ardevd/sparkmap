@@ -23,6 +23,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     @IBOutlet var labelTransportETA: UILabel!
     @IBOutlet var indicatorImageLoader: UIActivityIndicatorView!
     @IBOutlet var buttonLastUpdateTime: UIButton!
+    @IBOutlet var buttonComments: UIButton!
     
     // Views
     @IBOutlet var viewNumberOfPoints: UIView!
@@ -479,5 +480,14 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             self.labelTransportETA.text = travelTimeString
             
         }
+    }
+    
+    @IBAction func showCommentViewController(){
+        let vc = CommentsListViewController()
+        vc.charger = charger
+        vc.comments = charger!.chargerDetails?.comments?.allObjects as! [Comment]
+        vc.hidesBottomBarWhenPushed = true
+        showViewController(vc, sender: nil)
+
     }
 }
