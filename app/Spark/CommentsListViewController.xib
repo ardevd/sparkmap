@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentsListViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentsListViewController" customModule="SparkMap" customModuleProvider="target">
             <connections>
+                <outlet property="chargerCommentsTableView" destination="dPc-Mg-b6I" id="gqZ-VW-x57"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +15,43 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QsE-ol-Jcp">
+                    <rect key="frame" x="0.0" y="50" width="600" height="65"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAR-KX-Nj6">
+                            <rect key="frame" x="279" y="22" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.20000000000000001" green="0.2156862745" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="SAR-KX-Nj6" firstAttribute="centerY" secondItem="QsE-ol-Jcp" secondAttribute="centerY" id="bZf-Zh-f2n"/>
+                        <constraint firstAttribute="height" constant="65" id="cFJ-vu-sZd"/>
+                        <constraint firstItem="SAR-KX-Nj6" firstAttribute="centerX" secondItem="QsE-ol-Jcp" secondAttribute="centerX" id="gJ0-n7-wMQ"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dPc-Mg-b6I">
+                    <rect key="frame" x="0.0" y="115" width="600" height="485"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="zUJ-7g-bK1"/>
+                        <outlet property="delegate" destination="-1" id="U9H-DE-E0n"/>
+                    </connections>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="dPc-Mg-b6I" secondAttribute="bottom" id="Djw-Ip-s38"/>
+                <constraint firstItem="dPc-Mg-b6I" firstAttribute="top" secondItem="QsE-ol-Jcp" secondAttribute="bottom" id="Ubs-yx-fGI"/>
+                <constraint firstItem="QsE-ol-Jcp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fQH-LH-dQj"/>
+                <constraint firstAttribute="trailing" secondItem="QsE-ol-Jcp" secondAttribute="trailing" id="ifw-VF-v6e"/>
+                <constraint firstAttribute="trailing" secondItem="dPc-Mg-b6I" secondAttribute="trailing" id="olS-Vl-vFz"/>
+                <constraint firstItem="QsE-ol-Jcp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="opu-b2-MPk"/>
+                <constraint firstItem="dPc-Mg-b6I" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="plj-2W-2eh"/>
+            </constraints>
         </view>
     </objects>
 </document>
