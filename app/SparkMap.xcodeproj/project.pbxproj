@@ -38,6 +38,10 @@
 		DC68F6831BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6811BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift */; };
 		DC68F6841BE34B11000EFFF4 /* ChargerOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */; };
 		DC68F6861BE34C23000EFFF4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6851BE34C23000EFFF4 /* MapViewController.swift */; };
+		DC7830CD1CE9C79A005B315E /* CommentsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7830CB1CE9C79A005B315E /* CommentsListViewController.swift */; };
+		DC7830CE1CE9C79A005B315E /* CommentsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC7830CC1CE9C79A005B315E /* CommentsListViewController.xib */; };
+		DC7830D11CE9D8FE005B315E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7830CF1CE9D8FE005B315E /* CommentTableViewCell.swift */; };
+		DC7830D21CE9D8FE005B315E /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC7830D01CE9D8FE005B315E /* CommentTableViewCell.xib */; };
 		DC78F21F1CC0289F009FF03E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC78F2211CC0289F009FF03E /* InfoPlist.strings */; };
 		DC78F2231CC028A0009FF03E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC78F2221CC028A0009FF03E /* InfoPlist.strings */; };
 		DC7C8C5F1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C8C5E1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift */; };
@@ -116,11 +120,16 @@
 		DC68F6811BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChargerOperator+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargerOperator.swift; sourceTree = "<group>"; };
 		DC68F6851BE34C23000EFFF4 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DC7830CB1CE9C79A005B315E /* CommentsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsListViewController.swift; sourceTree = "<group>"; };
+		DC7830CC1CE9C79A005B315E /* CommentsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsListViewController.xib; sourceTree = "<group>"; };
+		DC7830CF1CE9D8FE005B315E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		DC7830D01CE9D8FE005B315E /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		DC78F2201CC0289F009FF03E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DC78F2221CC028A0009FF03E /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC78F2241CC028BE009FF03E /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC792C951CC18CEA003667BC /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC792C971CC2A10A003667BC /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC7C0ED01CEA093400DBC7A1 /* Spark v6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v6.xcdatamodel"; sourceTree = "<group>"; };
 		DC7C8C5E1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastDataUpdateLocationSingelton.swift; sourceTree = "<group>"; };
 		DC7C8C601C7F3A06003D5C37 /* DistanceToLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceToLocationManager.swift; sourceTree = "<group>"; };
 		DC7F78FF1CC006EA006CBD42 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -221,9 +230,13 @@
 				DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */,
 				DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */,
 				DC11A7B11C092FD300FD54C3 /* ChargerDetailViewController.swift */,
+				DC7830CB1CE9C79A005B315E /* CommentsListViewController.swift */,
+				DC7830CC1CE9C79A005B315E /* CommentsListViewController.xib */,
 				DC1A2DF21CB6D69400C2C01F /* ChargerDetailViewController.xib */,
 				DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */,
 				DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */,
+				DC7830CF1CE9D8FE005B315E /* CommentTableViewCell.swift */,
+				DC7830D01CE9D8FE005B315E /* CommentTableViewCell.xib */,
 				DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */,
 				DCDC2C361C613A42004BEF91 /* SettingsViewController.swift */,
 				DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */,
@@ -384,7 +397,9 @@
 				DC1A2DF01CB6D69400C2C01F /* ChargerDetailViewController.xib in Resources */,
 				DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */,
 				DC14112C1CC00DEE00F68C83 /* Localizable.strings in Resources */,
+				DC7830CE1CE9C79A005B315E /* CommentsListViewController.xib in Resources */,
 				DC1ED16D1BE29572007C09D1 /* Assets.xcassets in Resources */,
+				DC7830D21CE9D8FE005B315E /* CommentTableViewCell.xib in Resources */,
 				DC78F21F1CC0289F009FF03E /* InfoPlist.strings in Resources */,
 				DC1ED1681BE29572007C09D1 /* Main.storyboard in Resources */,
 			);
@@ -430,6 +445,7 @@
 				DC4EB7AD1BE9717800B75FFC /* NearbyTableViewCell.swift in Sources */,
 				DCD04B781CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift in Sources */,
 				DC7C8C5F1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift in Sources */,
+				DC7830CD1CE9C79A005B315E /* CommentsListViewController.swift in Sources */,
 				DC68F6791BE345B4000EFFF4 /* Connection+CoreDataProperties.swift in Sources */,
 				DC68F6741BE345B4000EFFF4 /* ChargerPrimary.swift in Sources */,
 				DC68F6731BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift in Sources */,
@@ -441,6 +457,7 @@
 				DC68F6841BE34B11000EFFF4 /* ChargerOperator.swift in Sources */,
 				DCDC2C371C613A42004BEF91 /* SettingsViewController.swift in Sources */,
 				DC11A7B31C092FD300FD54C3 /* ChargerDetailViewController.swift in Sources */,
+				DC7830D11CE9D8FE005B315E /* CommentTableViewCell.swift in Sources */,
 				DC68F6831BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift in Sources */,
 				DCAFABCD1CC679B200C637BE /* MapCoordinateSpanSingelton.swift in Sources */,
 				DC68F67B1BE345B4000EFFF4 /* Comment+CoreDataProperties.swift in Sources */,
@@ -744,6 +761,7 @@
 		DC1ED1691BE29572007C09D1 /* Spark.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				DC7C0ED01CEA093400DBC7A1 /* Spark v6.xcdatamodel */,
 				DCCD91D21CD29DA000C571B8 /* Spark v5.xcdatamodel */,
 				DC093CAA1CC0310A00EFCD52 /* Spark v4.xcdatamodel */,
 				DCABF7A01C77CAB000B9FEE2 /* Spark v 3.xcdatamodel */,
