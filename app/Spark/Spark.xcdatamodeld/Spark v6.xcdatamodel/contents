@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Automatic">
+    <entity name="ChargerDetails" representedClassName=".ChargerDetails" syncable="YES">
+        <attribute name="chargerAccessComment" optional="YES" attributeType="String" minValueString="0" maxValueString="3000" syncable="YES"/>
+        <attribute name="chargerAddress1" optional="YES" attributeType="String" maxValueString="300" syncable="YES"/>
+        <attribute name="chargerAddress2" optional="YES" attributeType="String" maxValueString="300" syncable="YES"/>
+        <attribute name="chargerContact" optional="YES" attributeType="String" maxValueString="150" syncable="YES"/>
+        <attribute name="chargerCountry" optional="YES" attributeType="String" maxValueString="150" syncable="YES"/>
+        <attribute name="chargerGeneralComment" optional="YES" attributeType="String" maxValueString="1000" syncable="YES"/>
+        <attribute name="chargerPostcode" optional="YES" attributeType="String" maxValueString="20" syncable="YES"/>
+        <attribute name="chargerPrimaryContactNumber" optional="YES" attributeType="String" maxValueString="100" syncable="YES"/>
+        <attribute name="chargerProvince" optional="YES" attributeType="String" maxValueString="300" syncable="YES"/>
+        <attribute name="chargerRecentlyVerified" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="chargerTown" optional="YES" attributeType="String" maxValueString="300" syncable="YES"/>
+        <attribute name="chargerUsageType" optional="YES" attributeType="String" maxValueString="200" syncable="YES"/>
+        <relationship name="chargerPrimary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChargerPrimary" inverseName="chargerDetails" inverseEntity="ChargerPrimary" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="chargerSecondary" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="connections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Connection" inverseName="chargerSecondary" inverseEntity="Connection" syncable="YES"/>
+    </entity>
+    <entity name="ChargerOperator" representedClassName=".ChargerOperator" syncable="YES">
+        <attribute name="operatorEmail" optional="YES" attributeType="String" minValueString="4" maxValueString="150" syncable="YES"/>
+        <attribute name="operatorId" attributeType="String" minValueString="0" syncable="YES"/>
+        <attribute name="operatorName" optional="YES" attributeType="String" minValueString="0" maxValueString="150" syncable="YES"/>
+        <attribute name="operatorWeb" optional="YES" attributeType="String" maxValueString="300" syncable="YES"/>
+        <relationship name="chargerPrimary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChargerPrimary" inverseName="chargerOperator" inverseEntity="ChargerPrimary" syncable="YES"/>
+    </entity>
+    <entity name="ChargerPrimary" representedClassName=".ChargerPrimary" syncable="YES">
+        <attribute name="chargerDataLastUpdate" optional="YES" attributeType="Date" minDateTimeInterval="-344446560" maxDateTimeInterval="1233390240" defaultDateTimeInterval="483562800" syncable="YES"/>
+        <attribute name="chargerDataQualityLevel" optional="YES" attributeType="Integer 64" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="chargerDistance" optional="YES" attributeType="Double" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="chargerId" attributeType="String" minValueString="0" syncable="YES"/>
+        <attribute name="chargerImage" optional="YES" attributeType="String" maxValueString="300" syncable="YES"/>
+        <attribute name="chargerImageThumb" optional="YES" attributeType="String" maxValueString="300" syncable="YES"/>
+        <attribute name="chargerIsOperational" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="chargerLatitude" optional="YES" attributeType="Double" minValueString="-90" maxValueString="90" syncable="YES"/>
+        <attribute name="chargerLongitude" optional="YES" attributeType="Double" minValueString="-180" maxValueString="180" syncable="YES"/>
+        <attribute name="chargerNumberOfPoints" optional="YES" attributeType="Integer 64" minValueString="0" maxValueString="1000" defaultValueString="0" syncable="YES"/>
+        <attribute name="chargerSubtitle" optional="YES" attributeType="String" maxValueString="300" syncable="YES"/>
+        <attribute name="chargerTitle" optional="YES" attributeType="String" maxValueString="300" syncable="YES"/>
+        <attribute name="chargerWasAddedDate" attributeType="Double" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <relationship name="chargerDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChargerDetails" inverseName="chargerPrimary" inverseEntity="ChargerDetails" syncable="YES"/>
+        <relationship name="chargerOperator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChargerOperator" inverseName="chargerPrimary" inverseEntity="ChargerOperator" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="chargerId"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Comment" representedClassName=".Comment" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" maxValueString="5000" syncable="YES"/>
+        <attribute name="commentId" attributeType="Integer 64" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 32" minValueString="0" maxValueString="10" defaultValueString="0" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" maxValueString="200" syncable="YES"/>
+        <relationship name="chargerSecondary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChargerDetails" inverseName="comments" inverseEntity="ChargerDetails" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="commentId"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Connection" representedClassName=".Connection" syncable="YES">
+        <attribute name="connectionAmp" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="connectionId" attributeType="Integer 64" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="connectionPowerKW" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="connectionQuantity" optional="YES" attributeType="Integer 64" syncable="YES"/>
+        <attribute name="connectionSupportsFastCharging" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="connectionTypeId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="connectionTypeTitle" optional="YES" attributeType="String" maxValueString="200" syncable="YES"/>
+        <attribute name="connectionVoltage" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="chargerSecondary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChargerDetails" inverseName="connections" inverseEntity="ChargerDetails" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="connectionId"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <elements>
+        <element name="ChargerDetails" positionX="-441" positionY="-27" width="128" height="268"/>
+        <element name="ChargerOperator" positionX="-902" positionY="45" width="128" height="118"/>
+        <element name="ChargerPrimary" positionX="-684" positionY="2" width="128" height="268"/>
+        <element name="Comment" positionX="-245" positionY="-36" width="128" height="118"/>
+        <element name="Connection" positionX="-234" positionY="104" width="128" height="178"/>
+    </elements>
+</model>
