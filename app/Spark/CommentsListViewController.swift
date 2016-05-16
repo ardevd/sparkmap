@@ -8,11 +8,13 @@
 
 import UIKit
 
-class CommentsListViewController: UIViewController, UITableViewDelegate, UINavigationControllerDelegate {
+class CommentsListViewController: UIViewController, UITableViewDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     // Outlets
     @IBOutlet var chargerTitleLabel: UILabel!
     @IBOutlet var chargerCommentsTableView: UITableView!
+    @IBOutlet var chargerCommentTextView: UITextField!
+    @IBOutlet var chargerCommentSubmitButton: UIButton!
     
     var charger: ChargerPrimary?
     var comments: [Comment] = [Comment]()
@@ -26,8 +28,45 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         chargerCommentsTableView.tableFooterView = UIView(frame: CGRectZero)
         
         chargerTitleLabel.text = charger?.chargerTitle
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentsListViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentsListViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentsListViewController.enableUserInteraction), name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentsListViewController.enableUserInteraction), name: UIKeyboardDidHideNotification, object: nil)
 
-        // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func submitUserComment(){
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        chargerCommentTextView.resignFirstResponder()
+        return true;
+    }
+    
+    func keyboardWillShow(notification: NSNotification)
+    {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()
+        {
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            self.view.frame.origin.y -= keyboardSize.height
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification)
+    {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()
+        {
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            self.view.frame.origin.y += keyboardSize.height
+        }
+    }
+    
+    func enableUserInteraction()
+    {
+        UIApplication.sharedApplication().endIgnoringInteractionEvents()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
