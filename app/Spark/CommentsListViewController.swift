@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommentsListViewController: UIViewController, UITableViewDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class CommentsListViewController: UIViewController, UITableViewDelegate, UINavigationControllerDelegate {
     
     // Outlets
     @IBOutlet var chargerTitleLabel: UILabel!
@@ -28,45 +28,26 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         chargerCommentsTableView.tableFooterView = UIView(frame: CGRectZero)
         
         chargerTitleLabel.text = charger?.chargerTitle
+        generateCommentButton()
+    
+    }
+    
+    func generateCommentButton() {
+        var navigationButtonItems = [UIBarButtonItem]()
+        // Button that lets user submit a comment
+        let commentButtonTitle = NSLocalizedString("Write Comment", comment: "Write Comment")
+        let commentButtonItem = UIBarButtonItem(title: commentButtonTitle, style: .Plain, target: self, action: #selector(CommentsListViewController.commentButtonTapped))
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentsListViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentsListViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentsListViewController.enableUserInteraction), name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentsListViewController.enableUserInteraction), name: UIKeyboardDidHideNotification, object: nil)
+        navigationButtonItems.append(commentButtonItem)
+        self.navigationItem.setRightBarButtonItems(navigationButtonItems, animated: true)
 
     }
     
-    @IBAction func submitUserComment(){
-        
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
-    {
-        chargerCommentTextView.resignFirstResponder()
-        return true;
-    }
-    
-    func keyboardWillShow(notification: NSNotification)
-    {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()
-        {
-            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-            self.view.frame.origin.y -= keyboardSize.height
+    func commentButtonTapped(){
+        // Direct user to OCM comment page
+        if let chargerId = self.charger?.chargerId{
+            UIApplication.sharedApplication().openURL(NSURL(string: "http://openchargemap.org/site/poi/details/\(chargerId)#tab-comments")!)
         }
-    }
-    
-    func keyboardWillHide(notification: NSNotification)
-    {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()
-        {
-            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-            self.view.frame.origin.y += keyboardSize.height
-        }
-    }
-    
-    func enableUserInteraction()
-    {
-        UIApplication.sharedApplication().endIgnoringInteractionEvents()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -86,10 +67,7 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil)
+
     }
 
     override func didReceiveMemoryWarning() {
