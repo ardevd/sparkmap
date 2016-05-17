@@ -63,6 +63,15 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         
         cell.commentTextLabel?.text = (comments[indexPath.row] as Comment).comment
         cell.commentRatingLabel?.text = String((comments[indexPath.row] as Comment).rating)
+        cell.commentUsernameLabel?.text = (comments[indexPath.row] as Comment).username
+        let commentDate = (comments[indexPath.row] as Comment).commentDate
+        let date = NSDate(timeIntervalSinceReferenceDate: commentDate)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        let convertedDate = dateFormatter.stringFromDate(date)
+            cell.commentDateLabel?.text = convertedDate
+
+        
         return cell
     }
     
