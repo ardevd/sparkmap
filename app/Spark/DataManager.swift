@@ -197,6 +197,22 @@ class DataManager: NSObject {
         return "Boundary-\(NSUUID().UUIDString)"
     }
     
+    func ocmDateFormatParser(OCMDateString dateString: String) -> NSDate {
+        //Format date string from OCM to NSDate
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        let cleanedUpdateDate = dateString.stringByReplacingOccurrencesOfString("Z", withString: "")
+        return dateFormatter.dateFromString(cleanedUpdateDate)!
+    }
+    
+    func ocmCommentDateFormatParser(OCMDateString dateString: String) -> NSDate {
+        //Format comment date string from OCM to NSDate
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SS"
+        let cleanedUpdateDate = dateString.stringByReplacingOccurrencesOfString("Z", withString: "")
+        return dateFormatter.dateFromString(cleanedUpdateDate)!
+    }
+    
     
     func downloadNearbyChargers(Latitude latitude: Double, Longitude longitude: Double){
         //Check if we are in offline mode first.
@@ -270,15 +286,9 @@ class DataManager: NSObject {
                                     }
                                     
                                     if let chargerDataLastUpdateTime = element["DateLastStatusUpdate"] as? String {
-                                        //Format date string to NSDate
-                                        let dateFormatter = NSDateFormatter()
-                                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-                                        let cleanedUpdateDate = chargerDataLastUpdateTime.stringByReplacingOccurrencesOfString("Z", withString: "")
-                                        if let date = dateFormatter.dateFromString(cleanedUpdateDate) {
-                                            
-                                            chargerPrimary.chargerDataLastUpdate = date.timeIntervalSinceReferenceDate
-                                        }
-                                        
+                                        let date = self.ocmDateFormatParser(OCMDateString: chargerDataLastUpdateTime)
+                                        chargerPrimary.chargerDataLastUpdate = date.timeIntervalSinceReferenceDate
+
                                     }
                                     
                                     // Media
@@ -318,6 +328,12 @@ class DataManager: NSObject {
                                                     
                                                     if let commentUsername = commentElement["UserName"] as? String {
                                                         comment.username = commentUsername
+                                                    }
+                                                    
+                                                    if let commentDate = commentElement["DateCreated"] as? String {
+                                                        let date = self.ocmCommentDateFormatParser(OCMDateString: commentDate)
+                                                        comment.commentDate = date.timeIntervalSinceReferenceDate
+                                                        
                                                     }
                                                     
                                                     comment.chargerSecondary = chargerDetails
