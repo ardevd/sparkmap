@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Automatic">
     <entity name="ChargerDetails" representedClassName=".ChargerDetails" syncable="YES">
         <attribute name="chargerAccessComment" optional="YES" attributeType="String" minValueString="0" maxValueString="3000" syncable="YES"/>
         <attribute name="chargerAddress1" optional="YES" attributeType="String" maxValueString="300" syncable="YES"/>
@@ -48,7 +48,8 @@
     </entity>
     <entity name="Comment" representedClassName=".Comment" syncable="YES">
         <attribute name="comment" optional="YES" attributeType="String" maxValueString="5000" syncable="YES"/>
-        <attribute name="commentId" attributeType="Integer 64" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="commentDate" optional="YES" attributeType="Date" minDateTimeInterval="-335334660" maxDateTimeInterval="611436540" defaultDateTimeInterval="295818780" syncable="YES"/>
+        <attribute name="commentId" attributeType="String" minValueString="0" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 32" minValueString="0" maxValueString="10" defaultValueString="0" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" maxValueString="200" syncable="YES"/>
         <relationship name="chargerSecondary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChargerDetails" inverseName="comments" inverseEntity="ChargerDetails" syncable="YES"/>
@@ -78,7 +79,7 @@
         <element name="ChargerDetails" positionX="-441" positionY="-27" width="128" height="268"/>
         <element name="ChargerOperator" positionX="-902" positionY="45" width="128" height="118"/>
         <element name="ChargerPrimary" positionX="-684" positionY="2" width="128" height="268"/>
-        <element name="Comment" positionX="-245" positionY="-36" width="128" height="118"/>
+        <element name="Comment" positionX="-245" positionY="-36" width="128" height="133"/>
         <element name="Connection" positionX="-234" positionY="104" width="128" height="178"/>
     </elements>
 </model>

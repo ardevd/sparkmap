@@ -2,7 +2,7 @@
 //  Comment+CoreDataProperties.swift
 //  SparkMap
 //
-//  Created by Edvard Holst on 16/05/16.
+//  Created by Edvard Holst on 17/05/16.
 //  Copyright © 2016 Zygote Labs. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -18,6 +18,7 @@ extension Comment {
     @NSManaged var commentId: String?
     @NSManaged var rating: Int32
     @NSManaged var username: String?
+    @NSManaged var commentDate: NSTimeInterval
     @NSManaged var chargerSecondary: ChargerDetails?
 
 }
