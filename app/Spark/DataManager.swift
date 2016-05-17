@@ -28,7 +28,7 @@ class DataManager: NSObject {
         return moc
         }()
     
-    //TODO: Use this MOC to do data maintenance
+    // Use this MOC to do data maintenance
     lazy var secondMoc: NSManagedObjectContext = { [unowned self] in
         let moc = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.PrivateQueueConcurrencyType)
         moc.parentContext = self.managedObjectContext
