@@ -15,6 +15,7 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
     @IBOutlet var chargerCommentsTableView: UITableView!
     @IBOutlet var chargerCommentTextView: UITextField!
     @IBOutlet var chargerCommentSubmitButton: UIButton!
+    @IBOutlet var noCommentsView: UIView!
     
     var charger: ChargerPrimary?
     var comments: [Comment] = [Comment]()
@@ -26,10 +27,30 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         let nib = UINib(nibName: "CommentTableViewCell", bundle: nil)
         chargerCommentsTableView.registerNib(nib, forCellReuseIdentifier: "net.zygotelabs.commentcell")
         chargerCommentsTableView.tableFooterView = UIView(frame: CGRectZero)
+        self.navigationItem.backBarButtonItem?.title = ""
         
         chargerTitleLabel.text = charger?.chargerTitle
         generateCommentButton()
+        
+        noCommentsView.alpha = 0
+        
+        if (comments.count == 0) {
+            showNoCommentsView()
+        }
     
+    }
+    
+    func showNoCommentsView(){
+        func displayView()
+        {
+            // Animate the fade in of the image
+            UIView.animateWithDuration(0.7, animations: {
+                self.noCommentsView.alpha = 0
+                self.noCommentsView.alpha = 1.0
+            })
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), displayView)
     }
     
     func generateCommentButton() {
