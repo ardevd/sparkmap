@@ -173,9 +173,11 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     func checkAndAnimateRecentlyVerifiedView() {
         if let isRecentlyVerified = charger?.chargerDetails?.chargerRecentlyVerified {
             if isRecentlyVerified {
+                self.viewRecentlyVerified.frame.size.width = 0
                 // Charger was recently verified. Show the badge.
                 UIView.animateWithDuration(0.5, animations: {
                     self.viewRecentlyVerified.alpha = 1.0
+                    self.viewRecentlyVerified.frame.size.width = 123
                 })
             }
         }
