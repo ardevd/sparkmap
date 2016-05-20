@@ -83,7 +83,7 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         let cell = tableView.dequeueReusableCellWithIdentifier("net.zygotelabs.commentcell", forIndexPath: indexPath) as! CommentTableViewCell
         
         cell.commentTextLabel?.text = (comments[indexPath.row] as Comment).comment
-        cell.commentRatingLabel?.text = String((comments[indexPath.row] as Comment).rating)
+        cell.commentRatingLabel?.text = String((comments[indexPath.row] as Comment).rating) + "/5"
         cell.commentUsernameLabel?.text = (comments[indexPath.row] as Comment).username
         let commentDate = (comments[indexPath.row] as Comment).commentDate
         let date = NSDate(timeIntervalSinceReferenceDate: commentDate)
