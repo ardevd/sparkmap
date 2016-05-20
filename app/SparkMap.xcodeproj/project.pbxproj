@@ -27,6 +27,10 @@
 		DC24E3601C5B83760070AC3E /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */; };
 		DC4EB7AD1BE9717800B75FFC /* NearbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */; };
 		DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */; };
+		DC5FB5011CEFA407000E1F33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC5FB5001CEFA407000E1F33 /* InfoPlist.strings */; };
+		DC5FB5071CEFA4B3000E1F33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC5FB5061CEFA4B3000E1F33 /* InfoPlist.strings */; };
+		DC5FB5091CEFA563000E1F33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC5FB5081CEFA563000E1F33 /* InfoPlist.strings */; };
+		DC5FB50B1CEFA60B000E1F33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC5FB50A1CEFA60B000E1F33 /* InfoPlist.strings */; };
 		DC68F6731BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6691BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift */; };
 		DC68F6741BE345B4000EFFF4 /* ChargerPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F66A1BE345B4000EFFF4 /* ChargerPrimary.swift */; };
 		DC68F6771BE345B4000EFFF4 /* ChargerDetails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F66D1BE345B4000EFFF4 /* ChargerDetails+CoreDataProperties.swift */; };
@@ -39,7 +43,6 @@
 		DC68F6841BE34B11000EFFF4 /* ChargerOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */; };
 		DC68F6861BE34C23000EFFF4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6851BE34C23000EFFF4 /* MapViewController.swift */; };
 		DC7830CD1CE9C79A005B315E /* CommentsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7830CB1CE9C79A005B315E /* CommentsListViewController.swift */; };
-		DC7830CE1CE9C79A005B315E /* CommentsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC7830CC1CE9C79A005B315E /* CommentsListViewController.xib */; };
 		DC7830D11CE9D8FE005B315E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7830CF1CE9D8FE005B315E /* CommentTableViewCell.swift */; };
 		DC7830D21CE9D8FE005B315E /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC7830D01CE9D8FE005B315E /* CommentTableViewCell.xib */; };
 		DC78F21F1CC0289F009FF03E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC78F2211CC0289F009FF03E /* InfoPlist.strings */; };
@@ -51,10 +54,10 @@
 		DC7F79041CC00710006CBD42 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC7F79031CC00710006CBD42 /* InfoPlist.strings */; };
 		DC85CABD1C5A137700AB2786 /* ConnectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */; };
 		DC85CABE1C5A137700AB2786 /* ConnectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */; };
-		DC8961CE1CD404C700F8145A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC8961CD1CD404C700F8145A /* InfoPlist.strings */; };
 		DCAFABCD1CC679B200C637BE /* MapCoordinateSpanSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAFABCC1CC679B200C637BE /* MapCoordinateSpanSingelton.swift */; };
 		DCB3E2361BE65102003AB6C9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB3E2351BE65102003AB6C9 /* LocationManager.swift */; };
 		DCC862BC1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */; };
+		DCCF429B1CEFA007008DC094 /* CommentsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCF429D1CEFA007008DC094 /* CommentsListViewController.xib */; };
 		DCD04B781CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD04B771CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift */; };
 		DCD7983B1BE5814F00C62863 /* AnnotationCharger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD7983A1BE5814F00C62863 /* AnnotationCharger.swift */; };
 		DCDC2C371C613A42004BEF91 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDC2C361C613A42004BEF91 /* SettingsViewController.swift */; };
@@ -109,6 +112,14 @@
 		DC2F421B1C68C4A300579F18 /* Spark v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v2.xcdatamodel"; sourceTree = "<group>"; };
 		DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyTableViewCell.swift; sourceTree = "<group>"; };
 		DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearbyTableViewCell.xib; sourceTree = "<group>"; };
+		DC5FB4FA1CEFA254000E1F33 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC5FB4FC1CEFA296000E1F33 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC5FB4FE1CEFA35C000E1F33 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC5FB5001CEFA407000E1F33 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC5FB5051CEFA43A000E1F33 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/CommentsListViewController.strings; sourceTree = "<group>"; };
+		DC5FB5061CEFA4B3000E1F33 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC5FB5081CEFA563000E1F33 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC5FB50A1CEFA60B000E1F33 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC68F6691BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChargerPrimary+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DC68F66A1BE345B4000EFFF4 /* ChargerPrimary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargerPrimary.swift; sourceTree = "<group>"; };
 		DC68F66D1BE345B4000EFFF4 /* ChargerDetails+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChargerDetails+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -121,7 +132,6 @@
 		DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargerOperator.swift; sourceTree = "<group>"; };
 		DC68F6851BE34C23000EFFF4 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DC7830CB1CE9C79A005B315E /* CommentsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsListViewController.swift; sourceTree = "<group>"; };
-		DC7830CC1CE9C79A005B315E /* CommentsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsListViewController.xib; sourceTree = "<group>"; };
 		DC7830CF1CE9D8FE005B315E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		DC7830D01CE9D8FE005B315E /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		DC78F2201CC0289F009FF03E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -147,6 +157,14 @@
 		DCB3E2351BE65102003AB6C9 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCenterCoordinateSingelton.swift; sourceTree = "<group>"; };
 		DCCD91D21CD29DA000C571B8 /* Spark v5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v5.xcdatamodel"; sourceTree = "<group>"; };
+		DCCF429C1CEFA007008DC094 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CommentsListViewController.xib; sourceTree = "<group>"; };
+		DCCF429E1CEFA064008DC094 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DCCF42A01CEFA15C008DC094 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DCCF42A21CEFA172008DC094 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DCCF42A41CEFA190008DC094 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DCCF42A61CEFA1D1008DC094 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DCCF42A81CEFA1F8008DC094 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DCCF42AA1CEFA214008DC094 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DCD04B771CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPhotoSubmissionManager.swift; sourceTree = "<group>"; };
 		DCD7983A1BE5814F00C62863 /* AnnotationCharger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationCharger.swift; sourceTree = "<group>"; };
 		DCDC2C361C613A42004BEF91 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -231,7 +249,7 @@
 				DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */,
 				DC11A7B11C092FD300FD54C3 /* ChargerDetailViewController.swift */,
 				DC7830CB1CE9C79A005B315E /* CommentsListViewController.swift */,
-				DC7830CC1CE9C79A005B315E /* CommentsListViewController.xib */,
+				DCCF429D1CEFA007008DC094 /* CommentsListViewController.xib */,
 				DC1A2DF21CB6D69400C2C01F /* ChargerDetailViewController.xib */,
 				DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */,
 				DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */,
@@ -251,6 +269,20 @@
 		DC1ED1791BE29572007C09D1 /* SparkTests */ = {
 			isa = PBXGroup;
 			children = (
+				DC5FB50A1CEFA60B000E1F33 /* InfoPlist.strings */,
+				DC5FB5081CEFA563000E1F33 /* InfoPlist.strings */,
+				DC5FB5061CEFA4B3000E1F33 /* InfoPlist.strings */,
+				DC5FB5001CEFA407000E1F33 /* InfoPlist.strings */,
+				DC5FB4FE1CEFA35C000E1F33 /* InfoPlist.strings */,
+				DC5FB4FC1CEFA296000E1F33 /* InfoPlist.strings */,
+				DC5FB4FA1CEFA254000E1F33 /* InfoPlist.strings */,
+				DCCF42AA1CEFA214008DC094 /* InfoPlist.strings */,
+				DCCF42A81CEFA1F8008DC094 /* InfoPlist.strings */,
+				DCCF42A61CEFA1D1008DC094 /* InfoPlist.strings */,
+				DCCF42A41CEFA190008DC094 /* InfoPlist.strings */,
+				DCCF42A21CEFA172008DC094 /* InfoPlist.strings */,
+				DCCF42A01CEFA15C008DC094 /* InfoPlist.strings */,
+				DCCF429E1CEFA064008DC094 /* InfoPlist.strings */,
 				DC8961CD1CD404C700F8145A /* InfoPlist.strings */,
 				DC9479B81CD3F98F0024E3C6 /* InfoPlist.strings */,
 				DC792C971CC2A10A003667BC /* InfoPlist.strings */,
@@ -373,6 +405,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nb,
 			);
 			mainGroup = DC1ED1561BE29572007C09D1;
 			productRefGroup = DC1ED1601BE29572007C09D1 /* Products */;
@@ -397,7 +430,7 @@
 				DC1A2DF01CB6D69400C2C01F /* ChargerDetailViewController.xib in Resources */,
 				DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */,
 				DC14112C1CC00DEE00F68C83 /* Localizable.strings in Resources */,
-				DC7830CE1CE9C79A005B315E /* CommentsListViewController.xib in Resources */,
+				DCCF429B1CEFA007008DC094 /* CommentsListViewController.xib in Resources */,
 				DC1ED16D1BE29572007C09D1 /* Assets.xcassets in Resources */,
 				DC7830D21CE9D8FE005B315E /* CommentTableViewCell.xib in Resources */,
 				DC78F21F1CC0289F009FF03E /* InfoPlist.strings in Resources */,
@@ -410,7 +443,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC78F2231CC028A0009FF03E /* InfoPlist.strings in Resources */,
-				DC8961CE1CD404C700F8145A /* InfoPlist.strings in Resources */,
+				DC5FB5091CEFA563000E1F33 /* InfoPlist.strings in Resources */,
+				DC5FB5071CEFA4B3000E1F33 /* InfoPlist.strings in Resources */,
+				DC5FB5011CEFA407000E1F33 /* InfoPlist.strings in Resources */,
+				DC5FB50B1CEFA60B000E1F33 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +586,15 @@
 				DC78F2201CC0289F009FF03E /* nb */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DCCF429D1CEFA007008DC094 /* CommentsListViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCCF429C1CEFA007008DC094 /* Base */,
+				DC5FB5051CEFA43A000E1F33 /* nb */,
+			);
+			name = CommentsListViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
