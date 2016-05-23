@@ -280,11 +280,13 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             if (self.imageThumbnail.frame == self.viewHeader.layer.bounds){
                 self.imageThumbnail.frame = self.originalThumbnailImageFrame!
                 self.buttonLastUpdateTime.alpha = 1
+                self.buttonComments.alpha = 1
                 self.checkAndAnimateRecentlyVerifiedView()
                 self.manipulateThumbnailImage()
             }else{
                 self.imageThumbnail.frame = self.viewHeader.layer.bounds
                 self.imageThumbnail.layer.cornerRadius = 0
+                self.buttonComments.alpha = 0
                 self.buttonLastUpdateTime.alpha = 0
                 self.viewRecentlyVerified.alpha = 0
                 self.viewLastUpdateTime.alpha = 0
