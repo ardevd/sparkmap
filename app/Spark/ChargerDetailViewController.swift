@@ -58,6 +58,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         let nib = UINib(nibName: "ConnectionTableViewCell", bundle: nil)
         chargingPointTableView.registerNib(nib, forCellReuseIdentifier: "net.zygotelabs.connectioncell")
         chargingPointTableView.tableFooterView = UIView(frame: CGRectZero)
+    
         
         // Download charger thumbnail image
         if let thumbnailImageURL = charger?.chargerImage {
@@ -77,6 +78,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             }
         }
         
+        determineCommentIconType()
         checkAndAnimateRecentlyVerifiedView()
         
         // Check location permission and start location update.
@@ -483,6 +485,16 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             let travelTimeString = String.localizedStringWithFormat(NSLocalizedString("%@ minutes of travel time", comment: "Minutes of travel time"), travelTime)
             self.labelTransportETA.text = travelTimeString
             
+        }
+    }
+    
+    func determineCommentIconType(){
+        let comments = charger!.chargerDetails?.comments?.allObjects as! [Comment]
+        let numberOfComments = comments.count
+        if (numberOfComments > 0) {
+            // We have comments. Show filled icon
+            let image = UIImage(named: "ChatFilledIcon")
+            buttonComments.setImage(image, forState: .Normal)
         }
     }
     
