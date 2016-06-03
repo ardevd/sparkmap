@@ -173,7 +173,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
                 
                 annotations.append(chargerAnnotation)
                 self.haveLoadedInitialChargerData = true
-
+                
                 
             }
             
@@ -332,14 +332,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         userInteractionOverride = true
         mapView.region = region
         userInteractionOverride = false
-        
-        // Show stored annotations for the new location
-        if (!haveSearchResult){
-            updateAnnotations()
+        // Check if distance delta is significant.
+        if isNewCenterFarFromOldCenter() {
+            updateMapViewSingeltons()
+            // Show stored annotations for the new location
+            if (!haveSearchResult){
+                updateAnnotations()
+            }
+            
+            // Download charging station data for the area
+            getAnnotationsFromNewLocation(coordinate)
         }
-        
-        // Download charging station data for the area
-        getAnnotationsFromNewLocation(coordinate)
     }
     
     func updateMapViewSingeltons(){
