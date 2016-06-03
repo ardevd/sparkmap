@@ -67,7 +67,7 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
     func commentButtonTapped(){
         // Direct user to OCM comment page
         if let chargerId = self.charger?.chargerId{
-            UIApplication.sharedApplication().openURL(NSURL(string: "http://openchargemap.org/site/poi/details/\(chargerId)#tab-comments")!)
+            UIApplication.sharedApplication().openURL(NSURL(string: "http://openchargemap.org/site/poi/addcomment/\(chargerId)")!)
         }
     }
     
