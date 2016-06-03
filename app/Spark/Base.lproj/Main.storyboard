@@ -393,6 +393,37 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Debug Info" id="eDl-R7-AeG">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="45" id="rqx-HS-ExD">
+                                        <rect key="frame" x="0.0" y="815" width="600" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rqx-HS-ExD" id="9VX-AV-Ajc">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDM-1R-zyc">
+                                                    <rect key="frame" x="21" y="11" width="200" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkn-14-NXY">
+                                                    <rect key="frame" x="481" y="12" width="105" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.87450980389999999" green="0.41176470590000003" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rkn-14-NXY" secondAttribute="trailing" constant="6" id="7S7-j1-HzP"/>
+                                                <constraint firstItem="rkn-14-NXY" firstAttribute="top" secondItem="9VX-AV-Ajc" secondAttribute="topMargin" constant="4" id="JDE-lw-2Xz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="rkn-14-NXY" secondAttribute="bottom" constant="3.5" id="gBI-hd-fai"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="EfW-kw-zzq" id="igK-O3-Yqr"/>
@@ -421,6 +452,7 @@
                         <outlet property="cellSchuko" destination="tN5-DH-zbj" id="Kzr-y7-HV2"/>
                         <outlet property="cellTesla" destination="DVB-MK-c60" id="KqX-Gm-KE9"/>
                         <outlet property="cellType2" destination="fhH-Wr-AT2" id="itQ-ZQ-jxk"/>
+                        <outlet property="labelAppVersion" destination="rkn-14-NXY" id="wxq-UA-gwW"/>
                         <outlet property="labelCacheSize" destination="ouG-2z-4zY" id="E0x-Vn-rBB"/>
                         <outlet property="segmentControlMapType" destination="nqM-Y8-84n" id="SP3-sO-Am7"/>
                         <outlet property="switchFastcharge" destination="IXC-zE-uda" id="xqy-y2-bwy"/>
