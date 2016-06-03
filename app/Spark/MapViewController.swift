@@ -88,7 +88,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     }
     
     override func viewDidLayoutSubviews() {
-        
         // Update map center singelton
         updateMapViewSingeltons()
     }
@@ -117,16 +116,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             if let longValue = notification.userInfo?["longitude"] as? CLLocationDegrees {
                 let locationCoordinate : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latValue, longitude: longValue)
                 updateCurrentMapRegion(locationCoordinate, distance: 3000)
+                updateLastDataUpdateLocationSingelton()
             }
         }
     }
     
     func updateAnnotationsFromNotification(notification: NSNotification){
-        if isNewCenterFarFromOldCenter() || !haveLoadedInitialChargerData{
-            updateMapViewSingeltons()
-            updateAnnotations()
-        }
-        
+        updateMapViewSingeltons()
+        updateAnnotations()
     }
     
     func updatedSettingsRefresh(notifcation: NSNotification){
@@ -261,12 +258,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         // Map region was updated. Update data if we think the user dragged the map.
         
-        if (!userInteractionOverride) {
+        if (!userInteractionOverride && haveLoadedInitialChargerData) {
             if (DistanceToLocationManager.distanceFromLastDataUpdateLocation(CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)) > 5000) {
                 // Show stored annotations for the new location
                 updateAnnotations()
                 // Download charging station data for the area
                 getAnnotationsFromNewLocation(mapView.centerCoordinate)
+                // Update MapViewSingeltons
+                updateMapViewSingeltons()
             }
         }
         
@@ -345,13 +344,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         }
     }
     
+    func updateLastDataUpdateLocationSingelton(){
+        LastUpdateLocationSingelton.center.location = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+    }
+    
     func updateMapViewSingeltons(){
         //Update map center point singelton
         MapCenterCoordinateSingelton.center.coordinate = mapView.centerCoordinate
         // Update map span singelton
         MapCoordinateSpanSingelton.span.mapSpan = mapView.region.span
-        
-        
     }
     
 }
