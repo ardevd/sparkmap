@@ -25,6 +25,8 @@
 		DC1ED17B1BE29572007C09D1 /* SparkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED17A1BE29572007C09D1 /* SparkTests.swift */; };
 		DC1ED1861BE29572007C09D1 /* SparkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED1851BE29572007C09D1 /* SparkUITests.swift */; };
 		DC24E3601C5B83760070AC3E /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */; };
+		DC4B67271D0F46070013C57A /* WhatsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B67251D0F46070013C57A /* WhatsNewViewController.swift */; };
+		DC4B67281D0F46070013C57A /* WhatsNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4B67261D0F46070013C57A /* WhatsNewViewController.xib */; };
 		DC4EB7AD1BE9717800B75FFC /* NearbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */; };
 		DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */; };
 		DC5FB5011CEFA407000E1F33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC5FB5001CEFA407000E1F33 /* InfoPlist.strings */; };
@@ -110,6 +112,8 @@
 		DC1ED1931BE296A4007C09D1 /* Spark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Spark.entitlements; sourceTree = "<group>"; };
 		DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
 		DC2F421B1C68C4A300579F18 /* Spark v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v2.xcdatamodel"; sourceTree = "<group>"; };
+		DC4B67251D0F46070013C57A /* WhatsNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhatsNewViewController.swift; sourceTree = "<group>"; };
+		DC4B67261D0F46070013C57A /* WhatsNewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WhatsNewViewController.xib; sourceTree = "<group>"; };
 		DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyTableViewCell.swift; sourceTree = "<group>"; };
 		DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearbyTableViewCell.xib; sourceTree = "<group>"; };
 		DC5FB4FA1CEFA254000E1F33 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -262,6 +266,8 @@
 				DC7C8C601C7F3A06003D5C37 /* DistanceToLocationManager.swift */,
 				DCD04B771CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift */,
 				DCAFABCC1CC679B200C637BE /* MapCoordinateSpanSingelton.swift */,
+				DC4B67251D0F46070013C57A /* WhatsNewViewController.swift */,
+				DC4B67261D0F46070013C57A /* WhatsNewViewController.xib */,
 			);
 			path = Spark;
 			sourceTree = "<group>";
@@ -427,6 +433,7 @@
 				DC0238861BE4497B0060F4B8 /* Settings.bundle in Resources */,
 				DC85CABE1C5A137700AB2786 /* ConnectionTableViewCell.xib in Resources */,
 				DC1ED1701BE29572007C09D1 /* LaunchScreen.storyboard in Resources */,
+				DC4B67281D0F46070013C57A /* WhatsNewViewController.xib in Resources */,
 				DC1A2DF01CB6D69400C2C01F /* ChargerDetailViewController.xib in Resources */,
 				DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */,
 				DC14112C1CC00DEE00F68C83 /* Localizable.strings in Resources */,
@@ -474,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC1ED16B1BE29572007C09D1 /* Spark.xcdatamodeld in Sources */,
+				DC4B67271D0F46070013C57A /* WhatsNewViewController.swift in Sources */,
 				DCB3E2361BE65102003AB6C9 /* LocationManager.swift in Sources */,
 				DC7C8C611C7F3A06003D5C37 /* DistanceToLocationManager.swift in Sources */,
 				DCFDBFDA1BE3E6E10011D191 /* DataManager.swift in Sources */,
