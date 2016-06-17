@@ -225,7 +225,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6EZ-RQ-rkI">
                     <rect key="frame" x="0.0" y="344" width="600" height="53"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQE-wu-szz">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQE-wu-szz">
                             <rect key="frame" x="8" y="16" width="584" height="29"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -234,7 +234,11 @@
                     </subviews>
                     <color key="backgroundColor" red="0.87450980392156863" green="0.41176470588235292" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstItem="sQE-wu-szz" firstAttribute="leading" secondItem="6EZ-RQ-rkI" secondAttribute="leading" constant="8" id="DQW-bV-hGw"/>
                         <constraint firstAttribute="height" constant="53" id="RE7-H0-25l"/>
+                        <constraint firstItem="sQE-wu-szz" firstAttribute="top" secondItem="6EZ-RQ-rkI" secondAttribute="top" constant="16" id="e2O-Rz-MGD"/>
+                        <constraint firstAttribute="bottom" secondItem="sQE-wu-szz" secondAttribute="bottom" constant="8" id="mtD-nY-uvf"/>
+                        <constraint firstAttribute="trailing" secondItem="sQE-wu-szz" secondAttribute="trailing" constant="8" id="sgK-QY-Zu2"/>
                     </constraints>
                 </view>
             </subviews>
