@@ -41,8 +41,14 @@
                     <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PlaceholderImageIcon" translatesAutoresizingMaskIntoConstraints="NO" id="p7a-5w-5ak">
+                    <rect key="frame" x="16" y="254" width="60" height="60"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
         </view>
     </objects>
+    <resources>
+        <image name="PlaceholderImageIcon" width="230" height="230"/>
+    </resources>
 </document>
