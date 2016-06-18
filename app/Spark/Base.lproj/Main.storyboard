@@ -408,17 +408,22 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkn-14-NXY">
-                                                    <rect key="frame" x="481" y="12" width="105" height="21"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaP-DI-YIH">
+                                                    <rect key="frame" x="486" y="11" width="106" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="106" id="HIO-Ue-8uT"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.87450980389999999" green="0.41176470590000003" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <state key="normal" title="0.0"/>
+                                                    <connections>
+                                                        <action selector="appVersionButtonClicked" destination="EfW-kw-zzq" eventType="primaryActionTriggered" id="uo5-Jg-hWK"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="rkn-14-NXY" secondAttribute="trailing" constant="6" id="7S7-j1-HzP"/>
-                                                <constraint firstItem="rkn-14-NXY" firstAttribute="top" secondItem="9VX-AV-Ajc" secondAttribute="topMargin" constant="4" id="JDE-lw-2Xz"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="rkn-14-NXY" secondAttribute="bottom" constant="3.5" id="gBI-hd-fai"/>
+                                                <constraint firstItem="ZaP-DI-YIH" firstAttribute="trailing" secondItem="9VX-AV-Ajc" secondAttribute="trailingMargin" id="2TU-8x-VVD"/>
+                                                <constraint firstItem="ZaP-DI-YIH" firstAttribute="top" secondItem="9VX-AV-Ajc" secondAttribute="topMargin" constant="3" id="Iah-vu-Tna"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ZaP-DI-YIH" secondAttribute="bottom" constant="4.5" id="Pfq-Lm-hic"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -447,12 +452,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1024"/>
                     <connections>
+                        <outlet property="buttonAppVersion" destination="ZaP-DI-YIH" id="HsN-8X-OD1"/>
                         <outlet property="cellCCS" destination="Wci-lj-Vv0" id="YIt-7l-3cG"/>
                         <outlet property="cellChademo" destination="jTz-PD-o3W" id="v3s-Zb-WsA"/>
                         <outlet property="cellSchuko" destination="tN5-DH-zbj" id="Kzr-y7-HV2"/>
                         <outlet property="cellTesla" destination="DVB-MK-c60" id="KqX-Gm-KE9"/>
                         <outlet property="cellType2" destination="fhH-Wr-AT2" id="itQ-ZQ-jxk"/>
-                        <outlet property="labelAppVersion" destination="rkn-14-NXY" id="wxq-UA-gwW"/>
                         <outlet property="labelCacheSize" destination="ouG-2z-4zY" id="E0x-Vn-rBB"/>
                         <outlet property="segmentControlMapType" destination="nqM-Y8-84n" id="SP3-sO-Am7"/>
                         <outlet property="switchFastcharge" destination="IXC-zE-uda" id="xqy-y2-bwy"/>

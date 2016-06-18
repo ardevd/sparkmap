@@ -22,7 +22,7 @@ class SettingsViewController: UITableViewController {
     @IBOutlet var textFieldAmps: UITextField!
     @IBOutlet var labelCacheSize: UILabel!
     @IBOutlet var buttonDeleteCache: UIButton!
-    @IBOutlet var labelAppVersion: UILabel!
+    @IBOutlet var buttonAppVersion: UIButton!
     
     let connectionIdSchuko = 28
     let connectionIdChademo = 2
@@ -54,9 +54,21 @@ class SettingsViewController: UITableViewController {
         dismissSettingsViewController()
     }
     
+    @IBAction func appVersionButtonClicked(){
+        showWhatsNewView()
+    }
+    
+    func showWhatsNewView(){
+        // Show WhatsNew screen
+        let vc = WhatsNewViewController()
+        
+        vc.hidesBottomBarWhenPushed = true
+        showViewController(vc, sender: nil)
+    }
+    
     func displayAppVersionString(){
         if let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String {
-            self.labelAppVersion.text = version
+            self.buttonAppVersion.setTitle(version, forState: .Normal)
         }
     }
     
