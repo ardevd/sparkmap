@@ -197,24 +197,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     }
     
     func getAnnotationsFromNewLocation(coordinate: CLLocationCoordinate2D){
-        
         dataManager.downloadNearbyChargers(Latitude: coordinate.latitude, Longitude: coordinate.longitude)
-        
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
-        
-        var pin = mapView.dequeueReusableAnnotationViewWithIdentifier("net.zygotelabs.pin") as? MKPinAnnotationView
+        var pin = mapView.dequeueReusableAnnotationViewWithIdentifier("net.zygotelabs.annotation")
+
         if pin == nil {
             // If the pin is not in the cache, we create it.
-            pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "net.zygotelabs.pin")
-            
+            pin = MKAnnotationView(annotation: annotation, reuseIdentifier: "net.zygotelabs.annotation")
         }
         
         if (annotation is AnnotationCharger) {
-            pin?.pinTintColor = UIColor(red: 140/255, green: 186/255, blue: 50/255, alpha: 1.0)
-            
             if let chargerAnnotationView = annotation as? AnnotationCharger {
                 let charger = chargerAnnotationView.charger
                 let numberOfPoints = charger.chargerNumberOfPoints
@@ -225,10 +220,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
                     connectionCountLabel.text = String(numberOfPoints)
                 }
                 pin?.leftCalloutAccessoryView = connectionCountLabel
-                
                 pin?.enabled = true
                 pin?.canShowCallout = true
                 pin?.selected = true
+                pin?.image = chargerAnnotationView.getChargerAnnotationImage()
+                pin?.frame.size = CGSize(width: 30.0, height: 30.0)
                 let button = UIButton(type: UIButtonType.DetailDisclosure)
                 pin?.rightCalloutAccessoryView = button
             }
