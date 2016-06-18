@@ -72,6 +72,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         // Clean up stored charging data
         dataManager.removeOldChargerData()
         dataManager.getDataFilesSize()
+        
+        showWhatsNewScreenIfApplicable()
+    }
+    
+    func showWhatsNewScreenIfApplicable(){
+        // Show WhatsNew screen if this is first launch.
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let hasUserSeenWhatsNew = defaults.boolForKey("whatsnew_1")
+        if !hasUserSeenWhatsNew {
+            defaults.setBool(true, forKey: "whatsnew_1")
+            let vc = WhatsNewViewController()
+            vc.hidesBottomBarWhenPushed = true
+            showViewController(vc, sender: nil)
+        }
     }
     
     func isNewCenterFarFromOldCenter() -> Bool {
@@ -203,7 +217,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
         var pin = mapView.dequeueReusableAnnotationViewWithIdentifier("net.zygotelabs.annotation")
-
+        
         if pin == nil {
             // If the pin is not in the cache, we create it.
             pin = MKAnnotationView(annotation: annotation, reuseIdentifier: "net.zygotelabs.annotation")
