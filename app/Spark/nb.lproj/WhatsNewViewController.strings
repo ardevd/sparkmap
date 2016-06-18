@@ -1,0 +1,18 @@
+/* Class = "UILabel"; text = "Help enhance the SparkMap experience for everyone by uploading your own photos of the charging stations you visit. Simply tap the placeholder photo icon when viewing charger details to pick a photo from your photo library or snap a picture right there and then. "; ObjectID = "4TO-Hv-g5v"; */
+"4TO-Hv-g5v.text" = "Bidra til å forbedre SparkMap for alle ved å laste opp dine egne bilder fra ladestasjoner du har besøkt. Trykk på bildeikonet til en ladestasjon for å laste opp et bilde fra bildebiblioteket ditt eller ta et bilde der og da. ";
+
+/* Class = "UILabel"; text = "SparkMap just got better"; ObjectID = "HEd-Tv-C0t"; */
+"HEd-Tv-C0t.text" = "SparkMap har blitt enda bedre";
+
+/* Class = "UILabel"; text = "Better Charging Icons"; ObjectID = "Odg-ua-jBU"; */
+"Odg-ua-jBU.text" = "Bedre ladeikoner";
+
+/* Class = "UILabel"; text = "Photo Submissions"; ObjectID = "SAu-Cz-hb1"; */
+"SAu-Cz-hb1.text" = "Bildeopplasting";
+
+/* Class = "UILabel"; text = "SparkMap has been updated with some new features and improvements to help make it an even better companion for the everyday EV driver."; ObjectID = "kZq-Ee-ZhG"; */
+"kZq-Ee-ZhG.text" = "SparkMap har blitt oppdatert med nye funksjoner og forbedringer og er nå en enda bedre følgevenn for alle elbileiere.";
+
+/* Class = "UILabel"; text = "Get more information at a glance! Map icons are now colored green or blue. Blue markers show that fast charging is available at the indicated location."; ObjectID = "sfO-J5-CiF"; */
+"sfO-J5-CiF.text" = "Se mer ved første blikk! Ladestasjonene på kartet er nå farget grønne eller blå. De blå ladestasjonene har støtte for hurtiglading. Praktisk!";
+

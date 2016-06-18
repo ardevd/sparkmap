@@ -43,11 +43,17 @@
 /* Class = "UITableViewSection"; headerTitle = "Data Management"; ObjectID = "TXH-l2-iTh"; */
 "TXH-l2-iTh.headerTitle" = "Databehandling";
 
+/* Class = "UILabel"; text = "App version"; ObjectID = "XDM-1R-zyc"; */
+"XDM-1R-zyc.text" = "Appversion";
+
 /* Class = "UILabel"; text = "Cache Size"; ObjectID = "ZLP-0E-6LU"; */
 "ZLP-0E-6LU.text" = "Cachestørrelse";
 
 /* Class = "UITabBarItem"; title = "Nearby"; ObjectID = "aPs-vh-iVd"; */
 "aPs-vh-iVd.title" = "Nærheten";
+
+/* Class = "UITableViewSection"; headerTitle = "Debug Info"; ObjectID = "eDl-R7-AeG"; */
+"eDl-R7-AeG.headerTitle" = "Debuginformasjon";
 
 /* Class = "UITabBarItem"; title = "Map"; ObjectID = "fBx-le-nth"; */
 "fBx-le-nth.title" = "Kart";

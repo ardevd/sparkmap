@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WhatsNewViewController" customModule="SparkMap" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SparkMap just got better" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEd-Tv-C0t">
+                    <rect key="frame" x="8" y="84" width="584" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="19"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="4" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZq-Ee-ZhG">
+                    <rect key="frame" x="8" y="112" width="584" height="93"/>
+                    <string key="text">SparkMap has been updated with some new features and improvements to help make it an even better companion for the everyday EV driver.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="4" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfO-J5-CiF">
+                    <rect key="frame" x="8" y="242" width="584" height="105"/>
+                    <string key="text">Get more information at a glance! Map icons are now colored green or blue. Blue markers show that fast charging is available at the indicated location.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TO-Hv-g5v">
+                    <rect key="frame" x="8" y="384" width="584" height="208"/>
+                    <string key="text">Help enhance the SparkMap experience for everyone by uploading your own photos of the charging stations you visit. Simply tap the placeholder photo icon when viewing charger details to pick a photo from your photo library or snap a picture right there and then. </string>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HOW-QH-9aR">
+                    <rect key="frame" x="8" y="209" width="584" height="29"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Better Charging Icons" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odg-ua-jBU">
+                            <rect key="frame" x="27" y="3" width="459" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChargerAnnotationsNews" translatesAutoresizingMaskIntoConstraints="NO" id="Q9q-fl-JEm">
+                            <rect key="frame" x="0.0" y="3" width="21" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="21" id="JKO-Xx-rB3"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Odg-ua-jBU" firstAttribute="top" secondItem="HOW-QH-9aR" secondAttribute="top" constant="3" id="G3c-wx-CEQ"/>
+                        <constraint firstItem="Q9q-fl-JEm" firstAttribute="leading" secondItem="HOW-QH-9aR" secondAttribute="leading" id="Nag-tE-6Lh"/>
+                        <constraint firstItem="Q9q-fl-JEm" firstAttribute="top" secondItem="HOW-QH-9aR" secondAttribute="top" constant="3" id="PJg-Cg-L5L"/>
+                        <constraint firstAttribute="bottom" secondItem="Odg-ua-jBU" secondAttribute="bottom" constant="5" id="STk-EH-YiO"/>
+                        <constraint firstItem="Odg-ua-jBU" firstAttribute="leading" secondItem="Q9q-fl-JEm" secondAttribute="trailing" constant="6" id="hWu-qM-RSJ"/>
+                        <constraint firstAttribute="bottom" secondItem="Q9q-fl-JEm" secondAttribute="bottom" constant="5" id="mJ0-fE-oG2"/>
+                        <constraint firstAttribute="height" constant="29" id="wbz-6o-1rC"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zfg-Y9-y9y">
+                    <rect key="frame" x="8" y="355" width="584" height="29"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Photo Submissions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAu-Cz-hb1">
+                            <rect key="frame" x="28" y="4" width="367" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderImageIcon" translatesAutoresizingMaskIntoConstraints="NO" id="p7a-5w-5ak">
+                            <rect key="frame" x="0.0" y="4" width="21" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="21" id="09I-zM-96Q"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="p7a-5w-5ak" firstAttribute="top" secondItem="Zfg-Y9-y9y" secondAttribute="top" constant="4" id="8UE-p6-MSc"/>
+                        <constraint firstItem="p7a-5w-5ak" firstAttribute="leading" secondItem="Zfg-Y9-y9y" secondAttribute="leading" id="X6M-tk-jyT"/>
+                        <constraint firstAttribute="bottom" secondItem="SAu-Cz-hb1" secondAttribute="bottom" constant="4" id="beA-z6-q7p"/>
+                        <constraint firstAttribute="bottom" secondItem="p7a-5w-5ak" secondAttribute="bottom" constant="4" id="nad-bF-Di0"/>
+                        <constraint firstAttribute="height" constant="29" id="owU-E8-DDF"/>
+                        <constraint firstItem="SAu-Cz-hb1" firstAttribute="top" secondItem="Zfg-Y9-y9y" secondAttribute="top" constant="4" id="t6Z-TM-fwV"/>
+                        <constraint firstItem="SAu-Cz-hb1" firstAttribute="leading" secondItem="p7a-5w-5ak" secondAttribute="trailing" constant="7" id="tW7-B8-yJ0"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="sfO-J5-CiF" firstAttribute="top" secondItem="HOW-QH-9aR" secondAttribute="bottom" constant="4" id="0Um-eA-6IR"/>
+                <constraint firstItem="HEd-Tv-C0t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="8gY-z7-3xB"/>
+                <constraint firstAttribute="trailing" secondItem="kZq-Ee-ZhG" secondAttribute="trailing" constant="8" id="BQb-Oz-Hkf"/>
+                <constraint firstItem="4TO-Hv-g5v" firstAttribute="top" secondItem="Zfg-Y9-y9y" secondAttribute="bottom" id="EMM-7U-0gR"/>
+                <constraint firstItem="sfO-J5-CiF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="GL6-eb-mBE"/>
+                <constraint firstAttribute="trailing" secondItem="HEd-Tv-C0t" secondAttribute="trailing" constant="8" id="HUp-dL-wrK"/>
+                <constraint firstItem="HOW-QH-9aR" firstAttribute="top" secondItem="kZq-Ee-ZhG" secondAttribute="bottom" constant="4" id="KUc-KO-Sh1"/>
+                <constraint firstItem="4TO-Hv-g5v" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Rq9-Ea-yvR"/>
+                <constraint firstItem="kZq-Ee-ZhG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="WrP-f3-ilE"/>
+                <constraint firstItem="HOW-QH-9aR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Xww-Lk-6Xl"/>
+                <constraint firstAttribute="trailing" secondItem="4TO-Hv-g5v" secondAttribute="trailing" constant="8" id="eYh-wd-Yfx"/>
+                <constraint firstItem="kZq-Ee-ZhG" firstAttribute="top" secondItem="HEd-Tv-C0t" secondAttribute="bottom" constant="7" id="fCT-qE-xud"/>
+                <constraint firstAttribute="trailing" secondItem="sfO-J5-CiF" secondAttribute="trailing" constant="8" id="hg0-Yn-Flo"/>
+                <constraint firstItem="Zfg-Y9-y9y" firstAttribute="top" secondItem="sfO-J5-CiF" secondAttribute="bottom" constant="8" id="nOQ-hh-2vV"/>
+                <constraint firstAttribute="trailing" secondItem="Zfg-Y9-y9y" secondAttribute="trailing" constant="8" id="roY-Y7-WZd"/>
+                <constraint firstAttribute="trailing" secondItem="HOW-QH-9aR" secondAttribute="trailing" constant="8" id="sbn-Fj-Ufa"/>
+                <constraint firstItem="HEd-Tv-C0t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="xrv-Sm-8ha"/>
+                <constraint firstItem="Zfg-Y9-y9y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="zKD-24-159"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ChargerAnnotationsNews" width="200" height="200"/>
+        <image name="PlaceholderImageIcon" width="230" height="230"/>
+    </resources>
+</document>
