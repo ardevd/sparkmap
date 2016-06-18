@@ -21,4 +21,21 @@ class AnnotationCharger: NSObject, MKAnnotation {
         super.init()
     }
     
+    func getChargerAnnotationImage() -> UIImage {
+        // Return annotation image according to charging type.
+        var chargerAnnotationImage: UIImage
+        let connections = charger.chargerDetails?.connections?.allObjects as! [Connection]
+        var stationSupportsFastCharging = false
+        for connection in connections {
+            if connection.connectionSupportsFastCharging {
+                stationSupportsFastCharging = true
+            }
+        }
+        if stationSupportsFastCharging{
+            chargerAnnotationImage = UIImage(named: "ChargerBlue")!
+        } else {
+            chargerAnnotationImage = UIImage(named: "ChargerGreen")!
+        }
+        return chargerAnnotationImage
+    }
 }
