@@ -237,7 +237,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
                 pin?.enabled = true
                 pin?.canShowCallout = true
                 pin?.selected = true
-                pin?.image = chargerAnnotationView.getChargerAnnotationImage()
+                pin?.image = ChargerImageHelper.getChargerAnnotationImage(charger)
+                
                 pin?.frame.size = CGSize(width: 30.0, height: 30.0)
                 let button = UIButton(type: UIButtonType.DetailDisclosure)
                 pin?.rightCalloutAccessoryView = button
