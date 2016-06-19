@@ -115,7 +115,7 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
             
             cell.cellTitle?.text = (chargers[indexPath.row] as ChargerPrimary).chargerTitle
             cell.cellDescription?.text = (chargers[indexPath.row] as ChargerPrimary).chargerSubtitle
-            
+            cell.cellAnnotationImageView?.image = ChargerImageHelper.getChargerAnnotationImage(chargers[indexPath.row])
             // Calculate distance from current map center location
             // TODO: Figure out how we can use the value directly from the sorting fuction we already do instead of having to do it twice.
             let chargerLocation = CLLocation(latitude: selectedCharger.chargerLatitude, longitude: selectedCharger.chargerLongitude)
