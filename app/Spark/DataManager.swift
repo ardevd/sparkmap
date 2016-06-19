@@ -252,7 +252,6 @@ class DataManager: NSObject {
                         SwiftSpinner.hide()
                         }, subtitle: dismissString)
                     NSLog("\(err), \(err.localizedDescription)")
-                    // abort()
                 }
                 else {
                     if let dataList = data {
@@ -519,7 +518,10 @@ class DataManager: NSObject {
                         } catch {
                             let jsonError = error as NSError
                             NSLog("\(jsonError), \(jsonError.localizedDescription)")
-                            abort()
+                            
+                            SwiftSpinner.show("\(jsonError.localizedDescription)", animated: false).addTapHandler({
+                                SwiftSpinner.hide()
+                                }, subtitle: dismissString)
                         }
                     }
                     else {
