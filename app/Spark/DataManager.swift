@@ -526,7 +526,6 @@ class DataManager: NSObject {
                     }
                     else {
                         NSLog("No data available")
-                        abort()
                     }
                 }
             }
