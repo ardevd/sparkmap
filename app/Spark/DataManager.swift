@@ -517,7 +517,7 @@ class DataManager: NSObject {
                         } catch {
                             let jsonError = error as NSError
                             NSLog("\(jsonError), \(jsonError.localizedDescription)")
-                            let dataParsingErrorString = NSLocalizedString("There was a problem downloading data.", comment: "Data download parsing error")
+                            let dataParsingErrorString = NSLocalizedString("Invalid data returned from server. Please try again later.", comment: "Data download parsing error")
                             SwiftSpinner.show(dataParsingErrorString, animated: false).addTapHandler({
                                 SwiftSpinner.hide()
                                 }, subtitle: dismissString)
