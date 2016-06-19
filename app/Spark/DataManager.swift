@@ -511,15 +511,14 @@ class DataManager: NSObject {
                                 }catch {
                                     let jsonError = error as NSError
                                     NSLog("\(jsonError), \(jsonError.localizedDescription)")
-                                    
                                 }
                             }
                             
                         } catch {
                             let jsonError = error as NSError
                             NSLog("\(jsonError), \(jsonError.localizedDescription)")
-                            
-                            SwiftSpinner.show("\(jsonError.localizedDescription)", animated: false).addTapHandler({
+                            let dataParsingErrorString = NSLocalizedString("There was a problem downloading data.", comment: "Data download parsing error")
+                            SwiftSpinner.show(dataParsingErrorString, animated: false).addTapHandler({
                                 SwiftSpinner.hide()
                                 }, subtitle: dismissString)
                         }
