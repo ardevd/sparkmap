@@ -16,38 +16,46 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0e-t6-lpr">
-                        <rect key="frame" x="20" y="8" width="428" height="22"/>
+                        <rect key="frame" x="77" y="8" width="371" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.19833096589999999" green="0.19833096589999999" blue="0.19833096589999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhF-4P-pXs">
-                        <rect key="frame" x="20" y="33" width="428" height="20"/>
+                        <rect key="frame" x="77" y="33" width="371" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.44710779671717171" green="0.44710779671717171" blue="0.44710779671717171" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTa-w4-v3G">
-                        <rect key="frame" x="20" y="56" width="144" height="21"/>
+                        <rect key="frame" x="77" y="56" width="371" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.86666666670000003" green="0.41568627450000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Brn-Us-rMi">
+                        <rect key="frame" x="8" y="25" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="SDe-PH-1MW"/>
+                            <constraint firstAttribute="height" constant="35" id="Sz5-1T-dS7"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" red="0.97577335860000003" green="0.97577335860000003" blue="0.97577335860000003" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="N0e-t6-lpr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="8bh-Qh-tEx"/>
-                    <constraint firstItem="N0e-t6-lpr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Ihm-TG-K0y"/>
-                    <constraint firstItem="rTa-w4-v3G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="LrC-5i-rzk"/>
-                    <constraint firstItem="rTa-w4-v3G" firstAttribute="top" secondItem="FhF-4P-pXs" secondAttribute="bottom" constant="3" id="PZQ-kJ-UUM"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="FhF-4P-pXs" secondAttribute="trailing" constant="12" id="Swu-ht-Fv8"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="N0e-t6-lpr" secondAttribute="trailing" constant="12" id="hwe-Hb-uqf"/>
-                    <constraint firstItem="FhF-4P-pXs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="iu7-D9-PaK"/>
-                    <constraint firstItem="FhF-4P-pXs" firstAttribute="top" secondItem="N0e-t6-lpr" secondAttribute="bottom" constant="3" id="ogk-c4-vcd"/>
+                    <constraint firstItem="rTa-w4-v3G" firstAttribute="top" secondItem="FhF-4P-pXs" secondAttribute="bottom" constant="3" id="96N-yE-fKf"/>
+                    <constraint firstItem="rTa-w4-v3G" firstAttribute="leading" secondItem="Brn-Us-rMi" secondAttribute="trailing" constant="19" id="BgS-IK-uwr"/>
+                    <constraint firstItem="FhF-4P-pXs" firstAttribute="leading" secondItem="Brn-Us-rMi" secondAttribute="trailing" constant="19" id="GA3-Qx-VP3"/>
+                    <constraint firstItem="N0e-t6-lpr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="JEh-Dz-QmP"/>
+                    <constraint firstItem="FhF-4P-pXs" firstAttribute="top" secondItem="N0e-t6-lpr" secondAttribute="bottom" constant="3" id="Z0i-iG-htc"/>
+                    <constraint firstItem="Brn-Us-rMi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="bj0-zH-jxe"/>
+                    <constraint firstItem="Brn-Us-rMi" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hT6-LR-wd7"/>
+                    <constraint firstItem="N0e-t6-lpr" firstAttribute="leading" secondItem="Brn-Us-rMi" secondAttribute="trailing" constant="19" id="xvi-s9-B8l"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.049216794289999997" green="0.075487972139999998" blue="0.17238794190000001" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
+                <outlet property="cellAnnotationImageView" destination="Brn-Us-rMi" id="bZW-XR-pi9"/>
                 <outlet property="cellDescription" destination="FhF-4P-pXs" id="gOW-St-rhl"/>
                 <outlet property="cellDistance" destination="rTa-w4-v3G" id="RnX-O2-ESf"/>
                 <outlet property="cellTitle" destination="N0e-t6-lpr" id="i8E-vt-SqW"/>

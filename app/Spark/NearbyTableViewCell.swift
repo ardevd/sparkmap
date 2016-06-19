@@ -13,6 +13,7 @@ class NearbyTableViewCell: UITableViewCell {
     @IBOutlet var cellTitle: UILabel?
     @IBOutlet var cellDescription: UILabel?
     @IBOutlet var cellDistance: UILabel?
+    @IBOutlet var cellAnnotationImageView: UIImageView?
 
     override func awakeFromNib() {
         super.awakeFromNib()
