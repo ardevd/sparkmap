@@ -129,7 +129,6 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
         return cell
     }
     
-    
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "ChargerDataUpdate", object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "LocationUpdate", object: nil)
