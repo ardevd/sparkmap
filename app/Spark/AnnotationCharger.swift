@@ -26,16 +26,24 @@ class AnnotationCharger: NSObject, MKAnnotation {
         var chargerAnnotationImage: UIImage
         let connections = charger.chargerDetails?.connections?.allObjects as! [Connection]
         var stationSupportsFastCharging = false
+        var stationIsTeslaSupercharger = false
+        
         for connection in connections {
+            if connection.connectionTypeId == 27 {
+                stationIsTeslaSupercharger = true
+            }
             if connection.connectionSupportsFastCharging {
                 stationSupportsFastCharging = true
             }
         }
-        if stationSupportsFastCharging{
+        if stationSupportsFastCharging && !stationIsTeslaSupercharger{
             chargerAnnotationImage = UIImage(named: "ChargerBlue")!
+        } else if stationIsTeslaSupercharger {
+            chargerAnnotationImage = UIImage(named: "ChargerTesla")!
         } else {
             chargerAnnotationImage = UIImage(named: "ChargerGreen")!
         }
+        
         return chargerAnnotationImage
     }
 }
