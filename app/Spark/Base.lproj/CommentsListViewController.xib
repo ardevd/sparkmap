@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="chargerCommentsTableView" destination="dPc-Mg-b6I" id="gqZ-VW-x57"/>
                 <outlet property="chargerTitleLabel" destination="SAR-KX-Nj6" id="34I-uN-o1t"/>
+                <outlet property="commentsTableView" destination="dPc-Mg-b6I" id="QeC-YH-Jui"/>
                 <outlet property="noCommentsView" destination="6bT-vq-gLc" id="Aqq-g6-z23"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

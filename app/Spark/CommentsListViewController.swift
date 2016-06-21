@@ -16,6 +16,7 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
     @IBOutlet var chargerCommentTextView: UITextField!
     @IBOutlet var chargerCommentSubmitButton: UIButton!
     @IBOutlet var noCommentsView: UIView!
+    @IBOutlet var commentsTableView: UITableView!
     
     var charger: ChargerPrimary?
     var comments: [Comment] = [Comment]()
@@ -31,6 +32,10 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         
         chargerTitleLabel.text = charger?.chargerTitle
         generateCommentButton()
+        
+        // Autolayout magic in order to resize the row height according to content.
+        self.commentsTableView.rowHeight = UITableViewAutomaticDimension
+        self.commentsTableView.estimatedRowHeight = 100; //Set this to any value that works for you.
         
         noCommentsView.alpha = 0
         
@@ -93,6 +98,8 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
             cell.commentDateLabel?.text = convertedDate
 
         
+        cell.contentView.setNeedsLayout()
+        cell.contentView.layoutIfNeeded()
         return cell
     }
     
