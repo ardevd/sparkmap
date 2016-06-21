@@ -21,6 +21,10 @@ class DataManager: NSObject {
         
     }
     
+    enum DataManagerError: ErrorType {
+        case InvalidDateFormat
+    }
+    
     lazy var mainMoc: NSManagedObjectContext = { [unowned self] in
         let moc = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
         moc.parentContext = self.managedObjectContext
@@ -197,20 +201,26 @@ class DataManager: NSObject {
         return "Boundary-\(NSUUID().UUIDString)"
     }
     
-    func ocmDateFormatParser(OCMDateString dateString: String) -> NSDate {
+    func ocmDateFormatParser(OCMDateString dateString: String) throws -> NSDate {
         //Format date string from OCM to NSDate
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         let cleanedUpdateDate = dateString.stringByReplacingOccurrencesOfString("Z", withString: "")
-        return dateFormatter.dateFromString(cleanedUpdateDate)!
+        guard let formattedDate = dateFormatter.dateFromString(cleanedUpdateDate) else {
+            throw DataManagerError.InvalidDateFormat
+        }
+        return formattedDate
     }
     
-    func ocmCommentDateFormatParser(OCMDateString dateString: String) -> NSDate {
+    func ocmCommentDateFormatParser(OCMDateString dateString: String) throws -> NSDate  {
         //Format comment date string from OCM to NSDate
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SS"
         let cleanedUpdateDate = dateString.stringByReplacingOccurrencesOfString("Z", withString: "")
-        return dateFormatter.dateFromString(cleanedUpdateDate)!
+        guard let formattedDate = dateFormatter.dateFromString(cleanedUpdateDate) else {
+            throw DataManagerError.InvalidDateFormat
+        }
+        return formattedDate
     }
     
     
@@ -285,9 +295,14 @@ class DataManager: NSObject {
                                     }
                                     
                                     if let chargerDataLastUpdateTime = element["DateLastStatusUpdate"] as? String {
-                                        let date = self.ocmDateFormatParser(OCMDateString: chargerDataLastUpdateTime)
+                                        do {
+                                        let date = try self.ocmDateFormatParser(OCMDateString: chargerDataLastUpdateTime)
                                         chargerPrimary.chargerDataLastUpdate = date.timeIntervalSinceReferenceDate
-
+                                        } catch DataManagerError.InvalidDateFormat {
+                                            
+                                        } catch {
+                                            
+                                        }
                                     }
                                     
                                     // Media
@@ -330,8 +345,14 @@ class DataManager: NSObject {
                                                     }
                                                     
                                                     if let commentDate = commentElement["DateCreated"] as? String {
-                                                        let date = self.ocmCommentDateFormatParser(OCMDateString: commentDate)
-                                                        comment.commentDate = date.timeIntervalSinceReferenceDate
+                                                        do {
+                                                        let date = try self.ocmCommentDateFormatParser(OCMDateString: commentDate)
+                                                            comment.commentDate = date.timeIntervalSinceReferenceDate
+                                                        } catch DataManagerError.InvalidDateFormat {
+                                                            
+                                                        } catch {
+                                                            
+                                                        }
                                                         
                                                     }
                                                     
