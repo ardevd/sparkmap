@@ -144,7 +144,7 @@
                         <constraint firstItem="M3g-6f-yNs" firstAttribute="top" secondItem="KrZ-Gp-D3P" secondAttribute="topMargin" id="wXU-Zh-VIh"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4de-Ge-SaW">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4de-Ge-SaW">
                     <rect key="frame" x="0.0" y="397" width="600" height="165"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="separatorColor" red="0.28908865919999999" green="0.58144566070000003" blue="0.82194996840000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -222,10 +222,10 @@
                         <constraint firstAttribute="height" constant="38" id="cea-qL-6Sz"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6EZ-RQ-rkI">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6EZ-RQ-rkI">
                     <rect key="frame" x="0.0" y="344" width="600" height="53"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQE-wu-szz">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQE-wu-szz">
                             <rect key="frame" x="8" y="8" width="584" height="37"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -234,10 +234,10 @@
                     </subviews>
                     <color key="backgroundColor" red="0.87450980392156863" green="0.41176470588235292" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="sQE-wu-szz" firstAttribute="centerY" secondItem="6EZ-RQ-rkI" secondAttribute="centerY" id="Hx3-KB-zRG"/>
-                        <constraint firstItem="sQE-wu-szz" firstAttribute="leading" secondItem="6EZ-RQ-rkI" secondAttribute="leading" constant="8" id="LLv-71-tEc"/>
-                        <constraint firstAttribute="height" constant="53" id="RE7-H0-25l"/>
-                        <constraint firstAttribute="trailing" secondItem="sQE-wu-szz" secondAttribute="trailing" constant="8" id="ibX-XL-9H4"/>
+                        <constraint firstItem="sQE-wu-szz" firstAttribute="top" secondItem="6EZ-RQ-rkI" secondAttribute="top" constant="8" id="8DT-B2-Pi6"/>
+                        <constraint firstItem="sQE-wu-szz" firstAttribute="leading" secondItem="6EZ-RQ-rkI" secondAttribute="leading" constant="8" id="Y6M-Ao-jrp"/>
+                        <constraint firstAttribute="trailing" secondItem="sQE-wu-szz" secondAttribute="trailing" constant="8" id="cS7-An-DF5"/>
+                        <constraint firstAttribute="bottom" secondItem="sQE-wu-szz" secondAttribute="bottom" constant="8" id="tRR-ZI-VHE"/>
                     </constraints>
                 </view>
             </subviews>
