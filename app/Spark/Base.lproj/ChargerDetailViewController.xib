@@ -56,14 +56,14 @@
                                 <constraint firstAttribute="height" constant="110" id="3rm-SC-PnS"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3g-6f-yNs">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3g-6f-yNs">
                             <rect key="frame" x="570" y="8" width="22" height="22"/>
                             <color key="tintColor" red="0.86666666670000003" green="0.41568627450000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="animateDateView" destination="-1" eventType="primaryActionTriggered" id="uLQ-Va-v4H"/>
                             </connections>
                         </button>
-                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rpx-Kl-Olf">
+                        <view alpha="0.0" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rpx-Kl-Olf">
                             <rect key="frame" x="363" y="33" width="237" height="48"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVV-5e-n9w">
@@ -136,6 +136,7 @@
                         <constraint firstAttribute="trailing" secondItem="Rpx-Kl-Olf" secondAttribute="trailing" id="ecR-6a-gdX"/>
                         <constraint firstItem="oEs-js-ewP" firstAttribute="centerX" secondItem="KrZ-Gp-D3P" secondAttribute="centerX" id="hQZ-s9-uyf"/>
                         <constraint firstItem="MFW-g4-3i2" firstAttribute="top" secondItem="oEs-js-ewP" secondAttribute="bottom" constant="5" id="i53-c3-1Ry"/>
+                        <constraint firstItem="Rpx-Kl-Olf" firstAttribute="top" secondItem="HOV-Lh-3Ef" secondAttribute="bottom" constant="3" id="kXh-uN-Rag"/>
                         <constraint firstItem="RJH-4q-i9x" firstAttribute="top" secondItem="KrZ-Gp-D3P" secondAttribute="topMargin" constant="21" id="mMx-eo-PTn"/>
                         <constraint firstItem="HOV-Lh-3Ef" firstAttribute="top" secondItem="KrZ-Gp-D3P" secondAttribute="top" constant="8" id="qzN-W4-Wqu"/>
                         <constraint firstItem="oEs-js-ewP" firstAttribute="top" secondItem="RJH-4q-i9x" secondAttribute="bottom" constant="10" id="sKL-nV-jmW"/>
