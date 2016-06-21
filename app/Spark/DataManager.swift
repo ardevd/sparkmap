@@ -299,9 +299,10 @@ class DataManager: NSObject {
                                         let date = try self.ocmDateFormatParser(OCMDateString: chargerDataLastUpdateTime)
                                         chargerPrimary.chargerDataLastUpdate = date.timeIntervalSinceReferenceDate
                                         } catch DataManagerError.InvalidDateFormat {
-                                            
+                                            NSLog("Invalid Status Update date format")
                                         } catch {
-                                            
+                                            let nserror = error as NSError
+                                            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
                                         }
                                     }
                                     
@@ -349,9 +350,10 @@ class DataManager: NSObject {
                                                         let date = try self.ocmCommentDateFormatParser(OCMDateString: commentDate)
                                                             comment.commentDate = date.timeIntervalSinceReferenceDate
                                                         } catch DataManagerError.InvalidDateFormat {
-                                                            
+                                                            NSLog("Invalid comment date format")
                                                         } catch {
-                                                            
+                                                            let nserror = error as NSError
+                                                            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
                                                         }
                                                         
                                                     }
