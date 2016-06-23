@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import Contacts
 
-class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate {
+class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate, UIViewControllerPreviewingDelegate {
     // Outlets
     @IBOutlet var imageThumbnail: UIImageView!
     @IBOutlet var labelTitle: UILabel!
@@ -89,6 +89,35 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             locationManager?.startUpdatingLocation()
             isActive = true
         }
+        
+        // Register 3d Touch capabilties
+        registerForceTouchCapability()
+
+    }
+    
+    func registerForceTouchCapability(){
+        if(traitCollection.forceTouchCapability == .Available){
+            registerForPreviewingWithDelegate(self, sourceView: imageThumbnail)
+        }
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        // Set up peeking
+        let vc = ChargingStationPhotoViewController()
+        vc.chargingStationImageUrl = self.charger?.chargerImage
+        previewingContext.sourceRect = imageThumbnail.frame
+        return vc
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        // Set up Popping
+        if showingLargeImage != nil {
+            if showingLargeImage! {
+                toggleFullThumbnilImage()
+            }
+        }
+        showViewController(viewControllerToCommit, sender: self)
     }
     
     func checkLocationAuthorization() -> Bool{
@@ -154,7 +183,6 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         setChargerInfoToOutlets()
         
         addViewAppearanceElements()
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -276,8 +304,11 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         self.presentViewController(photoSubmissionConfirmationAlert, animated: true, completion: nil)
     }
     
-    func toggleFullImage(img: AnyObject)
-    {
+    func toggleFullImage(img: AnyObject) {
+        toggleFullThumbnilImage()
+    }
+    
+    func toggleFullThumbnilImage(){
         UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.95, initialSpringVelocity: 8, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
             
             if (self.imageThumbnail.frame == self.viewHeader.layer.bounds){
@@ -286,6 +317,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                 self.buttonComments.alpha = 1
                 self.checkAndAnimateRecentlyVerifiedView()
                 self.manipulateThumbnailImage()
+                self.showingLargeImage = false
             }else{
                 self.imageThumbnail.frame = self.viewHeader.layer.bounds
                 self.imageThumbnail.layer.cornerRadius = 0
@@ -294,10 +326,10 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                 self.viewRecentlyVerified.alpha = 0
                 self.viewLastUpdateTime.alpha = 0
                 self.showingLargeImage = true
-                
             }
             self.view.layoutIfNeeded()
             }, completion: nil)
+
     }
     
     func manipulateThumbnailImage(){
@@ -506,6 +538,12 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         vc.comments = charger!.chargerDetails?.comments?.allObjects as! [Comment]
         vc.hidesBottomBarWhenPushed = true
         showViewController(vc, sender: nil)
-
+    }
+    
+    func showChargingStationPhotoViewController(){
+        let vc = ChargingStationPhotoViewController()
+        vc.chargingStationImageUrl = self.charger?.chargerImage
+        vc.hidesBottomBarWhenPushed = true
+        self.showViewController(vc, sender: nil)
     }
 }
