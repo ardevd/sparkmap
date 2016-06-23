@@ -16,6 +16,7 @@
                 <outlet property="imageThumbnail" destination="RJH-4q-i9x" id="kqk-uU-bvw"/>
                 <outlet property="indicatorImageLoader" destination="OST-qJ-PCa" id="7cU-Gc-5Di"/>
                 <outlet property="labelAccess" destination="sQE-wu-szz" id="N1J-So-gV3"/>
+                <outlet property="labelNumberOfComments" destination="rqD-x1-MP1" id="jwb-mt-zFJ"/>
                 <outlet property="labelNumberOfPoints" destination="Qht-zl-0Be" id="BqL-Mv-7D4"/>
                 <outlet property="labelStatus" destination="66E-YC-mny" id="Xpx-k5-0BX"/>
                 <outlet property="labelSubtitle" destination="MFW-g4-3i2" id="zsq-aG-R3E"/>
@@ -121,17 +122,25 @@
                                 <action selector="showCommentViewController" destination="-1" eventType="primaryActionTriggered" id="gh8-U7-MEZ"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqD-x1-MP1">
+                            <rect key="frame" x="476" y="8" width="48" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.21568627450980393" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="Rpx-Kl-Olf" firstAttribute="leading" secondItem="RJH-4q-i9x" secondAttribute="trailing" constant="8" id="1Zq-Sy-Uxp"/>
                         <constraint firstItem="Qmq-y0-sxC" firstAttribute="top" secondItem="OST-qJ-PCa" secondAttribute="bottom" id="6pK-KP-CBs"/>
+                        <constraint firstItem="HOV-Lh-3Ef" firstAttribute="leading" secondItem="rqD-x1-MP1" secondAttribute="trailing" constant="8" id="8ti-Of-LR5"/>
                         <constraint firstItem="RJH-4q-i9x" firstAttribute="centerX" secondItem="KrZ-Gp-D3P" secondAttribute="centerX" id="EVW-eT-Sil"/>
                         <constraint firstItem="Qmq-y0-sxC" firstAttribute="leading" secondItem="KrZ-Gp-D3P" secondAttribute="leading" id="GjZ-BJ-IZV"/>
                         <constraint firstAttribute="height" constant="212" id="M2O-lQ-68B"/>
                         <constraint firstItem="M3g-6f-yNs" firstAttribute="leading" secondItem="HOV-Lh-3Ef" secondAttribute="trailing" constant="16" id="U45-b8-Afo"/>
                         <constraint firstItem="MFW-g4-3i2" firstAttribute="centerX" secondItem="KrZ-Gp-D3P" secondAttribute="centerX" id="XOC-sm-NaL"/>
                         <constraint firstItem="OST-qJ-PCa" firstAttribute="top" secondItem="KrZ-Gp-D3P" secondAttribute="topMargin" constant="1" id="Xt1-eb-mu3"/>
+                        <constraint firstItem="rqD-x1-MP1" firstAttribute="top" secondItem="KrZ-Gp-D3P" secondAttribute="top" constant="8" id="Z5C-Nh-sAO"/>
                         <constraint firstItem="OST-qJ-PCa" firstAttribute="leading" secondItem="KrZ-Gp-D3P" secondAttribute="leadingMargin" id="d05-DB-3m3"/>
                         <constraint firstAttribute="trailing" secondItem="Rpx-Kl-Olf" secondAttribute="trailing" id="ecR-6a-gdX"/>
                         <constraint firstItem="oEs-js-ewP" firstAttribute="centerX" secondItem="KrZ-Gp-D3P" secondAttribute="centerX" id="hQZ-s9-uyf"/>

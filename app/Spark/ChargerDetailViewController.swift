@@ -24,6 +24,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     @IBOutlet var indicatorImageLoader: UIActivityIndicatorView!
     @IBOutlet var buttonLastUpdateTime: UIButton!
     @IBOutlet var buttonComments: UIButton!
+    @IBOutlet var labelNumberOfComments: UILabel!
     
     // Views
     @IBOutlet var viewNumberOfPoints: UIView!
@@ -495,6 +496,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             // We have comments. Show filled icon
             let image = UIImage(named: "ChatFilledIcon")
             buttonComments.setImage(image, forState: .Normal)
+            labelNumberOfComments.text = String(numberOfComments)
         }
     }
     
