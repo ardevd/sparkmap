@@ -10,15 +10,14 @@ import UIKit
 
 class ChargingStationPhotoViewController: UIViewController {
     
-    @IBOutlet var chargingStationImage: UIImageView!
+    @IBOutlet var chargingStationImageView: UIImageView!
     var chargingStationImageUrl: String?
+    var chargingStationImage: UIImage?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        downloadThumbnailImage(chargingStationImageUrl!)
+        self.chargingStationImageView.image = chargingStationImage
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,37 +25,4 @@ class ChargingStationPhotoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func downloadThumbnailImage(imageUrl: String){
-        // TODO: Merge this with the other thumbnail downloading code into a separate class. 
-        
-        if let url = NSURL(string: imageUrl) {
-            let request: NSURLRequest = NSURLRequest(URL: url)
-            let session = NSURLSession.sharedSession()
-            let task = session.dataTaskWithRequest(request){
-                (data, response, error) -> Void in
-                
-                if (error == nil && data != nil)
-                {
-                    func displayImage()
-                    {
-                        // Animate the fade in of the image
-                        UIView.animateWithDuration(1.0, animations: {
-                            self.chargingStationImage.image = UIImage(data: data!)
-                        })
-                    }
-                    
-                    dispatch_async(dispatch_get_main_queue(), displayImage)
-                }
-                
-                func dismissActivityIndicator(){
-                }
-                
-                dispatch_async(dispatch_get_main_queue(), dismissActivityIndicator)
-            }
-            
-            task.resume()
-        }
-    }
-    
-
  }

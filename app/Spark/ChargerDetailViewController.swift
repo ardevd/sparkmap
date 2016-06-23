@@ -89,9 +89,6 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             locationManager?.startUpdatingLocation()
             isActive = true
         }
-        
-        // Register 3d Touch capabilties
-        registerForceTouchCapability()
 
     }
     
@@ -106,6 +103,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         // Set up peeking
         let vc = ChargingStationPhotoViewController()
         vc.chargingStationImageUrl = self.charger?.chargerImage
+        vc.chargingStationImage = self.imageThumbnail.image
         previewingContext.sourceRect = imageThumbnail.frame
         return vc
     }
@@ -438,6 +436,9 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                             self.imageThumbnail.alpha = 0.0
                             self.imageThumbnail.image = UIImage(data: data!)
                             self.imageThumbnail.alpha = 1.0
+                            
+                            // Register 3d Touch capabilties
+                            self.registerForceTouchCapability()
                         })
                     }
                     
