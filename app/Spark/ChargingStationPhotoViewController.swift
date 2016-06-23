@@ -10,14 +10,16 @@ import UIKit
 
 class ChargingStationPhotoViewController: UIViewController {
     
-    @IBOutlet var chargingStationImageView: UIImageView!
+    @IBOutlet var chargingStationBackgroundImageView: UIImageView!
+    @IBOutlet var chargingStationForegroundImageView: UIImageView!
     var chargingStationImageUrl: String?
     var chargingStationImage: UIImage?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.chargingStationImageView.image = chargingStationImage
+        self.chargingStationBackgroundImageView.image = chargingStationImage
+        self.chargingStationForegroundImageView.image = chargingStationImage
     }
 
     override func didReceiveMemoryWarning() {

@@ -7,7 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChargingStationPhotoViewController" customModule="SparkMap" customModuleProvider="target">
             <connections>
-                <outlet property="chargingStationImageView" destination="L3F-Pw-ydI" id="4TU-J4-bm2"/>
+                <outlet property="chargingStationBackgroundImageView" destination="L3F-Pw-ydI" id="uaB-BT-JVV"/>
+                <outlet property="chargingStationForegroundImageView" destination="7w3-zB-ABh" id="tz5-2F-Qgx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,17 +17,40 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L3F-Pw-ydI">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L3F-Pw-ydI">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bnr-Mb-SzP">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nNq-oQ-bIY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7w3-zB-ABh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7w3-zB-ABh" secondAttribute="trailing" id="NM6-iJ-9ux"/>
+                            <constraint firstAttribute="bottom" secondItem="7w3-zB-ABh" secondAttribute="bottom" id="Rpa-2S-ajg"/>
+                            <constraint firstItem="7w3-zB-ABh" firstAttribute="top" secondItem="nNq-oQ-bIY" secondAttribute="top" id="cVD-Mr-alO"/>
+                            <constraint firstItem="7w3-zB-ABh" firstAttribute="leading" secondItem="nNq-oQ-bIY" secondAttribute="leading" id="spY-OU-kSV"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="dark"/>
+                </visualEffectView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="L3F-Pw-ydI" secondAttribute="bottom" id="cf6-DB-zGG"/>
-                <constraint firstAttribute="trailing" secondItem="L3F-Pw-ydI" secondAttribute="trailing" id="pyC-6l-xHT"/>
-                <constraint firstItem="L3F-Pw-ydI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wgk-aq-Ly7"/>
-                <constraint firstItem="L3F-Pw-ydI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yKv-2Z-RnT"/>
+                <constraint firstItem="Bnr-Mb-SzP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0si-m3-DcU"/>
+                <constraint firstAttribute="trailing" secondItem="L3F-Pw-ydI" secondAttribute="trailing" id="NS2-Dn-Doy"/>
+                <constraint firstAttribute="bottom" secondItem="L3F-Pw-ydI" secondAttribute="bottom" id="Njh-rR-OgL"/>
+                <constraint firstItem="L3F-Pw-ydI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="O3I-XC-5Lz"/>
+                <constraint firstItem="Bnr-Mb-SzP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OEB-jH-Na0"/>
+                <constraint firstAttribute="trailing" secondItem="Bnr-Mb-SzP" secondAttribute="trailing" id="WSd-6u-uQE"/>
+                <constraint firstAttribute="bottom" secondItem="Bnr-Mb-SzP" secondAttribute="bottom" id="nZX-nO-tgS"/>
+                <constraint firstItem="L3F-Pw-ydI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="slo-U9-lVc"/>
             </constraints>
         </view>
     </objects>
