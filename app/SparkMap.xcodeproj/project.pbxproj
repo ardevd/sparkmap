@@ -48,6 +48,8 @@
 		DC7830D21CE9D8FE005B315E /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC7830D01CE9D8FE005B315E /* CommentTableViewCell.xib */; };
 		DC78F21F1CC0289F009FF03E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC78F2211CC0289F009FF03E /* InfoPlist.strings */; };
 		DC78F2231CC028A0009FF03E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC78F2221CC028A0009FF03E /* InfoPlist.strings */; };
+		DC7C51CC1D1C86B40065862B /* ChargingStationPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C51CA1D1C86B40065862B /* ChargingStationPhotoViewController.swift */; };
+		DC7C51CD1D1C86B40065862B /* ChargingStationPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC7C51CB1D1C86B40065862B /* ChargingStationPhotoViewController.xib */; };
 		DC7C8C5F1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C8C5E1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift */; };
 		DC7C8C611C7F3A06003D5C37 /* DistanceToLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C8C601C7F3A06003D5C37 /* DistanceToLocationManager.swift */; };
 		DC7F79001CC006EA006CBD42 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC7F78FF1CC006EA006CBD42 /* InfoPlist.strings */; };
@@ -145,6 +147,8 @@
 		DC792C951CC18CEA003667BC /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC792C971CC2A10A003667BC /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC7C0ED01CEA093400DBC7A1 /* Spark v6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v6.xcdatamodel"; sourceTree = "<group>"; };
+		DC7C51CA1D1C86B40065862B /* ChargingStationPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargingStationPhotoViewController.swift; sourceTree = "<group>"; };
+		DC7C51CB1D1C86B40065862B /* ChargingStationPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChargingStationPhotoViewController.xib; sourceTree = "<group>"; };
 		DC7C8C5E1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastDataUpdateLocationSingelton.swift; sourceTree = "<group>"; };
 		DC7C8C601C7F3A06003D5C37 /* DistanceToLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceToLocationManager.swift; sourceTree = "<group>"; };
 		DC7F78FF1CC006EA006CBD42 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 				DC4B67251D0F46070013C57A /* WhatsNewViewController.swift */,
 				DCE27F411D15C718004F5702 /* WhatsNewViewController.xib */,
 				DC81E47C1D172D750013A22F /* ChargerImageHelper.swift */,
+				DC7C51CA1D1C86B40065862B /* ChargingStationPhotoViewController.swift */,
+				DC7C51CB1D1C86B40065862B /* ChargingStationPhotoViewController.xib */,
 			);
 			path = Spark;
 			sourceTree = "<group>";
@@ -437,6 +443,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC7C51CD1D1C86B40065862B /* ChargingStationPhotoViewController.xib in Resources */,
 				DC0238861BE4497B0060F4B8 /* Settings.bundle in Resources */,
 				DC85CABE1C5A137700AB2786 /* ConnectionTableViewCell.xib in Resources */,
 				DC1ED1701BE29572007C09D1 /* LaunchScreen.storyboard in Resources */,
@@ -505,6 +512,7 @@
 				DC68F6781BE345B4000EFFF4 /* ChargerDetails.swift in Sources */,
 				DC1ED1651BE29572007C09D1 /* ViewController.swift in Sources */,
 				DC68F67C1BE345B4000EFFF4 /* Comment.swift in Sources */,
+				DC7C51CC1D1C86B40065862B /* ChargingStationPhotoViewController.swift in Sources */,
 				DCD7983B1BE5814F00C62863 /* AnnotationCharger.swift in Sources */,
 				DC1ED1631BE29572007C09D1 /* AppDelegate.swift in Sources */,
 				DC68F6841BE34B11000EFFF4 /* ChargerOperator.swift in Sources */,
