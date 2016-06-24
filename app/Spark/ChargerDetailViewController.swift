@@ -64,10 +64,6 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         // Download charger thumbnail image
         if let thumbnailImageURL = charger?.chargerImage {
             downloadThumbnailImage(thumbnailImageURL)
-            // Add gestureRecognizer if we have loaded an image
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(ChargerDetailViewController.toggleFullImage(_:)))
-            imageThumbnail.userInteractionEnabled = true
-            imageThumbnail.addGestureRecognizer(tapGestureRecognizer)
         } else {
             // Add gestureRecognizer that lets user take and upload photo
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(ChargerDetailViewController.grabAndLoadUserPhoto(_:)))
@@ -441,6 +437,11 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                             
                             // Register 3d Touch capabilties
                             self.registerForceTouchCapability()
+                            
+                            // Add gestureRecognizer
+                            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(ChargerDetailViewController.toggleFullImage(_:)))
+                            self.imageThumbnail.userInteractionEnabled = true
+                            self.imageThumbnail.addGestureRecognizer(tapGestureRecognizer)
                         })
                     }
                     
