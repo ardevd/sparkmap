@@ -316,6 +316,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             }else{
                 self.imageThumbnail.frame = self.viewHeader.layer.bounds
                 self.imageThumbnail.layer.cornerRadius = 0
+                self.imageThumbnail.layer.borderWidth = 0
                 self.buttonComments.alpha = 0
                 self.labelNumberOfComments.alpha = 0
                 self.buttonLastUpdateTime.alpha = 0
