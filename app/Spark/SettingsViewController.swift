@@ -203,10 +203,6 @@ class SettingsViewController: UITableViewController {
                     cell?.accessoryType = .None
                 }
             }
-            
-            
         }
-
     }
-    
 }
