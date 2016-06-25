@@ -16,14 +16,12 @@ class UserPhotoSubmissionManager: NSObject {
         
         let userImage = userImageView.image!
         let myUrl = NSURL(string: "https://sparkmap.zygotelabs.net/photo_upload.php");
-        
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";
-        
+    
         let boundary = generateBoundaryString()
-        
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-                
+        
         let imageData = UIImageJPEGRepresentation(userImage, 1)
         
         if(imageData==nil)
@@ -48,7 +46,7 @@ class UserPhotoSubmissionManager: NSObject {
             // NSLog("******* response = \(response)")
             
             // Print out reponse body
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            //let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             // NSLog("****** response data = \(responseString!)")
             
             
