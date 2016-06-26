@@ -270,7 +270,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         // Map region was updated. Update data if we think the user dragged the map.
         
         if (!userInteractionOverride && haveLoadedInitialChargerData) {
-            if (DistanceToLocationManager.distanceFromLastDataUpdateLocation(CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)) > 5000) {
+            if (DistanceToLocationManager.distanceFromLastDataUpdateLocation(CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)) > getCurrentMapBoundsDistance()) {
                 // Show stored annotations for the new location
                 updateAnnotations()
                 // Download charging station data for the area
