@@ -282,6 +282,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         
     }
     
+    func getCurrentMapBoundsDistance() -> CLLocationDistance{
+        let mapRegionRectangle = self.mapView.visibleMapRect
+        let neMapPoint = MKMapPointMake(MKMapRectGetMaxX(mapRegionRectangle), mapRegionRectangle.origin.y)
+        let swMapPoint = MKMapPointMake(mapRegionRectangle.origin.x, MKMapRectGetMaxY(mapRegionRectangle))
+        let neMapCoordinate = MKCoordinateForMapPoint(neMapPoint);
+        let swMapCoordinate = MKCoordinateForMapPoint(swMapPoint);
+        let neMapLocation = CLLocation(latitude: neMapCoordinate.latitude, longitude: neMapCoordinate.longitude)
+        let swMapLocation = CLLocation(latitude: swMapCoordinate.latitude, longitude: swMapCoordinate.longitude)
+        let mapRegionDistance = neMapLocation.distanceFromLocation(swMapLocation)
+        return mapRegionDistance
+    }
+    
     
     @IBAction func showSearchBar(sender: AnyObject) {
         
