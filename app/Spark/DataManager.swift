@@ -265,6 +265,12 @@ class DataManager: NSObject {
                 }
                 else {
                     if let dataList = data {
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            let processingDataString = NSLocalizedString("Processing Data", comment: "Processing Data Spinner Text")
+                            SwiftSpinner.sharedInstance.titleLabel.text = processingDataString
+                            
+                        })
+                        
                         // Convert NSData to JSON
                         do {
                             guard let jsonArray = try NSJSONSerialization.JSONObjectWithData(dataList, options: NSJSONReadingOptions.MutableContainers) as? [NSDictionary] else { return }
