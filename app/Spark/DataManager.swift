@@ -248,7 +248,7 @@ class DataManager: NSObject {
             
             let dismissString = NSLocalizedString("Dismiss", comment:"Download Spinner dismiss button text")
             if showDownloadDialog{
-                let downloadingDataString = NSLocalizedString("Downloading Data", comment: "Downloading Data Spinner Text")
+                let downloadingDataString = NSLocalizedString("Downloading Data...", comment: "Downloading Data Spinner Text")
                 let tapToHideSubtitleString = NSLocalizedString("Tap to hide", comment: "Tap to hide subtitle")
                 SwiftSpinner.show(downloadingDataString).addTapHandler({
                     SwiftSpinner.hide()
@@ -266,7 +266,7 @@ class DataManager: NSObject {
                 else {
                     if let dataList = data {
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            let processingDataString = NSLocalizedString("Processing Data", comment: "Processing Data Spinner Text")
+                            let processingDataString = NSLocalizedString("Processing Data...", comment: "Processing Data Spinner Text")
                             SwiftSpinner.sharedInstance.titleLabel.text = processingDataString
                             
                         })
