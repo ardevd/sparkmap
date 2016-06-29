@@ -497,7 +497,7 @@ class DataManager: NSObject {
                                         }
                                     }
                                     
-                                    if let operatorData = element["OperatorInfoX"] {
+                                    if let operatorData = element["OperatorInfo"] {
                                         let chargerOperator = NSEntityDescription.insertNewObjectForEntityForName("ChargerOperator",inManagedObjectContext: moc) as! ChargerOperator
                                         
                                         
