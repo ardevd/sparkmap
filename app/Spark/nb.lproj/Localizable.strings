@@ -18,7 +18,10 @@
 "Dismiss" = "OK";
 
 /* Downloading Data Spinner Text */
-"Downloading Data" = "Laster ned data";
+"Downloading Data..." = "Laster Data...";
+
+/* Data download parsing error */
+"Invalid data returned from server. Please try again later." = "Ugyldig data. Prøv igjen senere.";
 
 /* Navigate */
 "Navigate" = "Naviger";
@@ -46,6 +49,9 @@
 
 /* User search location not found */
 "Place Not Found" = "Sted Ikke Funnet";
+
+/* Processing Data Spinner Text */
+"Processing Data..." = "Prosesserer...";
 
 /* Searchbar placeholder string */
 "Search for a place or address" = "Søk etter sted eller addresse";
