@@ -24,7 +24,18 @@
 		DC1ED1701BE29572007C09D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC1ED16E1BE29572007C09D1 /* LaunchScreen.storyboard */; };
 		DC1ED17B1BE29572007C09D1 /* SparkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED17A1BE29572007C09D1 /* SparkTests.swift */; };
 		DC1ED1861BE29572007C09D1 /* SparkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED1851BE29572007C09D1 /* SparkUITests.swift */; };
+		DC207DFE1D247F6F00841E38 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC207DFD1D247F6F00841E38 /* InfoPlist.strings */; };
+		DC207E001D247FE800841E38 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC207DFF1D247FE800841E38 /* InfoPlist.strings */; };
+		DC207E021D24806F00841E38 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC207E011D24806F00841E38 /* InfoPlist.strings */; };
+		DC207E041D24811A00841E38 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC207E031D24811A00841E38 /* InfoPlist.strings */; };
 		DC24E3601C5B83760070AC3E /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */; };
+		DC46AC011D247E0000A5230F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC46AC001D247E0000A5230F /* InfoPlist.strings */; };
+		DC46AC031D247E5D00A5230F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC46AC021D247E5D00A5230F /* InfoPlist.strings */; };
+		DC46AC051D247E7300A5230F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC46AC041D247E7300A5230F /* InfoPlist.strings */; };
+		DC46AC071D247EA800A5230F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC46AC061D247EA800A5230F /* InfoPlist.strings */; };
+		DC46AC091D247EFC00A5230F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC46AC081D247EFC00A5230F /* InfoPlist.strings */; };
+		DC46AC0B1D247F1200A5230F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC46AC0A1D247F1200A5230F /* InfoPlist.strings */; };
+		DC46AC0D1D247F3800A5230F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC46AC0C1D247F3800A5230F /* InfoPlist.strings */; };
 		DC4B67271D0F46070013C57A /* WhatsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B67251D0F46070013C57A /* WhatsNewViewController.swift */; };
 		DC4EB7AD1BE9717800B75FFC /* NearbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */; };
 		DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */; };
@@ -46,7 +57,6 @@
 		DC7830CD1CE9C79A005B315E /* CommentsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7830CB1CE9C79A005B315E /* CommentsListViewController.swift */; };
 		DC7830D11CE9D8FE005B315E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7830CF1CE9D8FE005B315E /* CommentTableViewCell.swift */; };
 		DC7830D21CE9D8FE005B315E /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC7830D01CE9D8FE005B315E /* CommentTableViewCell.xib */; };
-		DC78F21F1CC0289F009FF03E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC78F2211CC0289F009FF03E /* InfoPlist.strings */; };
 		DC78F2231CC028A0009FF03E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC78F2221CC028A0009FF03E /* InfoPlist.strings */; };
 		DC7C51CC1D1C86B40065862B /* ChargingStationPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C51CA1D1C86B40065862B /* ChargingStationPhotoViewController.swift */; };
 		DC7C51CD1D1C86B40065862B /* ChargingStationPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC7C51CB1D1C86B40065862B /* ChargingStationPhotoViewController.xib */; };
@@ -58,9 +68,15 @@
 		DC81E47D1D172D750013A22F /* ChargerImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81E47C1D172D750013A22F /* ChargerImageHelper.swift */; };
 		DC85CABD1C5A137700AB2786 /* ConnectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */; };
 		DC85CABE1C5A137700AB2786 /* ConnectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */; };
+		DCA6144B1D25780000998E49 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCA6144A1D25780000998E49 /* InfoPlist.strings */; };
+		DCA6144D1D25789F00998E49 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCA6144C1D25789F00998E49 /* InfoPlist.strings */; };
+		DCA6144F1D2578DA00998E49 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCA6144E1D2578DA00998E49 /* InfoPlist.strings */; };
+		DCA614511D25792400998E49 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCA614501D25792400998E49 /* InfoPlist.strings */; };
 		DCAFABCD1CC679B200C637BE /* MapCoordinateSpanSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAFABCC1CC679B200C637BE /* MapCoordinateSpanSingelton.swift */; };
 		DCB3E2361BE65102003AB6C9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB3E2351BE65102003AB6C9 /* LocationManager.swift */; };
 		DCC862BC1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */; };
+		DCCAC3331D257946007B334D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCCAC3321D257946007B334D /* InfoPlist.strings */; };
+		DCCAC3361D2579BA007B334D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCCAC3381D2579BA007B334D /* InfoPlist.strings */; };
 		DCCF429B1CEFA007008DC094 /* CommentsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCF429D1CEFA007008DC094 /* CommentsListViewController.xib */; };
 		DCD04B781CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD04B771CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift */; };
 		DCD7983B1BE5814F00C62863 /* AnnotationCharger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD7983A1BE5814F00C62863 /* AnnotationCharger.swift */; };
@@ -114,8 +130,19 @@
 		DC1ED1851BE29572007C09D1 /* SparkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkUITests.swift; sourceTree = "<group>"; };
 		DC1ED1871BE29572007C09D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC1ED1931BE296A4007C09D1 /* Spark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Spark.entitlements; sourceTree = "<group>"; };
+		DC207DFD1D247F6F00841E38 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC207DFF1D247FE800841E38 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC207E011D24806F00841E38 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC207E031D24811A00841E38 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
 		DC2F421B1C68C4A300579F18 /* Spark v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v2.xcdatamodel"; sourceTree = "<group>"; };
+		DC46AC001D247E0000A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC46AC021D247E5D00A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC46AC041D247E7300A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC46AC061D247EA800A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC46AC081D247EFC00A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC46AC0A1D247F1200A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC46AC0C1D247F3800A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC4B67251D0F46070013C57A /* WhatsNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhatsNewViewController.swift; sourceTree = "<group>"; };
 		DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyTableViewCell.swift; sourceTree = "<group>"; };
 		DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearbyTableViewCell.xib; sourceTree = "<group>"; };
@@ -141,7 +168,6 @@
 		DC7830CB1CE9C79A005B315E /* CommentsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsListViewController.swift; sourceTree = "<group>"; };
 		DC7830CF1CE9D8FE005B315E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		DC7830D01CE9D8FE005B315E /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
-		DC78F2201CC0289F009FF03E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DC78F2221CC028A0009FF03E /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC78F2241CC028BE009FF03E /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC792C951CC18CEA003667BC /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -159,6 +185,10 @@
 		DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionTableViewCell.xib; sourceTree = "<group>"; };
 		DC8961CD1CD404C700F8145A /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC9479B81CD3F98F0024E3C6 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DCA6144A1D25780000998E49 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DCA6144C1D25789F00998E49 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DCA6144E1D2578DA00998E49 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DCA614501D25792400998E49 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DCAA484A1CC0027800114FF2 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
 		DCAA484B1CC0027800114FF2 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		DCAA484C1CC0027800114FF2 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/ChargerDetailViewController.strings; sourceTree = "<group>"; };
@@ -166,6 +196,8 @@
 		DCAFABCC1CC679B200C637BE /* MapCoordinateSpanSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCoordinateSpanSingelton.swift; sourceTree = "<group>"; };
 		DCB3E2351BE65102003AB6C9 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCenterCoordinateSingelton.swift; sourceTree = "<group>"; };
+		DCCAC3321D257946007B334D /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DCCAC3371D2579BA007B334D /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DCCD91D21CD29DA000C571B8 /* Spark v5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v5.xcdatamodel"; sourceTree = "<group>"; };
 		DCCF429C1CEFA007008DC094 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CommentsListViewController.xib; sourceTree = "<group>"; };
 		DCCF429E1CEFA064008DC094 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -233,7 +265,6 @@
 		DC1ED1611BE29572007C09D1 /* Spark */ = {
 			isa = PBXGroup;
 			children = (
-				DC78F2211CC0289F009FF03E /* InfoPlist.strings */,
 				DC14112E1CC00DEE00F68C83 /* Localizable.strings */,
 				DC68F6811BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift */,
 				DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */,
@@ -287,6 +318,23 @@
 		DC1ED1791BE29572007C09D1 /* SparkTests */ = {
 			isa = PBXGroup;
 			children = (
+				DCCAC3381D2579BA007B334D /* InfoPlist.strings */,
+				DCCAC3321D257946007B334D /* InfoPlist.strings */,
+				DCA614501D25792400998E49 /* InfoPlist.strings */,
+				DCA6144E1D2578DA00998E49 /* InfoPlist.strings */,
+				DCA6144C1D25789F00998E49 /* InfoPlist.strings */,
+				DCA6144A1D25780000998E49 /* InfoPlist.strings */,
+				DC207E031D24811A00841E38 /* InfoPlist.strings */,
+				DC207E011D24806F00841E38 /* InfoPlist.strings */,
+				DC207DFF1D247FE800841E38 /* InfoPlist.strings */,
+				DC207DFD1D247F6F00841E38 /* InfoPlist.strings */,
+				DC46AC0C1D247F3800A5230F /* InfoPlist.strings */,
+				DC46AC0A1D247F1200A5230F /* InfoPlist.strings */,
+				DC46AC081D247EFC00A5230F /* InfoPlist.strings */,
+				DC46AC061D247EA800A5230F /* InfoPlist.strings */,
+				DC46AC041D247E7300A5230F /* InfoPlist.strings */,
+				DC46AC021D247E5D00A5230F /* InfoPlist.strings */,
+				DC46AC001D247E0000A5230F /* InfoPlist.strings */,
 				DCE27F431D15C811004F5702 /* InfoPlist.strings */,
 				DC5FB50A1CEFA60B000E1F33 /* InfoPlist.strings */,
 				DC5FB5081CEFA563000E1F33 /* InfoPlist.strings */,
@@ -454,7 +502,6 @@
 				DCCF429B1CEFA007008DC094 /* CommentsListViewController.xib in Resources */,
 				DC1ED16D1BE29572007C09D1 /* Assets.xcassets in Resources */,
 				DC7830D21CE9D8FE005B315E /* CommentTableViewCell.xib in Resources */,
-				DC78F21F1CC0289F009FF03E /* InfoPlist.strings in Resources */,
 				DC1ED1681BE29572007C09D1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,11 +511,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC78F2231CC028A0009FF03E /* InfoPlist.strings in Resources */,
+				DCA614511D25792400998E49 /* InfoPlist.strings in Resources */,
+				DC207E021D24806F00841E38 /* InfoPlist.strings in Resources */,
+				DC207DFE1D247F6F00841E38 /* InfoPlist.strings in Resources */,
+				DC46AC0B1D247F1200A5230F /* InfoPlist.strings in Resources */,
+				DC46AC031D247E5D00A5230F /* InfoPlist.strings in Resources */,
+				DC207E041D24811A00841E38 /* InfoPlist.strings in Resources */,
+				DC207E001D247FE800841E38 /* InfoPlist.strings in Resources */,
+				DCA6144B1D25780000998E49 /* InfoPlist.strings in Resources */,
+				DCCAC3361D2579BA007B334D /* InfoPlist.strings in Resources */,
+				DCCAC3331D257946007B334D /* InfoPlist.strings in Resources */,
+				DC46AC0D1D247F3800A5230F /* InfoPlist.strings in Resources */,
+				DCA6144F1D2578DA00998E49 /* InfoPlist.strings in Resources */,
+				DC46AC011D247E0000A5230F /* InfoPlist.strings in Resources */,
+				DCA6144D1D25789F00998E49 /* InfoPlist.strings in Resources */,
 				DCE27F441D15C811004F5702 /* InfoPlist.strings in Resources */,
 				DC5FB5091CEFA563000E1F33 /* InfoPlist.strings in Resources */,
 				DC5FB5071CEFA4B3000E1F33 /* InfoPlist.strings in Resources */,
 				DC5FB5011CEFA407000E1F33 /* InfoPlist.strings in Resources */,
+				DC46AC051D247E7300A5230F /* InfoPlist.strings in Resources */,
 				DC5FB50B1CEFA60B000E1F33 /* InfoPlist.strings in Resources */,
+				DC46AC091D247EFC00A5230F /* InfoPlist.strings in Resources */,
+				DC46AC071D247EA800A5230F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,10 +669,10 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		DC78F2211CC0289F009FF03E /* InfoPlist.strings */ = {
+		DCCAC3381D2579BA007B334D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DC78F2201CC0289F009FF03E /* nb */,
+				DCCAC3371D2579BA007B334D /* nb */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
