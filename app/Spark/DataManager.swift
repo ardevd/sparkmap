@@ -232,8 +232,11 @@ class DataManager: NSObject {
         defaults.registerDefaults(appDefaults)
         let offlineMode = defaults.boolForKey("offlineMode")
         let showDownloadDialog = defaults.boolForKey("showDownloadDialog")
-        
-        if (!offlineMode){
+        let currentTimestamp = UInt64(floor(NSDate().timeIntervalSince1970))
+        let lastUpdateTimestamp = LastDataDownloadTimeSingelton.lastDataDownload.time
+        if (!offlineMode && currentTimestamp >= (lastUpdateTimestamp + 2)){
+            // Update Last download time singelton
+            LastDataDownloadTimeSingelton.lastDataDownload.time = currentTimestamp
             // TODO - Add option to select units of measurements
             guard let url = NSURL(string: "https://api.openchargemap.io/v2/poi/?output=json&verbose=false&maxresults=500&includecomments=true&distanceunit=KM&latitude=\(latitude)&longitude=\(longitude)") else { return }
             
