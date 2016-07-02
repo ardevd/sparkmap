@@ -84,6 +84,7 @@
 		DCE27F3F1D15C718004F5702 /* WhatsNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCE27F411D15C718004F5702 /* WhatsNewViewController.xib */; };
 		DCE27F441D15C811004F5702 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCE27F431D15C811004F5702 /* InfoPlist.strings */; };
 		DCF1F2C41CC004760045EA77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCF1F2C31CC004760045EA77 /* InfoPlist.strings */; };
+		DCFD74251D271541006BEBE0 /* LastDataDownloadTimeSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFD74241D271541006BEBE0 /* LastDataDownloadTimeSingelton.swift */; };
 		DCFDBFDA1BE3E6E10011D191 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFDBFD91BE3E6E10011D191 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -214,6 +215,7 @@
 		DCE27F421D15C810004F5702 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/WhatsNewViewController.strings; sourceTree = "<group>"; };
 		DCE27F431D15C811004F5702 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DCF1F2C31CC004760045EA77 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DCFD74241D271541006BEBE0 /* LastDataDownloadTimeSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastDataDownloadTimeSingelton.swift; sourceTree = "<group>"; };
 		DCFDBFD91BE3E6E10011D191 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -285,10 +287,9 @@
 				DC1ED1711BE29572007C09D1 /* Info.plist */,
 				DC1ED1691BE29572007C09D1 /* Spark.xcdatamodeld */,
 				DC68F6851BE34C23000EFFF4 /* MapViewController.swift */,
-				DCFDBFD91BE3E6E10011D191 /* DataManager.swift */,
+				DC394B591D286490003D6C81 /* Utils */,
 				DC0238851BE4497B0060F4B8 /* Settings.bundle */,
 				DCD7983A1BE5814F00C62863 /* AnnotationCharger.swift */,
-				DCB3E2351BE65102003AB6C9 /* LocationManager.swift */,
 				DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */,
 				DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */,
 				DC11A7B11C092FD300FD54C3 /* ChargerDetailViewController.swift */,
@@ -299,16 +300,11 @@
 				DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */,
 				DC7830CF1CE9D8FE005B315E /* CommentTableViewCell.swift */,
 				DC7830D01CE9D8FE005B315E /* CommentTableViewCell.xib */,
-				DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */,
+				DC394B581D28641C003D6C81 /* Spinner */,
 				DCDC2C361C613A42004BEF91 /* SettingsViewController.swift */,
-				DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */,
-				DC7C8C5E1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift */,
-				DC7C8C601C7F3A06003D5C37 /* DistanceToLocationManager.swift */,
-				DCD04B771CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift */,
-				DCAFABCC1CC679B200C637BE /* MapCoordinateSpanSingelton.swift */,
+				DC394B571D286408003D6C81 /* Singeltons */,
 				DC4B67251D0F46070013C57A /* WhatsNewViewController.swift */,
 				DCE27F411D15C718004F5702 /* WhatsNewViewController.xib */,
-				DC81E47C1D172D750013A22F /* ChargerImageHelper.swift */,
 				DC7C51CA1D1C86B40065862B /* ChargingStationPhotoViewController.swift */,
 				DC7C51CB1D1C86B40065862B /* ChargingStationPhotoViewController.xib */,
 			);
@@ -378,6 +374,37 @@
 				DC1ED1871BE29572007C09D1 /* Info.plist */,
 			);
 			path = SparkUITests;
+			sourceTree = "<group>";
+		};
+		DC394B571D286408003D6C81 /* Singeltons */ = {
+			isa = PBXGroup;
+			children = (
+				DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */,
+				DC7C8C5E1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift */,
+				DCAFABCC1CC679B200C637BE /* MapCoordinateSpanSingelton.swift */,
+				DCFD74241D271541006BEBE0 /* LastDataDownloadTimeSingelton.swift */,
+			);
+			name = Singeltons;
+			sourceTree = "<group>";
+		};
+		DC394B581D28641C003D6C81 /* Spinner */ = {
+			isa = PBXGroup;
+			children = (
+				DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */,
+			);
+			name = Spinner;
+			sourceTree = "<group>";
+		};
+		DC394B591D286490003D6C81 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DCFDBFD91BE3E6E10011D191 /* DataManager.swift */,
+				DCB3E2351BE65102003AB6C9 /* LocationManager.swift */,
+				DC7C8C601C7F3A06003D5C37 /* DistanceToLocationManager.swift */,
+				DCD04B771CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift */,
+				DC81E47C1D172D750013A22F /* ChargerImageHelper.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -576,6 +603,7 @@
 				DC68F6781BE345B4000EFFF4 /* ChargerDetails.swift in Sources */,
 				DC1ED1651BE29572007C09D1 /* ViewController.swift in Sources */,
 				DC68F67C1BE345B4000EFFF4 /* Comment.swift in Sources */,
+				DCFD74251D271541006BEBE0 /* LastDataDownloadTimeSingelton.swift in Sources */,
 				DC7C51CC1D1C86B40065862B /* ChargingStationPhotoViewController.swift in Sources */,
 				DCD7983B1BE5814F00C62863 /* AnnotationCharger.swift in Sources */,
 				DC1ED1631BE29572007C09D1 /* AppDelegate.swift in Sources */,
