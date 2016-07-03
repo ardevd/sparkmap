@@ -35,6 +35,7 @@
 		DC3D5F491D286AAB001A7D71 /* QuadTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D5F461D286AAB001A7D71 /* QuadTreeNode.swift */; };
 		DC3D5F4A1D286AAB001A7D71 /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D5F471D286AAB001A7D71 /* QuadTree.swift */; };
 		DC3D5F4B1D286AAB001A7D71 /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D5F481D286AAB001A7D71 /* BoundingBox.swift */; };
+		DC3D5F4D1D299494001A7D71 /* UserPreferenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D5F4C1D299494001A7D71 /* UserPreferenceHelper.swift */; };
 		DC46AC011D247E0000A5230F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC46AC001D247E0000A5230F /* InfoPlist.strings */; };
 		DC46AC031D247E5D00A5230F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC46AC021D247E5D00A5230F /* InfoPlist.strings */; };
 		DC46AC051D247E7300A5230F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC46AC041D247E7300A5230F /* InfoPlist.strings */; };
@@ -149,6 +150,7 @@
 		DC3D5F461D286AAB001A7D71 /* QuadTreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadTreeNode.swift; sourceTree = "<group>"; };
 		DC3D5F471D286AAB001A7D71 /* QuadTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadTree.swift; sourceTree = "<group>"; };
 		DC3D5F481D286AAB001A7D71 /* BoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
+		DC3D5F4C1D299494001A7D71 /* UserPreferenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPreferenceHelper.swift; sourceTree = "<group>"; };
 		DC46AC001D247E0000A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC46AC021D247E5D00A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC46AC041D247E7300A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				DC7C8C601C7F3A06003D5C37 /* DistanceToLocationManager.swift */,
 				DCD04B771CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift */,
 				DC81E47C1D172D750013A22F /* ChargerImageHelper.swift */,
+				DC3D5F4C1D299494001A7D71 /* UserPreferenceHelper.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				DC7C8C5F1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift in Sources */,
 				DC7830CD1CE9C79A005B315E /* CommentsListViewController.swift in Sources */,
 				DC3D5F4A1D286AAB001A7D71 /* QuadTree.swift in Sources */,
+				DC3D5F4D1D299494001A7D71 /* UserPreferenceHelper.swift in Sources */,
 				DC81E47D1D172D750013A22F /* ChargerImageHelper.swift in Sources */,
 				DC68F6791BE345B4000EFFF4 /* Connection+CoreDataProperties.swift in Sources */,
 				DC394B651D28659C003D6C81 /* ClusterManager.swift in Sources */,

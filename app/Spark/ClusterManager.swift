@@ -100,10 +100,10 @@ public class ClusterManager {
                 
                 let count = annotations.count
                 
-                if count <= 5 || zoomLevel >= self.maxZoomLevel {
+                if count <= UserPreferenceHelper.getClusteringThresholdValue() || zoomLevel >= self.maxZoomLevel {
                     clusteredAnnotations += annotations
                 }
-                else if count > 5 {
+                else if count > UserPreferenceHelper.getClusteringThresholdValue() {
                     let coordinate = CLLocationCoordinate2D(
                         latitude: CLLocationDegrees(totalLatitude) / CLLocationDegrees(count),
                         longitude: CLLocationDegrees(totalLongitude) / CLLocationDegrees(count)
@@ -121,6 +121,7 @@ public class ClusterManager {
         
         return clusteredAnnotations
     }
+    
     
     public var allAnnotations: [MKAnnotation] {
         lock.lock()

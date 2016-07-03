@@ -97,9 +97,10 @@ public class AnnotationClusterView : MKAnnotationView {
     
     private func updateViewFromCount(count: Int) {
         countLabel.text = "\(count)"
+        let thresholdValue = UserPreferenceHelper.getClusteringThresholdValue()
 
         switch count {
-        case 0...5:
+        case thresholdValue...thresholdValue+5:
             fontSize = 12
             if let options = options {
                 loadExternalImage = true;
@@ -109,7 +110,7 @@ public class AnnotationClusterView : MKAnnotationView {
                 imageName = "cluster_30"
             }
             
-        case 6...15:
+        case thresholdValue+6...thresholdValue+15:
             fontSize = 13
             if let options = options {
                 loadExternalImage = true;
