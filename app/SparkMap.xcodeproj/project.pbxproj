@@ -29,6 +29,12 @@
 		DC207E021D24806F00841E38 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC207E011D24806F00841E38 /* InfoPlist.strings */; };
 		DC207E041D24811A00841E38 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC207E031D24811A00841E38 /* InfoPlist.strings */; };
 		DC24E3601C5B83760070AC3E /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */; };
+		DC394B651D28659C003D6C81 /* ClusterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC394B5E1D28659C003D6C81 /* ClusterManager.swift */; };
+		DC394B661D28659C003D6C81 /* AnnotationClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC394B5F1D28659C003D6C81 /* AnnotationClusterView.swift */; };
+		DC394B671D28659C003D6C81 /* AnnotationCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC394B601D28659C003D6C81 /* AnnotationCluster.swift */; };
+		DC3D5F491D286AAB001A7D71 /* QuadTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D5F461D286AAB001A7D71 /* QuadTreeNode.swift */; };
+		DC3D5F4A1D286AAB001A7D71 /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D5F471D286AAB001A7D71 /* QuadTree.swift */; };
+		DC3D5F4B1D286AAB001A7D71 /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D5F481D286AAB001A7D71 /* BoundingBox.swift */; };
 		DC46AC011D247E0000A5230F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC46AC001D247E0000A5230F /* InfoPlist.strings */; };
 		DC46AC031D247E5D00A5230F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC46AC021D247E5D00A5230F /* InfoPlist.strings */; };
 		DC46AC051D247E7300A5230F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC46AC041D247E7300A5230F /* InfoPlist.strings */; };
@@ -137,6 +143,12 @@
 		DC207E031D24811A00841E38 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
 		DC2F421B1C68C4A300579F18 /* Spark v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v2.xcdatamodel"; sourceTree = "<group>"; };
+		DC394B5E1D28659C003D6C81 /* ClusterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterManager.swift; sourceTree = "<group>"; };
+		DC394B5F1D28659C003D6C81 /* AnnotationClusterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationClusterView.swift; sourceTree = "<group>"; };
+		DC394B601D28659C003D6C81 /* AnnotationCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationCluster.swift; sourceTree = "<group>"; };
+		DC3D5F461D286AAB001A7D71 /* QuadTreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadTreeNode.swift; sourceTree = "<group>"; };
+		DC3D5F471D286AAB001A7D71 /* QuadTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadTree.swift; sourceTree = "<group>"; };
+		DC3D5F481D286AAB001A7D71 /* BoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
 		DC46AC001D247E0000A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC46AC021D247E5D00A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC46AC041D247E7300A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -267,6 +279,12 @@
 		DC1ED1611BE29572007C09D1 /* Spark */ = {
 			isa = PBXGroup;
 			children = (
+				DC3D5F461D286AAB001A7D71 /* QuadTreeNode.swift */,
+				DC3D5F471D286AAB001A7D71 /* QuadTree.swift */,
+				DC3D5F481D286AAB001A7D71 /* BoundingBox.swift */,
+				DC394B5E1D28659C003D6C81 /* ClusterManager.swift */,
+				DC394B5F1D28659C003D6C81 /* AnnotationClusterView.swift */,
+				DC394B601D28659C003D6C81 /* AnnotationCluster.swift */,
 				DC14112E1CC00DEE00F68C83 /* Localizable.strings */,
 				DC68F6811BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift */,
 				DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */,
@@ -596,10 +614,13 @@
 				DCD04B781CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift in Sources */,
 				DC7C8C5F1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift in Sources */,
 				DC7830CD1CE9C79A005B315E /* CommentsListViewController.swift in Sources */,
+				DC3D5F4A1D286AAB001A7D71 /* QuadTree.swift in Sources */,
 				DC81E47D1D172D750013A22F /* ChargerImageHelper.swift in Sources */,
 				DC68F6791BE345B4000EFFF4 /* Connection+CoreDataProperties.swift in Sources */,
+				DC394B651D28659C003D6C81 /* ClusterManager.swift in Sources */,
 				DC68F6741BE345B4000EFFF4 /* ChargerPrimary.swift in Sources */,
 				DC68F6731BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift in Sources */,
+				DC394B661D28659C003D6C81 /* AnnotationClusterView.swift in Sources */,
 				DC68F6781BE345B4000EFFF4 /* ChargerDetails.swift in Sources */,
 				DC1ED1651BE29572007C09D1 /* ViewController.swift in Sources */,
 				DC68F67C1BE345B4000EFFF4 /* Comment.swift in Sources */,
@@ -607,7 +628,10 @@
 				DC7C51CC1D1C86B40065862B /* ChargingStationPhotoViewController.swift in Sources */,
 				DCD7983B1BE5814F00C62863 /* AnnotationCharger.swift in Sources */,
 				DC1ED1631BE29572007C09D1 /* AppDelegate.swift in Sources */,
+				DC3D5F4B1D286AAB001A7D71 /* BoundingBox.swift in Sources */,
+				DC394B671D28659C003D6C81 /* AnnotationCluster.swift in Sources */,
 				DC68F6841BE34B11000EFFF4 /* ChargerOperator.swift in Sources */,
+				DC3D5F491D286AAB001A7D71 /* QuadTreeNode.swift in Sources */,
 				DCDC2C371C613A42004BEF91 /* SettingsViewController.swift in Sources */,
 				DC11A7B31C092FD300FD54C3 /* ChargerDetailViewController.swift in Sources */,
 				DC7830D11CE9D8FE005B315E /* CommentTableViewCell.swift in Sources */,
