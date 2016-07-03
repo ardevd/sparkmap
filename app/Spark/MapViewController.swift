@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentationControllerDelegate, UISearchBarDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentationControllerDelegate, UISearchBarDelegate, ClusterManagerDelegate {
     
     var chargers: [ChargerPrimary] = [ChargerPrimary]()
     lazy var dataManager: DataManager = DataManager()
@@ -32,6 +32,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     var localSearchRequest:MKLocalSearchRequest!
     var localSearch:MKLocalSearch!
     var localSearchResponse:MKLocalSearchResponse!
+    
+    var clusterManager = ClusterManager()
     
     // Views
     @IBOutlet var mapView: MKMapView!
@@ -66,6 +68,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             locationManager.requestStartLocationUpdate()
             mapView.showsUserLocation = false
         }
+        clusterManager.delegate = self
         
         registerNotificationListeners()
         
@@ -99,6 +102,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         }
         
         return false
+    }
+    
+    func cellSizeFactorForManager(manager: ClusterManager) -> CGFloat {
+        return 1.0
     }
     
     override func viewDidLayoutSubviews() {
@@ -170,7 +177,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
                 var annotations: [MKAnnotation] = [MKAnnotation]()
                 annotations = self.mapView.annotations
                 self.mapView.removeAnnotations(annotations)
-                
             }
             let mapCenterCoordinate = self.mapView.region.center
             // Retrieve chargers from CoreData
@@ -184,11 +190,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
                 
                 annotations.append(chargerAnnotation)
                 self.haveLoadedInitialChargerData = true
-                
-                
             }
             
-            self.mapView.addAnnotations(annotations)
+            //self.mapView.addAnnotations(annotations)
+            self.clusterManager = ClusterManager()
+            self.clusterManager.addAnnotations(annotations)
+            self.updateClusteringAnnotations()
             
             if (self.haveSearchResult) {
                 self.mapView.addAnnotation(self.searchAnnotation)
@@ -196,6 +203,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             }
         })
         
+    }
+    
+    func updateClusteringAnnotations(){
+        NSOperationQueue().addOperationWithBlock { [unowned self] in
+            let mapBoundsWidth = Double(self.mapView.bounds.size.width)
+            let mapRectWidth:Double = self.mapView.visibleMapRect.size.width
+            let scale:Double = mapBoundsWidth / mapRectWidth
+            let annotationArray = self.clusterManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
+            self.clusterManager.displayAnnotations(annotationArray, mapView: self.mapView)
+        }
     }
     
     @IBAction func refreshDataFromCurrentLocation(){
@@ -221,6 +238,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         if pin == nil {
             // If the pin is not in the cache, we create it.
             pin = MKAnnotationView(annotation: annotation, reuseIdentifier: "net.zygotelabs.annotation")
+        }
+        
+        if annotation.isKindOfClass(AnnotationCluster) {
+            if let clusterAnnotation = annotation as? AnnotationCluster {
+            var reuseId = "cluster"
+            if let clusterView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? AnnotationClusterView {
+                clusterView.reuseWithAnnotation(clusterAnnotation)
+                return clusterView
+            }
+            else {
+                let clusterView = AnnotationClusterView(annotation: clusterAnnotation, reuseIdentifier: reuseId, options: nil)
+                return clusterView
+            }
+            } else {
+                return nil
+            }
         }
         
         if (annotation is AnnotationCharger) {
@@ -268,7 +301,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         // Map region was updated. Update data if we think the user dragged the map.
-        
+        updateClusteringAnnotations()
         if (!userInteractionOverride && haveLoadedInitialChargerData) {
             if (DistanceToLocationManager.distanceFromLastDataUpdateLocation(CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)) > getCurrentMapBoundsDistance()) {
                 // Show stored annotations for the new location
