@@ -23,6 +23,8 @@ class SettingsViewController: UITableViewController {
     @IBOutlet var labelCacheSize: UILabel!
     @IBOutlet var buttonDeleteCache: UIButton!
     @IBOutlet var buttonAppVersion: UIButton!
+    @IBOutlet var stepperClusteringThreshold: UIStepper!
+    @IBOutlet var clusteringThresholdLabel: UILabel!
     
     let connectionIdSchuko = 28
     let connectionIdChademo = 2
@@ -82,6 +84,7 @@ class SettingsViewController: UITableViewController {
         switchOfflineMode.setOn(defaults.boolForKey("offlineMode"), animated: true)
         switchShowDownloadDialog.setOn(defaults.boolForKey("showDownloadDialog"), animated: true)
         switchFastcharge.setOn(defaults.boolForKey("fastchargeOnly"), animated: true)
+        clusteringThresholdLabel.text = String(defaults.integerForKey("clusteringThreshold"))
         if let connectionTypeIDsFromSettings = NSUserDefaults.standardUserDefaults().arrayForKey("connectionFilterIds") {
             
             for id in connectionTypeIDsFromSettings {
@@ -118,6 +121,8 @@ class SettingsViewController: UITableViewController {
         defaults.setBool(switchOfflineMode.on, forKey: "offlineMode")
         // Show Download Dialog
         defaults.setBool(switchShowDownloadDialog.on, forKey: "showDownloadDialog")
+        // Clustering Threshold
+        defaults.setInteger(Int(stepperClusteringThreshold.value), forKey: "clusteringThreshold")
         // Fastcharging Only
         defaults.setBool(switchFastcharge.on, forKey: "fastchargeOnly")
         // Map Type
@@ -156,6 +161,10 @@ class SettingsViewController: UITableViewController {
 
     func deleteTypeFromConnectionFilterArray(connectionType: Int){
         connectionTypeIDs = connectionTypeIDs.filter{$0 != connectionType}
+    }
+    
+    @IBAction func stepperValueChanged(sender: UIStepper) {
+        clusteringThresholdLabel.text = Int(sender.value).description
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
