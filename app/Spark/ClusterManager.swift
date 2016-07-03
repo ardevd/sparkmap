@@ -29,7 +29,7 @@ public protocol ClusterManagerDelegate {
 public class ClusterManager {
     
     public var delegate: ClusterManagerDelegate?
-    public var maxZoomLevel = 19
+    public var maxZoomLevel = 14
     
     private var tree = QuadTree()    
     private var lock = NSRecursiveLock()
