@@ -85,6 +85,7 @@ class SettingsViewController: UITableViewController {
         switchShowDownloadDialog.setOn(defaults.boolForKey("showDownloadDialog"), animated: true)
         switchFastcharge.setOn(defaults.boolForKey("fastchargeOnly"), animated: true)
         clusteringThresholdLabel.text = String(defaults.integerForKey("clusteringThreshold"))
+        stepperClusteringThreshold.value = Double(defaults.integerForKey("clusteringThreshold"))
         if let connectionTypeIDsFromSettings = NSUserDefaults.standardUserDefaults().arrayForKey("connectionFilterIds") {
             
             for id in connectionTypeIDsFromSettings {
