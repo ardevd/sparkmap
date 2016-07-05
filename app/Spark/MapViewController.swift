@@ -76,7 +76,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         dataManager.removeOldChargerData()
         dataManager.getDataFilesSize()
         
-        showWhatsNewScreenIfApplicable()
+        //showWhatsNewScreenIfApplicable()
     }
     
     func showWhatsNewScreenIfApplicable(){
