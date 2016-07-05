@@ -10,6 +10,9 @@
 /* Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "A6x-oa-c8i"; */
 "A6x-oa-c8i.headerTitle" = "Generelt";
 
+/* Class = "UILabel"; text = "Clustering Threshold"; ObjectID = "Bhj-L3-6sD"; */
+"Bhj-L3-6sD.text" = "Terskel for clustering";
+
 /* Class = "UILabel"; text = "A"; ObjectID = "CeW-Yx-1Ec"; */
 "CeW-Yx-1Ec.text" = "A";
 
@@ -48,6 +51,9 @@
 
 /* Class = "UILabel"; text = "Cache Size"; ObjectID = "ZLP-0E-6LU"; */
 "ZLP-0E-6LU.text" = "Cachestørrelse";
+
+/* Class = "UIButton"; normalTitle = "0.0"; ObjectID = "ZaP-DI-YIH"; */
+"ZaP-DI-YIH.normalTitle" = "";
 
 /* Class = "UITabBarItem"; title = "Nearby"; ObjectID = "aPs-vh-iVd"; */
 "aPs-vh-iVd.title" = "Nærheten";
