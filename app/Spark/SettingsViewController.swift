@@ -13,6 +13,7 @@ class SettingsViewController: UITableViewController {
     @IBOutlet var switchOfflineMode: UISwitch!
     @IBOutlet var switchShowDownloadDialog: UISwitch!
     @IBOutlet var switchFastcharge: UISwitch!
+    @IBOutlet var switchClustering: UISwitch!
     @IBOutlet var segmentControlMapType: UISegmentedControl!
     @IBOutlet var cellSchuko: UITableViewCell!
     @IBOutlet var cellChademo: UITableViewCell!
@@ -84,6 +85,7 @@ class SettingsViewController: UITableViewController {
         switchOfflineMode.setOn(defaults.boolForKey("offlineMode"), animated: true)
         switchShowDownloadDialog.setOn(defaults.boolForKey("showDownloadDialog"), animated: true)
         switchFastcharge.setOn(defaults.boolForKey("fastchargeOnly"), animated: true)
+        switchClustering.setOn(defaults.boolForKey("useClustering"), animated: true)
         clusteringThresholdLabel.text = String(defaults.integerForKey("clusteringThreshold"))
         stepperClusteringThreshold.value = Double(defaults.integerForKey("clusteringThreshold"))
         if let connectionTypeIDsFromSettings = NSUserDefaults.standardUserDefaults().arrayForKey("connectionFilterIds") {
@@ -122,7 +124,8 @@ class SettingsViewController: UITableViewController {
         defaults.setBool(switchOfflineMode.on, forKey: "offlineMode")
         // Show Download Dialog
         defaults.setBool(switchShowDownloadDialog.on, forKey: "showDownloadDialog")
-        // Clustering Threshold
+        // Clustering Settings
+        defaults.setBool(switchClustering.on, forKey: "useClustering")
         defaults.setInteger(Int(stepperClusteringThreshold.value), forKey: "clusteringThreshold")
         // Fastcharging Only
         defaults.setBool(switchFastcharge.on, forKey: "fastchargeOnly")
