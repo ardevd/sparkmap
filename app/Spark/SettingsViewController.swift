@@ -137,6 +137,8 @@ class SettingsViewController: UITableViewController {
         let minAmps = Int(textFieldAmps.text!)
         if minAmps != nil {
             defaults.setInteger(minAmps!, forKey: "minAmps")
+        } else {
+            defaults.setInteger(0, forKey: "minAmps")
         }
         
         // Post Notification
