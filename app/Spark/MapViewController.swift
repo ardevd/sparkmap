@@ -17,6 +17,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     var haveSearchResult: Bool = false
     var haveLoadedInitialChargerData: Bool = false
     var locationManager: LocationManager = LocationManager()
+    let defaults = NSUserDefaults.standardUserDefaults()
+    var useClustering = false
     
     lazy var searchController:UISearchController  = { [unowned self] in
         self.searchController = UISearchController(searchResultsController: nil)
@@ -75,6 +77,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         // Clean up stored charging data
         dataManager.removeOldChargerData()
         dataManager.getDataFilesSize()
+        
+        useClustering = defaults.boolForKey("useClustering")
         
         //showWhatsNewScreenIfApplicable()
     }
@@ -148,6 +152,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     }
     
     func updatedSettingsRefresh(notifcation: NSNotification){
+        useClustering = defaults.boolForKey("useClustering")
         updateAnnotations()
         updateMapTypeFromSettings()
     }
@@ -192,10 +197,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
                 self.haveLoadedInitialChargerData = true
             }
             
-            //self.mapView.addAnnotations(annotations)
-            self.clusterManager = ClusterManager()
-            self.clusterManager.addAnnotations(annotations)
-            self.updateClusteringAnnotations()
+            if self.useClustering {
+                self.clusterManager = ClusterManager()
+                self.clusterManager.addAnnotations(annotations)
+                self.updateClusteringAnnotations()
+            } else {
+                self.mapView.addAnnotations(annotations)
+            }
             
             if (self.haveSearchResult) {
                 self.mapView.addAnnotation(self.searchAnnotation)
@@ -242,15 +250,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         
         if annotation.isKindOfClass(AnnotationCluster) {
             if let clusterAnnotation = annotation as? AnnotationCluster {
-            var reuseId = "cluster"
-            if let clusterView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? AnnotationClusterView {
-                clusterView.reuseWithAnnotation(clusterAnnotation)
-                return clusterView
-            }
-            else {
-                let clusterView = AnnotationClusterView(annotation: clusterAnnotation, reuseIdentifier: reuseId, options: nil)
-                return clusterView
-            }
+                var reuseId = "cluster"
+                if let clusterView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? AnnotationClusterView {
+                    clusterView.reuseWithAnnotation(clusterAnnotation)
+                    return clusterView
+                }
+                else {
+                    let clusterView = AnnotationClusterView(annotation: clusterAnnotation, reuseIdentifier: reuseId, options: nil)
+                    return clusterView
+                }
             } else {
                 return nil
             }
@@ -301,7 +309,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         // Map region was updated. Update data if we think the user dragged the map.
-        updateClusteringAnnotations()
+        if useClustering {
+            updateClusteringAnnotations()
+        }
         if (!userInteractionOverride && haveLoadedInitialChargerData) {
             if (DistanceToLocationManager.distanceFromLastDataUpdateLocation(CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)) > getCurrentMapBoundsDistance()) {
                 // Show stored annotations for the new location
