@@ -250,7 +250,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         
         if annotation.isKindOfClass(AnnotationCluster) {
             if let clusterAnnotation = annotation as? AnnotationCluster {
-                var reuseId = "cluster"
+                let reuseId = "cluster"
                 if let clusterView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? AnnotationClusterView {
                     clusterView.reuseWithAnnotation(clusterAnnotation)
                     return clusterView
