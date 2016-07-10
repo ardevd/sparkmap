@@ -14,7 +14,8 @@ class UserPhotoSubmissionManager: NSObject {
     func userPhotoUploadRequest(userImageView: UIImageView, chargerId: String)
     {
         
-        let userImage = userImageView.image!
+        let userImage = resizeAndProcessImage(userImageView.image!)
+        
         let photoUploadUrl = NSURL(string: "https://sparkmap.zygotelabs.net/photo_upload.php");
         let request = NSMutableURLRequest(URL:photoUploadUrl!);
         request.HTTPMethod = "POST";
@@ -79,6 +80,21 @@ class UserPhotoSubmissionManager: NSObject {
     
     func generateBoundaryString() -> String {
         return "Boundary-\(NSUUID().UUIDString)"
+    }
+    
+    func resizeAndProcessImage(userImage: UIImage) -> UIImage {
+        let image = userImage
+        
+        let size = CGSizeApplyAffineTransform(image.size, CGAffineTransformMakeScale(0.5, 0.5))
+        let hasAlpha = false
+        let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
+        
+        UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+        image.drawInRect(CGRect(origin: CGPointZero, size: size))
+        
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return scaledImage
     }
     
     
