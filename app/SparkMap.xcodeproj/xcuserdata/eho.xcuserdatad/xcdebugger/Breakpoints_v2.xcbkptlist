@@ -20,12 +20,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spark/DataManager.swift"
-            timestampString = "478100528.652014"
+            timestampString = "490019837.652649"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "397"
-            endingLineNumber = "397"
-            landmarkName = "downloadNearbyChargers(Latitude:Longitude:)"
+            startingLineNumber = "408"
+            endingLineNumber = "408"
+            landmarkName = "downloadNearbyChargers(Latitude:Longitude:Distance:)"
             landmarkType = "5">
             <Locations>
                <Location
@@ -68,12 +68,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spark/DataManager.swift"
-            timestampString = "478100528.652014"
+            timestampString = "490019837.652649"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "404"
-            endingLineNumber = "404"
-            landmarkName = "downloadNearbyChargers(Latitude:Longitude:)"
+            startingLineNumber = "415"
+            endingLineNumber = "415"
+            landmarkName = "downloadNearbyChargers(Latitude:Longitude:Distance:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -132,12 +132,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spark/DataManager.swift"
-            timestampString = "478099931.521887"
+            timestampString = "490019837.652649"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
-            landmarkName = "downloadNearbyChargers(Latitude:Longitude:)"
+            startingLineNumber = "402"
+            endingLineNumber = "402"
+            landmarkName = "downloadNearbyChargers(Latitude:Longitude:Distance:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -212,12 +212,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spark/DataManager.swift"
-            timestampString = "482357158.743135"
+            timestampString = "490019837.652649"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "398"
-            endingLineNumber = "398"
-            landmarkName = "downloadNearbyChargers(Latitude:Longitude:)"
+            startingLineNumber = "409"
+            endingLineNumber = "409"
+            landmarkName = "downloadNearbyChargers(Latitude:Longitude:Distance:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -299,6 +299,38 @@
             endingLineNumber = "127"
             landmarkName = "MapViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Spark/DataManager.swift"
+            timestampString = "490019308.830967"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "downloadNearbyChargers(Latitude:Longitude:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Spark/DataManager.swift"
+            timestampString = "490019853.895092"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
+            landmarkName = "downloadNearbyChargers(Latitude:Longitude:Distance:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

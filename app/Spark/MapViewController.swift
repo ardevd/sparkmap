@@ -358,7 +358,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         localSearch.startWithCompletionHandler { (localSearchResponse, error) -> Void in
             
             guard let localSearchResponse = localSearchResponse, mapItem = localSearchResponse.mapItems.first else {
-                let placeNotFoundString = NSLocalizedString("Place Not Found", comment: "User search location not found")
+                let placeNotFoundString = NSLocalizedString("Place not found", comment: "User search location not found")
                 let dismissString = NSLocalizedString("Dismiss", comment: "Dismiss")
                 let alertController = UIAlertController(title: nil, message: placeNotFoundString, preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: dismissString, style: UIAlertActionStyle.Default, handler: nil))
