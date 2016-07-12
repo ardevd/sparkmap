@@ -238,7 +238,7 @@ class DataManager: NSObject {
             // Update Last download time singelton
             LastDataDownloadTimeSingelton.lastDataDownload.time = currentTimestamp
             // TODO - Add option to select units of measurements
-            guard let url = NSURL(string: "https://api.openchargemap.io/v2/poi/?output=json&verbose=false&maxresults=500&includecomments=true&distanceunit=KM&latitude=\(latitude)&longitude=\(longitude)") else { return }
+            guard let url = NSURL(string: "https://api.openchargemap.io/v2/poi/?output=json&verbose=false&maxresults=200&includecomments=true&distanceunit=KM&latitude=\(latitude)&longitude=\(longitude)") else { return }
             
             // HTTP GET
             let urlRequest = NSURLRequest(URL: url)
