@@ -223,8 +223,12 @@ class DataManager: NSObject {
         return formattedDate
     }
     
+    func downloadNearbyChargers(Latitude latitude: Double, Longitude longitude: Double) {
+        downloadNearbyChargers(Latitude: latitude, Longitude: longitude, Distance: 0)
+    }
     
-    func downloadNearbyChargers(Latitude latitude: Double, Longitude longitude: Double){
+    
+    func downloadNearbyChargers(Latitude latitude: Double, Longitude longitude: Double, Distance distance: CLLocationDistance){
         //Check if we are in offline mode first.
         let defaults = NSUserDefaults.standardUserDefaults()
         // Set defaults. TODO - Do this separately.
@@ -237,8 +241,15 @@ class DataManager: NSObject {
         if (!offlineMode && currentTimestamp >= (lastUpdateTimestamp + 2)){
             // Update Last download time singelton
             LastDataDownloadTimeSingelton.lastDataDownload.time = currentTimestamp
-            // TODO - Add option to select units of measurements
-            guard let url = NSURL(string: "https://api.openchargemap.io/v2/poi/?output=json&verbose=false&maxresults=200&includecomments=true&distanceunit=KM&latitude=\(latitude)&longitude=\(longitude)") else { return }
+            
+            // If a valid distance value is supplied, we use it. Otherwise ignore it.
+            var apiString = "https://api.openchargemap.io/v2/poi/?output=json&verbose=false&maxresults=200&includecomments=true&distanceunit=KM&latitude=\(latitude)&longitude=\(longitude)"
+            
+            if distance > 0 {
+                apiString = "https://api.openchargemap.io/v2/poi/?output=json&verbose=false&maxresults=200&includecomments=true&distanceunit=KM&latitude=\(latitude)&longitude=\(longitude)&distance=\(distance)"
+            }
+            
+            guard let url = NSURL(string: apiString) else { return }
             
             // HTTP GET
             let urlRequest = NSURLRequest(URL: url)

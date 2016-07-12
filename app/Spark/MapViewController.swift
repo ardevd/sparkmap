@@ -236,7 +236,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     }
     
     func getAnnotationsFromNewLocation(coordinate: CLLocationCoordinate2D){
-        dataManager.downloadNearbyChargers(Latitude: coordinate.latitude, Longitude: coordinate.longitude)
+        dataManager.downloadNearbyChargers(Latitude: coordinate.latitude, Longitude: coordinate.longitude, Distance: (getCurrentMapBoundsDistance() * 0.75) / 1000)
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
