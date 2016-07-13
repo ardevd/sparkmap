@@ -1,5 +1,6 @@
 SparkMap
 ====
+Written in Swift. 
 
 Electric Vehicles are pretty awesome but they do need somewhere to be charged and finding a place to do so isn't always trivial. Luckily, there's an app for that. That app is SparkMap. 
 
