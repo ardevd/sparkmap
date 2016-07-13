@@ -22,6 +22,8 @@ class WelcomeThreeViewController: UIViewController {
     }
     
     @IBAction func doneButtonTapped(sender: AnyObject) {
+        // Notify that welcome module is complete
+        NSNotificationCenter.defaultCenter().postNotificationName("WelcomeModuleDone", object: nil)
         dismissViewControllerAnimated(true, completion: nil)
     }
    }
