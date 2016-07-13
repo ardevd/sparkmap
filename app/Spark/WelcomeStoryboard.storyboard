@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Welcome Page View Controller-->
+        <!--Welcome-->
         <scene sceneID="snp-Fq-KRn">
             <objects>
-                <pageViewController storyboardIdentifier="InitialController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="mBn-Uf-Xye" customClass="WelcomePageViewController" customModule="SparkMap" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="InitialController" autoresizesArchivedViewToFullSize="NO" title="Welcome" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="mBn-Uf-Xye" customClass="WelcomePageViewController" customModule="SparkMap" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07P-Ek-I5F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="376" y="378"/>
@@ -98,7 +98,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SparkMap is Open Source" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLu-cc-l28">
                                         <rect key="frame" x="8" y="51" width="523" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -109,7 +109,7 @@
                                             <constraint firstAttribute="height" constant="160" id="tML-AN-SOT"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The SpakMap source code is hosted on GitHub. Star the project there to stay in the loop or help make an even better app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="InT-AC-OEa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The SparkMap source code is hosted on GitHub. Star the project there to stay in the loop or help make an even better app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="InT-AC-OEa">
                                         <rect key="frame" x="19" y="345" width="500" height="141"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -154,16 +154,138 @@
                     <view key="view" contentMode="scaleToFill" id="R5Z-UC-2iJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.20000000000000001" green="0.2156862745" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VE2-fa-KQr">
+                                <rect key="frame" x="31" y="49" width="539" height="502"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Share your photos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MG-vP-e2M">
+                                        <rect key="frame" x="8" y="51" width="523" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="9lq-pu-PeM">
+                                        <rect key="frame" x="189" y="171" width="160" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="160" id="GVJ-F2-z7Z"/>
+                                            <constraint firstAttribute="width" constant="160" id="NT1-zW-tcN"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTi-eb-edB">
+                                        <rect key="frame" x="19" y="345" width="500" height="141"/>
+                                        <string key="text">Help improve the SparkMap experience by uploading photos of the chargers you visit. Simply tap the photo icon when viewing a charger.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="4MG-vP-e2M" firstAttribute="top" secondItem="VE2-fa-KQr" secondAttribute="top" constant="51" id="4UT-rp-WMS"/>
+                                    <constraint firstAttribute="bottom" secondItem="JTi-eb-edB" secondAttribute="bottom" constant="16" id="IWR-WA-zPM"/>
+                                    <constraint firstAttribute="trailing" secondItem="JTi-eb-edB" secondAttribute="trailing" constant="20" id="NYT-0a-EQ4"/>
+                                    <constraint firstItem="JTi-eb-edB" firstAttribute="top" secondItem="9lq-pu-PeM" secondAttribute="bottom" constant="14" id="QSj-Pr-rvz"/>
+                                    <constraint firstItem="JTi-eb-edB" firstAttribute="leading" secondItem="VE2-fa-KQr" secondAttribute="leading" constant="19" id="ZaB-gE-1NE"/>
+                                    <constraint firstAttribute="trailing" secondItem="4MG-vP-e2M" secondAttribute="trailing" constant="8" id="efx-jZ-0Fp"/>
+                                    <constraint firstItem="9lq-pu-PeM" firstAttribute="centerY" secondItem="VE2-fa-KQr" secondAttribute="centerY" id="iK7-bW-KUN"/>
+                                    <constraint firstItem="4MG-vP-e2M" firstAttribute="leading" secondItem="VE2-fa-KQr" secondAttribute="leading" constant="8" id="xdc-Pm-IMf"/>
+                                    <constraint firstItem="9lq-pu-PeM" firstAttribute="centerX" secondItem="VE2-fa-KQr" secondAttribute="centerX" id="yt9-QW-FuO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.19215686269999999" green="0.18823529410000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="VE2-fa-KQr" secondAttribute="trailing" constant="10" id="Age-ay-nQk"/>
+                            <constraint firstItem="4Nk-7f-aTh" firstAttribute="top" secondItem="VE2-fa-KQr" secondAttribute="bottom" constant="49" id="Ndp-Rc-wa4"/>
+                            <constraint firstItem="VE2-fa-KQr" firstAttribute="leading" secondItem="R5Z-UC-2iJ" secondAttribute="leadingMargin" constant="11" id="mON-Bt-AmG"/>
+                            <constraint firstItem="VE2-fa-KQr" firstAttribute="top" secondItem="Wcj-lb-UcL" secondAttribute="bottom" constant="29" id="vRq-Sv-ToJ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wmf-Yy-ifF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1277" y="1041"/>
+            <point key="canvasLocation" x="1266" y="1046"/>
+        </scene>
+        <!--Welcome Three View Controller-->
+        <scene sceneID="BF2-gq-O3G">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeThree" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fQb-Ht-e2Z" customClass="WelcomeThreeViewController" customModule="SparkMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O5e-Eg-sZy"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rb9-eV-CrV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Bt-pU-wcp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9b6-3w-ba5">
+                                <rect key="frame" x="31" y="49" width="539" height="502"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charge on!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYF-We-dfB">
+                                        <rect key="frame" x="8" y="51" width="523" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SparkMapIcon" translatesAutoresizingMaskIntoConstraints="NO" id="sql-pK-uGo">
+                                        <rect key="frame" x="189" y="171" width="160" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="bQx-m1-AO0"/>
+                                            <constraint firstAttribute="height" constant="160" id="ffu-Ad-Bku"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Thanks for your time and for supporting future development. Enjoy SparkMap!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPp-YB-CT3">
+                                        <rect key="frame" x="19" y="345" width="500" height="106"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0s-sy-Hrp">
+                                        <rect key="frame" x="120" y="464" width="300" height="30"/>
+                                        <state key="normal" title="Start using SparkMap">
+                                            <color key="titleColor" red="0.86666666670000003" green="0.23921568630000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doneButtonTapped:" destination="fQb-Ht-e2Z" eventType="primaryActionTriggered" id="olL-qc-r20"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="cPp-YB-CT3" secondAttribute="trailing" constant="20" id="5TL-N6-1vz"/>
+                                    <constraint firstItem="cPp-YB-CT3" firstAttribute="leading" secondItem="9b6-3w-ba5" secondAttribute="leading" constant="19" id="6VK-nr-tga"/>
+                                    <constraint firstItem="sql-pK-uGo" firstAttribute="top" secondItem="PYF-We-dfB" secondAttribute="bottom" constant="86" id="MEB-uA-9yt"/>
+                                    <constraint firstItem="sql-pK-uGo" firstAttribute="centerX" secondItem="9b6-3w-ba5" secondAttribute="centerX" id="NrO-zw-yRw"/>
+                                    <constraint firstItem="PYF-We-dfB" firstAttribute="top" secondItem="9b6-3w-ba5" secondAttribute="top" constant="51" id="PYk-ol-mJg"/>
+                                    <constraint firstItem="cPp-YB-CT3" firstAttribute="top" secondItem="sql-pK-uGo" secondAttribute="bottom" constant="14" id="QDo-ub-geD"/>
+                                    <constraint firstAttribute="trailing" secondItem="PYF-We-dfB" secondAttribute="trailing" constant="8" id="WjY-EV-FRG"/>
+                                    <constraint firstItem="k0s-sy-Hrp" firstAttribute="top" secondItem="cPp-YB-CT3" secondAttribute="bottom" constant="13" id="aiL-7f-YbE"/>
+                                    <constraint firstAttribute="bottom" secondItem="k0s-sy-Hrp" secondAttribute="bottom" constant="8" id="iu5-Tu-3RQ"/>
+                                    <constraint firstItem="sql-pK-uGo" firstAttribute="centerY" secondItem="9b6-3w-ba5" secondAttribute="centerY" id="jw5-1N-7KT"/>
+                                    <constraint firstItem="k0s-sy-Hrp" firstAttribute="top" secondItem="cPp-YB-CT3" secondAttribute="bottom" constant="13" id="kpT-Tc-2NC"/>
+                                    <constraint firstItem="k0s-sy-Hrp" firstAttribute="centerX" secondItem="9b6-3w-ba5" secondAttribute="centerX" id="lxw-Ni-fzq"/>
+                                    <constraint firstItem="PYF-We-dfB" firstAttribute="leading" secondItem="9b6-3w-ba5" secondAttribute="leading" constant="8" id="tQt-V9-HOp"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.19215686269999999" green="0.18823529410000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="9b6-3w-ba5" firstAttribute="leading" secondItem="7Bt-pU-wcp" secondAttribute="leadingMargin" constant="11" id="4DI-dK-oLh"/>
+                            <constraint firstItem="Rb9-eV-CrV" firstAttribute="top" secondItem="9b6-3w-ba5" secondAttribute="bottom" constant="49" id="RSL-Sh-36H"/>
+                            <constraint firstItem="9b6-3w-ba5" firstAttribute="top" secondItem="O5e-Eg-sZy" secondAttribute="bottom" constant="29" id="uJa-3C-M4h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9b6-3w-ba5" secondAttribute="trailing" constant="10" id="v59-hj-jlq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iX2-u5-fvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1896" y="1046"/>
         </scene>
     </scenes>
     <resources>
         <image name="HeartIcon" width="223" height="223"/>
         <image name="LogoIcon" width="256" height="256"/>
+        <image name="PhotoIcon" width="180" height="180"/>
+        <image name="SparkMapIcon" width="446" height="446"/>
     </resources>
 </document>

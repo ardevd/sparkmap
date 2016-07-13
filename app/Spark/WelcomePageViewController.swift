@@ -34,15 +34,23 @@ class WelcomePageViewController: UIPageViewController {
     func getStepTwo() -> WelcomeTwoViewController {
         return storyboard!.instantiateViewControllerWithIdentifier("WelcomeTwo") as! WelcomeTwoViewController
     }
+    
+    func getStepThree() -> WelcomeThreeViewController {
+        return storyboard!.instantiateViewControllerWithIdentifier("WelcomeThree") as! WelcomeThreeViewController
+    }
 }
 
 extension WelcomePageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        if viewController.isKindOfClass(WelcomeTwoViewController) {
+        
+        if viewController.isKindOfClass(WelcomeThreeViewController) {
+            return getStepTwo()
+        } else if viewController.isKindOfClass(WelcomeTwoViewController) {
             return getStepOne()
         } else if viewController.isKindOfClass(WelcomeOneViewController) {
             return getStepZero()
+
         } else {
             return nil
         }
@@ -53,13 +61,15 @@ extension WelcomePageViewController: UIPageViewControllerDataSource {
             return getStepOne()
         } else if viewController.isKindOfClass(WelcomeOneViewController) {
             return getStepTwo()
+        } else if viewController.isKindOfClass(WelcomeTwoViewController) {
+            return getStepThree()
         } else {
             return nil
         }
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return 3
+        return 4
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {

@@ -1,5 +1,5 @@
 //
-//  WelcomeTwoViewController.swift
+//  WelcomeThreeViewController.swift
 //  SparkMap
 //
 //  Created by Edvard Holst on 13/07/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WelcomeTwoViewController: UIViewController {
+class WelcomeThreeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,5 +20,8 @@ class WelcomeTwoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-}
+    
+    @IBAction func doneButtonTapped(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+   }
