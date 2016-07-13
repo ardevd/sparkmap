@@ -57,6 +57,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         self.tabBarController?.tabBar.tintColor = UIColor(red: 221/255, green: 106/255, blue: 88/255, alpha: 1.0)
         self.tabBarController?.tabBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
         
+        clusterManager.delegate = self
+        
+        registerNotificationListeners()
+        
+        // Clean up stored charging data
+        dataManager.removeOldChargerData()
+        dataManager.getDataFilesSize()
+        
+        useClustering = defaults.boolForKey("useClustering")
+    
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        showWelcomeIfApplicable()
+        
         // Location Authorization
         let authStatus = CLLocationManager.authorizationStatus()
         
@@ -70,28 +85,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             locationManager.requestStartLocationUpdate()
             mapView.showsUserLocation = false
         }
-        clusterManager.delegate = self
-        
-        registerNotificationListeners()
-        
-        // Clean up stored charging data
-        dataManager.removeOldChargerData()
-        dataManager.getDataFilesSize()
-        
-        useClustering = defaults.boolForKey("useClustering")
-        
-        //showWhatsNewScreenIfApplicable()
     }
     
-    func showWhatsNewScreenIfApplicable(){
-        // Show WhatsNew screen if this is first launch.
+    func showWelcomeIfApplicable(){
+        // Show Welcome screen if this is first launch.
         let defaults = NSUserDefaults.standardUserDefaults()
-        let hasUserSeenWhatsNew = defaults.boolForKey("whatsnew_1")
-        if !hasUserSeenWhatsNew {
-            defaults.setBool(true, forKey: "whatsnew_1")
-            //let vc = WhatsNewViewController()
-            //vc.hidesBottomBarWhenPushed = true
-            //showViewController(vc, sender: nil)
+        let hasUserSeenWhatsNew = defaults.boolForKey("firstrun")
+        if hasUserSeenWhatsNew {
+            defaults.setBool(true, forKey: "firstrun")
+            // Create a new "WelcomeStoryBoard" instance.
+            let storyboard = UIStoryboard(name: "WelcomeStoryboard", bundle: nil)
+            // Create an instance of the storyboard's initial view controller.
+            let controller = storyboard.instantiateViewControllerWithIdentifier("InitialController") as UIViewController
+            // Display the new view controller.
+            presentViewController(controller, animated: true, completion: nil)
         }
     }
     
