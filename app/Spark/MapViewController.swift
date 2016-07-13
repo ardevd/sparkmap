@@ -89,9 +89,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         let hasUserSeenWhatsNew = defaults.boolForKey("whatsnew_1")
         if !hasUserSeenWhatsNew {
             defaults.setBool(true, forKey: "whatsnew_1")
-            let vc = WhatsNewViewController()
-            vc.hidesBottomBarWhenPushed = true
-            showViewController(vc, sender: nil)
+            //let vc = WhatsNewViewController()
+            //vc.hidesBottomBarWhenPushed = true
+            //showViewController(vc, sender: nil)
         }
     }
     
