@@ -25,6 +25,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     @IBOutlet var buttonLastUpdateTime: UIButton!
     @IBOutlet var buttonComments: UIButton!
     @IBOutlet var labelNumberOfComments: UILabel!
+    @IBOutlet var labelUsageType: UILabel!
     
     // Views
     @IBOutlet var viewNumberOfPoints: UIView!
@@ -382,6 +383,23 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
             let convertedDate = dateFormatter.stringFromDate(date)
             dataLastUpdateTimeLabel.text = convertedDate
+            
+        }
+        
+        if let usageType = charger?.chargerDetails?.chargerUsageTypeId {
+            if usageType == 0 {
+                let unknownUsageTypeString = NSLocalizedString("Unknown usage type", comment: "Unknown Usage Type")
+                labelUsageType.text = unknownUsageTypeString
+            } else if usageType == 1 {
+                let publicUsageTypeString = NSLocalizedString("Public use", comment: "Public Usage Type")
+                labelUsageType.text = publicUsageTypeString
+            } else if usageType == 4 {
+                let publicUsageMembershipTypeString = NSLocalizedString("Public use - Membership required", comment: "Public Membership Usage Type")
+                labelUsageType.text = publicUsageMembershipTypeString
+            } else if usageType == 5 {
+                let publicUsagePayAtLocationTypeString = NSLocalizedString("Public use - Pay at location", comment: "Public Pay at location Usage Type")
+                labelUsageType.text = publicUsagePayAtLocationTypeString
+            }
             
         }
         

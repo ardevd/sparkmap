@@ -198,6 +198,7 @@
 		DCC4274F1D367B0900CAFD3E /* WelcomeOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeOneViewController.swift; sourceTree = "<group>"; };
 		DCC427511D367C6100CAFD3E /* WelcomeTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeTwoViewController.swift; sourceTree = "<group>"; };
 		DCC427531D36B33300CAFD3E /* WelcomeThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeThreeViewController.swift; sourceTree = "<group>"; };
+		DCC427551D36E63400CAFD3E /* Spark v7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v7.xcdatamodel"; sourceTree = "<group>"; };
 		DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCenterCoordinateSingelton.swift; sourceTree = "<group>"; };
 		DCCAC3321D257946007B334D /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DCCAC3371D2579BA007B334D /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -926,6 +927,7 @@
 		DC1ED1691BE29572007C09D1 /* Spark.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				DCC427551D36E63400CAFD3E /* Spark v7.xcdatamodel */,
 				DC7C0ED01CEA093400DBC7A1 /* Spark v6.xcdatamodel */,
 				DCCD91D21CD29DA000C571B8 /* Spark v5.xcdatamodel */,
 				DC093CAA1CC0310A00EFCD52 /* Spark v4.xcdatamodel */,
@@ -933,7 +935,7 @@
 				DC2F421B1C68C4A300579F18 /* Spark v2.xcdatamodel */,
 				DC1ED16A1BE29572007C09D1 /* Spark.xcdatamodel */,
 			);
-			currentVersion = DC7C0ED01CEA093400DBC7A1 /* Spark v6.xcdatamodel */;
+			currentVersion = DCC427551D36E63400CAFD3E /* Spark v7.xcdatamodel */;
 			path = Spark.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
