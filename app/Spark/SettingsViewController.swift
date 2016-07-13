@@ -62,11 +62,13 @@ class SettingsViewController: UITableViewController {
     }
     
     func showWhatsNewView(){
-        // Show WhatsNew screen
-        let vc = WhatsNewViewController()
-        
-        vc.hidesBottomBarWhenPushed = true
-        showViewController(vc, sender: nil)
+        // Show Welcome screen
+        // Create a new "WelcomeStoryBoard" instance.
+        let storyboard = UIStoryboard(name: "WelcomeStoryboard", bundle: nil)
+        // Create an instance of the storyboard's initial view controller.
+        let controller = storyboard.instantiateViewControllerWithIdentifier("InitialController") as UIViewController
+        // Display the new view controller.
+        presentViewController(controller, animated: true, completion: nil)
     }
     
     func displayAppVersionString(){

@@ -57,6 +57,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         self.tabBarController?.tabBar.tintColor = UIColor(red: 221/255, green: 106/255, blue: 88/255, alpha: 1.0)
         self.tabBarController?.tabBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
         
+        clusterManager.delegate = self
+        
+        registerNotificationListeners()
+        
+        // Clean up stored charging data
+        dataManager.removeOldChargerData()
+        dataManager.getDataFilesSize()
+        
+        useClustering = defaults.boolForKey("useClustering")
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if !showWelcomeIfApplicable() {
+            verifyOrRequestLocationAuthorization()
+        }
+    }
+    
+    func verifyOrRequestLocationAuthorization() {
         // Location Authorization
         let authStatus = CLLocationManager.authorizationStatus()
         
@@ -70,29 +89,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             locationManager.requestStartLocationUpdate()
             mapView.showsUserLocation = false
         }
-        clusterManager.delegate = self
         
-        registerNotificationListeners()
-        
-        // Clean up stored charging data
-        dataManager.removeOldChargerData()
-        dataManager.getDataFilesSize()
-        
-        useClustering = defaults.boolForKey("useClustering")
-        
-        //showWhatsNewScreenIfApplicable()
     }
     
-    func showWhatsNewScreenIfApplicable(){
-        // Show WhatsNew screen if this is first launch.
+    func showWelcomeIfApplicable() -> Bool {
+        // Show Welcome screen if this is first launch.
         let defaults = NSUserDefaults.standardUserDefaults()
-        let hasUserSeenWhatsNew = defaults.boolForKey("whatsnew_1")
+        let hasUserSeenWhatsNew = defaults.boolForKey("firstrun")
         if !hasUserSeenWhatsNew {
-            defaults.setBool(true, forKey: "whatsnew_1")
-            //let vc = WhatsNewViewController()
-            //vc.hidesBottomBarWhenPushed = true
-            //showViewController(vc, sender: nil)
+            defaults.setBool(true, forKey: "firstrun")
+            // Create a new "WelcomeStoryBoard" instance.
+            let storyboard = UIStoryboard(name: "WelcomeStoryboard", bundle: nil)
+            // Create an instance of the storyboard's initial view controller.
+            let controller = storyboard.instantiateViewControllerWithIdentifier("InitialController") as UIViewController
+            // Display the new view controller.
+            presentViewController(controller, animated: true, completion: nil)
+            return true
         }
+        
+        return false
     }
     
     func isNewCenterFarFromOldCenter() -> Bool {
@@ -123,10 +138,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updatedSettingsRefresh(_:)), name: "SettingsUpdate", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updateRegionFromNotification(_:)), name: "LocationUpdate", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.enableUserLocationInMap(_:)), name: "LocationAuthorized", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.welcomeModuleIsDone(_:)), name: "WelcomeModuleDone", object: nil)
     }
     
     func enableUserLocationInMap(notification: NSNotification) {
         mapView.showsUserLocation = true
+    }
+    
+    func welcomeModuleIsDone(notification: NSNotification) {
+        verifyOrRequestLocationAuthorization()
     }
     
     func updateRegionFromNotification(notification: NSNotification) {
