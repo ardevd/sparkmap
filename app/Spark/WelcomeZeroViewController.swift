@@ -12,6 +12,8 @@ class WelcomeZeroViewController: UIViewController {
     
     @IBOutlet var cardView: UIView!
     @IBOutlet var cardTitle: UILabel!
+    @IBOutlet var cardImageView: UIImageView!
+    @IBOutlet var cardDescription: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +42,19 @@ class WelcomeZeroViewController: UIViewController {
     
     func animateTitle(){
         // Fade in the card title
-        UIView.animateWithDuration(2.0, animations: {
+        UIView.animateWithDuration(1.5, animations: {
                 self.cardTitle.alpha = 1.0
+            }, completion: { finished in
+                if(finished) {
+                    self.animateTheOtherStuff()
+                }
+        })
+    }
+    
+    func animateTheOtherStuff(){
+        UIView.animateWithDuration(0.7, animations: {
+            self.cardImageView.alpha = 1.0
+            self.cardDescription.alpha = 1.0
         })
     }
 

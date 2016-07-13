@@ -35,14 +35,14 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="VQZ-Ds-4fD">
+                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="VQZ-Ds-4fD">
                                         <rect key="frame" x="189" y="171" width="160" height="160"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="160" id="Gpz-w0-Yed"/>
                                             <constraint firstAttribute="width" constant="160" id="Rnd-iT-gwb"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aou-yx-zo6">
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aou-yx-zo6">
                                         <rect key="frame" x="19" y="345" width="500" height="141"/>
                                         <string key="text">Welcome to SparkMap. A responsive, native and elegant app that helps you get your car charged. Before you begin, here's a few tips.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -73,6 +73,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cardDescription" destination="aou-yx-zo6" id="BGD-B9-VjI"/>
+                        <outlet property="cardImageView" destination="VQZ-Ds-4fD" id="DWB-Ub-Zxf"/>
                         <outlet property="cardTitle" destination="oMf-u5-dpJ" id="48n-pY-mKg"/>
                         <outlet property="cardView" destination="qth-hb-oim" id="i7m-Zf-fas"/>
                     </connections>
