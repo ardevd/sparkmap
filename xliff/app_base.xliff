@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Spark/Base.lproj/ChargerDetailViewController.xib" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"/>
+    </header>
+    <body>
+      <trans-unit id="7fC-Jr-5N6.text">
+        <source>Last Updated</source>
+        <note>Class = "UILabel"; text = "Last Updated"; ObjectID = "7fC-Jr-5N6";</note>
+      </trans-unit>
+      <trans-unit id="66E-YC-mny.text">
+        <source>Unknown</source>
+        <note>Class = "UILabel"; text = "Unknown"; ObjectID = "66E-YC-mny";</note>
+      </trans-unit>
+      <trans-unit id="Qht-zl-0Be.text">
+        <source>Unknown</source>
+        <note>Class = "UILabel"; text = "Unknown"; ObjectID = "Qht-zl-0Be";</note>
+      </trans-unit>
+      <trans-unit id="eG8-X2-6kD.text">
+        <source>Recently Verified</source>
+        <note>Class = "UILabel"; text = "Recently Verified"; ObjectID = "eG8-X2-6kD";</note>
+      </trans-unit>
+      <trans-unit id="ioz-Ww-6ec.text">
+        <source>Status</source>
+        <note>Class = "UILabel"; text = "Status"; ObjectID = "ioz-Ww-6ec";</note>
+      </trans-unit>
+      <trans-unit id="sQE-wu-szz.text">
+        <source>Label</source>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "sQE-wu-szz";</note>
+      </trans-unit>
+      <trans-unit id="t7s-cr-ygP.text">
+        <source>Charging Points</source>
+        <note>Class = "UILabel"; text = "Charging Points"; ObjectID = "t7s-cr-ygP";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Spark/Base.lproj/CommentsListViewController.xib" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"/>
+    </header>
+    <body>
+      <trans-unit id="3Un-cd-jvR.text">
+        <source>No comments yet</source>
+        <note>Class = "UILabel"; text = "No comments yet"; ObjectID = "3Un-cd-jvR";</note>
+      </trans-unit>
+      <trans-unit id="y9U-Lo-hgR.text">
+        <source>New comments take a little while to appear</source>
+        <note>Class = "UILabel"; text = "New comments take a little while to appear"; ObjectID = "y9U-Lo-hgR";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Spark/Base.lproj/LaunchScreen.storyboard" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"/>
+    </header>
+    <body/>
+  </file>
+  <file original="Spark/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"/>
+    </header>
+    <body>
+      <trans-unit id="3EE-6E-eF6.text">
+        <source>Tesla Supercharger</source>
+        <note>Class = "UILabel"; text = "Tesla Supercharger"; ObjectID = "3EE-6E-eF6";</note>
+      </trans-unit>
+      <trans-unit id="7jm-AF-pRD.title">
+        <source>SparkMap</source>
+        <note>Class = "UINavigationItem"; title = "SparkMap"; ObjectID = "7jm-AF-pRD";</note>
+      </trans-unit>
+      <trans-unit id="7oU-lZ-E8z.text">
+        <source>Current minimum</source>
+        <note>Class = "UILabel"; text = "Current minimum"; ObjectID = "7oU-lZ-E8z";</note>
+      </trans-unit>
+      <trans-unit id="7vw-N8-0Li.text">
+        <source>Cluster chargers together</source>
+        <note>Class = "UILabel"; text = "Cluster chargers together"; ObjectID = "7vw-N8-0Li";</note>
+      </trans-unit>
+      <trans-unit id="A6x-oa-c8i.headerTitle">
+        <source>General</source>
+        <note>Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "A6x-oa-c8i";</note>
+      </trans-unit>
+      <trans-unit id="Bhj-L3-6sD.text">
+        <source>Clustering threshold</source>
+        <note>Class = "UILabel"; text = "Clustering threshold"; ObjectID = "Bhj-L3-6sD";</note>
+      </trans-unit>
+      <trans-unit id="CeW-Yx-1Ec.text">
+        <source>A</source>
+        <note>Class = "UILabel"; text = "A"; ObjectID = "CeW-Yx-1Ec";</note>
+      </trans-unit>
+      <trans-unit id="EfW-kw-zzq.title">
+        <source>SettingsViewController</source>
+        <note>Class = "UITableViewController"; title = "SettingsViewController"; ObjectID = "EfW-kw-zzq";</note>
+      </trans-unit>
+      <trans-unit id="IDt-1U-VB1.placeholder">
+        <source>Amps</source>
+        <note>Class = "UITextField"; placeholder = "Amps"; ObjectID = "IDt-1U-VB1";</note>
+      </trans-unit>
+      <trans-unit id="KcT-PD-Aa9.footerTitle">
+        <source>Deselect to show all types</source>
+        <note>Class = "UITableViewSection"; footerTitle = "Deselect to show all types"; ObjectID = "KcT-PD-Aa9";</note>
+      </trans-unit>
+      <trans-unit id="KcT-PD-Aa9.headerTitle">
+        <source>Connection Types</source>
+        <note>Class = "UITableViewSection"; headerTitle = "Connection Types"; ObjectID = "KcT-PD-Aa9";</note>
+      </trans-unit>
+      <trans-unit id="N6D-bM-vkg.text">
+        <source>Fast charging only</source>
+        <note>Class = "UILabel"; text = "Fast charging only"; ObjectID = "N6D-bM-vkg";</note>
+      </trans-unit>
+      <trans-unit id="NPs-lc-Ssu.headerTitle">
+        <source>Other Parameters</source>
+        <note>Class = "UITableViewSection"; headerTitle = "Other Parameters"; ObjectID = "NPs-lc-Ssu";</note>
+      </trans-unit>
+      <trans-unit id="OAW-sw-JYg.text">
+        <source>CEE 7/4 - Schuko</source>
+        <note>Class = "UILabel"; text = "CEE 7/4 - Schuko"; ObjectID = "OAW-sw-JYg";</note>
+      </trans-unit>
+      <trans-unit id="QRc-bz-ImP.title">
+        <source>Nearby</source>
+        <note>Class = "UINavigationItem"; title = "Nearby"; ObjectID = "QRc-bz-ImP";</note>
+      </trans-unit>
+      <trans-unit id="S1d-jw-WBR.text">
+        <source>Mennekes (Type 2)</source>
+        <note>Class = "UILabel"; text = "Mennekes (Type 2)"; ObjectID = "S1d-jw-WBR";</note>
+      </trans-unit>
+      <trans-unit id="TXH-l2-iTh.headerTitle">
+        <source>Data Management</source>
+        <note>Class = "UITableViewSection"; headerTitle = "Data Management"; ObjectID = "TXH-l2-iTh";</note>
+      </trans-unit>
+      <trans-unit id="XDM-1R-zyc.text">
+        <source>App version</source>
+        <note>Class = "UILabel"; text = "App version"; ObjectID = "XDM-1R-zyc";</note>
+      </trans-unit>
+      <trans-unit id="ZLP-0E-6LU.text">
+        <source>Cache size</source>
+        <note>Class = "UILabel"; text = "Cache size"; ObjectID = "ZLP-0E-6LU";</note>
+      </trans-unit>
+      <trans-unit id="aPs-vh-iVd.title">
+        <source>Nearby</source>
+        <note>Class = "UITabBarItem"; title = "Nearby"; ObjectID = "aPs-vh-iVd";</note>
+      </trans-unit>
+      <trans-unit id="eDl-R7-AeG.headerTitle">
+        <source>Debug Info</source>
+        <note>Class = "UITableViewSection"; headerTitle = "Debug Info"; ObjectID = "eDl-R7-AeG";</note>
+      </trans-unit>
+      <trans-unit id="fBx-le-nth.title">
+        <source>Map</source>
+        <note>Class = "UITabBarItem"; title = "Map"; ObjectID = "fBx-le-nth";</note>
+      </trans-unit>
+      <trans-unit id="hE6-Vt-Iw2.text">
+        <source>CHAdeMO</source>
+        <note>Class = "UILabel"; text = "CHAdeMO"; ObjectID = "hE6-Vt-Iw2";</note>
+      </trans-unit>
+      <trans-unit id="kqa-ep-x8Y.text">
+        <source>Combo (CCS)</source>
+        <note>Class = "UILabel"; text = "Combo (CCS)"; ObjectID = "kqa-ep-x8Y";</note>
+      </trans-unit>
+      <trans-unit id="krk-xX-0BL.text">
+        <source>Show download indicator</source>
+        <note>Class = "UILabel"; text = "Show download indicator"; ObjectID = "krk-xX-0BL";</note>
+      </trans-unit>
+      <trans-unit id="lvC-aP-V72.title">
+        <source>Settings</source>
+        <note>Class = "UINavigationItem"; title = "Settings"; ObjectID = "lvC-aP-V72";</note>
+      </trans-unit>
+      <trans-unit id="nGe-bh-aT6.title">
+        <source>SettingsPopoverNavController</source>
+        <note>Class = "UINavigationController"; title = "SettingsPopoverNavController"; ObjectID = "nGe-bh-aT6";</note>
+      </trans-unit>
+      <trans-unit id="nqM-Y8-84n.segmentTitles[0]">
+        <source>Normal</source>
+        <note>Class = "UISegmentedControl"; nqM-Y8-84n.segmentTitles[0] = "Normal"; ObjectID = "nqM-Y8-84n";</note>
+      </trans-unit>
+      <trans-unit id="nqM-Y8-84n.segmentTitles[1]">
+        <source>Satellite</source>
+        <note>Class = "UISegmentedControl"; nqM-Y8-84n.segmentTitles[1] = "Satellite"; ObjectID = "nqM-Y8-84n";</note>
+      </trans-unit>
+      <trans-unit id="nqM-Y8-84n.segmentTitles[2]">
+        <source>Hybrid</source>
+        <note>Class = "UISegmentedControl"; nqM-Y8-84n.segmentTitles[2] = "Hybrid"; ObjectID = "nqM-Y8-84n";</note>
+      </trans-unit>
+      <trans-unit id="wjz-xz-VyA.text">
+        <source>Map type</source>
+        <note>Class = "UILabel"; text = "Map type"; ObjectID = "wjz-xz-VyA";</note>
+      </trans-unit>
+      <trans-unit id="zZV-Lt-BNI.text">
+        <source>Offline mode</source>
+        <note>Class = "UILabel"; text = "Offline mode"; ObjectID = "zZV-Lt-BNI";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Spark/Base.lproj/WhatsNewViewController.xib" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"/>
+    </header>
+    <body>
+      <trans-unit id="4TO-Hv-g5v.text">
+        <source>Help enhance the SparkMap experience for everyone by uploading your own photos of the charging stations you visit. Simply tap the placeholder photo icon when viewing charger details to pick a photo from your photo library or snap a picture right there and then. </source>
+        <note>Class = "UILabel"; text = "Help enhance the SparkMap experience for everyone by uploading your own photos of the charging stations you visit. Simply tap the placeholder photo icon when viewing charger details to pick a photo from your photo library or snap a picture right there and then. "; ObjectID = "4TO-Hv-g5v";</note>
+      </trans-unit>
+      <trans-unit id="HEd-Tv-C0t.text">
+        <source>SparkMap just got better</source>
+        <note>Class = "UILabel"; text = "SparkMap just got better"; ObjectID = "HEd-Tv-C0t";</note>
+      </trans-unit>
+      <trans-unit id="Odg-ua-jBU.text">
+        <source>Better charging icons</source>
+        <note>Class = "UILabel"; text = "Better charging icons"; ObjectID = "Odg-ua-jBU";</note>
+      </trans-unit>
+      <trans-unit id="SAu-Cz-hb1.text">
+        <source>Photo submissions</source>
+        <note>Class = "UILabel"; text = "Photo submissions"; ObjectID = "SAu-Cz-hb1";</note>
+      </trans-unit>
+      <trans-unit id="kZq-Ee-ZhG.text">
+        <source>SparkMap has been updated with some new features and improvements to help make it an even better companion for the everyday EV driver.</source>
+        <note>Class = "UILabel"; text = "SparkMap has been updated with some new features and improvements to help make it an even better companion for the everyday EV driver."; ObjectID = "kZq-Ee-ZhG";</note>
+      </trans-unit>
+      <trans-unit id="sfO-J5-CiF.text">
+        <source>Get more information at a glance! Map icons are now colored green or blue. Blue markers show that fast charging is available at the indicated location.</source>
+        <note>Class = "UILabel"; text = "Get more information at a glance! Map icons are now colored green or blue. Blue markers show that fast charging is available at the indicated location."; ObjectID = "sfO-J5-CiF";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Spark/Info.plist" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.1.6</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Spark/Localizable.strings" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"/>
+    </header>
+    <body>
+      <trans-unit id="%@ minutes of travel time">
+        <source>%@ minutes of travel time</source>
+        <note>Minutes of travel time</note>
+      </trans-unit>
+      <trans-unit id="Awesome. Go ahead and upload the photo?">
+        <source>Awesome. Go ahead and upload the photo?</source>
+        <note>Photo submission request message</note>
+      </trans-unit>
+      <trans-unit id="Call">
+        <source>Call</source>
+        <note>Call Button String</note>
+      </trans-unit>
+      <trans-unit id="Camera">
+        <source>Camera</source>
+        <note>Camera Source</note>
+      </trans-unit>
+      <trans-unit id="Cancel">
+        <source>Cancel</source>
+        <note>Cancel Action Text</note>
+      </trans-unit>
+      <trans-unit id="Dismiss">
+        <source>Dismiss</source>
+        <note>Dismiss
+   Download Spinner dismiss button text</note>
+      </trans-unit>
+      <trans-unit id="Downloading...">
+        <source>Downloading...</source>
+        <note>Downloading Data Spinner Text</note>
+      </trans-unit>
+      <trans-unit id="Invalid data returned from server. Please try again later.">
+        <source>Invalid data returned from server. Please try again later.</source>
+        <note>Data download parsing error</note>
+      </trans-unit>
+      <trans-unit id="Navigate">
+        <source>Navigate</source>
+        <note>Navigate</note>
+      </trans-unit>
+      <trans-unit id="No">
+        <source>No</source>
+        <note>No</note>
+      </trans-unit>
+      <trans-unit id="No Access Information Available">
+        <source>No Access Information Available</source>
+        <note>No Access Information</note>
+      </trans-unit>
+      <trans-unit id="OK">
+        <source>OK</source>
+        <note>OK</note>
+      </trans-unit>
+      <trans-unit id="Operational">
+        <source>Operational</source>
+        <note>Charging Status Operational</note>
+      </trans-unit>
+      <trans-unit id="Photo Library">
+        <source>Photo Library</source>
+        <note>Library Source</note>
+      </trans-unit>
+      <trans-unit id="Photo Submission">
+        <source>Photo Submission</source>
+        <note>Photo Submission</note>
+      </trans-unit>
+      <trans-unit id="Photo Submitted">
+        <source>Photo Submitted</source>
+        <note>Photo Submitted</note>
+      </trans-unit>
+      <trans-unit id="Place not found">
+        <source>Place not found</source>
+        <note>User search location not found</note>
+      </trans-unit>
+      <trans-unit id="Processing...">
+        <source>Processing...</source>
+        <note>Processing Data Spinner Text</note>
+      </trans-unit>
+      <trans-unit id="Search for a place or address">
+        <source>Search for a place or address</source>
+        <note>Searchbar placeholder string</note>
+      </trans-unit>
+      <trans-unit id="Submit a photo for this charging station">
+        <source>Submit a photo for this charging station</source>
+        <note>Submit a photo description text</note>
+      </trans-unit>
+      <trans-unit id="Tap to hide">
+        <source>Tap to hide</source>
+        <note>Tap to hide subtitle</note>
+      </trans-unit>
+      <trans-unit id="Unknown">
+        <source>Unknown</source>
+        <note>Charging Status Unknown</note>
+      </trans-unit>
+      <trans-unit id="Upload photo">
+        <source>Upload photo</source>
+        <note>Photo Submitted</note>
+      </trans-unit>
+      <trans-unit id="Whats New">
+        <source>Whats New</source>
+        <note>Whats New View Title</note>
+      </trans-unit>
+      <trans-unit id="Write Comment">
+        <source>Write Comment</source>
+        <note>Write Comment</note>
+      </trans-unit>
+      <trans-unit id="Yes">
+        <source>Yes</source>
+        <note>Yes</note>
+      </trans-unit>
+      <trans-unit id="Your photo will be submitted for review. Thank you!">
+        <source>Your photo will be submitted for review. Thank you!</source>
+        <note>Photo submission confirmation message</note>
+      </trans-unit>
+      <trans-unit id="meters">
+        <source>meters</source>
+        <note>Meters</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="SparkTests/Info.plist" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="SparkUITests/Info.plist" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
