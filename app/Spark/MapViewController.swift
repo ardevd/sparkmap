@@ -66,12 +66,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         dataManager.getDataFilesSize()
         
         useClustering = defaults.boolForKey("useClustering")
-    
+        
     }
     
     override func viewDidAppear(animated: Bool) {
-        showWelcomeIfApplicable()
-        
+        if !showWelcomeIfApplicable() {
+            verifyOrRequestLocationAuthorization()
+        }
+    }
+    
+    func verifyOrRequestLocationAuthorization() {
         // Location Authorization
         let authStatus = CLLocationManager.authorizationStatus()
         
@@ -85,9 +89,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             locationManager.requestStartLocationUpdate()
             mapView.showsUserLocation = false
         }
+        
     }
     
-    func showWelcomeIfApplicable(){
+    func showWelcomeIfApplicable() -> Bool {
         // Show Welcome screen if this is first launch.
         let defaults = NSUserDefaults.standardUserDefaults()
         let hasUserSeenWhatsNew = defaults.boolForKey("firstrun")
@@ -99,7 +104,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             let controller = storyboard.instantiateViewControllerWithIdentifier("InitialController") as UIViewController
             // Display the new view controller.
             presentViewController(controller, animated: true, completion: nil)
+            return true
         }
+        
+        return false
     }
     
     func isNewCenterFarFromOldCenter() -> Bool {
@@ -130,10 +138,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updatedSettingsRefresh(_:)), name: "SettingsUpdate", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updateRegionFromNotification(_:)), name: "LocationUpdate", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.enableUserLocationInMap(_:)), name: "LocationAuthorized", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.welcomeModuleIsDone(_:)), name: "WelcomeModuleDone", object: nil)
     }
     
     func enableUserLocationInMap(notification: NSNotification) {
         mapView.showsUserLocation = true
+    }
+    
+    func welcomeModuleIsDone(notification: NSNotification) {
+        verifyOrRequestLocationAuthorization()
     }
     
     func updateRegionFromNotification(notification: NSNotification) {
