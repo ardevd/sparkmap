@@ -13,7 +13,7 @@ class WelcomePageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 49/255, green: 48/225, blue: 54/225, alpha: 1.0)
+        view.backgroundColor = UIColor(red: 49/255, green: 42/225, blue: 48/225, alpha: 1.0)
         dataSource = self
         setViewControllers([getStepZero()], direction: .Forward, animated: false, completion: nil)
     }
