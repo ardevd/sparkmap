@@ -9,11 +9,15 @@
 import UIKit
 
 class WelcomeZeroViewController: UIViewController {
+    
+    @IBOutlet var cardView: UIView!
+    @IBOutlet var cardTitle: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        manipulateCardView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +25,24 @@ class WelcomeZeroViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        animateTitle()
     }
-    */
+    
+
+    func manipulateCardView(){
+        // Adjust the card view. Make the edges rounded.
+        self.cardView.layer.masksToBounds = false
+        self.cardView.layer.cornerRadius = 15
+        self.cardView.clipsToBounds = true
+    }
+    
+    func animateTitle(){
+        // Fade in the card title
+        UIView.animateWithDuration(2.0, animations: {
+                self.cardTitle.alpha = 1.0
+        })
+    }
 
 }
