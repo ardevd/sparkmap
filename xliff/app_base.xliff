@@ -191,37 +191,6 @@
       </trans-unit>
     </body>
   </file>
-  <file original="Spark/Base.lproj/WhatsNewViewController.xib" source-language="en" datatype="plaintext">
-    <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"/>
-    </header>
-    <body>
-      <trans-unit id="4TO-Hv-g5v.text">
-        <source>Help enhance the SparkMap experience for everyone by uploading your own photos of the charging stations you visit. Simply tap the placeholder photo icon when viewing charger details to pick a photo from your photo library or snap a picture right there and then. </source>
-        <note>Class = "UILabel"; text = "Help enhance the SparkMap experience for everyone by uploading your own photos of the charging stations you visit. Simply tap the placeholder photo icon when viewing charger details to pick a photo from your photo library or snap a picture right there and then. "; ObjectID = "4TO-Hv-g5v";</note>
-      </trans-unit>
-      <trans-unit id="HEd-Tv-C0t.text">
-        <source>SparkMap just got better</source>
-        <note>Class = "UILabel"; text = "SparkMap just got better"; ObjectID = "HEd-Tv-C0t";</note>
-      </trans-unit>
-      <trans-unit id="Odg-ua-jBU.text">
-        <source>Better charging icons</source>
-        <note>Class = "UILabel"; text = "Better charging icons"; ObjectID = "Odg-ua-jBU";</note>
-      </trans-unit>
-      <trans-unit id="SAu-Cz-hb1.text">
-        <source>Photo submissions</source>
-        <note>Class = "UILabel"; text = "Photo submissions"; ObjectID = "SAu-Cz-hb1";</note>
-      </trans-unit>
-      <trans-unit id="kZq-Ee-ZhG.text">
-        <source>SparkMap has been updated with some new features and improvements to help make it an even better companion for the everyday EV driver.</source>
-        <note>Class = "UILabel"; text = "SparkMap has been updated with some new features and improvements to help make it an even better companion for the everyday EV driver."; ObjectID = "kZq-Ee-ZhG";</note>
-      </trans-unit>
-      <trans-unit id="sfO-J5-CiF.text">
-        <source>Get more information at a glance! Map icons are now colored green or blue. Blue markers show that fast charging is available at the indicated location.</source>
-        <note>Class = "UILabel"; text = "Get more information at a glance! Map icons are now colored green or blue. Blue markers show that fast charging is available at the indicated location."; ObjectID = "sfO-J5-CiF";</note>
-      </trans-unit>
-    </body>
-  </file>
   <file original="Spark/Info.plist" source-language="en" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"/>
@@ -332,10 +301,6 @@
       <trans-unit id="Upload photo">
         <source>Upload photo</source>
         <note>Photo Submitted</note>
-      </trans-unit>
-      <trans-unit id="Whats New">
-        <source>Whats New</source>
-        <note>Whats New View Title</note>
       </trans-unit>
       <trans-unit id="Write Comment">
         <source>Write Comment</source>
