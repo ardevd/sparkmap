@@ -258,12 +258,12 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOJ-TT-Yqb">
                             <rect key="frame" x="8" y="8" width="584" height="21"/>
-                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.20000000000000001" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.67450980392156867" green="0.79607843137254897" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="jOJ-TT-Yqb" firstAttribute="leading" secondItem="g9W-Jv-kLq" secondAttribute="leading" constant="8" id="80K-LB-k9D"/>
                         <constraint firstAttribute="height" constant="36" id="N14-pi-j7Q"/>
