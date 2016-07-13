@@ -393,12 +393,24 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             } else if usageType == 1 {
                 let publicUsageTypeString = NSLocalizedString("Public use", comment: "Public Usage Type")
                 labelUsageType.text = publicUsageTypeString
+            } else if usageType == 2 {
+                let publicUsagePrivateTypeString = NSLocalizedString("Private - Restricted Access", comment: "Private Access Usage Type")
+                labelUsageType.text = publicUsagePrivateTypeString
+            } else if usageType == 3 {
+                let publicUsagePrivateOwnedTypeString = NSLocalizedString("Privately Owned - Notice Required", comment: "Privately Owned Usage Type")
+                labelUsageType.text = publicUsagePrivateOwnedTypeString
             } else if usageType == 4 {
                 let publicUsageMembershipTypeString = NSLocalizedString("Public use - Membership required", comment: "Public Membership Usage Type")
                 labelUsageType.text = publicUsageMembershipTypeString
             } else if usageType == 5 {
                 let publicUsagePayAtLocationTypeString = NSLocalizedString("Public use - Pay at location", comment: "Public Pay at location Usage Type")
                 labelUsageType.text = publicUsagePayAtLocationTypeString
+            } else if usageType == 6 {
+                let publicUsagePrivateForVIPTypeString = NSLocalizedString("Private - For Staff, Visitors or Customers", comment: "Private - For staff or customers usage type")
+                labelUsageType.text = publicUsagePrivateForVIPTypeString
+            } else if usageType == 7 {
+                let publicUsagePublicWithNoticeTypeString = NSLocalizedString("Public - Notice Required", comment: "Public - Notice required usage type")
+                labelUsageType.text = publicUsagePublicWithNoticeTypeString
             }
             
         }
