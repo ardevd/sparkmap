@@ -91,7 +91,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         // Show Welcome screen if this is first launch.
         let defaults = NSUserDefaults.standardUserDefaults()
         let hasUserSeenWhatsNew = defaults.boolForKey("firstrun")
-        if hasUserSeenWhatsNew {
+        if !hasUserSeenWhatsNew {
             defaults.setBool(true, forKey: "firstrun")
             // Create a new "WelcomeStoryBoard" instance.
             let storyboard = UIStoryboard(name: "WelcomeStoryboard", bundle: nil)
