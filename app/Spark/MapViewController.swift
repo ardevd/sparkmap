@@ -67,12 +67,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         
         useClustering = defaults.boolForKey("useClustering")
         
+        if isDoneWithFirstRun(){
+            verifyOrRequestLocationAuthorization()
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
-        if !showWelcomeIfApplicable() {
-            verifyOrRequestLocationAuthorization()
-        }
+        showWelcomeIfApplicable()
     }
     
     func verifyOrRequestLocationAuthorization() {
@@ -92,12 +93,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         
     }
     
+    func isDoneWithFirstRun() -> Bool {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let notFirstRun = defaults.boolForKey("isDoneWithFirstRun")
+        
+        return notFirstRun
+    }
+    
     func showWelcomeIfApplicable() -> Bool {
         // Show Welcome screen if this is first launch.
         let defaults = NSUserDefaults.standardUserDefaults()
-        let hasUserSeenWhatsNew = defaults.boolForKey("firstrun")
-        if !hasUserSeenWhatsNew {
-            defaults.setBool(true, forKey: "firstrun")
+        if !isDoneWithFirstRun() {
+            defaults.setBool(true, forKey: "isDoneWithFirstRun")
             // Create a new "WelcomeStoryBoard" instance.
             let storyboard = UIStoryboard(name: "WelcomeStoryboard", bundle: nil)
             // Create an instance of the storyboard's initial view controller.
