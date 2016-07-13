@@ -175,6 +175,17 @@ class SettingsViewController: UITableViewController {
         clusteringThresholdLabel.text = Int(sender.value).description
     }
     
+    func showSourceCodeOnGitHub(){
+        // Send user to the GitHub repo page
+        if let url = NSURL(string: "https://github.com/Zyg0te/sparkmap") {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
+    func userWantsToRateApp(){
+        UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1081587641")!)
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let cell = tableView.cellForRowAtIndexPath(indexPath)
@@ -219,6 +230,12 @@ class SettingsViewController: UITableViewController {
                 } else {
                     cell?.accessoryType = .None
                 }
+            }
+        } else if (section == 4) {
+            if (row == 1) {
+                showSourceCodeOnGitHub()
+            } else if (row == 2) {
+                userWantsToRateApp()
             }
         }
     }
