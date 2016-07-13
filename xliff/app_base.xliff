@@ -25,10 +25,6 @@
         <source>Status</source>
         <note>Class = "UILabel"; text = "Status"; ObjectID = "ioz-Ww-6ec";</note>
       </trans-unit>
-      <trans-unit id="sQE-wu-szz.text">
-        <source>Label</source>
-        <note>Class = "UILabel"; text = "Label"; ObjectID = "sQE-wu-szz";</note>
-      </trans-unit>
       <trans-unit id="t7s-cr-ygP.text">
         <source>Charging Points</source>
         <note>Class = "UILabel"; text = "Charging Points"; ObjectID = "t7s-cr-ygP";</note>
@@ -89,6 +85,10 @@
         <source>A</source>
         <note>Class = "UILabel"; text = "A"; ObjectID = "CeW-Yx-1Ec";</note>
       </trans-unit>
+      <trans-unit id="Cio-Bg-HTa.text">
+        <source>Source code</source>
+        <note>Class = "UILabel"; text = "Source code"; ObjectID = "Cio-Bg-HTa";</note>
+      </trans-unit>
       <trans-unit id="EfW-kw-zzq.title">
         <source>SettingsViewController</source>
         <note>Class = "UITableViewController"; title = "SettingsViewController"; ObjectID = "EfW-kw-zzq";</note>
@@ -104,6 +104,10 @@
       <trans-unit id="KcT-PD-Aa9.headerTitle">
         <source>Connection Types</source>
         <note>Class = "UITableViewSection"; headerTitle = "Connection Types"; ObjectID = "KcT-PD-Aa9";</note>
+      </trans-unit>
+      <trans-unit id="LrM-yY-Ook.text">
+        <source>Rate the app</source>
+        <note>Class = "UILabel"; text = "Rate the app"; ObjectID = "LrM-yY-Ook";</note>
       </trans-unit>
       <trans-unit id="N6D-bM-vkg.text">
         <source>Fast charging only</source>
@@ -142,8 +146,8 @@
         <note>Class = "UITabBarItem"; title = "Nearby"; ObjectID = "aPs-vh-iVd";</note>
       </trans-unit>
       <trans-unit id="eDl-R7-AeG.headerTitle">
-        <source>Debug Info</source>
-        <note>Class = "UITableViewSection"; headerTitle = "Debug Info"; ObjectID = "eDl-R7-AeG";</note>
+        <source>About</source>
+        <note>Class = "UITableViewSection"; headerTitle = "About"; ObjectID = "eDl-R7-AeG";</note>
       </trans-unit>
       <trans-unit id="fBx-le-nth.title">
         <source>Map</source>
@@ -200,7 +204,7 @@
         <source>$(PRODUCT_NAME)</source>
       </trans-unit>
       <trans-unit id="CFBundleShortVersionString">
-        <source>1.1.6</source>
+        <source>2.0.0</source>
       </trans-unit>
     </body>
   </file>
@@ -278,9 +282,37 @@
         <source>Place not found</source>
         <note>User search location not found</note>
       </trans-unit>
+      <trans-unit id="Private - For Staff, Visitors or Customers">
+        <source>Private - For Staff, Visitors or Customers</source>
+        <note>Private - For staff or customers usage type</note>
+      </trans-unit>
+      <trans-unit id="Private - Restricted Access">
+        <source>Private - Restricted Access</source>
+        <note>Private Access Usage Type</note>
+      </trans-unit>
+      <trans-unit id="Privately Owned - Notice Required">
+        <source>Privately Owned - Notice Required</source>
+        <note>Privately Owned Usage Type</note>
+      </trans-unit>
       <trans-unit id="Processing...">
         <source>Processing...</source>
         <note>Processing Data Spinner Text</note>
+      </trans-unit>
+      <trans-unit id="Public - Notice Required">
+        <source>Public - Notice Required</source>
+        <note>Public - Notice required usage type</note>
+      </trans-unit>
+      <trans-unit id="Public use">
+        <source>Public use</source>
+        <note>Public Usage Type</note>
+      </trans-unit>
+      <trans-unit id="Public use - Membership required">
+        <source>Public use - Membership required</source>
+        <note>Public Membership Usage Type</note>
+      </trans-unit>
+      <trans-unit id="Public use - Pay at location">
+        <source>Public use - Pay at location</source>
+        <note>Public Pay at location Usage Type</note>
       </trans-unit>
       <trans-unit id="Search for a place or address">
         <source>Search for a place or address</source>
@@ -297,6 +329,10 @@
       <trans-unit id="Unknown">
         <source>Unknown</source>
         <note>Charging Status Unknown</note>
+      </trans-unit>
+      <trans-unit id="Unknown usage type">
+        <source>Unknown usage type</source>
+        <note>Unknown Usage Type</note>
       </trans-unit>
       <trans-unit id="Upload photo">
         <source>Upload photo</source>
