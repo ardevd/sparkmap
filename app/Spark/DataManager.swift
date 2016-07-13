@@ -500,8 +500,9 @@ class DataManager: NSObject {
                                     }
                                     
                                     if let usageData = element["UsageType"] {
-                                        if let usageType = usageData["Title"] as? String {
-                                            chargerDetails.chargerUsageType = usageType
+                                        
+                                        if let usageID = usageData["ID"] as? NSNumber {
+                                            chargerDetails.chargerUsageTypeId = usageID.longLongValue
                                         }
                                     }
                                     

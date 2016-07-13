@@ -2,7 +2,7 @@
 //  ChargerPrimary+CoreDataProperties.swift
 //  SparkMap
 //
-//  Created by Edvard Holst on 20/05/16.
+//  Created by Edvard Holst on 13/07/16.
 //  Copyright © 2016 Zygote Labs. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
