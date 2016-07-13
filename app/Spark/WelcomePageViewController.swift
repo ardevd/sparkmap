@@ -38,6 +38,16 @@ class WelcomePageViewController: UIPageViewController {
     func getStepThree() -> WelcomeThreeViewController {
         return storyboard!.instantiateViewControllerWithIdentifier("WelcomeThree") as! WelcomeThreeViewController
     }
+    
+    //Changing Status Bar
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        
+        //LightContent
+        return UIStatusBarStyle.LightContent
+        
+        //Default
+        //return UIStatusBarStyle.Default
+    }
 }
 
 extension WelcomePageViewController: UIPageViewControllerDataSource {
