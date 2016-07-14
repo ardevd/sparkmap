@@ -60,7 +60,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         let nib = UINib(nibName: "ConnectionTableViewCell", bundle: nil)
         chargingPointTableView.registerNib(nib, forCellReuseIdentifier: "net.zygotelabs.connectioncell")
         chargingPointTableView.tableFooterView = UIView(frame: CGRectZero)
-    
+        
         
         // Download charger thumbnail image
         if let thumbnailImageURL = charger?.chargerImage {
@@ -86,7 +86,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             locationManager?.startUpdatingLocation()
             isActive = true
         }
-
+        
     }
     
     func registerForceTouchCapability(){
@@ -331,7 +331,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             }
             self.view.layoutIfNeeded()
             }, completion: nil)
-
+        
     }
     
     func manipulateThumbnailImage(){
@@ -508,7 +508,13 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("net.zygotelabs.connectioncell", forIndexPath: indexPath) as! ConnectionTableViewCell
         
-        cell.connectionTypeLabel?.text = (connections[indexPath.row] as Connection).connectionTypeTitle
+        let connectionTypeId = (connections[indexPath.row] as Connection).connectionTypeId
+        if connectionTypeId == 33 {
+            let connectionTypeCCSString = NSLocalizedString("CCS Combo", comment: "Navigate")
+            cell.connectionTypeLabel?.text = connectionTypeCCSString
+        } else {
+            cell.connectionTypeLabel?.text = (connections[indexPath.row] as Connection).connectionTypeTitle
+        }
         
         //Only show Quantity if > 0
         let connectionQuantity = (connections[indexPath.row] as Connection).connectionQuantity
@@ -569,7 +575,6 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             let travelTime = String(Double(round(100 * (response!.expectedTravelTime/60))/100))
             let travelTimeString = String.localizedStringWithFormat(NSLocalizedString("%@ minutes of travel time", comment: "Minutes of travel time"), travelTime)
             self.labelTransportETA.text = travelTimeString
-            
         }
     }
     
