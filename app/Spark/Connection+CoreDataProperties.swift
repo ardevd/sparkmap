@@ -2,7 +2,7 @@
 //  Connection+CoreDataProperties.swift
 //  SparkMap
 //
-//  Created by Edvard Holst on 13/07/16.
+//  Created by Edvard Holst on 14/07/16.
 //  Copyright © 2016 Zygote Labs. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -22,6 +22,7 @@ extension Connection {
     @NSManaged var connectionTypeId: Int64
     @NSManaged var connectionTypeTitle: String?
     @NSManaged var connectionVoltage: Int64
+    @NSManaged var connectionIsOperational: Bool
     @NSManaged var chargerSecondary: ChargerDetails?
 
 }

@@ -62,6 +62,7 @@
     <entity name="Connection" representedClassName=".Connection" syncable="YES">
         <attribute name="connectionAmp" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="connectionId" attributeType="Integer 64" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="connectionIsOperational" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="connectionPowerKW" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="connectionQuantity" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <attribute name="connectionSupportsFastCharging" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
@@ -80,6 +81,6 @@
         <element name="ChargerOperator" positionX="-902" positionY="45" width="128" height="118"/>
         <element name="ChargerPrimary" positionX="-684" positionY="2" width="128" height="268"/>
         <element name="Comment" positionX="-245" positionY="-36" width="128" height="133"/>
-        <element name="Connection" positionX="-234" positionY="104" width="128" height="178"/>
+        <element name="Connection" positionX="-234" positionY="104" width="128" height="193"/>
     </elements>
 </model>

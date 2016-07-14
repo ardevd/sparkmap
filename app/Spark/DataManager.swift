@@ -420,6 +420,12 @@ class DataManager: NSObject {
                                                 }
                                             }
                                             
+                                            if let connectionStatusData = connectionElement["StatusType"] {
+                                                if let connectionStatusIsOperational = connectionStatusData["IsOperational"] as? Bool {
+                                                    connection.connectionIsOperational = connectionStatusIsOperational
+                                                }
+                                            }
+                                            
                                             if let connectionLevelData = connectionElement["Level"] {
                                                 if let connectionSupportsFastCharging = connectionLevelData["IsFastChargeCapable"] as? Bool {
                                                     connection.connectionSupportsFastCharging = connectionSupportsFastCharging
