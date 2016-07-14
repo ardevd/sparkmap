@@ -116,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spark/ChargerDetailViewController.swift"
-            timestampString = "490139753.10074"
+            timestampString = "490140547.954698"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "453"
-            endingLineNumber = "453"
+            startingLineNumber = "465"
+            endingLineNumber = "465"
             landmarkName = "downloadThumbnailImage(_:)"
             landmarkType = "5">
          </BreakpointContent>
