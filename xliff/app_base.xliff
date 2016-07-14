@@ -195,6 +195,53 @@
       </trans-unit>
     </body>
   </file>
+  <file original="Spark/Base.lproj/WelcomeStoryboard.storyboard" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"/>
+    </header>
+    <body>
+      <trans-unit id="4MG-vP-e2M.text">
+        <source>Share your photos</source>
+        <note>Class = "UILabel"; text = "Share your photos"; ObjectID = "4MG-vP-e2M";</note>
+      </trans-unit>
+      <trans-unit id="InT-AC-OEa.text">
+        <source>The SparkMap source code is hosted on GitHub. Star the project there to stay in the loop or help make an even better app.</source>
+        <note>Class = "UILabel"; text = "The SparkMap source code is hosted on GitHub. Star the project there to stay in the loop or help make an even better app."; ObjectID = "InT-AC-OEa";</note>
+      </trans-unit>
+      <trans-unit id="JTi-eb-edB.text">
+        <source>Help improve the SparkMap experience by uploading photos of the chargers you visit. Simply tap the photo icon when viewing a charger.</source>
+        <note>Class = "UILabel"; text = "Help improve the SparkMap experience by uploading photos of the chargers you visit. Simply tap the photo icon when viewing a charger."; ObjectID = "JTi-eb-edB";</note>
+      </trans-unit>
+      <trans-unit id="PYF-We-dfB.text">
+        <source>Charge on!</source>
+        <note>Class = "UILabel"; text = "Charge on!"; ObjectID = "PYF-We-dfB";</note>
+      </trans-unit>
+      <trans-unit id="aou-yx-zo6.text">
+        <source>Welcome to SparkMap. A responsive, native and elegant app that helps you get your car charged. Before you begin, here's a few tips.</source>
+        <note>Class = "UILabel"; text = "Welcome to SparkMap. A responsive, native and elegant app that helps you get your car charged. Before you begin, here's a few tips."; ObjectID = "aou-yx-zo6";</note>
+      </trans-unit>
+      <trans-unit id="cPp-YB-CT3.text">
+        <source>Thanks for your time and for supporting future development. Enjoy SparkMap!</source>
+        <note>Class = "UILabel"; text = "Thanks for your time and for supporting future development. Enjoy SparkMap!"; ObjectID = "cPp-YB-CT3";</note>
+      </trans-unit>
+      <trans-unit id="k0s-sy-Hrp.normalTitle">
+        <source>Start using SparkMap</source>
+        <note>Class = "UIButton"; normalTitle = "Start using SparkMap"; ObjectID = "k0s-sy-Hrp";</note>
+      </trans-unit>
+      <trans-unit id="mBn-Uf-Xye.title">
+        <source>Welcome</source>
+        <note>Class = "UIPageViewController"; title = "Welcome"; ObjectID = "mBn-Uf-Xye";</note>
+      </trans-unit>
+      <trans-unit id="oMf-u5-dpJ.text">
+        <source>Hi!</source>
+        <note>Class = "UILabel"; text = "Hi!"; ObjectID = "oMf-u5-dpJ";</note>
+      </trans-unit>
+      <trans-unit id="qLu-cc-l28.text">
+        <source>SparkMap is Open Source</source>
+        <note>Class = "UILabel"; text = "SparkMap is Open Source"; ObjectID = "qLu-cc-l28";</note>
+      </trans-unit>
+    </body>
+  </file>
   <file original="Spark/Info.plist" source-language="en" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"/>
