@@ -22,7 +22,7 @@ extension Connection {
     @NSManaged var connectionTypeId: Int64
     @NSManaged var connectionTypeTitle: String?
     @NSManaged var connectionVoltage: Int64
-    @NSManaged var connectionIsOperational: Bool
+    @NSManaged var connectionIsOperational: Int32
     @NSManaged var chargerSecondary: ChargerDetails?
 
 }

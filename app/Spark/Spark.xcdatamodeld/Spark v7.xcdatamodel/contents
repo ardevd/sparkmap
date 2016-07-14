@@ -62,7 +62,7 @@
     <entity name="Connection" representedClassName=".Connection" syncable="YES">
         <attribute name="connectionAmp" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="connectionId" attributeType="Integer 64" minValueString="0" defaultValueString="0" syncable="YES"/>
-        <attribute name="connectionIsOperational" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="connectionIsOperational" optional="YES" attributeType="Integer 32" minValueString="0" maxValueString="2" defaultValueString="0" syncable="YES"/>
         <attribute name="connectionPowerKW" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="connectionQuantity" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <attribute name="connectionSupportsFastCharging" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
