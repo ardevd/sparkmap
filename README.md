@@ -12,6 +12,10 @@ All network traffic is encrypted with SSL to ensure your personal information st
 
 Say goodbye to agonizingly poor charging station apps and say hello to an app done right! Say hello to SparkMap!
 
+How to Contribute
+====
+Translators are welcome to contribute to translation through [Transifex](https://www.transifex.com/zygote-labs/sparkmap/dashboard/)
+
 FAQ
 ====
 What data set is SparkMap based on?
