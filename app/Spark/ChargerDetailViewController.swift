@@ -530,12 +530,17 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         
         var connectionPowerParams = ""
         let connectionCurrent = (connections[indexPath.row] as Connection).connectionAmp
+        var gotCurrent = false
         if (connectionCurrent > 0){
             connectionPowerParams = String((connections[indexPath.row] as Connection).connectionAmp) + "A"
+            gotCurrent = true
         }
         let connectionPower = (connections[indexPath.row] as Connection).connectionPowerKW
         if (connectionPower > 0) {
-            connectionPowerParams += "/" + (String((connections[indexPath.row] as Connection).connectionPowerKW) + "KW")
+            if gotCurrent {
+                connectionPowerParams += "/"
+            }
+            connectionPowerParams += (String((connections[indexPath.row] as Connection).connectionPowerKW) + "KW")
         }
         
         cell.connectionAmpLabel?.text = connectionPowerParams
@@ -589,6 +594,10 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             buttonComments.setImage(image, forState: .Normal)
             labelNumberOfComments.text = String(numberOfComments)
         }
+    }
+    
+    @IBAction func showOperatorWebsite(){
+        
     }
     
     @IBAction func showCommentViewController(){
