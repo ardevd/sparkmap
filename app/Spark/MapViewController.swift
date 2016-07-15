@@ -102,9 +102,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     
     func showWelcomeIfApplicable() -> Bool {
         // Show Welcome screen if this is first launch.
-        let defaults = NSUserDefaults.standardUserDefaults()
         if !isDoneWithFirstRun() {
-            defaults.setBool(true, forKey: "isDoneWithFirstRun")
             // Create a new "WelcomeStoryBoard" instance.
             let storyboard = UIStoryboard(name: "WelcomeStoryboard", bundle: nil)
             // Create an instance of the storyboard's initial view controller.
@@ -153,6 +151,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     }
     
     func welcomeModuleIsDone(notification: NSNotification) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setBool(true, forKey: "isDoneWithFirstRun")
         verifyOrRequestLocationAuthorization()
     }
     
