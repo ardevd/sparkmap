@@ -541,13 +541,15 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         cell.connectionAmpLabel?.text = connectionPowerParams
         
         // Show status indicator if applicable
-        let connectionIsOperational = (connections[indexPath.row] as Connection).connectionIsOperational
-        if connectionIsOperational == 1 {
+        let connectionStatusTypeID = (connections[indexPath.row] as Connection).connectionStatusTypeID
+        if connectionStatusTypeID == 100 {
             cell.connectionStatusView.backgroundColor = UIColor(red: 223/255, green: 105/255, blue: 93/255, alpha: 1.0)
-        } else if connectionIsOperational == 2{
+        } else if connectionStatusTypeID == 50{
             cell.connectionStatusView.backgroundColor = UIColor(red: 173/255, green: 198/255, blue: 152/255, alpha: 1.0)
+        } else if connectionStatusTypeID == 75 {
+            cell.connectionStatusView.backgroundColor = UIColor(red: 196/255, green: 137/255, blue: 34/255, alpha: 1.0)
         } else {
-            cell.connectionStatusView.alpha = 0.0
+            cell.connectionStatusView.backgroundColor = UIColor(red: 109/255, green: 109/255, blue: 109/255, alpha: 1.0)
         }
         
         return cell

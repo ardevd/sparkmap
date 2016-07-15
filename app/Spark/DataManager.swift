@@ -420,16 +420,10 @@ class DataManager: NSObject {
                                                 }
                                             }
                                             
-                                            if let connectionStatusData = connectionElement["StatusType"] {
-                                                if let connectionStatusIsOperational = connectionStatusData["IsOperational"] as? Bool {
-                                                    if connectionStatusIsOperational {
-                                                        connection.connectionIsOperational = 2
-                                                    } else {
-                                                        connection.connectionIsOperational = 1
-                                                    }
-                                                }
+                                            if let connectionStatusID = connectionElement["StatusTypeID"] as? NSNumber {
+                                                connection.connectionStatusTypeID = connectionStatusID.intValue
                                             } else {
-                                                connection.connectionIsOperational = 0
+                                                connection.connectionStatusTypeID = 0
                                             }
                                             
                                             if let connectionLevelData = connectionElement["Level"] {
