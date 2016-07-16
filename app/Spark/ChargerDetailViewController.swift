@@ -550,7 +550,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         if connectionStatusTypeID == 100 {
             cell.connectionStatusView.backgroundColor = UIColor(red: 223/255, green: 105/255, blue: 93/255, alpha: 1.0)
         } else if connectionStatusTypeID == 50{
-            cell.connectionStatusView.backgroundColor = UIColor(red: 173/255, green: 198/255, blue: 152/255, alpha: 1.0)
+            cell.connectionStatusView.backgroundColor = UIColor(red: 107/255, green: 211/255, blue: 124/255, alpha: 1.0)
         } else if connectionStatusTypeID == 75 {
             cell.connectionStatusView.backgroundColor = UIColor(red: 196/255, green: 137/255, blue: 34/255, alpha: 1.0)
         } else {
