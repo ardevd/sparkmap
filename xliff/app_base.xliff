@@ -268,6 +268,10 @@
         <source>Awesome. Go ahead and upload the photo?</source>
         <note>Photo submission request message</note>
       </trans-unit>
+      <trans-unit id="CCS Combo">
+        <source>CCS Combo</source>
+        <note>Navigate</note>
+      </trans-unit>
       <trans-unit id="Call">
         <source>Call</source>
         <note>Call Button String</note>
