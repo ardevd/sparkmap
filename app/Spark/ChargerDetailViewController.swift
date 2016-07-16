@@ -13,7 +13,7 @@ import Contacts
 class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate, UIViewControllerPreviewingDelegate {
     // Outlets
     @IBOutlet var imageThumbnail: UIImageView!
-    @IBOutlet var labelOperatorTitle: UILabel!
+    @IBOutlet var buttonOperator: UIButton!
     @IBOutlet var labelSubtitle: UILabel!
     @IBOutlet var labelAccess: UILabel!
     @IBOutlet var labelNumberOfPoints: UILabel!
@@ -312,7 +312,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                 self.buttonComments.alpha = 1
                 self.labelNumberOfComments.alpha = 1
                 self.labelSubtitle.alpha = 1
-                self.labelOperatorTitle.alpha = 1
+                self.buttonOperator.alpha = 1
                 self.checkAndAnimateRecentlyVerifiedView()
                 self.manipulateThumbnailImage()
                 self.showingLargeImage = false
@@ -326,7 +326,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                 self.viewRecentlyVerified.alpha = 0
                 self.viewLastUpdateTime.alpha = 0
                 self.labelSubtitle.alpha = 0
-                self.labelOperatorTitle.alpha = 0
+                self.buttonOperator.alpha = 0
                 self.showingLargeImage = true
             }
             self.view.layoutIfNeeded()
@@ -359,7 +359,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         }
         
         if let operatorName = charger?.chargerOperator?.operatorName {
-            labelOperatorTitle.text = operatorName
+            buttonOperator.setTitle(operatorName, forState: .Normal)
         }
         
         if let primaryPhoneNumber = charger?.chargerDetails?.chargerPrimaryContactNumber {
@@ -597,7 +597,11 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     }
     
     @IBAction func showOperatorWebsite(){
-        
+        if let operatorWebsiteURLString = charger?.chargerOperator?.operatorWeb {
+            if let url = NSURL(string: operatorWebsiteURLString) {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }
     }
     
     @IBAction func showCommentViewController(){
