@@ -145,10 +145,10 @@
             </objects>
             <point key="canvasLocation" x="627" y="1046"/>
         </scene>
-        <!--Welcome Two View Controller-->
+        <!--Welcome Three View Controller-->
         <scene sceneID="N2P-1B-bD0">
             <objects>
-                <viewController storyboardIdentifier="WelcomeTwo" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ilo-Uf-Pnc" customClass="WelcomeTwoViewController" customModule="SparkMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeThree" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ilo-Uf-Pnc" customClass="WelcomeThreeViewController" customModule="SparkMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wcj-lb-UcL"/>
                         <viewControllerLayoutGuide type="bottom" id="4Nk-7f-aTh"/>
@@ -206,12 +206,74 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wmf-Yy-ifF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1266" y="1046"/>
+            <point key="canvasLocation" x="1947" y="1046"/>
         </scene>
-        <!--Welcome Three View Controller-->
+        <!--Welcome Two View Controller-->
+        <scene sceneID="ctE-EH-sMs">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeTwo" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UuY-jb-dAa" customClass="WelcomeTwoViewController" customModule="SparkMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bEd-cy-eKh"/>
+                        <viewControllerLayoutGuide type="bottom" id="YUv-vg-Wji"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mLu-Y9-Su4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLo-ah-4je">
+                                <rect key="frame" x="31" y="49" width="539" height="502"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Open Charge Map" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqh-DL-i3y">
+                                        <rect key="frame" x="8" y="51" width="523" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OCMIcon" translatesAutoresizingMaskIntoConstraints="NO" id="5V8-vO-lsf">
+                                        <rect key="frame" x="189" y="171" width="160" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="160" id="Fdz-Xa-beS"/>
+                                            <constraint firstAttribute="width" constant="160" id="aP0-om-Zkr"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SparkMap pulls from and contributes data to Open Charge Map, a global registry of electric vehicle charging locations." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tz4-9q-UDk">
+                                        <rect key="frame" x="19" y="345" width="500" height="141"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="tqh-DL-i3y" firstAttribute="leading" secondItem="gLo-ah-4je" secondAttribute="leading" constant="8" id="8ZG-9d-Mt9"/>
+                                    <constraint firstItem="Tz4-9q-UDk" firstAttribute="top" secondItem="5V8-vO-lsf" secondAttribute="bottom" constant="14" id="BJ8-cq-X0R"/>
+                                    <constraint firstItem="tqh-DL-i3y" firstAttribute="top" secondItem="gLo-ah-4je" secondAttribute="top" constant="51" id="CZW-kx-nNe"/>
+                                    <constraint firstItem="5V8-vO-lsf" firstAttribute="centerX" secondItem="gLo-ah-4je" secondAttribute="centerX" id="GEo-um-g9y"/>
+                                    <constraint firstItem="Tz4-9q-UDk" firstAttribute="leading" secondItem="gLo-ah-4je" secondAttribute="leading" constant="19" id="MTc-be-o3b"/>
+                                    <constraint firstAttribute="bottom" secondItem="Tz4-9q-UDk" secondAttribute="bottom" constant="16" id="d3u-LX-jAp"/>
+                                    <constraint firstItem="5V8-vO-lsf" firstAttribute="centerY" secondItem="gLo-ah-4je" secondAttribute="centerY" id="eNN-hg-Kna"/>
+                                    <constraint firstAttribute="trailing" secondItem="tqh-DL-i3y" secondAttribute="trailing" constant="8" id="qKk-S9-QZG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tz4-9q-UDk" secondAttribute="trailing" constant="20" id="yMe-bx-zXK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1764705882" green="0.23921568630000001" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="YUv-vg-Wji" firstAttribute="top" secondItem="gLo-ah-4je" secondAttribute="bottom" constant="49" id="J3H-Vl-R1q"/>
+                            <constraint firstItem="gLo-ah-4je" firstAttribute="leading" secondItem="mLu-Y9-Su4" secondAttribute="leadingMargin" constant="11" id="Jem-uP-pip"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gLo-ah-4je" secondAttribute="trailing" constant="10" id="W2i-dx-H6H"/>
+                            <constraint firstItem="gLo-ah-4je" firstAttribute="top" secondItem="bEd-cy-eKh" secondAttribute="bottom" constant="29" id="ucg-G5-YJw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rKS-sv-pbU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1256" y="1046"/>
+        </scene>
+        <!--Welcome Four View Controller-->
         <scene sceneID="BF2-gq-O3G">
             <objects>
-                <viewController storyboardIdentifier="WelcomeThree" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fQb-Ht-e2Z" customClass="WelcomeThreeViewController" customModule="SparkMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeFour" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fQb-Ht-e2Z" customClass="WelcomeFourViewController" customModule="SparkMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O5e-Eg-sZy"/>
                         <viewControllerLayoutGuide type="bottom" id="Rb9-eV-CrV"/>
@@ -281,12 +343,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iX2-u5-fvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1896" y="1046"/>
+            <point key="canvasLocation" x="2523" y="1051"/>
         </scene>
     </scenes>
     <resources>
         <image name="HeartIcon" width="223" height="223"/>
         <image name="LogoIcon" width="256" height="256"/>
+        <image name="OCMIcon" width="256" height="256"/>
         <image name="PhotoIcon" width="180" height="180"/>
         <image name="SparkMapIcon" width="446" height="446"/>
     </resources>

@@ -21,9 +21,4 @@ class WelcomeThreeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func doneButtonTapped(sender: AnyObject) {
-        // Notify that welcome module is complete
-        NSNotificationCenter.defaultCenter().postNotificationName("WelcomeModuleDone", object: nil)
-        dismissViewControllerAnimated(true, completion: nil)
-    }
    }

@@ -39,6 +39,11 @@ class WelcomePageViewController: UIPageViewController {
         return storyboard!.instantiateViewControllerWithIdentifier("WelcomeThree") as! WelcomeThreeViewController
     }
     
+    func getStepFour() -> WelcomeFourViewController {
+        return storyboard!.instantiateViewControllerWithIdentifier("WelcomeFour") as! WelcomeFourViewController
+    }
+
+    
     //Changing Status Bar
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         
@@ -54,13 +59,14 @@ extension WelcomePageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         
-        if viewController.isKindOfClass(WelcomeThreeViewController) {
+        if viewController.isKindOfClass(WelcomeFourViewController) {
+            return getStepThree()
+        } else if viewController.isKindOfClass(WelcomeThreeViewController) {
             return getStepTwo()
         } else if viewController.isKindOfClass(WelcomeTwoViewController) {
             return getStepOne()
         } else if viewController.isKindOfClass(WelcomeOneViewController) {
             return getStepZero()
-
         } else {
             return nil
         }
@@ -73,13 +79,15 @@ extension WelcomePageViewController: UIPageViewControllerDataSource {
             return getStepTwo()
         } else if viewController.isKindOfClass(WelcomeTwoViewController) {
             return getStepThree()
+        } else if viewController.isKindOfClass(WelcomeThreeViewController) {
+            return getStepFour()
         } else {
             return nil
         }
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return 4
+        return 5
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {

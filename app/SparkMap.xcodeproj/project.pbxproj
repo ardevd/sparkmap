@@ -67,6 +67,7 @@
 		DCC427521D367C6100CAFD3E /* WelcomeTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC427511D367C6100CAFD3E /* WelcomeTwoViewController.swift */; };
 		DCC427541D36B33300CAFD3E /* WelcomeThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC427531D36B33300CAFD3E /* WelcomeThreeViewController.swift */; };
 		DCC427561D37A8EC00CAFD3E /* WelcomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCC427581D37A8EC00CAFD3E /* WelcomeStoryboard.storyboard */; };
+		DCC4275A1D3BEF0C00CAFD3E /* WelcomeFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC427591D3BEF0C00CAFD3E /* WelcomeFourViewController.swift */; };
 		DCC862BC1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */; };
 		DCCAC3361D2579BA007B334D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCCAC3381D2579BA007B334D /* InfoPlist.strings */; };
 		DCCF429B1CEFA007008DC094 /* CommentsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCF429D1CEFA007008DC094 /* CommentsListViewController.xib */; };
@@ -199,6 +200,7 @@
 		DCC427531D36B33300CAFD3E /* WelcomeThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeThreeViewController.swift; sourceTree = "<group>"; };
 		DCC427551D36E63400CAFD3E /* Spark v7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v7.xcdatamodel"; sourceTree = "<group>"; };
 		DCC427571D37A8EC00CAFD3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WelcomeStoryboard.storyboard; sourceTree = "<group>"; };
+		DCC427591D3BEF0C00CAFD3E /* WelcomeFourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFourViewController.swift; sourceTree = "<group>"; };
 		DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCenterCoordinateSingelton.swift; sourceTree = "<group>"; };
 		DCCAC3321D257946007B334D /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DCCAC3371D2579BA007B334D /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				DCC4274F1D367B0900CAFD3E /* WelcomeOneViewController.swift */,
 				DCC427511D367C6100CAFD3E /* WelcomeTwoViewController.swift */,
 				DCC427531D36B33300CAFD3E /* WelcomeThreeViewController.swift */,
+				DCC427591D3BEF0C00CAFD3E /* WelcomeFourViewController.swift */,
 			);
 			path = Spark;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				DC68F67C1BE345B4000EFFF4 /* Comment.swift in Sources */,
 				DCFD74251D271541006BEBE0 /* LastDataDownloadTimeSingelton.swift in Sources */,
 				DC7C51CC1D1C86B40065862B /* ChargingStationPhotoViewController.swift in Sources */,
+				DCC4275A1D3BEF0C00CAFD3E /* WelcomeFourViewController.swift in Sources */,
 				DCD7983B1BE5814F00C62863 /* AnnotationCharger.swift in Sources */,
 				DC1ED1631BE29572007C09D1 /* AppDelegate.swift in Sources */,
 				DC3D5F4B1D286AAB001A7D71 /* BoundingBox.swift in Sources */,
