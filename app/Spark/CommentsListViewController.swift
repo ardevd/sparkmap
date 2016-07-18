@@ -88,7 +88,6 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         let cell = tableView.dequeueReusableCellWithIdentifier("net.zygotelabs.commentcell", forIndexPath: indexPath) as! CommentTableViewCell
         
         cell.commentTextLabel?.text = (comments[indexPath.row] as Comment).comment
-        cell.commentRatingLabel?.text = String((comments[indexPath.row] as Comment).rating) + "/5"
         cell.commentUsernameLabel?.text = (comments[indexPath.row] as Comment).username
         let commentDate = (comments[indexPath.row] as Comment).commentDate
         let date = NSDate(timeIntervalSinceReferenceDate: commentDate)
@@ -97,6 +96,20 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         let convertedDate = dateFormatter.stringFromDate(date)
             cell.commentDateLabel?.text = convertedDate
 
+        let rating = String((comments[indexPath.row] as Comment).rating)
+        if rating == "5" {
+            cell.commentRatingView?.backgroundColor = UIColor(red: 107/255, green: 211/255, blue: 124/255, alpha: 1.0)
+        } else if rating == "4" {
+            cell.commentRatingView?.backgroundColor = UIColor(red: 185/255, green: 211/255, blue: 107/255, alpha: 1.0)
+        } else if rating == "3" {
+            cell.commentRatingView?.backgroundColor = UIColor(red: 211/255, green: 202/255, blue: 107/255, alpha: 1.0)
+        } else if rating == "2" {
+            cell.commentRatingView?.backgroundColor = UIColor(red: 196/255, green: 137/255, blue: 34/255, alpha: 1.0)
+        } else if rating == "1" {
+            cell.commentRatingView?.backgroundColor = UIColor(red: 223/255, green: 105/255, blue: 93/255, alpha: 1.0)
+        } else {
+            cell.commentRatingView?.backgroundColor = UIColor(red: 109/255, green: 109/255, blue: 109/255, alpha: 1.0)
+        }
         
         cell.contentView.setNeedsLayout()
         cell.contentView.layoutIfNeeded()
