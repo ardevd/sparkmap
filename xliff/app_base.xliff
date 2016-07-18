@@ -216,6 +216,10 @@
         <source>Charge on!</source>
         <note>Class = "UILabel"; text = "Charge on!"; ObjectID = "PYF-We-dfB";</note>
       </trans-unit>
+      <trans-unit id="Tz4-9q-UDk.text">
+        <source>SparkMap pulls from and contributes data to Open Charge Map, a global registry of electric vehicle charging locations.</source>
+        <note>Class = "UILabel"; text = "SparkMap pulls from and contributes data to Open Charge Map, a global registry of electric vehicle charging locations."; ObjectID = "Tz4-9q-UDk";</note>
+      </trans-unit>
       <trans-unit id="aou-yx-zo6.text">
         <source>Welcome to SparkMap. A responsive, native and elegant app that helps you get your car charged. Before you begin, here's a few tips.</source>
         <note>Class = "UILabel"; text = "Welcome to SparkMap. A responsive, native and elegant app that helps you get your car charged. Before you begin, here's a few tips."; ObjectID = "aou-yx-zo6";</note>
@@ -239,6 +243,10 @@
       <trans-unit id="qLu-cc-l28.text">
         <source>SparkMap is Open Source</source>
         <note>Class = "UILabel"; text = "SparkMap is Open Source"; ObjectID = "qLu-cc-l28";</note>
+      </trans-unit>
+      <trans-unit id="tqh-DL-i3y.text">
+        <source>Open Charge Map</source>
+        <note>Class = "UILabel"; text = "Open Charge Map"; ObjectID = "tqh-DL-i3y";</note>
       </trans-unit>
     </body>
   </file>
