@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentsListViewController" customModule="SparkMap" customModuleProvider="target">
@@ -29,7 +30,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="New comments take a little while to appear" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9U-Lo-hgR">
-                            <rect key="frame" x="8" y="44" width="584" height="21"/>
+                            <rect key="frame" x="8" y="43" width="584" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -37,13 +38,13 @@
                     </subviews>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.2156862745" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="y9U-Lo-hgR" secondAttribute="bottom" id="O7v-gT-Utx"/>
+                        <constraint firstItem="y9U-Lo-hgR" firstAttribute="leading" secondItem="QsE-ol-Jcp" secondAttribute="leadingMargin" id="NPE-Oh-85F"/>
                         <constraint firstItem="SAR-KX-Nj6" firstAttribute="top" secondItem="QsE-ol-Jcp" secondAttribute="top" constant="22" id="X97-l3-rds"/>
                         <constraint firstItem="SAR-KX-Nj6" firstAttribute="leading" secondItem="QsE-ol-Jcp" secondAttribute="leading" constant="8" id="aGU-ez-jf3"/>
                         <constraint firstAttribute="height" constant="65" id="cFJ-vu-sZd"/>
                         <constraint firstAttribute="trailing" secondItem="SAR-KX-Nj6" secondAttribute="trailing" constant="8" id="grm-gf-g00"/>
-                        <constraint firstAttribute="trailing" secondItem="y9U-Lo-hgR" secondAttribute="trailing" constant="8" id="uEd-sn-DYd"/>
-                        <constraint firstItem="y9U-Lo-hgR" firstAttribute="leading" secondItem="QsE-ol-Jcp" secondAttribute="leading" constant="8" id="yf3-0m-RN5"/>
+                        <constraint firstItem="y9U-Lo-hgR" firstAttribute="trailing" secondItem="QsE-ol-Jcp" secondAttribute="trailingMargin" id="rHC-Fm-Qdg"/>
+                        <constraint firstItem="y9U-Lo-hgR" firstAttribute="top" secondItem="SAR-KX-Nj6" secondAttribute="bottom" id="sbf-CG-gdn"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dPc-Mg-b6I">
