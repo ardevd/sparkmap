@@ -5,7 +5,7 @@
 "InT-AC-OEa.text" = "Kildekoden til SparkMap er tilgjengelig på GitHub. Hold deg oppdatert på siste nytt ved å følge prosjektet eller bidra til å gjøre SparkMap enda bedre.";
 
 /* Class = "UILabel"; text = "Help improve the SparkMap experience by uploading photos of the chargers you visit. Simply tap the photo icon when viewing a charger."; ObjectID = "JTi-eb-edB"; */
-"JTi-eb-edB.text" = "Gjør SparkMap bedre for alle ved å laste opp bilder av ladestasjoner du besøker. Dette gjøres enkelt ved å trykke på bildeikonet for en ladestasjon.";
+"JTi-eb-edB.text" = "Gjør SparkMap bedre for alle ved å laste opp bilder av ladestasjoner du besøker. Bare trykk på bildeikonet for gitt en ladestasjon.";
 
 /* Class = "UILabel"; text = "Charge on!"; ObjectID = "PYF-We-dfB"; */
 "PYF-We-dfB.text" = "Lad opp!";
