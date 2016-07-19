@@ -519,7 +519,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         //Only show Quantity if > 0
         let connectionQuantity = (connections[indexPath.row] as Connection).connectionQuantity
         if (connectionQuantity > 0) {
-            cell.connectionQuantityLabel?.text = String(connectionQuantity) + "x"
+            cell.connectionQuantityLabel?.text = String(connectionQuantity)
             // If total connection quantity is unavaible, we calculate and display.
             if (totalChargingPointQuantityAvailable == false) {
                 labelNumberOfPoints.text = String(Int(labelNumberOfPoints.text!)! + Int(connectionQuantity))
