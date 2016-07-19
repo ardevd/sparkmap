@@ -83,6 +83,7 @@ class SettingsViewController: UITableViewController {
     }
     
     func loadUserSettingsToViews(){
+        UserPreferenceHelper.getClusteringThresholdValue()
         let defaults = NSUserDefaults.standardUserDefaults()
         switchOfflineMode.setOn(defaults.boolForKey("offlineMode"), animated: true)
         switchShowDownloadDialog.setOn(defaults.boolForKey("showDownloadDialog"), animated: true)
