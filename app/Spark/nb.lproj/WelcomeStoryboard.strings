@@ -1,0 +1,36 @@
+/* Class = "UILabel"; text = "Share your photos"; ObjectID = "4MG-vP-e2M"; */
+"4MG-vP-e2M.text" = "Del bildene dine";
+
+/* Class = "UILabel"; text = "The SparkMap source code is hosted on GitHub. Star the project there to stay in the loop or help make an even better app."; ObjectID = "InT-AC-OEa"; */
+"InT-AC-OEa.text" = "Kildekoden til SparkMap er tilgjengelig på GitHub. Hold deg oppdatert på siste nytt ved å følge prosjektet eller bidra til å gjøre SparkMap enda bedre.";
+
+/* Class = "UILabel"; text = "Help improve the SparkMap experience by uploading photos of the chargers you visit. Simply tap the photo icon when viewing a charger."; ObjectID = "JTi-eb-edB"; */
+"JTi-eb-edB.text" = "Gjør SparkMap bedre for alle ved å laste opp bilder av ladestasjoner du besøker. Dette gjøres enkelt ved å trykke på bildeikonet for en ladestasjon.";
+
+/* Class = "UILabel"; text = "Charge on!"; ObjectID = "PYF-We-dfB"; */
+"PYF-We-dfB.text" = "Lad opp!";
+
+/* Class = "UILabel"; text = "SparkMap pulls from and contributes data to Open Charge Map, a global registry of electric vehicle charging locations."; ObjectID = "Tz4-9q-UDk"; */
+"Tz4-9q-UDk.text" = "SparkMap benytter seg av og bidrar til Open Charge Map, et globalt register av ladestasjoner for elbiler.";
+
+/* Class = "UILabel"; text = "Welcome to SparkMap. A responsive, native and elegant app that helps you get your car charged. Before you begin, here's a few tips."; ObjectID = "aou-yx-zo6"; */
+"aou-yx-zo6.text" = "Velkommen til Sparkmap. En responsiv, rask og elegant app som hjelper deg finne en ladestasjon for elbilen din. Her er et par tips før du begynner.";
+
+/* Class = "UILabel"; text = "Thanks for your time and for supporting future development. Enjoy SparkMap!"; ObjectID = "cPp-YB-CT3"; */
+"cPp-YB-CT3.text" = "Tusen takk for oppmerksomheten og for din støtte til videre utvikling. Ha det gøy med SparkMap!";
+
+/* Class = "UIButton"; normalTitle = "Start using SparkMap"; ObjectID = "k0s-sy-Hrp"; */
+"k0s-sy-Hrp.normalTitle" = "Start å bruke SparkMap";
+
+/* Class = "UIPageViewController"; title = "Welcome"; ObjectID = "mBn-Uf-Xye"; */
+"mBn-Uf-Xye.title" = "Velkommen";
+
+/* Class = "UILabel"; text = "Hi!"; ObjectID = "oMf-u5-dpJ"; */
+"oMf-u5-dpJ.text" = "Hei!";
+
+/* Class = "UILabel"; text = "SparkMap is Open Source"; ObjectID = "qLu-cc-l28"; */
+"qLu-cc-l28.text" = "SparkMap er Open Source";
+
+/* Class = "UILabel"; text = "Open Charge Map"; ObjectID = "tqh-DL-i3y"; */
+"tqh-DL-i3y.text" = "Open Charge Map";
+

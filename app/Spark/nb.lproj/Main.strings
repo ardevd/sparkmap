@@ -1,23 +1,26 @@
 /* Class = "UILabel"; text = "Tesla Supercharger"; ObjectID = "3EE-6E-eF6"; */
-"3EE-6E-eF6.text" = "Tesla Supercharger";
+"3EE-6E-eF6.text" = "Tesla Superlader";
 
 /* Class = "UINavigationItem"; title = "SparkMap"; ObjectID = "7jm-AF-pRD"; */
 "7jm-AF-pRD.title" = "SparkMap";
 
-/* Class = "UILabel"; text = "Current Minimum"; ObjectID = "7oU-lZ-E8z"; */
-"7oU-lZ-E8z.text" = "Strømstyrke (Minimum)";
+/* Class = "UILabel"; text = "Current minimum"; ObjectID = "7oU-lZ-E8z"; */
+"7oU-lZ-E8z.text" = "Spenning minimum";
 
-/* Class = "UILabel"; text = "Cluster Chargers Together"; ObjectID = "7vw-N8-0Li"; */
-"7vw-N8-0Li.text" = "Clustre ladestasjoner sammen";
+/* Class = "UILabel"; text = "Cluster chargers together"; ObjectID = "7vw-N8-0Li"; */
+"7vw-N8-0Li.text" = "Samle ladestasjoner sammen";
 
 /* Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "A6x-oa-c8i"; */
 "A6x-oa-c8i.headerTitle" = "Generelt";
 
-/* Class = "UILabel"; text = "Clustering Threshold"; ObjectID = "Bhj-L3-6sD"; */
-"Bhj-L3-6sD.text" = "Terskel for clustering";
+/* Class = "UILabel"; text = "Clustering threshold"; ObjectID = "Bhj-L3-6sD"; */
+"Bhj-L3-6sD.text" = "Samlingsgrense";
 
 /* Class = "UILabel"; text = "A"; ObjectID = "CeW-Yx-1Ec"; */
 "CeW-Yx-1Ec.text" = "A";
+
+/* Class = "UILabel"; text = "Source code"; ObjectID = "Cio-Bg-HTa"; */
+"Cio-Bg-HTa.text" = "Kildekode";
 
 /* Class = "UITableViewController"; title = "SettingsViewController"; ObjectID = "EfW-kw-zzq"; */
 "EfW-kw-zzq.title" = "SettingsViewController";
@@ -26,16 +29,19 @@
 "IDt-1U-VB1.placeholder" = "Amp";
 
 /* Class = "UITableViewSection"; footerTitle = "Deselect to show all types"; ObjectID = "KcT-PD-Aa9"; */
-"KcT-PD-Aa9.footerTitle" = "Fjern samtlige valg for å vise alle typer";
+"KcT-PD-Aa9.footerTitle" = "Fjern all merking for å vise alle typer";
 
 /* Class = "UITableViewSection"; headerTitle = "Connection Types"; ObjectID = "KcT-PD-Aa9"; */
 "KcT-PD-Aa9.headerTitle" = "Ladetyper";
 
-/* Class = "UILabel"; text = "Fast Charging Only"; ObjectID = "N6D-bM-vkg"; */
-"N6D-bM-vkg.text" = "Kun Hurtigladere";
+/* Class = "UILabel"; text = "Rate the app"; ObjectID = "LrM-yY-Ook"; */
+"LrM-yY-Ook.text" = "Vurder appen";
+
+/* Class = "UILabel"; text = "Fast charging only"; ObjectID = "N6D-bM-vkg"; */
+"N6D-bM-vkg.text" = "Kun hurtiglading";
 
 /* Class = "UITableViewSection"; headerTitle = "Other Parameters"; ObjectID = "NPs-lc-Ssu"; */
-"NPs-lc-Ssu.headerTitle" = "Andre Parametere";
+"NPs-lc-Ssu.headerTitle" = "Annet";
 
 /* Class = "UILabel"; text = "CEE 7/4 - Schuko"; ObjectID = "OAW-sw-JYg"; */
 "OAW-sw-JYg.text" = "CEE 7/4 - Schuko";
@@ -50,16 +56,16 @@
 "TXH-l2-iTh.headerTitle" = "Databehandling";
 
 /* Class = "UILabel"; text = "App version"; ObjectID = "XDM-1R-zyc"; */
-"XDM-1R-zyc.text" = "Appversion";
+"XDM-1R-zyc.text" = "Appversjon";
 
-/* Class = "UILabel"; text = "Cache Size"; ObjectID = "ZLP-0E-6LU"; */
-"ZLP-0E-6LU.text" = "Cachestørrelse";
+/* Class = "UILabel"; text = "Cache size"; ObjectID = "ZLP-0E-6LU"; */
+"ZLP-0E-6LU.text" = "Størrelse på cache";
 
 /* Class = "UITabBarItem"; title = "Nearby"; ObjectID = "aPs-vh-iVd"; */
 "aPs-vh-iVd.title" = "Nærheten";
 
-/* Class = "UITableViewSection"; headerTitle = "Debug Info"; ObjectID = "eDl-R7-AeG"; */
-"eDl-R7-AeG.headerTitle" = "Debuginformasjon";
+/* Class = "UITableViewSection"; headerTitle = "About"; ObjectID = "eDl-R7-AeG"; */
+"eDl-R7-AeG.headerTitle" = "Om SparkMap";
 
 /* Class = "UITabBarItem"; title = "Map"; ObjectID = "fBx-le-nth"; */
 "fBx-le-nth.title" = "Kart";
@@ -70,8 +76,8 @@
 /* Class = "UILabel"; text = "Combo (CCS)"; ObjectID = "kqa-ep-x8Y"; */
 "kqa-ep-x8Y.text" = "Combo (CCS)";
 
-/* Class = "UILabel"; text = "Show Download Indicator"; ObjectID = "krk-xX-0BL"; */
-"krk-xX-0BL.text" = "Vis Nedlastingindikator";
+/* Class = "UILabel"; text = "Show download indicator"; ObjectID = "krk-xX-0BL"; */
+"krk-xX-0BL.text" = "Vis nedlastingsindikator";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "lvC-aP-V72"; */
 "lvC-aP-V72.title" = "Innstillinger";
@@ -80,17 +86,17 @@
 "nGe-bh-aT6.title" = "SettingsPopoverNavController";
 
 /* Class = "UISegmentedControl"; nqM-Y8-84n.segmentTitles[0] = "Normal"; ObjectID = "nqM-Y8-84n"; */
-"nqM-Y8-84n.segmentTitles[0]" = "Normal";
+"nqM-Y8-84n.segmentTitles[0]" = "Vanlig";
 
 /* Class = "UISegmentedControl"; nqM-Y8-84n.segmentTitles[1] = "Satellite"; ObjectID = "nqM-Y8-84n"; */
-"nqM-Y8-84n.segmentTitles[1]" = "Sattelitt";
+"nqM-Y8-84n.segmentTitles[1]" = "Satelitt";
 
 /* Class = "UISegmentedControl"; nqM-Y8-84n.segmentTitles[2] = "Hybrid"; ObjectID = "nqM-Y8-84n"; */
 "nqM-Y8-84n.segmentTitles[2]" = "Hybrid";
 
-/* Class = "UILabel"; text = "Map Type"; ObjectID = "wjz-xz-VyA"; */
+/* Class = "UILabel"; text = "Map type"; ObjectID = "wjz-xz-VyA"; */
 "wjz-xz-VyA.text" = "Karttype";
 
-/* Class = "UILabel"; text = "Offline Mode"; ObjectID = "zZV-Lt-BNI"; */
-"zZV-Lt-BNI.text" = "Offline Mode";
+/* Class = "UILabel"; text = "Offline mode"; ObjectID = "zZV-Lt-BNI"; */
+"zZV-Lt-BNI.text" = "Offline-modus";
 

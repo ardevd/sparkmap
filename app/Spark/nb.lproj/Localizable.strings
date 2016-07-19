@@ -1,8 +1,11 @@
 /* Minutes of travel time */
-"%@ minutes of travel time" = "%@ minutters reisetid";
+"%@ minutes of travel time" = "%@ minutter reisetid";
 
 /* Photo submission request message */
 "Awesome. Go ahead and upload the photo?" = "Fantastisk. Laste opp bildet?";
+
+/* Navigate */
+"CCS Combo" = "CCS Combo";
 
 /* Call Button String */
 "Call" = "Ring";
@@ -18,10 +21,10 @@
 "Dismiss" = "OK";
 
 /* Downloading Data Spinner Text */
-"Downloading Data..." = "Laster Data...";
+"Downloading..." = "Laster...";
 
 /* Data download parsing error */
-"Invalid data returned from server. Please try again later." = "Ugyldig data. Prøv igjen senere.";
+"Invalid data returned from server. Please try again later." = "Ugyldig data returnert. Prøv igjen senere.";
 
 /* Navigate */
 "Navigate" = "Naviger";
@@ -30,7 +33,7 @@
 "No" = "Nei";
 
 /* No Access Information */
-"No Access Information Available" = "Ingen Adkomstinformasjon Tilgjengelig";
+"No Access Information Available" = "Ingen adkomstinformasjon tilgjengelig";
 
 /* OK */
 "OK" = "OK";
@@ -42,22 +45,43 @@
 "Photo Library" = "Bildebibliotek";
 
 /* Photo Submission */
-"Photo Submission" = "Laste Opp Bilde";
+"Photo Submission" = "Bildeopplasting";
 
 /* Photo Submitted */
-"Photo Submitted" = "Bilde Lastet opp";
+"Photo Submitted" = "Bildet er lastet opp";
 
 /* User search location not found */
-"Place Not Found" = "Sted Ikke Funnet";
+"Place not found" = "Sted ikke funnet";
+
+/* Private - For staff or customers usage type */
+"Private - For Staff, Visitors or Customers" = "Privat - For ansatte, besøkende eller kunder.";
+
+/* Private Access Usage Type */
+"Private - Restricted Access" = "Privat - Begrenset adgang";
+
+/* Privately Owned Usage Type */
+"Privately Owned - Notice Required" = "Privateid - Tillatelse påkrevd";
 
 /* Processing Data Spinner Text */
-"Processing Data..." = "Prosesserer...";
+"Processing..." = "Prosesserer";
+
+/* Public - Notice required usage type */
+"Public - Notice Required" = "Offentlig - Tillatelse påkrevd";
+
+/* Public Usage Type */
+"Public use" = "For offentlig bruk";
+
+/* Public Membership Usage Type */
+"Public use - Membership required" = "Offentlig bruk - Medlemskap påkrevd";
+
+/* Public Pay at location Usage Type */
+"Public use - Pay at location" = "Offentlig bruk - Betal på stedet";
 
 /* Searchbar placeholder string */
-"Search for a place or address" = "Søk etter sted eller addresse";
+"Search for a place or address" = "Søk etter et sted eller addresse";
 
 /* Submit a photo description text */
-"Submit a photo for this charging station" = "Last opp et bilde av denne ladestasjonen";
+"Submit a photo for this charging station" = "Last opp bilde av denne ladestasjonen";
 
 /* Tap to hide subtitle */
 "Tap to hide" = "Trykk for å skjule";
@@ -65,20 +89,20 @@
 /* Charging Status Unknown */
 "Unknown" = "Ukjent";
 
+/* Unknown Usage Type */
+"Unknown usage type" = "Ukjent bruksrett";
+
 /* Photo Submitted */
 "Upload photo" = "Last opp bilde";
 
-/* Whats New View Title */
-"Whats New" = "Nyheter";
-
 /* Write Comment */
-"Write Comment" = "Skriv Kommentar";
+"Write Comment" = "Skriv kommentar";
 
 /* Yes */
 "Yes" = "Ja";
 
 /* Photo submission confirmation message */
-"Your photo will be submitted for review. Thank you!" = "Bildet ditt blir lastet opp for godkjenning. Tusen takk!";
+"Your photo will be submitted for review. Thank you!" = "Bildet blir lastet opp for godkjenning. Tusen takk!";
 
 /* Meters */
 "meters" = "meter";
