@@ -14,7 +14,7 @@ Say goodbye to agonizingly poor charging station apps and say hello to an app do
 
 How to Contribute
 ====
-Translators are welcome to contribute to translation through [Transifex](https://www.transifex.com/zygote-labs/sparkmap/dashboard/)
+Translators are welcome to contribute with translations through [Transifex](https://www.transifex.com/zygote-labs/sparkmap/dashboard/)
 
 FAQ
 ====
