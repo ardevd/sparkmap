@@ -48,7 +48,7 @@ class AuthenticationManager {
                     let defaults = NSUserDefaults.standardUserDefaults()
                     defaults.setObject(accessToken, forKey: "ocmAccessToken")
                     NSNotificationCenter.defaultCenter().postNotificationName("OCMLoginSuccess", object: nil, userInfo: ["accessToken": accessToken!, "username": profileUsername!, "reputation": profileReputationpoints!,
-                        "avatarURL": profileAvatarImage!, "email": profileEmail!, "location": profileLocation, "sessionToken": sessionToken!])
+                        "avatarURL": profileAvatarImage!, "email": profileEmail!, "location": profileLocation!, "sessionToken": sessionToken!])
                     
                 } catch {
                     let unknownErrorString = NSLocalizedString("Unknown Error", comment: "Unkown Error")
