@@ -119,7 +119,7 @@
             </objects>
             <point key="canvasLocation" x="3601" y="1666"/>
         </scene>
-        <!--User Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="8ob-5p-bq8">
             <objects>
                 <viewController id="VSq-lx-9dg" customClass="UserProfileViewController" customModule="SparkMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -134,13 +134,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogp-fc-erE">
                                 <rect key="frame" x="0.0" y="282" width="600" height="54"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="230" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZD-8G-ioz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZD-8G-ioz">
                                         <rect key="frame" x="375" y="8" width="204" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                         <color key="textColor" red="0.87450980389999999" green="0.41176470590000003" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Norway" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkQ-AB-u02">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkQ-AB-u02">
                                         <rect key="frame" x="23" y="8" width="204" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                         <color key="textColor" red="0.87450980389999999" green="0.41176470590000003" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -182,13 +182,13 @@
                                             <constraint firstAttribute="width" constant="90" id="ysY-V3-iZP"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Zyg0te" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zj-M4-3RW">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zj-M4-3RW">
                                         <rect key="frame" x="136" y="137" width="328" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="edvard.holst@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QH-8o-9VZ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QH-8o-9VZ">
                                         <rect key="frame" x="136" y="166" width="328" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -217,17 +217,18 @@
                             <constraint firstItem="ogp-fc-erE" firstAttribute="top" secondItem="6R7-Xp-jao" secondAttribute="bottom" id="jDS-Rn-rhQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="iJI-LX-P2k"/>
+                    <navigationItem key="navigationItem" title="Profile" id="iJI-LX-P2k"/>
                     <connections>
                         <outlet property="avatarImageView" destination="D53-lb-LXo" id="PFM-o9-Oeh"/>
                         <outlet property="emailLabel" destination="2QH-8o-9VZ" id="PDP-wE-YCY"/>
+                        <outlet property="locationLabel" destination="zkQ-AB-u02" id="ES3-tx-lN4"/>
                         <outlet property="reputationLabel" destination="GZD-8G-ioz" id="j0o-rH-Vuc"/>
                         <outlet property="usernameLabel" destination="0Zj-M4-3RW" id="O6v-eJ-byo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZb-Xv-IzX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3503" y="2584"/>
+            <point key="canvasLocation" x="3675" y="2579"/>
         </scene>
         <!--SettingsViewController-->
         <scene sceneID="hDM-k0-EeD">
@@ -772,7 +773,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="rHQ-ho-I4X">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="bBZ-uc-6GJ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" automaticallyAdjustsScrollViewInsets="NO" id="bBZ-uc-6GJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="HQH-Ho-Zgn">
                         <autoresizingMask key="autoresizingMask"/>

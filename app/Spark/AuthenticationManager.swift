@@ -14,7 +14,7 @@ class AuthenticationManager {
         let authenticationURLString = "https://api.openchargemap.io/v3/profile/authenticate/"
         guard let url = NSURL(string: authenticationURLString) else { return }
         
-        let json = [ "emailaddress":username , "password": password ]
+        let json = [ "emailaddress": String(username) , "password": String(password) ]
         
         do {
             let jsonData = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
@@ -39,16 +39,17 @@ class AuthenticationManager {
                     guard let userData = responseData["UserProfile"] else { return }
                     
                     let sessionToken = userData!["CurrentSessionToken"] as? NSString
-                    let profileUsername = userData!["CurrentSessionToken"] as? NSString
+                    let profileUsername = userData!["Username"] as? NSString
                     let profileReputationpoints = userData!["ReputationPoints"] as? NSNumber
                     let profileAvatarImage = userData!["ProfileImageURL"] as? NSString
+                    let profileAvatarImageFixed = profileAvatarImage!.stringByReplacingOccurrencesOfString("s=80", withString: "s=200")
                     let accessToken = responseData["access_token"] as? NSString
                     let profileEmail = userData!["EmailAddress"] as? NSString
                     let profileLocation = userData!["Location"] as? NSString
                     let defaults = NSUserDefaults.standardUserDefaults()
                     defaults.setObject(accessToken, forKey: "ocmAccessToken")
-                    NSNotificationCenter.defaultCenter().postNotificationName("OCMLoginSuccess", object: nil, userInfo: ["accessToken": accessToken!, "username": profileUsername!, "reputation": profileReputationpoints!,
-                        "avatarURL": profileAvatarImage!, "email": profileEmail!, "location": profileLocation!, "sessionToken": sessionToken!])
+                    NSNotificationCenter.defaultCenter().postNotificationName("OCMLoginSuccess", object: nil, userInfo: ["accessToken": accessToken!, "username": profileUsername!, "reputation": String(profileReputationpoints!),
+                        "avatarURL": profileAvatarImageFixed, "email": profileEmail!, "location": profileLocation!, "sessionToken": sessionToken!])
                     
                 } catch {
                     let unknownErrorString = NSLocalizedString("Unknown Error", comment: "Unkown Error")
