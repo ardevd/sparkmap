@@ -36,16 +36,17 @@ class AuthenticationManager {
                         return
                     }
                     guard let responseData = result["Data"] else { return }
-                    //guard let userData = responseData["UserProfile"] else { return }
+                    guard let userData = responseData["UserProfile"] else { return }
                     
-                    //let sessionToken = userData!["CurrentSessionToken"] as? NSString
-                    //let profileUsername = userData!["CurrentSessionToken"] as? NSString
-                    //let profileReputationpoints = userData!["ReputationPoints"] as? NSNumber
-                    //let profileAvatarImage = userData!["ProfileImageURL"] as? NSString
+                    let sessionToken = userData!["CurrentSessionToken"] as? NSString
+                    let profileUsername = userData!["CurrentSessionToken"] as? NSString
+                    let profileReputationpoints = userData!["ReputationPoints"] as? NSNumber
+                    let profileAvatarImage = userData!["ProfileImageURL"] as? NSString
                     let accessToken = responseData["access_token"] as? NSString
                     let defaults = NSUserDefaults.standardUserDefaults()
                     defaults.setObject(accessToken, forKey: "ocmAccessToken")
-                    NSNotificationCenter.defaultCenter().postNotificationName("OCMLoginSuccess", object: nil, userInfo: ["accessToken": accessToken!])
+                    NSNotificationCenter.defaultCenter().postNotificationName("OCMLoginSuccess", object: nil, userInfo: ["accessToken": accessToken!, "username": profileUsername!, "reputation": profileReputationpoints!,
+                        "avatarURL": profileAvatarImage!, "sessionToken": sessionToken!])
                     
                 } catch {
                     let unknownErrorString = NSLocalizedString("Unknown Error", comment: "Unkown Error")
@@ -68,4 +69,5 @@ class AuthenticationManager {
             print(error)
         }
     }
+    
 }
