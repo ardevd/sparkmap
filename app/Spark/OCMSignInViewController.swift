@@ -9,16 +9,37 @@
 import UIKit
 
 class OCMSignInViewController: UIViewController {
-
+    
+    @IBOutlet var usernameField: UITextField!
+    @IBOutlet var passwordField: UITextField!
+    @IBOutlet var responseMessageLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        registerNotificationListeners()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func submitLoginCredentials(){
+        AuthenticationManager.getSessionToken(usernameField.text!, password: passwordField.text!)
+    }
+    
+    func registerNotificationListeners() {
+        // Register notification listeners
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(OCMSignInViewController.updateResponseStatusLabel(_:)), name: "OCMLoginFailed", object: nil)
+    }
+    
+    func updateResponseStatusLabel(notification: NSNotification){
+        if let errorMessage = notification.userInfo?["errorMesssage"] as? NSString {
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.responseMessageLabel.text = String(errorMessage)
+            })
+        }
     }
     
 }
