@@ -10,10 +10,16 @@ import UIKit
 
 class UserProfileViewController: UIViewController {
     
+    @IBOutlet var avatarImageView: UIImageView!
+    @IBOutlet var usernameLabel: UILabel!
+    @IBOutlet var emailLabel: UILabel!
+    @IBOutlet var reputationLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        manipulateViews()
         if !doWeHaveCredentails(){
-            launchOCMSignInViewController()
+            
         }
     }
     
@@ -31,6 +37,15 @@ class UserProfileViewController: UIViewController {
     func launchOCMSignInViewController(){
         let vc = OCMSignInViewController()
         showViewController(vc, sender: nil)
+    }
+    
+    func manipulateViews(){
+        // Make the reputation and avatar views circular.
+        self.avatarImageView.layer.borderWidth = 2.0
+        self.avatarImageView.layer.masksToBounds = false
+        self.avatarImageView.layer.borderColor = UIColor.whiteColor().CGColor
+        self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width/2
+        self.avatarImageView.clipsToBounds = true
     }
 
 }

@@ -49,7 +49,7 @@ class OCMSignInViewController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(usernameField.text, forKey: "ocmUsername")
         defaults.setObject(passwordField.text, forKey: "ocmPassword")
-
+        navigationController?.popViewControllerAnimated(true)
     }
     
 }
