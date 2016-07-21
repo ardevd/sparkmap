@@ -26,12 +26,14 @@ class OCMSignInViewController: UIViewController {
     }
     
     @IBAction func submitLoginCredentials(){
+        self.responseMessageLabel.text = ""
         AuthenticationManager.getSessionToken(usernameField.text!, password: passwordField.text!)
     }
     
     func registerNotificationListeners() {
         // Register notification listeners
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(OCMSignInViewController.updateResponseStatusLabel(_:)), name: "OCMLoginFailed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(OCMSignInViewController.successfulSigninOccurred(_:)), name: "OCMLoginSuccess", object: nil)
     }
     
     func updateResponseStatusLabel(notification: NSNotification){
@@ -40,6 +42,14 @@ class OCMSignInViewController: UIViewController {
                 self.responseMessageLabel.text = String(errorMessage)
             })
         }
+    }
+    
+    func successfulSigninOccurred(notification: NSNotification){
+        // Store username and password in default preferences.
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(usernameField.text, forKey: "ocmUsername")
+        defaults.setObject(passwordField.text, forKey: "ocmPassword")
+
     }
     
 }
