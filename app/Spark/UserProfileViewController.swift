@@ -37,17 +37,6 @@ class UserProfileViewController: UIViewController {
         }
     }
     
-    //Changing Status Bar
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        
-        //LightContent
-        return UIStatusBarStyle.LightContent
-        
-        //Default
-        //return UIStatusBarStyle.Default
-    }
-    
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if !doWeHaveCredentails(){

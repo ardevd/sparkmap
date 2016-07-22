@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // rootViewController is the NavigationController
-        
+        UINavigationBar.appearance().barStyle = .Black
            return true
     }
     
