@@ -72,6 +72,8 @@
 		DCC70A381D40FCF100CF591E /* OCMSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCC70A361D40FCF100CF591E /* OCMSignInViewController.xib */; };
 		DCC70A3A1D40FF7C00CF591E /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC70A391D40FF7C00CF591E /* AuthenticationManager.swift */; };
 		DCC70A3E1D40FFC500CF591E /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC70A3D1D40FFC500CF591E /* UserProfileViewController.swift */; };
+		DCC70A411D429B2300CF591E /* CommentComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC70A3F1D429B2300CF591E /* CommentComposerViewController.swift */; };
+		DCC70A421D429B2300CF591E /* CommentComposerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCC70A401D429B2300CF591E /* CommentComposerViewController.xib */; };
 		DCC862BC1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */; };
 		DCCAC3361D2579BA007B334D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCCAC3381D2579BA007B334D /* InfoPlist.strings */; };
 		DCCF429B1CEFA007008DC094 /* CommentsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCF429D1CEFA007008DC094 /* CommentsListViewController.xib */; };
@@ -210,6 +212,8 @@
 		DCC70A361D40FCF100CF591E /* OCMSignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCMSignInViewController.xib; sourceTree = "<group>"; };
 		DCC70A391D40FF7C00CF591E /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		DCC70A3D1D40FFC500CF591E /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		DCC70A3F1D429B2300CF591E /* CommentComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentComposerViewController.swift; sourceTree = "<group>"; };
+		DCC70A401D429B2300CF591E /* CommentComposerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentComposerViewController.xib; sourceTree = "<group>"; };
 		DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCenterCoordinateSingelton.swift; sourceTree = "<group>"; };
 		DCCAC3321D257946007B334D /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DCCAC3371D2579BA007B334D /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -333,6 +337,8 @@
 				DCC70A351D40FCF100CF591E /* OCMSignInViewController.swift */,
 				DCC70A361D40FCF100CF591E /* OCMSignInViewController.xib */,
 				DCC70A3D1D40FFC500CF591E /* UserProfileViewController.swift */,
+				DCC70A3F1D429B2300CF591E /* CommentComposerViewController.swift */,
+				DCC70A401D429B2300CF591E /* CommentComposerViewController.xib */,
 			);
 			path = Spark;
 			sourceTree = "<group>";
@@ -554,6 +560,7 @@
 				DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */,
 				DC14112C1CC00DEE00F68C83 /* Localizable.strings in Resources */,
 				DCCF429B1CEFA007008DC094 /* CommentsListViewController.xib in Resources */,
+				DCC70A421D429B2300CF591E /* CommentComposerViewController.xib in Resources */,
 				DCC427561D37A8EC00CAFD3E /* WelcomeStoryboard.storyboard in Resources */,
 				DC1ED16D1BE29572007C09D1 /* Assets.xcassets in Resources */,
 				DCC70A381D40FCF100CF591E /* OCMSignInViewController.xib in Resources */,
@@ -627,6 +634,7 @@
 				DC394B671D28659C003D6C81 /* AnnotationCluster.swift in Sources */,
 				DC68F6841BE34B11000EFFF4 /* ChargerOperator.swift in Sources */,
 				DC3D5F491D286AAB001A7D71 /* QuadTreeNode.swift in Sources */,
+				DCC70A411D429B2300CF591E /* CommentComposerViewController.swift in Sources */,
 				DCDC2C371C613A42004BEF91 /* SettingsViewController.swift in Sources */,
 				DC11A7B31C092FD300FD54C3 /* ChargerDetailViewController.swift in Sources */,
 				DCC427541D36B33300CAFD3E /* WelcomeThreeViewController.swift in Sources */,
