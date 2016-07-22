@@ -757,7 +757,7 @@
         <scene sceneID="PdX-k2-lKy">
             <objects>
                 <navigationController id="FX0-W9-KVk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="x2k-xg-4nK"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="UserIcon" selectedImage="UserFilledIcon" id="x2k-xg-4nK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tF2-na-HsQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -797,6 +797,8 @@
         <image name="MapFilledIcon" width="25" height="25"/>
         <image name="MapIcon" width="25" height="25"/>
         <image name="SettingsIcon" width="25" height="25"/>
+        <image name="UserFilledIcon" width="25" height="25"/>
+        <image name="UserIcon" width="25" height="25"/>
     </resources>
     <color key="tintColor" red="0.87450980392156863" green="0.41176470588235292" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
 </document>
