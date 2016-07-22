@@ -56,6 +56,8 @@ class OCMSignInViewController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(usernameField.text, forKey: "ocmUsername")
         defaults.setObject(passwordField.text, forKey: "ocmPassword")
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "OCMLoginFailed", object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "OCMLoginSuccess", object: nil)
         NSNotificationCenter.defaultCenter().postNotificationName("OCMUserLoginDone", object: nil)
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.navigationController?.popViewControllerAnimated(true)
