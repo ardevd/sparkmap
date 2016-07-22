@@ -28,8 +28,6 @@ class OCMSignInViewController: UIViewController, UITextFieldDelegate {
         // Handle the text fields user input through delegate callbacks.
         usernameField.delegate = self
         passwordField.delegate = self
-        usernameField.tag = 100
-        passwordField.tag = 101
         
         registerNotificationListeners()
     }
@@ -60,12 +58,11 @@ class OCMSignInViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        // Hide the keyboard.
-        let textFieldTag = textField.tag
+        // Hide and/or toggle the keyboard.
         textField.resignFirstResponder()
-        if textFieldTag == 100 {
+        if textField == usernameField {
             passwordField.becomeFirstResponder()
-        } else if textFieldTag == 101 {
+        } else if textField == passwordField {
             submitLoginCredentials()
         }
         
