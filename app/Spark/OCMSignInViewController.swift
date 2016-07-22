@@ -32,6 +32,16 @@ class OCMSignInViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Changing Status Bar
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        
+        //LightContent
+        return UIStatusBarStyle.LightContent
+        
+        //Default
+        //return UIStatusBarStyle.Default
+    }
+    
     @IBAction func submitLoginCredentials(){
         self.responseMessageLabel.text = ""
         AuthenticationManager.getSessionToken(usernameField.text!, password: passwordField.text!)
