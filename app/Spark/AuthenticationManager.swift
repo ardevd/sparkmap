@@ -27,7 +27,8 @@ class AuthenticationManager {
             let task = NSURLSession.sharedSession().dataTaskWithRequest(urlRequest){ data, response, error in
                 if error != nil{
                     print("Error -> \(error)")
-                    NSNotificationCenter.defaultCenter().postNotificationName("OCMLoginError", object: nil)
+                    NSNotificationCenter.defaultCenter().postNotificationName("OCMLoginFailed", object: nil, userInfo:
+                        ["errorMesssage": error!.localizedDescription])
                     return
                 }
                 
