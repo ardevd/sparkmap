@@ -19,15 +19,31 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         manipulateViews()
-        if !doWeHaveCredentails(){
-            launchOCMSignInViewController()
-        } else {
+        
+        //Customize appearance
+        // Format UINavBar
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        self.navigationController!.navigationBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        
+        self.tabBarController?.tabBar.tintColor = UIColor(red: 221/255, green: 106/255, blue: 88/255, alpha: 1.0)
+        self.tabBarController?.tabBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
+        
+        if doWeHaveCredentails(){
             registerNotificationListeners()
             authenticateUser()
+        } else {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserProfileViewController.userLoginCompleted(_:)), name: "OCMUserLoginDone", object: nil)
         }
-
-        }
+    }
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if !doWeHaveCredentails(){
+            launchOCMSignInViewController()
+        }
+    }
     
     func registerNotificationListeners(){
         // Register notification listeners
@@ -79,10 +95,8 @@ class UserProfileViewController: UIViewController {
                 {
                     func displayImage()
                     {
-                            self.avatarImageView.image = UIImage(data: data!)
-                            self.avatarImageView.alpha = 1.0
-                            
-                    
+                        self.avatarImageView.image = UIImage(data: data!)
+                        self.avatarImageView.alpha = 1.0
                     }
                     
                     dispatch_async(dispatch_get_main_queue(), displayImage)
@@ -97,6 +111,11 @@ class UserProfileViewController: UIViewController {
         // TODO: Handle user authentication failure.
         clearAuthenticationCredentials()
         launchOCMSignInViewController()
+    }
+    
+    func userLoginCompleted(notification: NSNotification) {
+        registerNotificationListeners()
+        authenticateUser()
     }
     
     func doWeHaveCredentails() -> Bool {
