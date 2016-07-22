@@ -29,19 +29,19 @@ class UserProfileViewController: UIViewController {
         self.tabBarController?.tabBar.tintColor = UIColor(red: 221/255, green: 106/255, blue: 88/255, alpha: 1.0)
         self.tabBarController?.tabBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
         
+        generateSignoutButton()
+        
         if doWeHaveCredentails(){
             registerNotificationListeners()
             authenticateUser()
         } else {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserProfileViewController.userLoginCompleted(_:)), name: "OCMUserLoginDone", object: nil)
+            registerSignupNotificationListener()
+            launchOCMSignInViewController()
         }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if !doWeHaveCredentails(){
-            launchOCMSignInViewController()
-        }
     }
     
     func registerNotificationListeners(){
@@ -108,13 +108,38 @@ class UserProfileViewController: UIViewController {
     
     func userAuthenticationFailed(notification: NSNotification){
         // TODO: Handle user authentication failure.
-        clearAuthenticationCredentials()
-        launchOCMSignInViewController()
+        signOutOfOCMAccount()
     }
     
     func userLoginCompleted(notification: NSNotification) {
         registerNotificationListeners()
         authenticateUser()
+    }
+    
+    func generateSignoutButton() {
+        var navigationButtonItems = [UIBarButtonItem]()
+        // Button that lets user submit a comment
+        let signoutButtonTitle = NSLocalizedString("Sign Out", comment: "Sign out of OCM")
+        let signoutButtonItem = UIBarButtonItem(title: signoutButtonTitle, style: .Plain, target: self, action: #selector(UserProfileViewController.signOutOfOCMAccount))
+        
+        navigationButtonItems.append(signoutButtonItem)
+        self.navigationItem.setRightBarButtonItems(navigationButtonItems, animated: true)
+    }
+    
+    func signOutOfOCMAccount(){
+        launchOCMSignInViewController()
+        clearAuthenticationCredentials()
+        removeNotificationObservers()
+        registerSignupNotificationListener()
+    }
+    
+    func removeNotificationObservers(){
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "OCMLoginFailed", object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "OCMLoginSuccess", object: nil)
+    }
+    
+    func registerSignupNotificationListener(){
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserProfileViewController.userLoginCompleted(_:)), name: "OCMUserLoginDone", object: nil)
     }
     
     func doWeHaveCredentails() -> Bool {
