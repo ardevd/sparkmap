@@ -22,6 +22,7 @@ class UserProfileViewController: UIViewController {
         
         //Customize appearance
         // Format UINavBar
+        return UIStatusBarStyle.LightContent
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         self.navigationController!.navigationBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
