@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OCMSignInViewController: UIViewController {
+class OCMSignInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var usernameField: UITextField!
     @IBOutlet var passwordField: UITextField!
@@ -24,6 +24,13 @@ class OCMSignInViewController: UIViewController {
         self.tabBarController?.tabBar.tintColor = UIColor(red: 221/255, green: 106/255, blue: 88/255, alpha: 1.0)
         self.tabBarController?.tabBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
         self.navigationItem.hidesBackButton = true
+        
+        // Handle the text fields user input through delegate callbacks.
+        usernameField.delegate = self
+        passwordField.delegate = self
+        usernameField.tag = 100
+        passwordField.tag = 101
+        
         registerNotificationListeners()
     }
     
@@ -49,6 +56,20 @@ class OCMSignInViewController: UIViewController {
                 self.responseMessageLabel.text = String(errorMessage)
             })
         }
+    }
+    
+    // MARK: UITextFieldDelegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        let textFieldTag = textField.tag
+        textField.resignFirstResponder()
+        if textFieldTag == 100 {
+            passwordField.becomeFirstResponder()
+        } else if textFieldTag == 101 {
+            submitLoginCredentials()
+        }
+        
+        return true
     }
     
     func successfulSigninOccurred(notification: NSNotification){
