@@ -17,6 +17,17 @@ class AuthenticationManager {
         getSessionToken(String(username!), password: String(password!))
     }
     
+    static func doWeHaveCredentails() -> Bool {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let username = defaults.stringForKey("ocmUsername")
+        let password = defaults.stringForKey("ocmPassword")
+        if username == nil || password == nil {
+            return false
+        }
+        
+        return true
+    }
+    
     static func getSessionToken(username: String, password: String) {
         let authenticationURLString = "https://api.openchargemap.io/v3/profile/authenticate/"
         guard let url = NSURL(string: authenticationURLString) else { return }
