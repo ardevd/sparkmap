@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentComposerViewController" customModule="SparkMap" customModuleProvider="target">
@@ -72,10 +71,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Usd-Bn-ZRB">
-                                    <rect key="frame" x="8" y="466" width="584" height="30"/>
+                                    <rect key="frame" x="0.0" y="464" width="600" height="40"/>
                                     <color key="backgroundColor" red="0.87450980389999999" green="0.41176470590000003" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="BeV-Lc-IKc"/>
+                                        <constraint firstAttribute="height" constant="40" id="NF3-8l-wSQ"/>
                                     </constraints>
                                     <state key="normal" title="Submit">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,14 +83,14 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="Usd-Bn-ZRB" firstAttribute="leading" secondItem="1Is-jv-k0n" secondAttribute="leading" constant="8" id="31w-S1-wxX"/>
-                                <constraint firstItem="Usd-Bn-ZRB" firstAttribute="bottom" secondItem="1Is-jv-k0n" secondAttribute="bottomMargin" id="660-ES-Ri4"/>
-                                <constraint firstItem="Usd-Bn-ZRB" firstAttribute="top" secondItem="1Is-jv-k0n" secondAttribute="top" constant="466" id="Qqv-AK-0Ct"/>
+                                <constraint firstItem="Usd-Bn-ZRB" firstAttribute="top" secondItem="X29-0Q-4tD" secondAttribute="bottom" constant="318" id="ANm-kF-oG8"/>
+                                <constraint firstItem="Usd-Bn-ZRB" firstAttribute="leading" secondItem="1Is-jv-k0n" secondAttribute="leading" id="CR3-xx-Cgi"/>
+                                <constraint firstAttribute="trailing" secondItem="Usd-Bn-ZRB" secondAttribute="trailing" id="Sic-YJ-3Zv"/>
                                 <constraint firstItem="kus-bI-blq" firstAttribute="leading" secondItem="1Is-jv-k0n" secondAttribute="leading" constant="8" id="WfI-rm-cmZ"/>
                                 <constraint firstItem="bpt-HH-GVC" firstAttribute="top" secondItem="1Is-jv-k0n" secondAttribute="top" constant="8" id="Y9j-cQ-1bx"/>
                                 <constraint firstAttribute="trailing" secondItem="kus-bI-blq" secondAttribute="trailing" constant="8" id="aWE-8m-TWE"/>
-                                <constraint firstAttribute="trailing" secondItem="Usd-Bn-ZRB" secondAttribute="trailing" constant="8" id="ajD-z0-AEM"/>
                                 <constraint firstItem="X29-0Q-4tD" firstAttribute="leading" secondItem="1Is-jv-k0n" secondAttribute="leading" constant="8" id="hQI-rY-4SY"/>
+                                <constraint firstAttribute="bottom" secondItem="Usd-Bn-ZRB" secondAttribute="bottom" id="kuu-uR-sz4"/>
                                 <constraint firstItem="bpt-HH-GVC" firstAttribute="leading" secondItem="1Is-jv-k0n" secondAttribute="leading" constant="8" id="l3X-kP-v5p"/>
                                 <constraint firstAttribute="trailing" secondItem="bpt-HH-GVC" secondAttribute="trailing" constant="8" id="pZ6-GY-8Er"/>
                                 <constraint firstItem="kus-bI-blq" firstAttribute="top" secondItem="bpt-HH-GVC" secondAttribute="bottom" constant="42" id="v23-nP-aF3"/>
