@@ -414,10 +414,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "ChargerDataUpdate", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "LocationUpdate", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "LocationAuthorized", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "SettingsUpdate", object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     func updateCurrentMapRegion(coordinate: CLLocationCoordinate2D, distance: CLLocationDistance) {

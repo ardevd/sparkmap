@@ -69,6 +69,10 @@ class OCMSignInViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     func successfulSigninOccurred(notification: NSNotification){
         // Store username and password in default preferences.
         let defaults = NSUserDefaults.standardUserDefaults()
