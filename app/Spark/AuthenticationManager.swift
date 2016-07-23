@@ -10,6 +10,13 @@ import Foundation
 
 class AuthenticationManager {
     
+    static func authenticateUserWithStoredCredentials() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let username = defaults.stringForKey("ocmUsername")
+        let password = defaults.stringForKey("ocmPassword")
+        getSessionToken(String(username!), password: String(password!))
+    }
+    
     static func getSessionToken(username: String, password: String) {
         let authenticationURLString = "https://api.openchargemap.io/v3/profile/authenticate/"
         guard let url = NSURL(string: authenticationURLString) else { return }

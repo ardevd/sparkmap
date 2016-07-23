@@ -55,10 +55,7 @@ class UserProfileViewController: UIViewController {
     }
     
     func authenticateUser(){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let username = defaults.stringForKey("ocmUsername")
-        let password = defaults.stringForKey("ocmPassword")
-        AuthenticationManager.getSessionToken(String(username!), password: String(password!))
+        AuthenticationManager.authenticateUserWithStoredCredentials()
     }
     
     func successfulSigninOccurred(notification: NSNotification){
