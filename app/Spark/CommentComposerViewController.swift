@@ -13,6 +13,7 @@ class CommentComposerViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView?
     @IBOutlet var commentTextView: UITextView!
     @IBOutlet var chargingStationTitleLabel: UILabel!
+    @IBOutlet var ratingSegmentedControl: UISegmentedControl!
     
     // Charging Station Details
     var chargerID: Int!
@@ -79,5 +80,41 @@ class CommentComposerViewController: UIViewController {
         self.commentTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
         self.commentTextView.layer.cornerRadius = 5.0
     }
+    
+    @IBAction func postCommentAction(){
+        // Register notification listeners
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.failedToGetNewAccessToken(_:)), name: "OCMLoginFailed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.gotNewAccessToken(_:)), name: "OCMLoginSuccess", object: nil)
+        updateAccessToken()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.failedToGetNewAccessToken(_:)), name: "OCMCommentPostSuccess", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.gotNewAccessToken(_:)), name: "OCMCommentPostError", object: nil)
+        updateAccessToken()
+    }
+    
+    func gotNewAccessToken(notification: NSNotification){
+        // New access token received. Go ahead and post comment
+        if let accessToken = notification.userInfo?["accessToken"] as? NSString {
+            submitCommentToOCM(String(accessToken))
+        }
+    }
+    
+    func failedToGetNewAccessToken(notification: NSNotification) {
+        // TODO: Notify user that authentication failed. Notification includes error message.
+    }
 
+    func updateAccessToken(){
+        AuthenticationManager.authenticateUserWithStoredCredentials()
+    }
+    
+    func commentPostedSuccessfully(notification: NSNotification) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.navigationController?.popViewControllerAnimated(true)
+        })
+    }
+    
+    func submitCommentToOCM(accessToken: String){
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "OCMLoginFailed", object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "OCMLoginSuccess", object: nil)
+        CommentSubmissionManager.submitComment(chargerID, commentText: commentTextView.text, rating: ratingSegmentedControl.selectedSegmentIndex, accessToken: accessToken)
+    }
 }

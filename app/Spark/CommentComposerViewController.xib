@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="chargingStationTitleLabel" destination="UPe-X1-FXg" id="DLo-4M-xhC"/>
                 <outlet property="commentTextView" destination="bpt-HH-GVC" id="M1E-fb-O1i"/>
+                <outlet property="ratingSegmentedControl" destination="X29-0Q-4tD" id="cHH-Ji-2iL"/>
                 <outlet property="scrollView" destination="hR7-G6-eRV" id="xD6-rO-fuk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -81,6 +82,9 @@
                                     <state key="normal" title="Submit">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="postCommentAction" destination="-1" eventType="primaryActionTriggered" id="g5c-W9-Uky"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
