@@ -74,6 +74,8 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         if let chargerId = self.charger?.chargerId{
             //UIApplication.sharedApplication().openURL(NSURL(string: "http://openchargemap.org/site/poi/addcomment/\(chargerId)")!)
             let vc = CommentComposerViewController()
+            vc.chargerID = Int(chargerId)
+            vc.chargingStationTitle = charger?.chargerTitle
             showViewController(vc, sender: nil)
         }
     }

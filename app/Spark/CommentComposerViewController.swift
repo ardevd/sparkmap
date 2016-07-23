@@ -12,6 +12,11 @@ class CommentComposerViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView?
     @IBOutlet var commentTextView: UITextView!
+    @IBOutlet var chargingStationTitleLabel: UILabel!
+    
+    // Charging Station Details
+    var chargerID: Int!
+    var chargingStationTitle: String!
     
 
     override func viewDidLoad() {
@@ -26,10 +31,13 @@ class CommentComposerViewController: UIViewController {
         // Register to be notified if the keyboard is changing size
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.keyboardWillShowOrHide(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.keyboardWillShowOrHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        
+        chargingStationTitleLabel.text = chargingStationTitle
+        let newCommentString = NSLocalizedString("New Comment", comment: "New Comment")
+        self.title = newCommentString
     }
     
     deinit {
-        // Don't have to do this on iOS 9+, but it still works
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     

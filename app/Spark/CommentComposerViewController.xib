@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentComposerViewController" customModule="SparkMap" customModuleProvider="target">
             <connections>
+                <outlet property="chargingStationTitleLabel" destination="UPe-X1-FXg" id="DLo-4M-xhC"/>
                 <outlet property="commentTextView" destination="bpt-HH-GVC" id="M1E-fb-O1i"/>
                 <outlet property="scrollView" destination="hR7-G6-eRV" id="xD6-rO-fuk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -20,19 +21,20 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBJ-yj-05f">
                     <rect key="frame" x="0.0" y="31" width="600" height="65"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Comment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPe-X1-FXg">
-                            <rect key="frame" x="8" y="16" width="584" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPe-X1-FXg">
+                            <rect key="frame" x="8" y="43" width="584" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.2156862745" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="UPe-X1-FXg" firstAttribute="top" secondItem="rBJ-yj-05f" secondAttribute="top" constant="16" id="Fua-Rz-hh4"/>
-                        <constraint firstAttribute="trailing" secondItem="UPe-X1-FXg" secondAttribute="trailing" constant="8" id="LRY-b3-Gyo"/>
-                        <constraint firstItem="UPe-X1-FXg" firstAttribute="leading" secondItem="rBJ-yj-05f" secondAttribute="leading" constant="8" id="dwy-fb-G4C"/>
+                        <constraint firstAttribute="trailing" secondItem="UPe-X1-FXg" secondAttribute="trailing" constant="8" id="0YT-LD-GUV"/>
+                        <constraint firstItem="UPe-X1-FXg" firstAttribute="leading" secondItem="rBJ-yj-05f" secondAttribute="leading" constant="8" id="ejY-YC-9Co"/>
                         <constraint firstAttribute="height" constant="65" id="iIW-A0-MLm"/>
+                        <constraint firstAttribute="bottom" secondItem="UPe-X1-FXg" secondAttribute="bottom" constant="1" id="ljx-rT-2QJ"/>
+                        <constraint firstItem="UPe-X1-FXg" firstAttribute="top" secondItem="rBJ-yj-05f" secondAttribute="top" constant="43" id="xYU-Ef-TjZ"/>
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hR7-G6-eRV">
