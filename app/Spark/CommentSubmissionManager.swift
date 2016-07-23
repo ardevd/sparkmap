@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+class CommentSubmissionManager {
+    
+    static func submitComment(chargerId: Int, commentText: String, rating: Int) {
+        
+    }
+}
