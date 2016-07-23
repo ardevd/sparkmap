@@ -44,6 +44,10 @@ class UserProfileViewController: UIViewController {
         super.viewDidLayoutSubviews()
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     func registerNotificationListeners(){
         // Register notification listeners
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserProfileViewController.userAuthenticationFailed(_:)), name: "OCMLoginFailed", object: nil)
