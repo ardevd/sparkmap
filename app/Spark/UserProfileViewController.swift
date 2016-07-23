@@ -31,7 +31,7 @@ class UserProfileViewController: UIViewController {
         
         generateSignoutButton()
         
-        if doWeHaveCredentails(){
+        if AuthenticationManager.doWeHaveCredentails(){
             registerNotificationListeners()
             authenticateUser()
         } else {
@@ -141,17 +141,6 @@ class UserProfileViewController: UIViewController {
     
     func registerSignupNotificationListener(){
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserProfileViewController.userLoginCompleted(_:)), name: "OCMUserLoginDone", object: nil)
-    }
-    
-    func doWeHaveCredentails() -> Bool {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let username = defaults.stringForKey("ocmUsername")
-        let password = defaults.stringForKey("ocmPassword")
-        if username == nil || password == nil {
-            return false
-        }
-        
-        return true
     }
     
     func clearAuthenticationCredentials(){
