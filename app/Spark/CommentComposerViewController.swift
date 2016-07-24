@@ -86,9 +86,12 @@ class CommentComposerViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.failedToGetNewAccessToken(_:)), name: "OCMLoginFailed", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.gotNewAccessToken(_:)), name: "OCMLoginSuccess", object: nil)
         updateAccessToken()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.failedToGetNewAccessToken(_:)), name: "OCMCommentPostSuccess", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.gotNewAccessToken(_:)), name: "OCMCommentPostError", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.commentNotPosted(_:)), name: "OCMCommentPostError", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.commentPostedSuccessfully(_:)), name: "OCMCommentPostSuccess", object: nil)
         updateAccessToken()
+        let postingCommentSpinnerString = NSLocalizedString("Posting Comment...", comment: "Posting comment spinner text")
+        commentTextView.resignFirstResponder()
+        SwiftSpinner.show(postingCommentSpinnerString)
     }
     
     func gotNewAccessToken(notification: NSNotification){
@@ -108,8 +111,13 @@ class CommentComposerViewController: UIViewController {
     
     func commentPostedSuccessfully(notification: NSNotification) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            SwiftSpinner.hide()
             self.navigationController?.popViewControllerAnimated(true)
         })
+    }
+    
+    func commentNotPosted(notification: NSNotification) {
+        // TODO: Notify user that the comment was not posted. Notification includes error message.
     }
     
     func submitCommentToOCM(accessToken: String){
