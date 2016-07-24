@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="passwordField" destination="Q8W-YE-4hL" id="Ixq-yY-ZFH"/>
                 <outlet property="responseMessageLabel" destination="cZd-D8-cep" id="ffa-5K-Uzn"/>
+                <outlet property="submitButton" destination="53R-q7-Gf9" id="giN-4o-eFi"/>
                 <outlet property="usernameField" destination="6jl-7j-nsm" id="cpl-Of-DqC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -54,9 +55,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53R-q7-Gf9">
-                    <rect key="frame" x="233" y="391" width="134" height="30"/>
+                    <rect key="frame" x="222" y="358" width="156" height="30"/>
+                    <color key="backgroundColor" red="0.87450980389999999" green="0.41176470590000003" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="156" id="uzf-IE-QKQ"/>
+                    </constraints>
                     <state key="normal" title="Submit">
-                        <color key="titleColor" red="0.87450980389999999" green="0.41176470590000003" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="submitLoginCredentials" destination="-1" eventType="primaryActionTriggered" id="dDg-V9-buE"/>
@@ -72,17 +77,17 @@
                 <constraint firstAttribute="trailing" secondItem="cZd-D8-cep" secondAttribute="trailing" constant="38" id="H5a-9e-Loe"/>
                 <constraint firstAttribute="trailing" secondItem="sPG-Zk-ZcB" secondAttribute="trailing" constant="38" id="HDZ-NU-ZZB"/>
                 <constraint firstItem="Q8W-YE-4hL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="39" id="LSY-Te-C1s"/>
+                <constraint firstItem="53R-q7-Gf9" firstAttribute="top" secondItem="cZd-D8-cep" secondAttribute="bottom" constant="32" id="TJs-ti-1F2"/>
                 <constraint firstItem="dug-34-2Yu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="99" id="VcO-YM-yYr"/>
-                <constraint firstItem="53R-q7-Gf9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cHc-9s-326"/>
                 <constraint firstItem="Q8W-YE-4hL" firstAttribute="top" secondItem="6jl-7j-nsm" secondAttribute="bottom" constant="15" id="cyc-4z-WdB"/>
                 <constraint firstAttribute="trailing" secondItem="Q8W-YE-4hL" secondAttribute="trailing" constant="38" id="dc6-Bt-sdU"/>
                 <constraint firstAttribute="trailing" secondItem="6jl-7j-nsm" secondAttribute="trailing" constant="38" id="fYD-Rp-HXf"/>
                 <constraint firstItem="6jl-7j-nsm" firstAttribute="top" secondItem="sPG-Zk-ZcB" secondAttribute="bottom" constant="15" id="jfo-1Y-KwJ"/>
                 <constraint firstItem="dug-34-2Yu" firstAttribute="leading" secondItem="8Ez-lM-3kc" secondAttribute="trailing" constant="8" id="mMR-9L-zKh"/>
+                <constraint firstItem="53R-q7-Gf9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mod-cq-JRi"/>
                 <constraint firstItem="cZd-D8-cep" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="39" id="nLX-Ju-MrF"/>
                 <constraint firstItem="8Ez-lM-3kc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qzN-x8-nvO"/>
                 <constraint firstItem="sPG-Zk-ZcB" firstAttribute="top" secondItem="8Ez-lM-3kc" secondAttribute="bottom" constant="25" id="s7f-Id-Pq3"/>
-                <constraint firstItem="53R-q7-Gf9" firstAttribute="top" secondItem="cZd-D8-cep" secondAttribute="bottom" constant="65" id="vn5-Xk-x27"/>
             </constraints>
         </view>
     </objects>

@@ -13,6 +13,9 @@ class OCMSignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var usernameField: UITextField!
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var responseMessageLabel: UILabel!
+    @IBOutlet var submitButton: UIButton!
+    
+    var showBackButton: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +23,13 @@ class OCMSignInViewController: UIViewController, UITextFieldDelegate {
         //Customize appearance
         self.navigationController!.navigationBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
-        
+        self.submitButton.layer.cornerRadius = 5.0
         self.tabBarController?.tabBar.tintColor = UIColor(red: 221/255, green: 106/255, blue: 88/255, alpha: 1.0)
         self.tabBarController?.tabBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
-        self.navigationItem.hidesBackButton = true
+        
+        if (showBackButton == false) {
+            self.navigationItem.hidesBackButton = true
+        }
         
         // Handle the text fields user input through delegate callbacks.
         usernameField.delegate = self
