@@ -21,7 +21,7 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
     var charger: ChargerPrimary?
     var comments: [Comment] = [Comment]()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Configure TableView
@@ -42,7 +42,7 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         if (comments.count == 0) {
             showNoCommentsView()
         }
-    
+        
     }
     
     func showNoCommentsView(){
@@ -66,13 +66,22 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         
         navigationButtonItems.append(commentButtonItem)
         self.navigationItem.setRightBarButtonItems(navigationButtonItems, animated: true)
-
+        
     }
     
     func commentButtonTapped(){
         // Direct user to OCM comment page
         if let chargerId = self.charger?.chargerId{
-            UIApplication.sharedApplication().openURL(NSURL(string: "http://openchargemap.org/site/poi/addcomment/\(chargerId)")!)
+            //UIApplication.sharedApplication().openURL(NSURL(string: "http://openchargemap.org/site/poi/addcomment/\(chargerId)")!)
+            if AuthenticationManager.doWeHaveCredentails(){
+                let vc = CommentComposerViewController()
+                vc.chargerID = Int(chargerId)
+                vc.chargingStationTitle = charger?.chargerTitle
+                showViewController(vc, sender: nil)
+            } else {
+                let vc = OCMSignInViewController()
+                showViewController(vc, sender: nil)
+            }
         }
     }
     
@@ -94,8 +103,8 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         let convertedDate = dateFormatter.stringFromDate(date)
-            cell.commentDateLabel?.text = convertedDate
-
+        cell.commentDateLabel?.text = convertedDate
+        
         let rating = String((comments[indexPath.row] as Comment).rating)
         if rating == "5" {
             cell.commentRatingView?.backgroundColor = UIColor(red: 107/255, green: 211/255, blue: 124/255, alpha: 1.0)
@@ -117,9 +126,9 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
     }
     
     deinit {
-
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

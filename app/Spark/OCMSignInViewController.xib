@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OCMSignInViewController" customModule="SparkMap" customModuleProvider="target">
+            <connections>
+                <outlet property="passwordField" destination="Q8W-YE-4hL" id="Ixq-yY-ZFH"/>
+                <outlet property="responseMessageLabel" destination="cZd-D8-cep" id="ffa-5K-Uzn"/>
+                <outlet property="usernameField" destination="6jl-7j-nsm" id="cpl-Of-DqC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sign in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ez-lM-3kc">
+                    <rect key="frame" x="167" y="95" width="267" height="34"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="OCMIcon" translatesAutoresizingMaskIntoConstraints="NO" id="dug-34-2Yu">
+                    <rect key="frame" x="442" y="99" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="TnP-0m-GSb"/>
+                        <constraint firstAttribute="height" constant="25" id="Yk7-7J-sz0"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6jl-7j-nsm">
+                    <rect key="frame" x="39" y="213" width="523" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q8W-YE-4hL">
+                    <rect key="frame" x="39" y="258" width="523" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" secureTextEntry="YES"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sign in with your Open Charge Map account to view your profile and submit content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPG-Zk-ZcB">
+                    <rect key="frame" x="39" y="154" width="523" height="44"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZd-D8-cep">
+                    <rect key="frame" x="39" y="305" width="523" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.87450980389999999" green="0.41176470590000003" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53R-q7-Gf9">
+                    <rect key="frame" x="233" y="391" width="134" height="30"/>
+                    <state key="normal" title="Submit">
+                        <color key="titleColor" red="0.87450980389999999" green="0.41176470590000003" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="submitLoginCredentials" destination="-1" eventType="primaryActionTriggered" id="dDg-V9-buE"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.19215686269999999" green="0.18823529410000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="8Ez-lM-3kc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="95" id="7Gw-rY-USG"/>
+                <constraint firstItem="6jl-7j-nsm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="39" id="9tm-II-ohJ"/>
+                <constraint firstItem="cZd-D8-cep" firstAttribute="top" secondItem="Q8W-YE-4hL" secondAttribute="bottom" constant="17" id="Bge-w3-6Pc"/>
+                <constraint firstItem="sPG-Zk-ZcB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="39" id="EWZ-Zf-Bjc"/>
+                <constraint firstAttribute="trailing" secondItem="cZd-D8-cep" secondAttribute="trailing" constant="38" id="H5a-9e-Loe"/>
+                <constraint firstAttribute="trailing" secondItem="sPG-Zk-ZcB" secondAttribute="trailing" constant="38" id="HDZ-NU-ZZB"/>
+                <constraint firstItem="Q8W-YE-4hL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="39" id="LSY-Te-C1s"/>
+                <constraint firstItem="dug-34-2Yu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="99" id="VcO-YM-yYr"/>
+                <constraint firstItem="53R-q7-Gf9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cHc-9s-326"/>
+                <constraint firstItem="Q8W-YE-4hL" firstAttribute="top" secondItem="6jl-7j-nsm" secondAttribute="bottom" constant="15" id="cyc-4z-WdB"/>
+                <constraint firstAttribute="trailing" secondItem="Q8W-YE-4hL" secondAttribute="trailing" constant="38" id="dc6-Bt-sdU"/>
+                <constraint firstAttribute="trailing" secondItem="6jl-7j-nsm" secondAttribute="trailing" constant="38" id="fYD-Rp-HXf"/>
+                <constraint firstItem="6jl-7j-nsm" firstAttribute="top" secondItem="sPG-Zk-ZcB" secondAttribute="bottom" constant="15" id="jfo-1Y-KwJ"/>
+                <constraint firstItem="dug-34-2Yu" firstAttribute="leading" secondItem="8Ez-lM-3kc" secondAttribute="trailing" constant="8" id="mMR-9L-zKh"/>
+                <constraint firstItem="cZd-D8-cep" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="39" id="nLX-Ju-MrF"/>
+                <constraint firstItem="8Ez-lM-3kc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qzN-x8-nvO"/>
+                <constraint firstItem="sPG-Zk-ZcB" firstAttribute="top" secondItem="8Ez-lM-3kc" secondAttribute="bottom" constant="25" id="s7f-Id-Pq3"/>
+                <constraint firstItem="53R-q7-Gf9" firstAttribute="top" secondItem="cZd-D8-cep" secondAttribute="bottom" constant="65" id="vn5-Xk-x27"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="OCMIcon" width="256" height="256"/>
+    </resources>
+</document>

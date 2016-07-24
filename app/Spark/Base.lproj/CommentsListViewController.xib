@@ -87,11 +87,5 @@
                 <constraint firstItem="6bT-vq-gLc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vya-2O-P7L"/>
             </constraints>
         </view>
-        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="HjN-im-kiE">
-            <rect key="frame" x="0.0" y="0.0" width="97" height="30"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-            <textInputTraits key="textInputTraits"/>
-        </textField>
     </objects>
 </document>

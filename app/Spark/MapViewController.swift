@@ -59,8 +59,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         
         clusterManager.delegate = self
         
-        registerNotificationListeners()
-        
         // Clean up stored charging data
         dataManager.removeOldChargerData()
         dataManager.getDataFilesSize()
@@ -68,7 +66,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         useClustering = defaults.boolForKey("useClustering")
         
         if isDoneWithFirstRun(){
+            registerNotificationListeners()
             verifyOrRequestLocationAuthorization()
+        } else {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.welcomeModuleIsDone(_:)), name: "WelcomeModuleDone", object: nil)
         }
     }
     
@@ -143,7 +144,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updatedSettingsRefresh(_:)), name: "SettingsUpdate", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updateRegionFromNotification(_:)), name: "LocationUpdate", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.enableUserLocationInMap(_:)), name: "LocationAuthorized", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.welcomeModuleIsDone(_:)), name: "WelcomeModuleDone", object: nil)
     }
     
     func enableUserLocationInMap(notification: NSNotification) {
@@ -153,6 +153,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     func welcomeModuleIsDone(notification: NSNotification) {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setBool(true, forKey: "isDoneWithFirstRun")
+        registerNotificationListeners()
         verifyOrRequestLocationAuthorization()
     }
     
@@ -413,10 +414,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "ChargerDataUpdate", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "LocationUpdate", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "LocationAuthorized", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "SettingsUpdate", object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     func updateCurrentMapRegion(coordinate: CLLocationCoordinate2D, distance: CLLocationDistance) {
