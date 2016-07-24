@@ -45,6 +45,10 @@ class OCMSignInViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func submitLoginCredentials(){
         self.responseMessageLabel.text = ""
+        usernameField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        let signingInSpinnerString = NSLocalizedString("Signing in...", comment: "Signing in spinner text")
+        SwiftSpinner.show(signingInSpinnerString)
         AuthenticationManager.getSessionToken(usernameField.text!, password: passwordField.text!)
     }
     
@@ -55,6 +59,7 @@ class OCMSignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func updateResponseStatusLabel(notification: NSNotification){
+        SwiftSpinner.hide()
         if let errorMessage = notification.userInfo?["errorMesssage"] as? NSString {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.responseMessageLabel.text = String(errorMessage)
@@ -88,6 +93,7 @@ class OCMSignInViewController: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "OCMLoginSuccess", object: nil)
         NSNotificationCenter.defaultCenter().postNotificationName("OCMUserLoginDone", object: nil)
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            SwiftSpinner.hide()
             self.navigationController?.popViewControllerAnimated(true)
         })
     }
