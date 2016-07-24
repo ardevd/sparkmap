@@ -11,6 +11,7 @@
                 <outlet property="commentTextView" destination="bpt-HH-GVC" id="M1E-fb-O1i"/>
                 <outlet property="ratingSegmentedControl" destination="X29-0Q-4tD" id="cHH-Ji-2iL"/>
                 <outlet property="scrollView" destination="hR7-G6-eRV" id="xD6-rO-fuk"/>
+                <outlet property="submitButton" destination="Usd-Bn-ZRB" id="FCk-x8-hxr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -75,10 +76,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Usd-Bn-ZRB">
-                                    <rect key="frame" x="0.0" y="196" width="600" height="40"/>
+                                    <rect key="frame" x="50" y="196" width="500" height="40"/>
                                     <color key="backgroundColor" red="0.87450980389999999" green="0.41176470590000003" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="5PU-r1-BPB"/>
+                                        <constraint firstAttribute="height" constant="40" id="vT9-vG-4qT"/>
                                     </constraints>
                                     <state key="normal" title="Submit">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -90,15 +91,15 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="Usd-Bn-ZRB" secondAttribute="trailing" id="3JR-pe-xe8"/>
-                                <constraint firstItem="Usd-Bn-ZRB" firstAttribute="leading" secondItem="1Is-jv-k0n" secondAttribute="leading" id="Lv2-eL-bdo"/>
+                                <constraint firstAttribute="trailing" secondItem="Usd-Bn-ZRB" secondAttribute="trailing" constant="50" id="5rG-WE-uWz"/>
                                 <constraint firstItem="kus-bI-blq" firstAttribute="leading" secondItem="1Is-jv-k0n" secondAttribute="leading" constant="8" id="WfI-rm-cmZ"/>
                                 <constraint firstItem="bpt-HH-GVC" firstAttribute="top" secondItem="1Is-jv-k0n" secondAttribute="top" constant="8" id="Y9j-cQ-1bx"/>
                                 <constraint firstAttribute="trailing" secondItem="kus-bI-blq" secondAttribute="trailing" constant="8" id="aWE-8m-TWE"/>
                                 <constraint firstItem="X29-0Q-4tD" firstAttribute="leading" secondItem="1Is-jv-k0n" secondAttribute="leading" constant="8" id="hQI-rY-4SY"/>
+                                <constraint firstItem="Usd-Bn-ZRB" firstAttribute="top" secondItem="X29-0Q-4tD" secondAttribute="bottom" constant="50" id="ky7-3P-Oqb"/>
                                 <constraint firstItem="bpt-HH-GVC" firstAttribute="leading" secondItem="1Is-jv-k0n" secondAttribute="leading" constant="8" id="l3X-kP-v5p"/>
+                                <constraint firstItem="Usd-Bn-ZRB" firstAttribute="leading" secondItem="1Is-jv-k0n" secondAttribute="leading" constant="50" id="ovn-Yq-nL1"/>
                                 <constraint firstAttribute="trailing" secondItem="bpt-HH-GVC" secondAttribute="trailing" constant="8" id="pZ6-GY-8Er"/>
-                                <constraint firstItem="Usd-Bn-ZRB" firstAttribute="top" secondItem="X29-0Q-4tD" secondAttribute="bottom" constant="50" id="uCU-NK-k1u"/>
                                 <constraint firstItem="kus-bI-blq" firstAttribute="top" secondItem="bpt-HH-GVC" secondAttribute="bottom" constant="42" id="v23-nP-aF3"/>
                                 <constraint firstItem="X29-0Q-4tD" firstAttribute="top" secondItem="kus-bI-blq" secondAttribute="bottom" constant="17" id="xuI-aw-873"/>
                                 <constraint firstAttribute="trailing" secondItem="X29-0Q-4tD" secondAttribute="trailing" constant="8" id="xvW-UU-gua"/>
