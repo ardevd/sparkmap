@@ -63,6 +63,7 @@
                                         <segment title="4"/>
                                         <segment title="5"/>
                                     </segments>
+                                    <color key="tintColor" red="0.87450980389999999" green="0.41176470590000003" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </segmentedControl>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kus-bI-blq">
                                     <rect key="frame" x="8" y="83" width="584" height="18"/>

@@ -14,6 +14,7 @@ class CommentComposerViewController: UIViewController {
     @IBOutlet var commentTextView: UITextView!
     @IBOutlet var chargingStationTitleLabel: UILabel!
     @IBOutlet var ratingSegmentedControl: UISegmentedControl!
+    @IBOutlet var submitButton: UIButton!
     
     // Charging Station Details
     var chargerID: Int!
@@ -36,6 +37,7 @@ class CommentComposerViewController: UIViewController {
         chargingStationTitleLabel.text = chargingStationTitle
         let newCommentString = NSLocalizedString("New Comment", comment: "New Comment")
         self.title = newCommentString
+        self.submitButton.layer.cornerRadius = 5.0
     }
     
     deinit {
