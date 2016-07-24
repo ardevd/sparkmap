@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spark/ChargerDetailViewController.swift"
-            timestampString = "490139753.10074"
+            timestampString = "491081133.535581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "showPhotoSubmissionConfirmationAlert()"
             landmarkType = "5">
          </BreakpointContent>
@@ -116,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spark/ChargerDetailViewController.swift"
-            timestampString = "490140547.954698"
+            timestampString = "491081133.535581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "465"
-            endingLineNumber = "465"
+            startingLineNumber = "471"
+            endingLineNumber = "471"
             landmarkName = "downloadThumbnailImage(_:)"
             landmarkType = "5">
          </BreakpointContent>

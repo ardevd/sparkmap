@@ -52,15 +52,15 @@
                                 <constraint firstAttribute="height" constant="110" id="3rm-SC-PnS"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3g-6f-yNs">
-                            <rect key="frame" x="570" y="8" width="22" height="22"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3g-6f-yNs">
+                            <rect key="frame" x="570" y="8" width="22" height="25"/>
                             <color key="tintColor" red="0.86666666670000003" green="0.41568627450000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="animateDateView" destination="-1" eventType="primaryActionTriggered" id="uLQ-Va-v4H"/>
                             </connections>
                         </button>
                         <view alpha="0.0" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rpx-Kl-Olf">
-                            <rect key="frame" x="363" y="33" width="237" height="48"/>
+                            <rect key="frame" x="363" y="33" width="237" height="80"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVV-5e-n9w">
                                     <rect key="frame" x="187" y="0.0" width="42" height="21"/>
@@ -74,14 +74,27 @@
                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKM-lZ-9xh">
+                                    <rect key="frame" x="183" y="50" width="46" height="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <state key="normal" title="Edit">
+                                        <color key="titleColor" red="0.87450980389999999" green="0.41176470590000003" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="editChargingStation" destination="-1" eventType="primaryActionTriggered" id="B4n-Vu-Say"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="vVV-5e-n9w" secondAttribute="trailing" constant="8" id="2kq-g1-Jg3"/>
                                 <constraint firstItem="7fC-Jr-5N6" firstAttribute="top" secondItem="vVV-5e-n9w" secondAttribute="bottom" constant="6" id="7yq-aq-x7J"/>
                                 <constraint firstAttribute="trailing" secondItem="7fC-Jr-5N6" secondAttribute="trailing" constant="8" id="N4c-cX-CkV"/>
+                                <constraint firstAttribute="bottomMargin" secondItem="IKM-lZ-9xh" secondAttribute="bottom" constant="8" id="RUu-I9-Ngx"/>
                                 <constraint firstItem="vVV-5e-n9w" firstAttribute="top" secondItem="Rpx-Kl-Olf" secondAttribute="top" id="dcC-oZ-wEt"/>
-                                <constraint firstAttribute="height" constant="48" id="xoU-YR-FJ6"/>
+                                <constraint firstItem="IKM-lZ-9xh" firstAttribute="top" secondItem="7fC-Jr-5N6" secondAttribute="bottom" constant="2" id="jJd-u1-M0h"/>
+                                <constraint firstAttribute="height" constant="80" id="xoU-YR-FJ6"/>
+                                <constraint firstItem="IKM-lZ-9xh" firstAttribute="trailing" secondItem="Rpx-Kl-Olf" secondAttribute="trailingMargin" id="zcK-fZ-IiK"/>
                             </constraints>
                         </view>
                         <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qmq-y0-sxC">

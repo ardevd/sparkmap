@@ -196,6 +196,12 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         })
     }
     
+    @IBAction func editChargingStation() {
+        if let chargerId = self.charger?.chargerId{
+            UIApplication.sharedApplication().openURL(NSURL(string: "http://openchargemap.org/site/poi/edit/\(chargerId)")!)
+        }
+    }
+    
     func checkAndAnimateRecentlyVerifiedView() {
         if let isRecentlyVerified = charger?.chargerDetails?.chargerRecentlyVerified {
             if isRecentlyVerified {
