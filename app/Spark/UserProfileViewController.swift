@@ -152,6 +152,7 @@ class UserProfileViewController: UIViewController {
     
     func launchOCMSignInViewController(){
         let vc = OCMSignInViewController()
+        vc.showBackButton = false
         showViewController(vc, sender: nil)
     }
     
