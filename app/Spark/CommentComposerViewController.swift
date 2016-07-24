@@ -103,6 +103,11 @@ class CommentComposerViewController: UIViewController {
     
     func failedToGetNewAccessToken(notification: NSNotification) {
         // TODO: Notify user that authentication failed. Notification includes error message.
+        if let errorMessage = notification.userInfo?["errorMesssage"] as? NSString {
+            SwiftSpinner.show(String(errorMessage), animated: false).addTapHandler({
+                SwiftSpinner.hide()
+            })
+        }
     }
 
     func updateAccessToken(){
@@ -118,6 +123,11 @@ class CommentComposerViewController: UIViewController {
     
     func commentNotPosted(notification: NSNotification) {
         // TODO: Notify user that the comment was not posted. Notification includes error message.
+        if let errorMessage = notification.userInfo?["errorMesssage"] as? NSString {
+            SwiftSpinner.show(String(errorMessage), animated: false).addTapHandler({
+                SwiftSpinner.hide()
+            })
+        }
     }
     
     func submitCommentToOCM(accessToken: String){
