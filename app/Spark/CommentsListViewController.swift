@@ -61,8 +61,7 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
     func generateCommentButton() {
         var navigationButtonItems = [UIBarButtonItem]()
         // Button that lets user submit a comment
-        let commentButtonTitle = NSLocalizedString("Write Comment", comment: "Write Comment")
-        let commentButtonItem = UIBarButtonItem(title: commentButtonTitle, style: .Plain, target: self, action: #selector(CommentsListViewController.commentButtonTapped))
+        let commentButtonItem = UIBarButtonItem(barButtonSystemItem: .Compose, target: self, action: #selector(CommentsListViewController.commentButtonTapped))
         
         navigationButtonItems.append(commentButtonItem)
         self.navigationItem.setRightBarButtonItems(navigationButtonItems, animated: true)
