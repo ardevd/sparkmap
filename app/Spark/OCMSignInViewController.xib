@@ -67,6 +67,16 @@
                         <action selector="submitLoginCredentials" destination="-1" eventType="primaryActionTriggered" id="dDg-V9-buE"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hb5-uv-u1B">
+                    <rect key="frame" x="214" y="396" width="172" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="No account? Sign up!">
+                        <color key="titleColor" red="0.87450980389999999" green="0.41176470590000003" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="showOCMSignupPage" destination="-1" eventType="primaryActionTriggered" id="Xdp-ha-cld"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.19215686269999999" green="0.18823529410000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -81,6 +91,7 @@
                 <constraint firstItem="dug-34-2Yu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="99" id="VcO-YM-yYr"/>
                 <constraint firstItem="Q8W-YE-4hL" firstAttribute="top" secondItem="6jl-7j-nsm" secondAttribute="bottom" constant="15" id="cyc-4z-WdB"/>
                 <constraint firstAttribute="trailing" secondItem="Q8W-YE-4hL" secondAttribute="trailing" constant="38" id="dc6-Bt-sdU"/>
+                <constraint firstItem="Hb5-uv-u1B" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eqW-hA-gYv"/>
                 <constraint firstAttribute="trailing" secondItem="6jl-7j-nsm" secondAttribute="trailing" constant="38" id="fYD-Rp-HXf"/>
                 <constraint firstItem="6jl-7j-nsm" firstAttribute="top" secondItem="sPG-Zk-ZcB" secondAttribute="bottom" constant="15" id="jfo-1Y-KwJ"/>
                 <constraint firstItem="dug-34-2Yu" firstAttribute="leading" secondItem="8Ez-lM-3kc" secondAttribute="trailing" constant="8" id="mMR-9L-zKh"/>
@@ -88,6 +99,7 @@
                 <constraint firstItem="cZd-D8-cep" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="39" id="nLX-Ju-MrF"/>
                 <constraint firstItem="8Ez-lM-3kc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qzN-x8-nvO"/>
                 <constraint firstItem="sPG-Zk-ZcB" firstAttribute="top" secondItem="8Ez-lM-3kc" secondAttribute="bottom" constant="25" id="s7f-Id-Pq3"/>
+                <constraint firstItem="Hb5-uv-u1B" firstAttribute="top" secondItem="53R-q7-Gf9" secondAttribute="bottom" constant="8" id="vC8-Tq-hzk"/>
             </constraints>
         </view>
     </objects>

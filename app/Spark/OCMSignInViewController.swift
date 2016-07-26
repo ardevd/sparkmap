@@ -35,6 +35,10 @@ class OCMSignInViewController: UIViewController, UITextFieldDelegate {
         usernameField.delegate = self
         passwordField.delegate = self
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(OCMSignInViewController.tapOutsideTextView(_:)))
+        view.addGestureRecognizer(tapGesture)
+
+        
         registerNotificationListeners()
     }
     
@@ -50,6 +54,15 @@ class OCMSignInViewController: UIViewController, UITextFieldDelegate {
         let signingInSpinnerString = NSLocalizedString("Signing in...", comment: "Signing in spinner text")
         SwiftSpinner.show(signingInSpinnerString)
         AuthenticationManager.getSessionToken(usernameField.text!, password: passwordField.text!)
+    }
+    
+    @IBAction func showOCMSignupPage(){
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://openchargemap.org/site/loginprovider/register")!)
+    }
+    
+    func tapOutsideTextView(gesture: UITapGestureRecognizer) {
+        usernameField.resignFirstResponder()
+        passwordField.resignFirstResponder()
     }
     
     func registerNotificationListeners() {
