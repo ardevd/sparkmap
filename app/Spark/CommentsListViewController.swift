@@ -43,9 +43,11 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         // Register notification observer
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentsListViewController.requestUpdatedData(_:)), name: "DataUpdateRequired", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentsListViewController.updateChargerDetails(_:)), name: "ChargerDataUpdate", object: nil)
-    
+        
         if (comments.count == 0) {
             showNoCommentsView()
+        } else {
+            sortCommentsList()
         }
         
     }
@@ -74,7 +76,7 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
                 self.comments = self.charger.chargerDetails?.comments?.allObjects as! [Comment]
                 // Reload table view data in the main queue
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.commentsTableView.reloadData()
+                    self.sortCommentsList()
                 })
             }
         }
@@ -111,6 +113,11 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
                 showViewController(vc, sender: nil)
             }
         }
+    }
+    
+    func sortCommentsList() { // should probably be called sort and not filter
+        comments.sortInPlace() { $0.commentDate > $1.commentDate } // sort the fruit by name
+        commentsTableView.reloadData(); // notify the table view the data has changed
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
