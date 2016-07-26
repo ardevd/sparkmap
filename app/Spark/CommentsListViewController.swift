@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class CommentsListViewController: UIViewController, UITableViewDelegate, UINavigationControllerDelegate {
     
@@ -18,7 +19,7 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
     @IBOutlet var noCommentsView: UIView!
     @IBOutlet var commentsTableView: UITableView!
     
-    var charger: ChargerPrimary?
+    var charger: ChargerPrimary!
     var comments: [Comment] = [Comment]()
     
     
@@ -39,6 +40,10 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         
         noCommentsView.alpha = 0
         
+        // Register notification observer
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentsListViewController.requestUpdatedData(_:)), name: "DataUpdateRequired", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentsListViewController.updateChargerDetails(_:)), name: "ChargerDataUpdate", object: nil)
+    
         if (comments.count == 0) {
             showNoCommentsView()
         }
@@ -56,6 +61,30 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         }
         
         dispatch_async(dispatch_get_main_queue(), displayView)
+    }
+    
+    func updateChargerDetails(notification: NSNotification) {
+        // New data downloaded. Update comments list.
+        let dataManager = DataManager()
+        var chargers: [ChargerPrimary] = [ChargerPrimary]()
+        chargers = dataManager.retrieveNearbyChargerData(Latitude: charger.chargerLatitude, Longitude: charger.chargerLongitude)!
+        for newCharger in chargers {
+            if newCharger.chargerId == self.charger.chargerId {
+                self.charger = newCharger
+                self.comments = self.charger.chargerDetails?.comments?.allObjects as! [Comment]
+                // Reload table view data in the main queue
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.commentsTableView.reloadData()
+                })
+            }
+        }
+    }
+    
+    func requestUpdatedData(notification: NSNotification) {
+        // Download data for this charging station.
+        let distance = CLLocationDistance(1)
+        let dataManager = DataManager()
+        dataManager.downloadNearbyChargers(Latitude: charger.chargerLatitude, Longitude: charger.chargerLongitude, Distance: distance)
     }
     
     func generateCommentButton() {

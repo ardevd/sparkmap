@@ -119,6 +119,7 @@ class CommentComposerViewController: UIViewController {
     func commentPostedSuccessfully(notification: NSNotification) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             SwiftSpinner.hide()
+            NSNotificationCenter.defaultCenter().postNotificationName("DataUpdateRequired", object: nil)
             self.navigationController?.popViewControllerAnimated(true)
         })
     }
