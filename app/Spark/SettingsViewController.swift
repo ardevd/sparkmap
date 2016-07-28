@@ -39,6 +39,10 @@ class SettingsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Register tap gesture recognizer to let the user dismiss on-screen keyboard.
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.tapOutsideTextView(_:)))
+        view.addGestureRecognizer(tapGesture)
     }
     
     override func viewDidLayoutSubviews() {
@@ -46,6 +50,10 @@ class SettingsViewController: UITableViewController {
         loadUserSettingsToViews()
         getAndLoadCacheSize()
         displayAppVersionString()
+    }
+    
+    func tapOutsideTextView(gesture: UITapGestureRecognizer) {
+        textFieldAmps.resignFirstResponder()
     }
     
     @IBAction func cancelButtonClicked(){
