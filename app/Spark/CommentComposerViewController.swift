@@ -24,19 +24,28 @@ class CommentComposerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Add Gesture recognizer for hiding the keyboard when tapping outside it.
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CommentComposerViewController.tapOutsideTextView(_:)))
         view.addGestureRecognizer(tapGesture)
+        
+        // Prepare the comment text view.
         formatTextView()
+        
+        // Make the comment text view the first responder
         commentTextView.becomeFirstResponder()
         
         // Register to be notified if the keyboard is changing size
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.keyboardWillShowOrHide(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.keyboardWillShowOrHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
+        // Set the charging station title text.
         chargingStationTitleLabel.text = chargingStationTitle
+        
+        // Set the view controller title.
         let newCommentString = NSLocalizedString("New Comment", comment: "New Comment")
         self.title = newCommentString
+        
+        // Add rounded corners to the submit button.
         self.submitButton.layer.cornerRadius = 5.0
     }
     
@@ -74,6 +83,7 @@ class CommentComposerViewController: UIViewController {
     }
     
     func tapOutsideTextView(gesture: UITapGestureRecognizer) {
+        // Resign first responder from commentTextview if user taps outside the keyboard area.
         commentTextView.resignFirstResponder()
     }
     
@@ -90,9 +100,15 @@ class CommentComposerViewController: UIViewController {
         updateAccessToken()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.commentNotPosted(_:)), name: "OCMCommentPostError", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.commentPostedSuccessfully(_:)), name: "OCMCommentPostSuccess", object: nil)
+        
+        // Authenticate to OCM and get a new access token
         updateAccessToken()
-        let postingCommentSpinnerString = NSLocalizedString("Posting Comment...", comment: "Posting comment spinner text")
+        
+        // Resign text view first responder.
         commentTextView.resignFirstResponder()
+        
+        // Show loading spinner
+        let postingCommentSpinnerString = NSLocalizedString("Posting Comment...", comment: "Posting comment spinner text")
         SwiftSpinner.show(postingCommentSpinnerString)
     }
     
@@ -104,7 +120,7 @@ class CommentComposerViewController: UIViewController {
     }
     
     func failedToGetNewAccessToken(notification: NSNotification) {
-        // TODO: Notify user that authentication failed. Notification includes error message.
+        // Notify user that authentication failed. Notification includes error message.
         if let errorMessage = notification.userInfo?["errorMesssage"] as? NSString {
             SwiftSpinner.show(String(errorMessage), animated: false).addTapHandler({
                 SwiftSpinner.hide()
@@ -117,6 +133,7 @@ class CommentComposerViewController: UIViewController {
     }
     
     func commentPostedSuccessfully(notification: NSNotification) {
+        // Comment posted. Post notification and pop view controller.
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             SwiftSpinner.hide()
             NSNotificationCenter.defaultCenter().postNotificationName("DataUpdateRequired", object: nil)
@@ -125,7 +142,7 @@ class CommentComposerViewController: UIViewController {
     }
     
     func commentNotPosted(notification: NSNotification) {
-        // TODO: Notify user that the comment was not posted. Notification includes error message.
+        // Notify user that the comment was not posted. Notification includes error message.
         if let errorMessage = notification.userInfo?["errorMesssage"] as? NSString {
             SwiftSpinner.show(String(errorMessage), animated: false).addTapHandler({
                 SwiftSpinner.hide()
