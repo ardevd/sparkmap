@@ -46,7 +46,7 @@ class AuthenticationManager {
                 if error != nil{
                     print("Error -> \(error)")
                     NSNotificationCenter.defaultCenter().postNotificationName("OCMLoginFailed", object: nil, userInfo:
-                        ["errorMesssage": error!.localizedDescription])
+                        ["errorMesssage": error!.localizedDescription, "errorCode": -1])
                     return
                 }
                 
@@ -73,17 +73,19 @@ class AuthenticationManager {
                 } catch {
                     let unknownErrorString = NSLocalizedString("Unknown Error", comment: "Unkown Error")
                     var errorMessage = unknownErrorString
+                    var errorCode = -1
                     if let httpResponse = response as? NSHTTPURLResponse {
                         let responseCode = httpResponse.statusCode
                         if responseCode == 401 {
                             let unauthorizedErrorString = NSLocalizedString("Incorrect credentails", comment: "Incorrect username/password")
+                            errorCode = 100
                             errorMessage = unauthorizedErrorString
                         }
                         print(httpResponse.statusCode)
                     }
                     print("Error -> \(error)")
                     NSNotificationCenter.defaultCenter().postNotificationName("OCMLoginFailed", object: nil, userInfo:
-                    ["errorMesssage": errorMessage])
+                    ["errorMesssage": errorMessage, "errorCode": errorCode])
                 }
             }
             task.resume()
