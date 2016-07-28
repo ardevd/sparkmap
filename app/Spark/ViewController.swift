@@ -34,8 +34,7 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
         registerForceTouchCapability()
         
         // Register notification listeners
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateTableView(_:)), name: "ChargerDataUpdate", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateChargersFromLocation(_:)), name: "LocationUpdate", object: nil)
+        registerNotificationObservers()
         
         updateChargersListFromMapCenter()
         let nib = UINib(nibName: "NearbyTableViewCell", bundle: nil)
@@ -48,12 +47,16 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
         sortChargersArray()
     }
     
+    func registerNotificationObservers(){
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateTableView(_:)), name: "ChargerDataUpdate", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateChargersFromLocation(_:)), name: "LocationUpdate", object: nil)
+    }
+    
     func sortChargersArray(){
         let queue = dispatch_queue_create("net.zygotelabs.sortqueue", DISPATCH_QUEUE_SERIAL)
         dispatch_async(queue) { () -> Void in
             // Sort chargers
             self.chargers.sortInPlace { (charger1, charger2) -> Bool in
-                //self.compareChargerDistance(charger1, secondCharger: charger2)
                 DistanceToLocationManager.compareChargerDistance(charger1, secondCharger: charger2)
             }
             // Reload table view data in the main queue
@@ -130,8 +133,7 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "ChargerDataUpdate", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "LocationUpdate", object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func didReceiveMemoryWarning() {
