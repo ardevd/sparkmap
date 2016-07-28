@@ -282,6 +282,8 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             let userPhotoSubmissionManager = UserPhotoSubmissionManager()
             if let chargerId = self.charger?.chargerId{
                 userPhotoSubmissionManager.userPhotoUploadRequest(self.imageThumbnail, chargerId: chargerId)
+                self.registerPhotoUploadNotificationObservers()
+                self.indicatorImageLoader.startAnimating()
                 self.showPhotoSubmissionConfirmationAlert()
             }
         }
@@ -303,6 +305,26 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         let photoSubmissionConfirmationAlert = UIAlertController(title: photoSubmittedTitleString, message: photoSubmissionConfirmationString, preferredStyle: UIAlertControllerStyle.Alert)
         photoSubmissionConfirmationAlert.addAction(UIAlertAction(title: okString, style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(photoSubmissionConfirmationAlert, animated: true, completion: nil)
+    }
+    
+    func registerPhotoUploadNotificationObservers() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChargerDetailViewController.userPhotoPostSuccess(_:)), name: "PhotoPostSuccess", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChargerDetailViewController.userPhotoPostFailed(_:)), name: "PhotoPostFailed", object: nil)
+    }
+    
+    func userPhotoPostSuccess(notification: NSNotification) {
+        self.indicatorImageLoader.stopAnimating()
+    }
+    
+    func userPhotoPostFailed(notification: NSNotification) {
+        // User image posting failed. Alert user
+        self.indicatorImageLoader.stopAnimating()
+        let okString = NSLocalizedString("OK", comment: "OK")
+        let photoSubmissionFailedTitleString = NSLocalizedString("Photo upload failed.", comment: "User photo upload failed")
+        let photoSubmissionFailedDescriptionString = NSLocalizedString("Could not post the photo. Please try again later.", comment: "User photo upload failed description message.")
+        let photoSubmissionFailedAlert = UIAlertController(title: photoSubmissionFailedTitleString, message: photoSubmissionFailedDescriptionString, preferredStyle: UIAlertControllerStyle.Alert)
+        photoSubmissionFailedAlert.addAction(UIAlertAction(title: okString, style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(photoSubmissionFailedAlert, animated: true, completion: nil)
     }
     
     func toggleFullImage(img: AnyObject) {
