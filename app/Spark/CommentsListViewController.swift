@@ -162,7 +162,7 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
     }
     
     deinit {
-        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func didReceiveMemoryWarning() {
