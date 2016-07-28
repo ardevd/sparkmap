@@ -109,7 +109,11 @@ class UserProfileViewController: UIViewController {
     
     func userAuthenticationFailed(notification: NSNotification){
         // TODO: Handle user authentication failure.
-        signOutOfOCMAccount()
+        if let errorCode = notification.userInfo?["errorCode"] as? NSNumber {
+            if errorCode == 100 {
+                signOutOfOCMAccount()
+            }
+        }
     }
     
     func userLoginCompleted(notification: NSNotification) {
