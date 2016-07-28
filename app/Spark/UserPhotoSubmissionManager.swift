@@ -19,7 +19,7 @@ class UserPhotoSubmissionManager: NSObject {
         let photoUploadUrl = NSURL(string: "https://sparkmap.zygotelabs.net/photo_upload.php");
         let request = NSMutableURLRequest(URL:photoUploadUrl!);
         request.HTTPMethod = "POST";
-    
+        
         let boundary = generateBoundaryString()
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         
@@ -27,6 +27,7 @@ class UserPhotoSubmissionManager: NSObject {
         
         if(imageData==nil)
         {
+            postFailureNotification()
             return
         }
         
@@ -40,7 +41,17 @@ class UserPhotoSubmissionManager: NSObject {
             
             if error != nil {
                 NSLog("Unresolved error \(error)")
+                self.postFailureNotification()
                 return
+            }
+            
+            if let httpResponse = response as? NSHTTPURLResponse {
+                let responseCode = httpResponse.statusCode
+                if responseCode == 200 {
+                    self.postSuccessNotification()
+                } else {
+                    self.postFailureNotification()
+                }
             }
             
             // You can print out response object
@@ -59,6 +70,14 @@ class UserPhotoSubmissionManager: NSObject {
         
         task.resume()
         
+    }
+    
+    func postSuccessNotification(){
+        NSNotificationCenter.defaultCenter().postNotificationName("PhotoPostSuccess", object: nil)
+    }
+    
+    func postFailureNotification(){
+        NSNotificationCenter.defaultCenter().postNotificationName("PhotoPostFailed", object: nil)
     }
     
     
