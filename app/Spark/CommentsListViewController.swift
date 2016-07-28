@@ -102,7 +102,8 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
     func commentButtonTapped(){
         // Direct user to OCM comment page
         if let chargerId = self.charger?.chargerId{
-            if AuthenticationManager.doWeHaveCredentails(){
+            let userIsAuthenticated = AuthenticationManager.doWeHaveCredentails()
+            if userIsAuthenticated {
                 let vc = CommentComposerViewController()
                 vc.chargerID = Int(chargerId)
                 vc.chargingStationTitle = charger?.chargerTitle
@@ -115,8 +116,8 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         }
     }
     
-    func sortCommentsList() { // should probably be called sort and not filter
-        comments.sortInPlace() { $0.commentDate > $1.commentDate } // sort the fruit by name
+    func sortCommentsList() {
+        comments.sortInPlace() { $0.commentDate > $1.commentDate } // sort the comment by date
         commentsTableView.reloadData(); // notify the table view the data has changed
     }
     
