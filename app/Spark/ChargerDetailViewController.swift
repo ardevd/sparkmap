@@ -95,6 +95,10 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         }
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         
         // Set up peeking
