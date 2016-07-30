@@ -13,6 +13,10 @@
         <source>Unknown</source>
         <note>Class = "UILabel"; text = "Unknown"; ObjectID = "66E-YC-mny";</note>
       </trans-unit>
+      <trans-unit id="IKM-lZ-9xh.normalTitle">
+        <source>Edit</source>
+        <note>Class = "UIButton"; normalTitle = "Edit"; ObjectID = "IKM-lZ-9xh";</note>
+      </trans-unit>
       <trans-unit id="Qht-zl-0Be.text">
         <source>Unknown</source>
         <note>Class = "UILabel"; text = "Unknown"; ObjectID = "Qht-zl-0Be";</note>
@@ -157,6 +161,10 @@
         <source>CHAdeMO</source>
         <note>Class = "UILabel"; text = "CHAdeMO"; ObjectID = "hE6-Vt-Iw2";</note>
       </trans-unit>
+      <trans-unit id="iJI-LX-P2k.title">
+        <source>Profile</source>
+        <note>Class = "UINavigationItem"; title = "Profile"; ObjectID = "iJI-LX-P2k";</note>
+      </trans-unit>
       <trans-unit id="kqa-ep-x8Y.text">
         <source>Combo (CCS)</source>
         <note>Class = "UILabel"; text = "Combo (CCS)"; ObjectID = "kqa-ep-x8Y";</note>
@@ -185,9 +193,21 @@
         <source>Hybrid</source>
         <note>Class = "UISegmentedControl"; nqM-Y8-84n.segmentTitles[2] = "Hybrid"; ObjectID = "nqM-Y8-84n";</note>
       </trans-unit>
+      <trans-unit id="txC-1K-oZB.text">
+        <source>Reputation</source>
+        <note>Class = "UILabel"; text = "Reputation"; ObjectID = "txC-1K-oZB";</note>
+      </trans-unit>
       <trans-unit id="wjz-xz-VyA.text">
         <source>Map type</source>
         <note>Class = "UILabel"; text = "Map type"; ObjectID = "wjz-xz-VyA";</note>
+      </trans-unit>
+      <trans-unit id="x2k-xg-4nK.title">
+        <source>Profile</source>
+        <note>Class = "UITabBarItem"; title = "Profile"; ObjectID = "x2k-xg-4nK";</note>
+      </trans-unit>
+      <trans-unit id="xO0-i0-YuY.text">
+        <source>Location</source>
+        <note>Class = "UILabel"; text = "Location"; ObjectID = "xO0-i0-YuY";</note>
       </trans-unit>
       <trans-unit id="zZV-Lt-BNI.text">
         <source>Offline mode</source>
@@ -259,7 +279,7 @@
         <source>$(PRODUCT_NAME)</source>
       </trans-unit>
       <trans-unit id="CFBundleShortVersionString">
-        <source>1.2.0</source>
+        <source>1.2.1</source>
       </trans-unit>
     </body>
   </file>
@@ -271,6 +291,10 @@
       <trans-unit id="%@ minutes of travel time">
         <source>%@ minutes of travel time</source>
         <note>Minutes of travel time</note>
+      </trans-unit>
+      <trans-unit id="Authentication Failed">
+        <source>Authentication Failed</source>
+        <note>Authentication Failed Message</note>
       </trans-unit>
       <trans-unit id="Awesome. Go ahead and upload the photo?">
         <source>Awesome. Go ahead and upload the photo?</source>
@@ -292,6 +316,10 @@
         <source>Cancel</source>
         <note>Cancel Action Text</note>
       </trans-unit>
+      <trans-unit id="Could not post the photo. Please try again later.">
+        <source>Could not post the photo. Please try again later.</source>
+        <note>User photo upload failed description message.</note>
+      </trans-unit>
       <trans-unit id="Dismiss">
         <source>Dismiss</source>
         <note>Dismiss
@@ -301,6 +329,14 @@
         <source>Downloading...</source>
         <note>Downloading Data Spinner Text</note>
       </trans-unit>
+      <trans-unit id="Incorrect credentails">
+        <source>Incorrect credentails</source>
+        <note>Incorrect username/password</note>
+      </trans-unit>
+      <trans-unit id="Invalid Response from server">
+        <source>Invalid Response from server</source>
+        <note>Invalid Response From Server</note>
+      </trans-unit>
       <trans-unit id="Invalid data returned from server. Please try again later.">
         <source>Invalid data returned from server. Please try again later.</source>
         <note>Data download parsing error</note>
@@ -308,6 +344,10 @@
       <trans-unit id="Navigate">
         <source>Navigate</source>
         <note>Navigate</note>
+      </trans-unit>
+      <trans-unit id="New Comment">
+        <source>New Comment</source>
+        <note>New Comment</note>
       </trans-unit>
       <trans-unit id="No">
         <source>No</source>
@@ -337,9 +377,17 @@
         <source>Photo Submitted</source>
         <note>Photo Submitted</note>
       </trans-unit>
+      <trans-unit id="Photo upload failed.">
+        <source>Photo upload failed.</source>
+        <note>User photo upload failed</note>
+      </trans-unit>
       <trans-unit id="Place not found">
         <source>Place not found</source>
         <note>User search location not found</note>
+      </trans-unit>
+      <trans-unit id="Posting Comment...">
+        <source>Posting Comment...</source>
+        <note>Posting comment spinner text</note>
       </trans-unit>
       <trans-unit id="Private - For Staff, Visitors or Customers">
         <source>Private - For Staff, Visitors or Customers</source>
@@ -377,6 +425,14 @@
         <source>Search for a place or address</source>
         <note>Searchbar placeholder string</note>
       </trans-unit>
+      <trans-unit id="Sign Out">
+        <source>Sign Out</source>
+        <note>Sign out of OCM</note>
+      </trans-unit>
+      <trans-unit id="Signing in...">
+        <source>Signing in...</source>
+        <note>Signing in spinner text</note>
+      </trans-unit>
       <trans-unit id="Submit a photo for this charging station">
         <source>Submit a photo for this charging station</source>
         <note>Submit a photo description text</note>
@@ -389,6 +445,10 @@
         <source>Unknown</source>
         <note>Charging Status Unknown</note>
       </trans-unit>
+      <trans-unit id="Unknown Error">
+        <source>Unknown Error</source>
+        <note>Unkown Error</note>
+      </trans-unit>
       <trans-unit id="Unknown usage type">
         <source>Unknown usage type</source>
         <note>Unknown Usage Type</note>
@@ -396,10 +456,6 @@
       <trans-unit id="Upload photo">
         <source>Upload photo</source>
         <note>Photo Submitted</note>
-      </trans-unit>
-      <trans-unit id="Write Comment">
-        <source>Write Comment</source>
-        <note>Write Comment</note>
       </trans-unit>
       <trans-unit id="Yes">
         <source>Yes</source>
