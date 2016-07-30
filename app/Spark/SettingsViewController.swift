@@ -40,6 +40,10 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Customize navigation bar appearance.
+        self.navigationController!.navigationBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        
         // Register tap gesture recognizer to let the user dismiss on-screen keyboard.
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.tapOutsideTextView(_:)))
         view.addGestureRecognizer(tapGesture)
