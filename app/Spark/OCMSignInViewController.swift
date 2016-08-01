@@ -42,6 +42,13 @@ class OCMSignInViewController: UIViewController, UITextFieldDelegate {
         registerNotificationListeners()
     }
     
+    override func viewDidLayoutSubviews() {
+        let userIsAuthenticated = AuthenticationManager.doWeHaveCredentails()
+        if userIsAuthenticated {
+            popThisViewController()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -97,6 +104,10 @@ class OCMSignInViewController: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
+    func popThisViewController(){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     func successfulSigninOccurred(notification: NSNotification){
         // Store username and password in default preferences.
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -105,7 +116,7 @@ class OCMSignInViewController: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().postNotificationName("OCMUserLoginDone", object: nil)
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             SwiftSpinner.hide()
-            self.navigationController?.popViewControllerAnimated(true)
+            self.popThisViewController()
         })
     }
 }
