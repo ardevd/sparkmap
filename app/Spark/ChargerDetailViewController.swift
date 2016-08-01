@@ -137,8 +137,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     func generateNavigationButton() -> UIBarButtonItem {
         // Button that lets user navigate to charger address.
-        let navigateTitle = NSLocalizedString("Navigate", comment: "Navigate")
-        let navigationButtonItem = UIBarButtonItem(title: navigateTitle, style: .Plain, target: self, action: #selector(ChargerDetailViewController.navigateButtonTapped))
+        let navigationButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: #selector(ChargerDetailViewController.navigateButtonTapped))
         navigationButtonItem.image = UIImage(named: "CarIcon")
         
         return navigationButtonItem
@@ -147,8 +146,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     func generateCallButton() -> UIBarButtonItem {
         // Button that lets user call the number associated wtih the charging station.
-        let callString = NSLocalizedString("Call", comment: "Call Button String")
-        let callButtonItem = UIBarButtonItem(title: callString, style: .Plain, target: self, action: #selector(ChargerDetailViewController.callButtonTapped))
+        let callButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: #selector(ChargerDetailViewController.callButtonTapped))
         callButtonItem.image = UIImage(named: "CallIcon")
         
         return callButtonItem
