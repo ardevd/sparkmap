@@ -106,6 +106,8 @@
 /* Begin PBXFileReference section */
 		DC0238851BE4497B0060F4B8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		DC093CAA1CC0310A00EFCD52 /* Spark v4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v4.xcdatamodel"; sourceTree = "<group>"; };
+		DC0D4D9F1D4FECE000F49229 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/OCMSignInViewController.strings; sourceTree = "<group>"; };
+		DC0D4DA01D4FECE100F49229 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/CommentComposerViewController.strings; sourceTree = "<group>"; };
 		DC11A7B11C092FD300FD54C3 /* ChargerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargerDetailViewController.swift; sourceTree = "<group>"; };
 		DC14111D1CC00D7600F68C83 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC14111F1CC00D9500F68C83 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -316,10 +318,10 @@
 				DCD7983A1BE5814F00C62863 /* AnnotationCharger.swift */,
 				DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */,
 				DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */,
-				DC11A7B11C092FD300FD54C3 /* ChargerDetailViewController.swift */,
 				DC7830CB1CE9C79A005B315E /* CommentsListViewController.swift */,
 				DCCF429D1CEFA007008DC094 /* CommentsListViewController.xib */,
 				DC1A2DF21CB6D69400C2C01F /* ChargerDetailViewController.xib */,
+				DC11A7B11C092FD300FD54C3 /* ChargerDetailViewController.swift */,
 				DC85CABB1C5A137700AB2786 /* ConnectionTableViewCell.swift */,
 				DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */,
 				DC7830CF1CE9D8FE005B315E /* CommentTableViewCell.swift */,
@@ -736,6 +738,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DCB4E7A31D4C577C00EC5598 /* Base */,
+				DC0D4DA01D4FECE100F49229 /* nb */,
 			);
 			name = CommentComposerViewController.xib;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DCB4E7A61D4C578B00EC5598 /* Base */,
+				DC0D4D9F1D4FECE000F49229 /* nb */,
 			);
 			name = OCMSignInViewController.xib;
 			sourceTree = "<group>";
