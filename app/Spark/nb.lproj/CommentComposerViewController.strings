@@ -1,0 +1,24 @@
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "Usd-Bn-ZRB"; */
+"Usd-Bn-ZRB.normalTitle" = "Angi";
+
+/* Class = "UISegmentedControl"; X29-0Q-4tD.segmentTitles[0] = "0"; ObjectID = "X29-0Q-4tD"; */
+"X29-0Q-4tD.segmentTitles[0]" = "0";
+
+/* Class = "UISegmentedControl"; X29-0Q-4tD.segmentTitles[1] = "1"; ObjectID = "X29-0Q-4tD"; */
+"X29-0Q-4tD.segmentTitles[1]" = "1";
+
+/* Class = "UISegmentedControl"; X29-0Q-4tD.segmentTitles[2] = "2"; ObjectID = "X29-0Q-4tD"; */
+"X29-0Q-4tD.segmentTitles[2]" = "2";
+
+/* Class = "UISegmentedControl"; X29-0Q-4tD.segmentTitles[3] = "3"; ObjectID = "X29-0Q-4tD"; */
+"X29-0Q-4tD.segmentTitles[3]" = "3";
+
+/* Class = "UISegmentedControl"; X29-0Q-4tD.segmentTitles[4] = "4"; ObjectID = "X29-0Q-4tD"; */
+"X29-0Q-4tD.segmentTitles[4]" = "4";
+
+/* Class = "UISegmentedControl"; X29-0Q-4tD.segmentTitles[5] = "5"; ObjectID = "X29-0Q-4tD"; */
+"X29-0Q-4tD.segmentTitles[5]" = "5";
+
+/* Class = "UILabel"; text = "Rating"; ObjectID = "kus-bI-blq"; */
+"kus-bI-blq.text" = "Vurdering";
+

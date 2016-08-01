@@ -1,6 +1,9 @@
 /* Minutes of travel time */
 "%@ minutes of travel time" = "%@ minutter reisetid";
 
+/* Authentication Failed Message */
+"Authentication Failed" = "Pålogging mislyktes";
+
 /* Photo submission request message */
 "Awesome. Go ahead and upload the photo?" = "Fantastisk. Laste opp bildet?";
 
@@ -16,6 +19,9 @@
 /* Cancel Action Text */
 "Cancel" = "Avbryt";
 
+/* User photo upload failed description message. */
+"Could not post the photo. Please try again later." = "Kunne ikke laste opp bildet. Prøv på nytt senere.";
+
 /* Dismiss
    Download Spinner dismiss button text */
 "Dismiss" = "OK";
@@ -23,11 +29,20 @@
 /* Downloading Data Spinner Text */
 "Downloading..." = "Laster...";
 
+/* Incorrect username/password */
+"Incorrect credentails" = "Ugyldig brukernavn og/eller passord";
+
+/* Invalid Response From Server */
+"Invalid Response from server" = "Ugyldig respons fra server";
+
 /* Data download parsing error */
 "Invalid data returned from server. Please try again later." = "Ugyldig data returnert. Prøv igjen senere.";
 
 /* Navigate */
 "Navigate" = "Naviger";
+
+/* New Comment */
+"New Comment" = "Ny kommentar";
 
 /* No */
 "No" = "Nei";
@@ -47,11 +62,14 @@
 /* Photo Submission */
 "Photo Submission" = "Bildeopplasting";
 
-/* Photo Submitted */
-"Photo Submitted" = "Bildet er lastet opp";
+/* User photo upload failed */
+"Photo upload failed." = "Kunne ikke laste opp bilde.";
 
 /* User search location not found */
 "Place not found" = "Sted ikke funnet";
+
+/* Posting comment spinner text */
+"Posting Comment..." = "Poster kommentar...";
 
 /* Private - For staff or customers usage type */
 "Private - For Staff, Visitors or Customers" = "Privat - For ansatte, besøkende eller kunder.";
@@ -80,6 +98,12 @@
 /* Searchbar placeholder string */
 "Search for a place or address" = "Søk etter et sted eller addresse";
 
+/* Sign out of OCM */
+"Sign Out" = "Logg ut";
+
+/* Signing in spinner text */
+"Signing in..." = "Logger inn...";
+
 /* Submit a photo description text */
 "Submit a photo for this charging station" = "Last opp bilde av denne ladestasjonen";
 
@@ -89,20 +113,17 @@
 /* Charging Status Unknown */
 "Unknown" = "Ukjent";
 
+/* Unkown Error */
+"Unknown Error" = "Ukjent Feil";
+
 /* Unknown Usage Type */
 "Unknown usage type" = "Ukjent bruksrett";
 
 /* Photo Submitted */
 "Upload photo" = "Last opp bilde";
 
-/* Write Comment */
-"Write Comment" = "Skriv kommentar";
-
 /* Yes */
 "Yes" = "Ja";
-
-/* Photo submission confirmation message */
-"Your photo will be submitted for review. Thank you!" = "Bildet blir lastet opp for godkjenning. Tusen takk!";
 
 /* Meters */
 "meters" = "meter";

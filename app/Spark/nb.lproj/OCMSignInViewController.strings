@@ -1,0 +1,18 @@
+/* Class = "UITextField"; placeholder = "Email Address"; ObjectID = "6jl-7j-nsm"; */
+"6jl-7j-nsm.placeholder" = "Epostadresse";
+
+/* Class = "UILabel"; text = "Sign in"; ObjectID = "8Ez-lM-3kc"; */
+"8Ez-lM-3kc.text" = "Log inn";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "53R-q7-Gf9"; */
+"53R-q7-Gf9.normalTitle" = "Angi";
+
+/* Class = "UIButton"; normalTitle = "No account? Sign up!"; ObjectID = "Hb5-uv-u1B"; */
+"Hb5-uv-u1B.normalTitle" = "Opprett ny konto";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "Q8W-YE-4hL"; */
+"Q8W-YE-4hL.placeholder" = "Passord";
+
+/* Class = "UILabel"; text = "Sign in with your Open Charge Map account to view your profile and submit content"; ObjectID = "sPG-Zk-ZcB"; */
+"sPG-Zk-ZcB.text" = "Logg inn med med Open Charge Map-kontoen din for å se profilen din og skrive kommentarer.";
+

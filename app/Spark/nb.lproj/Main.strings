@@ -73,6 +73,9 @@
 /* Class = "UILabel"; text = "CHAdeMO"; ObjectID = "hE6-Vt-Iw2"; */
 "hE6-Vt-Iw2.text" = "CHAdeMO";
 
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "iJI-LX-P2k"; */
+"iJI-LX-P2k.title" = "Profil";
+
 /* Class = "UILabel"; text = "Combo (CCS)"; ObjectID = "kqa-ep-x8Y"; */
 "kqa-ep-x8Y.text" = "Combo (CCS)";
 
@@ -94,8 +97,17 @@
 /* Class = "UISegmentedControl"; nqM-Y8-84n.segmentTitles[2] = "Hybrid"; ObjectID = "nqM-Y8-84n"; */
 "nqM-Y8-84n.segmentTitles[2]" = "Hybrid";
 
+/* Class = "UILabel"; text = "Reputation"; ObjectID = "txC-1K-oZB"; */
+"txC-1K-oZB.text" = "Ryktepoeng";
+
 /* Class = "UILabel"; text = "Map type"; ObjectID = "wjz-xz-VyA"; */
 "wjz-xz-VyA.text" = "Karttype";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "x2k-xg-4nK"; */
+"x2k-xg-4nK.title" = "Profil";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "xO0-i0-YuY"; */
+"xO0-i0-YuY.text" = "Lokasjon";
 
 /* Class = "UILabel"; text = "Offline mode"; ObjectID = "zZV-Lt-BNI"; */
 "zZV-Lt-BNI.text" = "Offline-modus";
