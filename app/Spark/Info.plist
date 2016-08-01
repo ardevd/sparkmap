@@ -28,7 +28,7 @@
 		<dict/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>SparkMap can use your location to determine charging stations close to you.</string>
+	<string>SparkMap can use your location to show charging stations nearby.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
