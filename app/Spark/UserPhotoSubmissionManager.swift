@@ -23,7 +23,7 @@ class UserPhotoSubmissionManager: NSObject {
         let boundary = generateBoundaryString()
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         
-        let imageData = UIImageJPEGRepresentation(userImage, 1)
+        let imageData = UIImageJPEGRepresentation(userImage, 0.7)
         
         if(imageData==nil)
         {
