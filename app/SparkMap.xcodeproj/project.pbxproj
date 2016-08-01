@@ -61,6 +61,8 @@
 		DC85CABE1C5A137700AB2786 /* ConnectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC85CABC1C5A137700AB2786 /* ConnectionTableViewCell.xib */; };
 		DCAFABCD1CC679B200C637BE /* MapCoordinateSpanSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAFABCC1CC679B200C637BE /* MapCoordinateSpanSingelton.swift */; };
 		DCB3E2361BE65102003AB6C9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB3E2351BE65102003AB6C9 /* LocationManager.swift */; };
+		DCB4E7A21D4C577C00EC5598 /* CommentComposerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB4E7A41D4C577C00EC5598 /* CommentComposerViewController.xib */; };
+		DCB4E7A51D4C578B00EC5598 /* OCMSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB4E7A71D4C578B00EC5598 /* OCMSignInViewController.xib */; };
 		DCC4274C1D3673B600CAFD3E /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC4274B1D3673B600CAFD3E /* WelcomePageViewController.swift */; };
 		DCC4274E1D367AE100CAFD3E /* WelcomeZeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC4274D1D367AE100CAFD3E /* WelcomeZeroViewController.swift */; };
 		DCC427501D367B0900CAFD3E /* WelcomeOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC4274F1D367B0900CAFD3E /* WelcomeOneViewController.swift */; };
@@ -69,11 +71,9 @@
 		DCC427561D37A8EC00CAFD3E /* WelcomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCC427581D37A8EC00CAFD3E /* WelcomeStoryboard.storyboard */; };
 		DCC4275A1D3BEF0C00CAFD3E /* WelcomeFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC427591D3BEF0C00CAFD3E /* WelcomeFourViewController.swift */; };
 		DCC70A371D40FCF100CF591E /* OCMSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC70A351D40FCF100CF591E /* OCMSignInViewController.swift */; };
-		DCC70A381D40FCF100CF591E /* OCMSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCC70A361D40FCF100CF591E /* OCMSignInViewController.xib */; };
 		DCC70A3A1D40FF7C00CF591E /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC70A391D40FF7C00CF591E /* AuthenticationManager.swift */; };
 		DCC70A3E1D40FFC500CF591E /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC70A3D1D40FFC500CF591E /* UserProfileViewController.swift */; };
 		DCC70A411D429B2300CF591E /* CommentComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC70A3F1D429B2300CF591E /* CommentComposerViewController.swift */; };
-		DCC70A421D429B2300CF591E /* CommentComposerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCC70A401D429B2300CF591E /* CommentComposerViewController.xib */; };
 		DCC70A441D429BB900CF591E /* CommentSubmissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC70A431D429BB900CF591E /* CommentSubmissionManager.swift */; };
 		DCC862BC1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */; };
 		DCCAC3361D2579BA007B334D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCCAC3381D2579BA007B334D /* InfoPlist.strings */; };
@@ -201,6 +201,8 @@
 		DCABF7A01C77CAB000B9FEE2 /* Spark v 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v 3.xcdatamodel"; sourceTree = "<group>"; };
 		DCAFABCC1CC679B200C637BE /* MapCoordinateSpanSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCoordinateSpanSingelton.swift; sourceTree = "<group>"; };
 		DCB3E2351BE65102003AB6C9 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		DCB4E7A31D4C577C00EC5598 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CommentComposerViewController.xib; sourceTree = "<group>"; };
+		DCB4E7A61D4C578B00EC5598 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OCMSignInViewController.xib; sourceTree = "<group>"; };
 		DCC4274B1D3673B600CAFD3E /* WelcomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
 		DCC4274D1D367AE100CAFD3E /* WelcomeZeroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeZeroViewController.swift; sourceTree = "<group>"; };
 		DCC4274F1D367B0900CAFD3E /* WelcomeOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeOneViewController.swift; sourceTree = "<group>"; };
@@ -210,11 +212,9 @@
 		DCC427571D37A8EC00CAFD3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WelcomeStoryboard.storyboard; sourceTree = "<group>"; };
 		DCC427591D3BEF0C00CAFD3E /* WelcomeFourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFourViewController.swift; sourceTree = "<group>"; };
 		DCC70A351D40FCF100CF591E /* OCMSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCMSignInViewController.swift; sourceTree = "<group>"; };
-		DCC70A361D40FCF100CF591E /* OCMSignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCMSignInViewController.xib; sourceTree = "<group>"; };
 		DCC70A391D40FF7C00CF591E /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		DCC70A3D1D40FFC500CF591E /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		DCC70A3F1D429B2300CF591E /* CommentComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentComposerViewController.swift; sourceTree = "<group>"; };
-		DCC70A401D429B2300CF591E /* CommentComposerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentComposerViewController.xib; sourceTree = "<group>"; };
 		DCC70A431D429BB900CF591E /* CommentSubmissionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentSubmissionManager.swift; sourceTree = "<group>"; };
 		DCC862BB1C634FE0001E0049 /* MapCenterCoordinateSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCenterCoordinateSingelton.swift; sourceTree = "<group>"; };
 		DCCAC3321D257946007B334D /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -337,10 +337,10 @@
 				DCC427531D36B33300CAFD3E /* WelcomeThreeViewController.swift */,
 				DCC427591D3BEF0C00CAFD3E /* WelcomeFourViewController.swift */,
 				DCC70A351D40FCF100CF591E /* OCMSignInViewController.swift */,
-				DCC70A361D40FCF100CF591E /* OCMSignInViewController.xib */,
+				DCB4E7A71D4C578B00EC5598 /* OCMSignInViewController.xib */,
 				DCC70A3D1D40FFC500CF591E /* UserProfileViewController.swift */,
 				DCC70A3F1D429B2300CF591E /* CommentComposerViewController.swift */,
-				DCC70A401D429B2300CF591E /* CommentComposerViewController.xib */,
+				DCB4E7A41D4C577C00EC5598 /* CommentComposerViewController.xib */,
 			);
 			path = Spark;
 			sourceTree = "<group>";
@@ -563,10 +563,10 @@
 				DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */,
 				DC14112C1CC00DEE00F68C83 /* Localizable.strings in Resources */,
 				DCCF429B1CEFA007008DC094 /* CommentsListViewController.xib in Resources */,
-				DCC70A421D429B2300CF591E /* CommentComposerViewController.xib in Resources */,
+				DCB4E7A21D4C577C00EC5598 /* CommentComposerViewController.xib in Resources */,
 				DCC427561D37A8EC00CAFD3E /* WelcomeStoryboard.storyboard in Resources */,
 				DC1ED16D1BE29572007C09D1 /* Assets.xcassets in Resources */,
-				DCC70A381D40FCF100CF591E /* OCMSignInViewController.xib in Resources */,
+				DCB4E7A51D4C578B00EC5598 /* OCMSignInViewController.xib in Resources */,
 				DC7830D21CE9D8FE005B315E /* CommentTableViewCell.xib in Resources */,
 				DC1ED1681BE29572007C09D1 /* Main.storyboard in Resources */,
 			);
@@ -730,6 +730,22 @@
 				DCAA484B1CC0027800114FF2 /* nb */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DCB4E7A41D4C577C00EC5598 /* CommentComposerViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCB4E7A31D4C577C00EC5598 /* Base */,
+			);
+			name = CommentComposerViewController.xib;
+			sourceTree = "<group>";
+		};
+		DCB4E7A71D4C578B00EC5598 /* OCMSignInViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCB4E7A61D4C578B00EC5598 /* Base */,
+			);
+			name = OCMSignInViewController.xib;
 			sourceTree = "<group>";
 		};
 		DCC427581D37A8EC00CAFD3E /* WelcomeStoryboard.storyboard */ = {
