@@ -36,10 +36,13 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     // Location
     var locationManager: CLLocationManager?
+    
     /* We will use this property to keep track on whether
      or not positioning is active */
     var isActive: Bool = false
     
+    // Use this to indicate whether we have a proper travel ETA
+    var gotETA: Bool = false
     
     var charger: ChargerPrimary?
     var connections: [Connection] = [Connection]()
@@ -75,6 +78,10 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                 imageThumbnail.image = image
             }
         }
+        
+        // Add Gesture recognizer for launching navigation when tapping the travel ETA label.
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ChargerDetailViewController.etaLabelTapped(_:)))
+        labelTransportETA.addGestureRecognizer(tapGesture)
         
         determineCommentIconType()
         checkAndAnimateRecentlyVerifiedView()
@@ -153,6 +160,16 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     }
     
     func navigateButtonTapped() {
+        startNavigation()
+    }
+    
+    func etaLabelTapped(gesture: UITapGestureRecognizer) {
+        if gotETA {
+            startNavigation()
+        }
+    }
+    
+    func startNavigation() {
         let addressDictionary = [String(CNPostalAddressStreetKey): labelSubtitle.text as! AnyObject]
         let chargingPointPlaceCoordinate = CLLocationCoordinate2D(latitude: (charger?.chargerLatitude)!, longitude: (charger?.chargerLongitude)!)
         let placemark = MKPlacemark(coordinate: chargingPointPlaceCoordinate, addressDictionary: addressDictionary)
@@ -605,6 +622,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             let travelTime = String(Double(round(100 * (response!.expectedTravelTime/60))/100))
             let travelTimeString = String.localizedStringWithFormat(NSLocalizedString("%@ minutes of travel time", comment: "Minutes of travel time"), travelTime)
             self.labelTransportETA.text = travelTimeString
+            self.gotETA = true
         }
     }
     
