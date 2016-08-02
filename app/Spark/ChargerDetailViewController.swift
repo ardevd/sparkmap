@@ -33,6 +33,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     @IBOutlet var viewHeader: UIView!
     @IBOutlet var viewLastUpdateTime: UIView!
     @IBOutlet var viewRecentlyVerified: UIView!
+    @IBOutlet var viewTransportETA: UIView!
     
     // Location
     var locationManager: CLLocationManager?
@@ -617,6 +618,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         directions.calculateETAWithCompletionHandler { response, error -> Void in
             if let err = error {
                 self.labelTransportETA.text = err.userInfo["NSLocalizedFailureReason"] as? String
+                self.gotETA = false
                 return
             }
             let travelTime = String(Double(round(100 * (response!.expectedTravelTime/60))/100))

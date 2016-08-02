@@ -29,6 +29,7 @@
                 <outlet property="viewLastUpdateTime" destination="Rpx-Kl-Olf" id="kdB-mf-rrd"/>
                 <outlet property="viewNumberOfPoints" destination="M4X-j9-9Ys" id="Zst-hb-2Jz"/>
                 <outlet property="viewRecentlyVerified" destination="Qmq-y0-sxC" id="Wfe-JF-Tva"/>
+                <outlet property="viewTransportETA" destination="reu-oc-cC4" id="Bik-PK-kDh"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
