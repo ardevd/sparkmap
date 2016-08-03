@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Contacts
+import SafariServices
 
 class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate, UIViewControllerPreviewingDelegate {
     // Outlets
@@ -218,7 +219,8 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     @IBAction func editChargingStation() {
         if let chargerId = self.charger?.chargerId{
-            UIApplication.sharedApplication().openURL(NSURL(string: "http://openchargemap.org/site/poi/edit/\(chargerId)")!)
+            let safariViewController = SFSafariViewController(URL: NSURL(string: "http://openchargemap.org/site/poi/edit/\(chargerId)")!)
+            self.presentViewController(safariViewController, animated: true, completion: nil)
         }
     }
     
