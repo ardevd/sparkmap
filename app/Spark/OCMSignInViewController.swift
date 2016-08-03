@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class OCMSignInViewController: UIViewController, UITextFieldDelegate {
     
@@ -64,7 +65,10 @@ class OCMSignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func showOCMSignupPage(){
-        UIApplication.sharedApplication().openURL(NSURL(string: "http://openchargemap.org/site/loginprovider/register")!)
+        //UIApplication.sharedApplication().openURL(NSURL(string: "http://openchargemap.org/site/loginprovider/register")!)
+        
+        let safariViewController = SFSafariViewController(URL: NSURL(string: "http://openchargemap.org/site/loginprovider/register")!)
+        self.presentViewController(safariViewController, animated: true, completion: nil)
     }
     
     func tapOutsideTextView(gesture: UITapGestureRecognizer) {
