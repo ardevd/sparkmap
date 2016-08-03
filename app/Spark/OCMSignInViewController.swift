@@ -65,8 +65,6 @@ class OCMSignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func showOCMSignupPage(){
-        //UIApplication.sharedApplication().openURL(NSURL(string: "http://openchargemap.org/site/loginprovider/register")!)
-        
         let safariViewController = SFSafariViewController(URL: NSURL(string: "http://openchargemap.org/site/loginprovider/register")!)
         self.presentViewController(safariViewController, animated: true, completion: nil)
     }
