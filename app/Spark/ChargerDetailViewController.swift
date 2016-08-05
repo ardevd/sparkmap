@@ -83,7 +83,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         
         // Add Gesture recognizer for launching navigation when tapping the travel ETA label.
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ChargerDetailViewController.etaLabelTapped(_:)))
-        labelTransportETA.addGestureRecognizer(tapGesture)
+        viewTransportETA.addGestureRecognizer(tapGesture)
         
         determineCommentIconType()
         checkAndAnimateRecentlyVerifiedView()
