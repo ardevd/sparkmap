@@ -151,7 +151,7 @@ class DataManager: NSObject {
             // Add default query predicate
             // Get map span singelton value
             let mapSpan = MapCoordinateSpanSingelton.span.mapSpan
-            fetchChargersSubPredicates.append(NSPredicate(format: "chargerLatitude BETWEEN {%f,%f} AND chargerLongitude BETWEEN {%f,%f}", (latitude-mapSpan.latitudeDelta * 1.4), (latitude+mapSpan.latitudeDelta * 1.4), (longitude-mapSpan.longitudeDelta * 1.4), (longitude+mapSpan.longitudeDelta * 1.4)))
+            fetchChargersSubPredicates.append(NSPredicate(format: "chargerLatitude BETWEEN {%f,%f} AND chargerLongitude BETWEEN {%f,%f}", (latitude-mapSpan.latitudeDelta * 2.0), (latitude+mapSpan.latitudeDelta * 2.0), (longitude-mapSpan.longitudeDelta * 2.0), (longitude+mapSpan.longitudeDelta * 2.0)))
             
             // Optionally add connection type predicate
             if let connectionTypeIDsFromSettings = NSUserDefaults.standardUserDefaults().arrayForKey("connectionFilterIds") as? [Int] {
