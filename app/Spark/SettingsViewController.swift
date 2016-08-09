@@ -27,11 +27,11 @@ class SettingsViewController: UITableViewController {
     @IBOutlet var stepperClusteringThreshold: UIStepper!
     @IBOutlet var clusteringThresholdLabel: UILabel!
     
-    let connectionIdSchuko = 28
-    let connectionIdChademo = 2
-    let connectionIdType2 = 25
-    let connectionIdTeslaSupercharger = 27
-    let connectionIdCCS = 33
+    let CONNECTION_ID_SCHUKO = 28
+    let CONNECTION_ID_CHADEMO = 2
+    let CONNECTION_ID_TYPE2 = 25
+    let CONNECTION_ID_TESLA_SUPERCHARGER = 27
+    let CONNECTION_ID_CCS = 33
     
     var connectionTypeIDs = [Int]()
     
@@ -101,15 +101,15 @@ class SettingsViewController: UITableViewController {
             for id in connectionTypeIDsFromSettings {
                 let idAsInt = id as! Int
                 connectionTypeIDs.append(idAsInt)
-                if (idAsInt == connectionIdSchuko){
+                if (idAsInt == CONNECTION_ID_SCHUKO){
                    cellSchuko.accessoryType = .Checkmark
-                } else if (idAsInt == connectionIdType2) {
+                } else if (idAsInt == CONNECTION_ID_TYPE2) {
                     cellType2.accessoryType = .Checkmark
-                } else if (idAsInt == connectionIdChademo) {
+                } else if (idAsInt == CONNECTION_ID_CHADEMO) {
                     cellChademo.accessoryType = .Checkmark
-                } else if (idAsInt == connectionIdTeslaSupercharger) {
+                } else if (idAsInt == CONNECTION_ID_TESLA_SUPERCHARGER) {
                     cellTesla.accessoryType = .Checkmark
-                } else if (idAsInt == connectionIdCCS) {
+                } else if (idAsInt == CONNECTION_ID_CCS) {
                     cellCCS.accessoryType = .Checkmark
                 }
             }
@@ -201,7 +201,7 @@ class SettingsViewController: UITableViewController {
         if (section == 1){
             if (row == 0) {
                 //CCS
-                if (connectionTypeFilterToggle(connectionIdCCS)){
+                if (connectionTypeFilterToggle(CONNECTION_ID_CCS)){
                     cell?.accessoryType = .Checkmark
                 } else {
                     cell?.accessoryType = .None
@@ -209,14 +209,14 @@ class SettingsViewController: UITableViewController {
                 }
             if (row == 1) {
                 //Chuko
-                if (connectionTypeFilterToggle(connectionIdSchuko)){
+                if (connectionTypeFilterToggle(CONNECTION_ID_SCHUKO)){
                     cell?.accessoryType = .Checkmark
                 } else {
                     cell?.accessoryType = .None
                 }
             } else if (row == 2) {
                 //Chademo
-                if (connectionTypeFilterToggle(connectionIdChademo)){
+                if (connectionTypeFilterToggle(CONNECTION_ID_CHADEMO)){
                     cell?.accessoryType = .Checkmark
                 } else {
                     cell?.accessoryType = .None
@@ -224,14 +224,14 @@ class SettingsViewController: UITableViewController {
 
             } else if (row == 3) {
                 // Type 2
-                if (connectionTypeFilterToggle(connectionIdType2)){
+                if (connectionTypeFilterToggle(CONNECTION_ID_TYPE2)){
                     cell?.accessoryType = .Checkmark
                 } else {
                     cell?.accessoryType = .None
                 }
             } else if (row == 4) {
                 // Tesla Supercharger
-                if (connectionTypeFilterToggle(connectionIdTeslaSupercharger)){
+                if (connectionTypeFilterToggle(CONNECTION_ID_TESLA_SUPERCHARGER)){
                     cell?.accessoryType = .Checkmark
                 } else {
                     cell?.accessoryType = .None
