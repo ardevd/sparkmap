@@ -16,7 +16,7 @@ class UserManager {
     var location: String?
     
     
-    func storeUserData() {
+    func commitUserData() {
         // Store user data.
         let defaults = NSUserDefaults.standardUserDefaults()
         

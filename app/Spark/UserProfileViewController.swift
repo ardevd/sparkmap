@@ -16,6 +16,8 @@ class UserProfileViewController: UIViewController {
     @IBOutlet var reputationLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
     
+    lazy var userManager: UserManager = UserManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         manipulateViews()
@@ -34,6 +36,7 @@ class UserProfileViewController: UIViewController {
         if AuthenticationManager.doWeHaveCredentails(){
             registerNotificationListeners()
             authenticateUser()
+            populateViewsFromStoredUserData()
         } else {
             registerSignupNotificationListener()
             launchOCMSignInViewController()
@@ -58,30 +61,38 @@ class UserProfileViewController: UIViewController {
         AuthenticationManager.authenticateUserWithStoredCredentials()
     }
     
-    func successfulSigninOccurred(notification: NSNotification){
-        // User is authenticated, populate views with stuff.
+    func populateViewsFromStoredUserData(){
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.usernameLabel.text = String(self.userManager.username)
+            self.emailLabel.text = String(self.userManager.emailAddress)
+            self.locationLabel.text = String(self.userManager.location)
+            self.reputationLabel.text = String(self.userManager.reputation)
+        })
+    }
+    
+    func successfulSigninOccurred(notification: NSNotification){
+        // User is authenticated, handle the new user data
             if let username = notification.userInfo?["username"] as? NSString {
-                self.usernameLabel.text = String(username)
+                self.userManager.username = String(username)
             }
             
             if let email = notification.userInfo?["email"] as? NSString {
-                self.emailLabel.text = String(email)
+                self.userManager.emailAddress = String(email)
             }
             
             if let location = notification.userInfo?["location"] as? NSString {
-                self.locationLabel.text = String(location)
+                self.userManager.location = String(location)
             }
             
             if let reputationPoints = notification.userInfo?["reputation"] as? NSString {
-                self.reputationLabel.text = String(reputationPoints)
-                
+                self.userManager.reputation = Int(reputationPoints as String)
             }
             
             if let avatarURL = notification.userInfo?["avatarURL"] as? NSString {
                 self.downloadAvatarImage(String(avatarURL))
             }
-        })
+            self.userManager.commitUserData()
+            self.populateViewsFromStoredUserData()
     }
     
     func downloadAvatarImage(imageUrl: String){
