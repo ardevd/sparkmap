@@ -15,6 +15,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet var emailLabel: UILabel!
     @IBOutlet var reputationLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
+    @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     
     lazy var userManager: UserManager = UserManager()
     
@@ -59,6 +60,7 @@ class UserProfileViewController: UIViewController {
     
     func authenticateUser(){
         AuthenticationManager.authenticateUserWithStoredCredentials()
+        activityIndicatorView.startAnimating()
     }
     
     func populateViewsFromStoredUserData(){
@@ -71,6 +73,9 @@ class UserProfileViewController: UIViewController {
     }
     
     func successfulSigninOccurred(notification: NSNotification){
+        // Dismiss activity indicator. Does it need to be done on the main queue?
+        activityIndicatorView.stopAnimating()
+        
         // User is authenticated, handle the new user data
             if let username = notification.userInfo?["username"] as? NSString {
                 self.userManager.username = String(username)
@@ -91,6 +96,7 @@ class UserProfileViewController: UIViewController {
             if let avatarURL = notification.userInfo?["avatarURL"] as? NSString {
                 self.downloadAvatarImage(String(avatarURL))
             }
+        
             self.userManager.commitUserData()
             self.populateViewsFromStoredUserData()
     }
@@ -119,6 +125,9 @@ class UserProfileViewController: UIViewController {
     }
     
     func userAuthenticationFailed(notification: NSNotification){
+        // Dismiss activity indicator view.
+        activityIndicatorView.stopAnimating()
+        
         // TODO: Handle user authentication failure.
         if let errorCode = notification.userInfo?["errorCode"] as? NSNumber {
             if errorCode == 100 {

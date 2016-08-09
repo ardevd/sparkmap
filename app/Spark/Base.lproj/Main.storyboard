@@ -194,6 +194,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="zqv-m1-Wbi">
+                                        <rect key="frame" x="572" y="8" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.25098039220000001" green="0.2470588235" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -201,13 +204,15 @@
                                     <constraint firstItem="0Zj-M4-3RW" firstAttribute="centerX" secondItem="6R7-Xp-jao" secondAttribute="centerX" id="6aJ-jl-Kae"/>
                                     <constraint firstItem="0Zj-M4-3RW" firstAttribute="top" secondItem="D53-lb-LXo" secondAttribute="bottom" constant="16" id="HlA-uD-ElU"/>
                                     <constraint firstItem="2QH-8o-9VZ" firstAttribute="top" secondItem="0Zj-M4-3RW" secondAttribute="bottom" constant="8" id="MSu-4n-Jxq"/>
+                                    <constraint firstItem="zqv-m1-Wbi" firstAttribute="top" secondItem="6R7-Xp-jao" secondAttribute="top" constant="8" id="P3T-qA-L2q"/>
                                     <constraint firstItem="D53-lb-LXo" firstAttribute="centerX" secondItem="6R7-Xp-jao" secondAttribute="centerX" id="XEH-wg-u35"/>
                                     <constraint firstAttribute="height" constant="218" id="bfq-ta-gfL"/>
+                                    <constraint firstAttribute="trailing" secondItem="zqv-m1-Wbi" secondAttribute="trailing" constant="8" id="lA9-nT-5kf"/>
                                     <constraint firstItem="D53-lb-LXo" firstAttribute="top" secondItem="6R7-Xp-jao" secondAttribute="top" constant="31" id="qQH-Cr-gff"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="6R7-Xp-jao" secondAttribute="trailing" id="2Cv-iW-hKr"/>
                             <constraint firstAttribute="trailing" secondItem="ogp-fc-erE" secondAttribute="trailing" id="3IX-o1-8wo"/>
@@ -219,6 +224,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="iJI-LX-P2k"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="zqv-m1-Wbi" id="5Ww-wx-FwH"/>
                         <outlet property="avatarImageView" destination="D53-lb-LXo" id="PFM-o9-Oeh"/>
                         <outlet property="emailLabel" destination="2QH-8o-9VZ" id="PDP-wE-YCY"/>
                         <outlet property="locationLabel" destination="zkQ-AB-u02" id="ES3-tx-lN4"/>
