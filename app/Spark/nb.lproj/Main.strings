@@ -5,7 +5,7 @@
 "7jm-AF-pRD.title" = "SparkMap";
 
 /* Class = "UILabel"; text = "Current minimum"; ObjectID = "7oU-lZ-E8z"; */
-"7oU-lZ-E8z.text" = "Spenning minimum";
+"7oU-lZ-E8z.text" = "Strømstyrke minimum";
 
 /* Class = "UILabel"; text = "Cluster chargers together"; ObjectID = "7vw-N8-0Li"; */
 "7vw-N8-0Li.text" = "Samle ladestasjoner sammen";

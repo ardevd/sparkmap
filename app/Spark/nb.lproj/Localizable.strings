@@ -10,9 +10,6 @@
 /* Navigate */
 "CCS Combo" = "CCS Combo";
 
-/* Call Button String */
-"Call" = "Ring";
-
 /* Camera Source */
 "Camera" = "Kamera";
 
@@ -37,9 +34,6 @@
 
 /* Data download parsing error */
 "Invalid data returned from server. Please try again later." = "Ugyldig data returnert. Prøv igjen senere.";
-
-/* Navigate */
-"Navigate" = "Naviger";
 
 /* New Comment */
 "New Comment" = "Ny kommentar";
