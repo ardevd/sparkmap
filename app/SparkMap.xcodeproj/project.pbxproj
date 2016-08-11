@@ -34,6 +34,7 @@
 		DC3D5F4D1D299494001A7D71 /* UserPreferenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D5F4C1D299494001A7D71 /* UserPreferenceHelper.swift */; };
 		DC4EB7AD1BE9717800B75FFC /* NearbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */; };
 		DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */; };
+		DC5B5EA21D59606000BE6194 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B5EA11D59606000BE6194 /* UserManager.swift */; };
 		DC68F6731BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F6691BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift */; };
 		DC68F6741BE345B4000EFFF4 /* ChargerPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F66A1BE345B4000EFFF4 /* ChargerPrimary.swift */; };
 		DC68F6771BE345B4000EFFF4 /* ChargerDetails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F66D1BE345B4000EFFF4 /* ChargerDetails+CoreDataProperties.swift */; };
@@ -154,6 +155,7 @@
 		DC46AC0C1D247F3800A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyTableViewCell.swift; sourceTree = "<group>"; };
 		DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearbyTableViewCell.xib; sourceTree = "<group>"; };
+		DC5B5EA11D59606000BE6194 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		DC5FB4FA1CEFA254000E1F33 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC5FB4FC1CEFA296000E1F33 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC5FB4FE1CEFA35C000E1F33 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 				DC3D5F4C1D299494001A7D71 /* UserPreferenceHelper.swift */,
 				DCC70A391D40FF7C00CF591E /* AuthenticationManager.swift */,
 				DCC70A431D429BB900CF591E /* CommentSubmissionManager.swift */,
+				DC5B5EA11D59606000BE6194 /* UserManager.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				DC394B671D28659C003D6C81 /* AnnotationCluster.swift in Sources */,
 				DC68F6841BE34B11000EFFF4 /* ChargerOperator.swift in Sources */,
 				DC3D5F491D286AAB001A7D71 /* QuadTreeNode.swift in Sources */,
+				DC5B5EA21D59606000BE6194 /* UserManager.swift in Sources */,
 				DCC70A411D429B2300CF591E /* CommentComposerViewController.swift in Sources */,
 				DCDC2C371C613A42004BEF91 /* SettingsViewController.swift in Sources */,
 				DC11A7B31C092FD300FD54C3 /* ChargerDetailViewController.swift in Sources */,
