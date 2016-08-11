@@ -65,16 +65,19 @@ class UserProfileViewController: UIViewController {
     
     func populateViewsFromStoredUserData(){
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.usernameLabel.text = String(self.userManager.username)
-            self.emailLabel.text = String(self.userManager.emailAddress)
-            self.locationLabel.text = String(self.userManager.location)
-            self.reputationLabel.text = String(self.userManager.reputation)
+            self.userManager.loadUserDataFromUserDefaults()
+            self.usernameLabel.text = self.userManager.username
+            self.emailLabel.text = self.userManager.emailAddress
+            self.locationLabel.text = self.userManager.location
+            if let reputationValue = self.userManager.reputation {
+            self.reputationLabel.text = "\(reputationValue)"
+            }
         })
     }
     
     func successfulSigninOccurred(notification: NSNotification){
         // Dismiss activity indicator. Does it need to be done on the main queue?
-        activityIndicatorView.stopAnimating()
+        dismissActivityIndicatorView()
         
         // User is authenticated, handle the new user data
             if let username = notification.userInfo?["username"] as? NSString {
@@ -124,9 +127,15 @@ class UserProfileViewController: UIViewController {
         }
     }
     
+    func dismissActivityIndicatorView() {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        self.activityIndicatorView.stopAnimating()
+        })
+    }
+    
     func userAuthenticationFailed(notification: NSNotification){
         // Dismiss activity indicator view.
-        activityIndicatorView.stopAnimating()
+        dismissActivityIndicatorView()
         
         // TODO: Handle user authentication failure.
         if let errorCode = notification.userInfo?["errorCode"] as? NSNumber {
@@ -137,6 +146,7 @@ class UserProfileViewController: UIViewController {
     }
     
     func userLoginCompleted(notification: NSNotification) {
+        dismissActivityIndicatorView()
         registerNotificationListeners()
         authenticateUser()
     }

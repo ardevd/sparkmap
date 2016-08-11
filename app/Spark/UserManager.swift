@@ -21,7 +21,7 @@ class UserManager {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         if let ocmUsername = username {
-            defaults.setObject(ocmUsername, forKey: "ocmUsername")
+            defaults.setObject(ocmUsername, forKey: "ocmUserNick")
         }
         
         if let ocmReputation = reputation {
@@ -40,7 +40,7 @@ class UserManager {
     func loadUserDataFromUserDefaults() {
         // Load stored user data
         let defaults = NSUserDefaults.standardUserDefaults()
-        username = defaults.objectForKey("ocmUsername") as? String
+        username = defaults.objectForKey("ocmUserNick") as? String
         reputation = defaults.integerForKey("ocmReputation")
         emailAddress = defaults.objectForKey("ocmEmailAddress") as? String
         location = defaults.objectForKey("ocmLocation") as? String
