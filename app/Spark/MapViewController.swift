@@ -264,7 +264,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     }
     
     func getAnnotationsFromNewLocation(coordinate: CLLocationCoordinate2D){
-        dataManager.downloadNearbyChargers(Latitude: coordinate.latitude, Longitude: coordinate.longitude, Distance: (getCurrentMapBoundsDistance() * 1.1) / 1000)
+        dataManager.downloadNearbyChargers(Latitude: coordinate.latitude, Longitude: coordinate.longitude, Distance: (getCurrentMapBoundsDistance() * 0.9) / 1000)
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -410,7 +410,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        
     }
     
     deinit {
