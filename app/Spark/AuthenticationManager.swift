@@ -63,22 +63,31 @@ class AuthenticationManager {
                         userProfileFieldsDict["sessionToken"] = String(sessionToken)
                         
                     }
-                    
                     if let profileUsername = userData!["Username"] as? NSString {
                         userProfileFieldsDict["username"] = String(profileUsername)
                     }
                     if let profileReputationpoints = userData!["ReputationPoints"] as? NSNumber {
                         userProfileFieldsDict["reputation"] = String(profileReputationpoints)
                     }
-                    let profileAvatarImage = userData!["ProfileImageURL"] as? NSString
-                    let profileAvatarImageFixed = profileAvatarImage!.stringByReplacingOccurrencesOfString("s=80", withString: "s=200")
-                    let accessToken = responseData["access_token"] as? NSString
-                    let profileEmail = userData!["EmailAddress"] as? NSString
-                    let profileLocation = userData!["Location"] as? NSString
-                    let defaults = NSUserDefaults.standardUserDefaults()
-                    defaults.setObject(accessToken, forKey: "ocmAccessToken")
-                    NSNotificationCenter.defaultCenter().postNotificationName("OCMLoginSuccess", object: nil, userInfo: ["accessToken": accessToken!, "username": profileUsername!, "reputation": String(profileReputationpoints!),
-                        "avatarURL": profileAvatarImageFixed, "email": profileEmail!, "location": profileLocation!, "sessionToken": sessionToken!])
+                    
+                    if let profileAvatarImage = userData!["ProfileImageURL"] as? NSString {
+                        userProfileFieldsDict["avatarURL"] = String(profileAvatarImage.stringByReplacingOccurrencesOfString("s=80", withString: "s=200"))
+                    }
+                    
+                    if let accessToken = responseData["access_token"] as? NSString {
+                        userProfileFieldsDict["accessToken"] = String(accessToken)
+                        let defaults = NSUserDefaults.standardUserDefaults()
+                        defaults.setObject(accessToken, forKey: "ocmAccessToken")
+                    }
+                    
+                    if let profileEmail = userData!["EmailAddress"] as? NSString {
+                        userProfileFieldsDict["email"] = String(profileEmail)
+                    }
+                    
+                    if let profileLocation = userData!["Location"] as? NSString {
+                        userProfileFieldsDict["location"] = String(profileLocation)
+                    }
+                    NSNotificationCenter.defaultCenter().postNotificationName("OCMLoginSuccess", object: nil, userInfo: userProfileFieldsDict)
                     
                 } catch {
                     let unknownErrorString = NSLocalizedString("Unknown Error", comment: "Unkown Error")
