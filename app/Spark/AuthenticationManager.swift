@@ -57,9 +57,19 @@ class AuthenticationManager {
                     guard let responseData = result["Data"] else { return }
                     guard let userData = responseData["UserProfile"] else { return }
                     
-                    let sessionToken = userData!["CurrentSessionToken"] as? NSString
-                    let profileUsername = userData!["Username"] as? NSString
-                    let profileReputationpoints = userData!["ReputationPoints"] as? NSNumber
+                    var userProfileFieldsDict = [String: String]()
+                    
+                    if let sessionToken = userData!["CurrentSessionToken"] as? NSString {
+                        userProfileFieldsDict["sessionToken"] = String(sessionToken)
+                        
+                    }
+                    
+                    if let profileUsername = userData!["Username"] as? NSString {
+                        userProfileFieldsDict["username"] = String(profileUsername)
+                    }
+                    if let profileReputationpoints = userData!["ReputationPoints"] as? NSNumber {
+                        userProfileFieldsDict["reputation"] = String(profileReputationpoints)
+                    }
                     let profileAvatarImage = userData!["ProfileImageURL"] as? NSString
                     let profileAvatarImageFixed = profileAvatarImage!.stringByReplacingOccurrencesOfString("s=80", withString: "s=200")
                     let accessToken = responseData["access_token"] as? NSString
@@ -85,7 +95,7 @@ class AuthenticationManager {
                     }
                     print("Error -> \(error)")
                     NSNotificationCenter.defaultCenter().postNotificationName("OCMLoginFailed", object: nil, userInfo:
-                    ["errorMesssage": errorMessage, "errorCode": errorCode])
+                        ["errorMesssage": errorMessage, "errorCode": errorCode])
                 }
             }
             task.resume()
