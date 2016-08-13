@@ -84,9 +84,12 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
     
     func requestUpdatedData(notification: NSNotification) {
         // Download data for this charging station.
-        let distance = CLLocationDistance(1)
-        let dataManager = DataManager()
-        dataManager.downloadNearbyChargers(Latitude: charger.chargerLatitude, Longitude: charger.chargerLongitude, Distance: distance)
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) {
+            let distance = CLLocationDistance(1)
+            let dataManager = DataManager()
+            dataManager.downloadNearbyChargers(Latitude: self.charger.chargerLatitude, Longitude: self.charger.chargerLongitude, Distance: distance)
+        }
     }
     
     func generateCommentButton() {
