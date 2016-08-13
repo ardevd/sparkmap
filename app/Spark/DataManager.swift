@@ -243,10 +243,10 @@ class DataManager: NSObject {
             LastDataDownloadTimeSingelton.lastDataDownload.time = currentTimestamp
             
             // If a valid distance value is supplied, we use it. Otherwise ignore it.
-            var apiString = "https://api.openchargemap.io/v2/poi/?output=json&verbose=false&maxresults=500&includecomments=true&distanceunit=KM&latitude=\(latitude)&longitude=\(longitude)"
+            var apiString = "https://api.openchargemap.io/v2/poi/?output=json&verbose=false&maxresults=1000&includecomments=true&distanceunit=KM&latitude=\(latitude)&longitude=\(longitude)"
             
             if distance > 0 {
-                apiString = "https://api.openchargemap.io/v2/poi/?output=json&verbose=false&maxresults=500&includecomments=true&distanceunit=KM&latitude=\(latitude)&longitude=\(longitude)&distance=\(distance)"
+                apiString = "https://api.openchargemap.io/v2/poi/?output=json&verbose=false&maxresults=1000&includecomments=true&distanceunit=KM&latitude=\(latitude)&longitude=\(longitude)&distance=\(distance)"
             }
             
             guard let url = NSURL(string: apiString) else { return }
