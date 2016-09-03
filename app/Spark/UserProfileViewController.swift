@@ -18,6 +18,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     
     lazy var userManager: UserManager = UserManager()
+    lazy var fileStorageManager: FileStorageManager = FileStorageManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +70,7 @@ class UserProfileViewController: UIViewController {
             self.usernameLabel.text = self.userManager.username
             self.emailLabel.text = self.userManager.emailAddress
             self.locationLabel.text = self.userManager.location
+            self.loadAvatarImageFromStorage()
             if let reputationValue = self.userManager.reputation {
             self.reputationLabel.text = "\(reputationValue)"
             }
@@ -117,6 +119,7 @@ class UserProfileViewController: UIViewController {
                     {
                         self.avatarImageView.image = UIImage(data: data!)
                         self.avatarImageView.alpha = 1.0
+                        self.saveAvatarImage(self.avatarImageView.image!)
                     }
                     
                     dispatch_async(dispatch_get_main_queue(), displayImage)
@@ -125,6 +128,21 @@ class UserProfileViewController: UIViewController {
             
             task.resume()
         }
+    }
+    
+    func saveAvatarImage(avatarImage: UIImage){
+        fileStorageManager.storeImageFile(avatarImage, path: getAvatarImagePath())
+    }
+    
+    func loadAvatarImageFromStorage(){
+        if let loadedImage = fileStorageManager.loadImageFromPath(getAvatarImagePath()) {
+            self.avatarImageView.image = loadedImage
+        }
+    }
+    
+    func getAvatarImagePath() -> String {
+        let avatarImageName = "avatar.png"
+        return fileStorageManager.fileInDocumentsDirectory(avatarImageName)
     }
     
     func dismissActivityIndicatorView() {
