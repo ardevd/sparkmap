@@ -32,6 +32,7 @@
 		DC3D5F4A1D286AAB001A7D71 /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D5F471D286AAB001A7D71 /* QuadTree.swift */; };
 		DC3D5F4B1D286AAB001A7D71 /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D5F481D286AAB001A7D71 /* BoundingBox.swift */; };
 		DC3D5F4D1D299494001A7D71 /* UserPreferenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D5F4C1D299494001A7D71 /* UserPreferenceHelper.swift */; };
+		DC4843831D7B03F700FB329A /* FileStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4843821D7B03F700FB329A /* FileStorageManager.swift */; };
 		DC4EB7AD1BE9717800B75FFC /* NearbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */; };
 		DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */; };
 		DC5B5EA21D59606000BE6194 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B5EA11D59606000BE6194 /* UserManager.swift */; };
@@ -153,6 +154,7 @@
 		DC46AC081D247EFC00A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC46AC0A1D247F1200A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC46AC0C1D247F3800A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DC4843821D7B03F700FB329A /* FileStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStorageManager.swift; sourceTree = "<group>"; };
 		DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyTableViewCell.swift; sourceTree = "<group>"; };
 		DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearbyTableViewCell.xib; sourceTree = "<group>"; };
 		DC5B5EA11D59606000BE6194 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				DCC70A391D40FF7C00CF591E /* AuthenticationManager.swift */,
 				DCC70A431D429BB900CF591E /* CommentSubmissionManager.swift */,
 				DC5B5EA11D59606000BE6194 /* UserManager.swift */,
+				DC4843821D7B03F700FB329A /* FileStorageManager.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				DCC4274E1D367AE100CAFD3E /* WelcomeZeroViewController.swift in Sources */,
 				DC3D5F4D1D299494001A7D71 /* UserPreferenceHelper.swift in Sources */,
 				DC81E47D1D172D750013A22F /* ChargerImageHelper.swift in Sources */,
+				DC4843831D7B03F700FB329A /* FileStorageManager.swift in Sources */,
 				DC68F6791BE345B4000EFFF4 /* Connection+CoreDataProperties.swift in Sources */,
 				DC394B651D28659C003D6C81 /* ClusterManager.swift in Sources */,
 				DC68F6741BE345B4000EFFF4 /* ChargerPrimary.swift in Sources */,
@@ -875,7 +879,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Spark/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = net.zygotelabs.sparkmap;
@@ -891,7 +895,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Spark/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = net.zygotelabs.sparkmap;
