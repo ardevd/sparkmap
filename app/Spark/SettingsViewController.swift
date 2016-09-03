@@ -183,7 +183,7 @@ class SettingsViewController: UITableViewController {
     
     func showSourceCodeOnGitHub(){
         // Send user to the GitHub repo page
-        if let url = NSURL(string: "https://github.com/Zyg0te/sparkmap") {
+        if let url = NSURL(string: "https://github.com/archpoint/sparkmap") {
             UIApplication.sharedApplication().openURL(url)
         }
     }
