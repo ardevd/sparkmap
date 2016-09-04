@@ -189,7 +189,6 @@ class DataManager: NSObject {
             } catch {
                 let jsonError = error as NSError
                 NSLog("\(jsonError), \(jsonError.localizedDescription)")
-                abort()
             }
         }
         
