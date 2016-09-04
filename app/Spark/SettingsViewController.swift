@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class SettingsViewController: UITableViewController {
     
@@ -183,9 +184,8 @@ class SettingsViewController: UITableViewController {
     
     func showSourceCodeOnGitHub(){
         // Send user to the GitHub repo page
-        if let url = NSURL(string: "https://github.com/archpoint/sparkmap") {
-            UIApplication.sharedApplication().openURL(url)
-        }
+        let safariViewController = SFSafariViewController(URL: NSURL(string: "https://github.com/archpoint/sparkmap")!)
+        self.presentViewController(safariViewController, animated: true, completion: nil)
     }
     
     func userWantsToRateApp(){
