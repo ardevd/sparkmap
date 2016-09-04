@@ -642,12 +642,15 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     }
     
     @IBAction func showOperatorWebsite(){
+        
         if let operatorWebsiteURLString = charger?.chargerOperator?.operatorWeb {
             if let url = NSURL(string: operatorWebsiteURLString) {
-                UIApplication.sharedApplication().openURL(url)
+                let safariViewController = SFSafariViewController(URL: url)
+                self.presentViewController(safariViewController, animated: true, completion: nil)
             }
         }
     }
+    
     
     @IBAction func showCommentViewController(){
         let vc = CommentsListViewController()
