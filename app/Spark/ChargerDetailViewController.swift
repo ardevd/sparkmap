@@ -406,8 +406,6 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                 buttonOperator.alpha = 0
             }
             buttonOperator.setTitle(operatorName, forState: .Normal)
-        } else {
-            
         }
         
         if let primaryPhoneNumber = charger?.chargerDetails?.chargerPrimaryContactNumber {
