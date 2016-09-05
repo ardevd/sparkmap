@@ -20,4 +20,4 @@ FAQ
 ====
 What data set is SparkMap based on?
 -----
-SparkMap pulls data from [Open Charge Map](http://openchargemap.org/site/). User data such as charger photos gets posted to sparkmap.zygotelabs.net for manual review. Approved submissions are shared back with Open Charge Map.
+SparkMap pulls data from [Open Charge Map](http://openchargemap.org/site/). User data such as charger photos gets posted to sparkmap.aegisdynamics.no for manual review. Approved submissions are shared back with Open Charge Map.
