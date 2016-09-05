@@ -402,7 +402,12 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         }
         
         if let operatorName = charger?.chargerOperator?.operatorName {
+            if operatorName == "(Unknown Operator)" {
+                buttonOperator.alpha = 0
+            }
             buttonOperator.setTitle(operatorName, forState: .Normal)
+        } else {
+            
         }
         
         if let primaryPhoneNumber = charger?.chargerDetails?.chargerPrimaryContactNumber {
