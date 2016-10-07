@@ -10,26 +10,26 @@ import UIKit
 
 class FileStorageManager {
     
-    func storeImageFile(image: UIImage, path: String ) -> Bool{
+    func storeImageFile(_ image: UIImage, path: String ) -> Bool{
         let pngImageData = UIImagePNGRepresentation(image)
-        let result = pngImageData!.writeToFile(path, atomically: true)
+        let result = (try? pngImageData!.write(to: URL(fileURLWithPath: path), options: [.atomic])) != nil
         
         return result
     }
 
-    func getDocumentsURL() -> NSURL {
-        let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+    func getDocumentsURL() -> URL {
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         return documentsURL
     }
     
-    func fileInDocumentsDirectory(filename: String) -> String {
+    func fileInDocumentsDirectory(_ filename: String) -> String {
         
-        let fileURL = getDocumentsURL().URLByAppendingPathComponent(filename)
-        return fileURL.path!
+        let fileURL = getDocumentsURL().appendingPathComponent(filename)
+        return fileURL.path
         
     }
     
-    func loadImageFromPath(path: String) -> UIImage? {
+    func loadImageFromPath(_ path: String) -> UIImage? {
         
         let image = UIImage(contentsOfFile: path)
         

@@ -15,7 +15,7 @@ class WelcomePageViewController: UIPageViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 49/255, green: 42/225, blue: 48/225, alpha: 1.0)
         dataSource = self
-        setViewControllers([getStepZero()], direction: .Forward, animated: false, completion: nil)
+        setViewControllers([getStepZero()], direction: .forward, animated: false, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,31 +24,31 @@ class WelcomePageViewController: UIPageViewController {
     }
     
     func getStepZero() -> WelcomeZeroViewController {
-        return storyboard!.instantiateViewControllerWithIdentifier("WelcomeZero") as! WelcomeZeroViewController
+        return storyboard!.instantiateViewController(withIdentifier: "WelcomeZero") as! WelcomeZeroViewController
     }
     
     func getStepOne() -> WelcomeOneViewController {
-        return storyboard!.instantiateViewControllerWithIdentifier("WelcomeOne") as! WelcomeOneViewController
+        return storyboard!.instantiateViewController(withIdentifier: "WelcomeOne") as! WelcomeOneViewController
     }
     
     func getStepTwo() -> WelcomeTwoViewController {
-        return storyboard!.instantiateViewControllerWithIdentifier("WelcomeTwo") as! WelcomeTwoViewController
+        return storyboard!.instantiateViewController(withIdentifier: "WelcomeTwo") as! WelcomeTwoViewController
     }
     
     func getStepThree() -> WelcomeThreeViewController {
-        return storyboard!.instantiateViewControllerWithIdentifier("WelcomeThree") as! WelcomeThreeViewController
+        return storyboard!.instantiateViewController(withIdentifier: "WelcomeThree") as! WelcomeThreeViewController
     }
     
     func getStepFour() -> WelcomeFourViewController {
-        return storyboard!.instantiateViewControllerWithIdentifier("WelcomeFour") as! WelcomeFourViewController
+        return storyboard!.instantiateViewController(withIdentifier: "WelcomeFour") as! WelcomeFourViewController
     }
 
     
     //Changing Status Bar
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    override var preferredStatusBarStyle : UIStatusBarStyle {
         
         //LightContent
-        return UIStatusBarStyle.LightContent
+        return UIStatusBarStyle.lightContent
         
         //Default
         //return UIStatusBarStyle.Default
@@ -57,40 +57,40 @@ class WelcomePageViewController: UIPageViewController {
 
 extension WelcomePageViewController: UIPageViewControllerDataSource {
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        if viewController.isKindOfClass(WelcomeFourViewController) {
+        if viewController.isKind(of: WelcomeFourViewController.self) {
             return getStepThree()
-        } else if viewController.isKindOfClass(WelcomeThreeViewController) {
+        } else if viewController.isKind(of: WelcomeThreeViewController.self) {
             return getStepTwo()
-        } else if viewController.isKindOfClass(WelcomeTwoViewController) {
+        } else if viewController.isKind(of: WelcomeTwoViewController.self) {
             return getStepOne()
-        } else if viewController.isKindOfClass(WelcomeOneViewController) {
+        } else if viewController.isKind(of: WelcomeOneViewController.self) {
             return getStepZero()
         } else {
             return nil
         }
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        if viewController.isKindOfClass(WelcomeZeroViewController) {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        if viewController.isKind(of: WelcomeZeroViewController.self) {
             return getStepOne()
-        } else if viewController.isKindOfClass(WelcomeOneViewController) {
+        } else if viewController.isKind(of: WelcomeOneViewController.self) {
             return getStepTwo()
-        } else if viewController.isKindOfClass(WelcomeTwoViewController) {
+        } else if viewController.isKind(of: WelcomeTwoViewController.self) {
             return getStepThree()
-        } else if viewController.isKindOfClass(WelcomeThreeViewController) {
+        } else if viewController.isKind(of: WelcomeThreeViewController.self) {
             return getStepFour()
         } else {
             return nil
         }
     }
     
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return 5
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return 0
     }
     

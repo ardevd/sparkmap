@@ -11,16 +11,16 @@ import Foundation
 class AuthenticationManager {
     
     static func authenticateUserWithStoredCredentials() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let username = defaults.stringForKey("ocmUsername")
-        let password = defaults.stringForKey("ocmPassword")
+        let defaults = UserDefaults.standard
+        let username = defaults.string(forKey: "ocmUsername")
+        let password = defaults.string(forKey: "ocmPassword")
         getSessionToken(String(username!), password: String(password!))
     }
     
     static func doWeHaveCredentails() -> Bool {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let username = defaults.stringForKey("ocmUsername")
-        let password = defaults.stringForKey("ocmPassword")
+        let defaults = UserDefaults.standard
+        let username = defaults.string(forKey: "ocmUsername")
+        let password = defaults.string(forKey: "ocmPassword")
         if username == nil || password == nil {
             return false
         }
@@ -28,72 +28,72 @@ class AuthenticationManager {
         return true
     }
     
-    static func getSessionToken(username: String, password: String) {
+    static func getSessionToken(_ username: String, password: String) {
         let authenticationURLString = "https://api.openchargemap.io/v3/profile/authenticate/"
-        guard let url = NSURL(string: authenticationURLString) else { return }
+        guard let url = URL(string: authenticationURLString) else { return }
         
         let json = [ "emailaddress": String(username) , "password": String(password) ]
         
         do {
-            let jsonData = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
             // For a HTTP POST, do the following.
-            let urlRequest = NSMutableURLRequest(URL: url)
-            urlRequest.HTTPMethod = "POST"
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = "POST"
             // insert json data to the request
-            urlRequest.HTTPBody = jsonData
+            urlRequest.httpBody = jsonData
             
-            let task = NSURLSession.sharedSession().dataTaskWithRequest(urlRequest){ data, response, error in
+            let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, response, error in
                 if error != nil{
                     print("Error -> \(error)")
-                    NSNotificationCenter.defaultCenter().postNotificationName("OCMLoginFailed", object: nil, userInfo:
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: "OCMLoginFailed"), object: nil, userInfo:
                         ["errorMesssage": error!.localizedDescription, "errorCode": -1])
                     return
                 }
                 
                 do {
-                    guard let result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? [String:AnyObject] else {
+                    guard let result = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject] else {
                         return
                     }
                     guard let responseData = result["Data"] else { return }
-                    guard let userData = responseData["UserProfile"] else { return }
+                    guard let userData = responseData["UserProfile"] as? [String : AnyObject] else { return }
                     
                     var userProfileFieldsDict = [String: String]()
                     
-                    if let sessionToken = userData!["CurrentSessionToken"] as? NSString {
-                        userProfileFieldsDict["sessionToken"] = String(sessionToken)
+                    if let sessionToken = userData["CurrentSessionToken"] as? String {
+                        userProfileFieldsDict["sessionToken"] = sessionToken
                         
                     }
-                    if let profileUsername = userData!["Username"] as? NSString {
-                        userProfileFieldsDict["username"] = String(profileUsername)
+                    if let profileUsername = userData["Username"] as? String {
+                        userProfileFieldsDict["username"] = profileUsername
                     }
-                    if let profileReputationpoints = userData!["ReputationPoints"] as? NSNumber {
+                    if let profileReputationpoints = userData["ReputationPoints"] as? Int {
                         userProfileFieldsDict["reputation"] = String(profileReputationpoints)
                     }
                     
-                    if let profileAvatarImage = userData!["ProfileImageURL"] as? NSString {
-                        userProfileFieldsDict["avatarURL"] = String(profileAvatarImage.stringByReplacingOccurrencesOfString("s=80", withString: "s=200"))
+                    if let profileAvatarImage = userData["ProfileImageURL"] as? String {
+                        userProfileFieldsDict["avatarURL"] = String(profileAvatarImage.replacingOccurrences(of: "s=80", with: "s=200"))
                     }
                     
-                    if let accessToken = responseData["access_token"] as? NSString {
-                        userProfileFieldsDict["accessToken"] = String(accessToken)
-                        let defaults = NSUserDefaults.standardUserDefaults()
-                        defaults.setObject(accessToken, forKey: "ocmAccessToken")
+                    if let accessToken = responseData["access_token"] as? String {
+                        userProfileFieldsDict["accessToken"] = (accessToken)
+                        let defaults = UserDefaults.standard
+                        defaults.set(accessToken, forKey: "ocmAccessToken")
                     }
                     
-                    if let profileEmail = userData!["EmailAddress"] as? NSString {
-                        userProfileFieldsDict["email"] = String(profileEmail)
+                    if let profileEmail = userData["EmailAddress"] as? String {
+                        userProfileFieldsDict["email"] = profileEmail
                     }
                     
-                    if let profileLocation = userData!["Location"] as? NSString {
-                        userProfileFieldsDict["location"] = String(profileLocation)
+                    if let profileLocation = userData["Location"] as? String {
+                        userProfileFieldsDict["location"] = profileLocation
                     }
-                    NSNotificationCenter.defaultCenter().postNotificationName("OCMLoginSuccess", object: nil, userInfo: userProfileFieldsDict)
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: "OCMLoginSuccess"), object: nil, userInfo: userProfileFieldsDict)
                     
                 } catch {
                     let unknownErrorString = NSLocalizedString("Unknown Error", comment: "Unkown Error")
                     var errorMessage = unknownErrorString
                     var errorCode = -1
-                    if let httpResponse = response as? NSHTTPURLResponse {
+                    if let httpResponse = response as? HTTPURLResponse {
                         let responseCode = httpResponse.statusCode
                         if responseCode == 401 {
                             let unauthorizedErrorString = NSLocalizedString("Incorrect credentails", comment: "Incorrect username/password")
@@ -103,10 +103,10 @@ class AuthenticationManager {
                         print(httpResponse.statusCode)
                     }
                     print("Error -> \(error)")
-                    NSNotificationCenter.defaultCenter().postNotificationName("OCMLoginFailed", object: nil, userInfo:
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: "OCMLoginFailed"), object: nil, userInfo:
                         ["errorMesssage": errorMessage, "errorCode": errorCode])
                 }
-            }
+            })
             task.resume()
         } catch {
             print(error)

@@ -12,24 +12,24 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager?
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // Location has been updated.
         if let location = locations.last {
             // let currentLocation = location.coordinate
             let locationCoordinate: CLLocationCoordinate2D = location.coordinate
-            NSNotificationCenter.defaultCenter().postNotificationName("LocationUpdate", object: nil, userInfo: ["latitude": locationCoordinate.latitude, "longitude": locationCoordinate.longitude])
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "LocationUpdate"), object: nil, userInfo: ["latitude": locationCoordinate.latitude, "longitude": locationCoordinate.longitude])
             // Stop location update
             self.locationManager?.stopUpdatingLocation()
         }
         
     }
     
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         // Authorization has been responded to by the user.
         switch status {
-        case CLAuthorizationStatus.AuthorizedWhenInUse:
+        case CLAuthorizationStatus.authorizedWhenInUse:
             startLocationUpdate()
-            NSNotificationCenter.defaultCenter().postNotificationName("LocationAuthorized", object: nil, userInfo: ["isAuthorized": true])
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "LocationAuthorized"), object: nil, userInfo: ["isAuthorized": true])
         default:
             break
             
@@ -45,7 +45,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         let authStatus = CLLocationManager.authorizationStatus()
         
         switch authStatus {
-        case CLAuthorizationStatus.AuthorizedWhenInUse:
+        case CLAuthorizationStatus.authorizedWhenInUse:
             // Permission already granted
             locationManager = CLLocationManager()
             locationManager?.delegate = self

@@ -9,7 +9,7 @@ import UIKit
 
 class ChargerImageHelper {
     
-    static func getChargerAnnotationImage(charger: ChargerPrimary) -> UIImage {
+    static func getChargerAnnotationImage(_ charger: ChargerPrimary) -> UIImage {
         // Return annotation image according to charging type.
         var chargerAnnotationImage: UIImage
         let connections = charger.chargerDetails?.connections?.allObjects as! [Connection]

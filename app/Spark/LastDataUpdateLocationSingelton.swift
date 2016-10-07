@@ -8,10 +8,10 @@
 
 import MapKit
 
-public class LastUpdateLocationSingelton {
+open class LastUpdateLocationSingelton {
     var location = CLLocation(latitude: 0.00, longitude: 0.00)
     static let center : LastUpdateLocationSingelton = LastUpdateLocationSingelton()
     
-    private init() {}
+    fileprivate init() {}
     
 }

@@ -26,9 +26,9 @@ class UserProfileViewController: UIViewController {
         
         //Customize appearance
         // Format UINavBar
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController!.navigationBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
-        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         
         self.tabBarController?.tabBar.tintColor = UIColor(red: 221/255, green: 106/255, blue: 88/255, alpha: 1.0)
         self.tabBarController?.tabBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
@@ -50,13 +50,13 @@ class UserProfileViewController: UIViewController {
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     func registerNotificationListeners(){
         // Register notification listeners
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserProfileViewController.userAuthenticationFailed(_:)), name: "OCMLoginFailed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserProfileViewController.successfulSigninOccurred(_:)), name: "OCMLoginSuccess", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UserProfileViewController.userAuthenticationFailed(_:)), name: NSNotification.Name(rawValue: "OCMLoginFailed"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UserProfileViewController.successfulSigninOccurred(_:)), name: NSNotification.Name(rawValue: "OCMLoginSuccess"), object: nil)
     }
     
     func authenticateUser(){
@@ -65,7 +65,7 @@ class UserProfileViewController: UIViewController {
     }
     
     func populateViewsFromStoredUserData(){
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        DispatchQueue.main.async(execute: { () -> Void in
             self.userManager.loadUserDataFromUserDefaults()
             self.usernameLabel.text = self.userManager.username
             self.emailLabel.text = self.userManager.emailAddress
@@ -77,28 +77,28 @@ class UserProfileViewController: UIViewController {
         })
     }
     
-    func successfulSigninOccurred(notification: NSNotification){
+    func successfulSigninOccurred(_ notification: Notification){
         // Dismiss activity indicator. Does it need to be done on the main queue?
         dismissActivityIndicatorView()
         
         // User is authenticated, handle the new user data
-            if let username = notification.userInfo?["username"] as? NSString {
+            if let username = (notification as NSNotification).userInfo?["username"] as? NSString {
                 self.userManager.username = String(username)
             }
             
-            if let email = notification.userInfo?["email"] as? NSString {
+            if let email = (notification as NSNotification).userInfo?["email"] as? NSString {
                 self.userManager.emailAddress = String(email)
             }
             
-            if let location = notification.userInfo?["location"] as? NSString {
+            if let location = (notification as NSNotification).userInfo?["location"] as? NSString {
                 self.userManager.location = String(location)
             }
             
-            if let reputationPoints = notification.userInfo?["reputation"] as? NSString {
+            if let reputationPoints = (notification as NSNotification).userInfo?["reputation"] as? NSString {
                 self.userManager.reputation = Int(reputationPoints as String)
             }
             
-            if let avatarURL = notification.userInfo?["avatarURL"] as? NSString {
+            if let avatarURL = (notification as NSNotification).userInfo?["avatarURL"] as? NSString {
                 self.downloadAvatarImage(String(avatarURL))
             }
         
@@ -106,11 +106,11 @@ class UserProfileViewController: UIViewController {
             self.populateViewsFromStoredUserData()
     }
     
-    func downloadAvatarImage(imageUrl: String){
-        if let url = NSURL(string: imageUrl) {
-            let request: NSURLRequest = NSURLRequest(URL: url)
-            let session = NSURLSession.sharedSession()
-            let task = session.dataTaskWithRequest(request){
+    func downloadAvatarImage(_ imageUrl: String){
+        if let url = URL(string: imageUrl) {
+            let request: URLRequest = URLRequest(url: url)
+            let session = URLSession.shared
+            let task = session.dataTask(with: request, completionHandler: {
                 (data, response, error) -> Void in
                 
                 if (error == nil && data != nil)
@@ -122,15 +122,15 @@ class UserProfileViewController: UIViewController {
                         self.saveAvatarImage(self.avatarImageView.image!)
                     }
                     
-                    dispatch_async(dispatch_get_main_queue(), displayImage)
+                    DispatchQueue.main.async(execute: displayImage)
                 }
-            }
+            })
             
             task.resume()
         }
     }
     
-    func saveAvatarImage(avatarImage: UIImage){
+    func saveAvatarImage(_ avatarImage: UIImage){
         fileStorageManager.storeImageFile(avatarImage, path: getAvatarImagePath())
     }
     
@@ -146,24 +146,24 @@ class UserProfileViewController: UIViewController {
     }
     
     func dismissActivityIndicatorView() {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        DispatchQueue.main.async(execute: { () -> Void in
         self.activityIndicatorView.stopAnimating()
         })
     }
     
-    func userAuthenticationFailed(notification: NSNotification){
+    func userAuthenticationFailed(_ notification: Notification){
         // Dismiss activity indicator view.
         dismissActivityIndicatorView()
         
         // TODO: Handle user authentication failure.
-        if let errorCode = notification.userInfo?["errorCode"] as? NSNumber {
+        if let errorCode = (notification as NSNotification).userInfo?["errorCode"] as? NSNumber {
             if errorCode == 100 {
                 signOutOfOCMAccount()
             }
         }
     }
     
-    func userLoginCompleted(notification: NSNotification) {
+    func userLoginCompleted(_ notification: Notification) {
         dismissActivityIndicatorView()
         registerNotificationListeners()
         authenticateUser()
@@ -173,7 +173,7 @@ class UserProfileViewController: UIViewController {
         var navigationButtonItems = [UIBarButtonItem]()
         // Button that lets user submit a comment
         let signoutButtonTitle = NSLocalizedString("Sign Out", comment: "Sign out of OCM")
-        let signoutButtonItem = UIBarButtonItem(title: signoutButtonTitle, style: .Plain, target: self, action: #selector(UserProfileViewController.signOutOfOCMAccount))
+        let signoutButtonItem = UIBarButtonItem(title: signoutButtonTitle, style: .plain, target: self, action: #selector(UserProfileViewController.signOutOfOCMAccount))
         
         navigationButtonItems.append(signoutButtonItem)
         self.navigationItem.setRightBarButtonItems(navigationButtonItems, animated: true)
@@ -187,32 +187,32 @@ class UserProfileViewController: UIViewController {
     }
     
     func removeNotificationObservers(){
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "OCMLoginFailed", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "OCMLoginSuccess", object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "OCMLoginFailed"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "OCMLoginSuccess"), object: nil)
     }
     
     func registerSignupNotificationListener(){
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserProfileViewController.userLoginCompleted(_:)), name: "OCMUserLoginDone", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UserProfileViewController.userLoginCompleted(_:)), name: NSNotification.Name(rawValue: "OCMUserLoginDone"), object: nil)
     }
     
     func clearAuthenticationCredentials(){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(nil, forKey: "ocmUsername")
-        defaults.setObject(nil, forKey: "ocmPassword")
+        let defaults = UserDefaults.standard
+        defaults.set(nil, forKey: "ocmUsername")
+        defaults.set(nil, forKey: "ocmPassword")
         
     }
     
     func launchOCMSignInViewController(){
         let vc = OCMSignInViewController()
         vc.showBackButton = false
-        showViewController(vc, sender: nil)
+        show(vc, sender: nil)
     }
     
     func manipulateViews(){
         // Make the reputation and avatar views circular.
         self.avatarImageView.layer.borderWidth = 2.0
         self.avatarImageView.layer.masksToBounds = false
-        self.avatarImageView.layer.borderColor = UIColor.whiteColor().CGColor
+        self.avatarImageView.layer.borderColor = UIColor.white.cgColor
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width/2
         self.avatarImageView.clipsToBounds = true
     }

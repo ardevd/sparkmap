@@ -11,10 +11,10 @@ import Foundation
 class UserPreferenceHelper {
     
     static func getClusteringThresholdValue() -> Int {
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         let clusteringThresholdDefaultValue = ["clusteringThreshold" : 4]
-        defaults.registerDefaults(clusteringThresholdDefaultValue)
-        return defaults.integerForKey("clusteringThreshold")
+        defaults.register(defaults: clusteringThresholdDefaultValue)
+        return defaults.integer(forKey: "clusteringThreshold")
     }
     
 }

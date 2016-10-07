@@ -42,7 +42,7 @@ class WelcomeZeroViewController: UIViewController {
     
     func animateTitle(){
         // Fade in the card title
-        UIView.animateWithDuration(1.5, animations: {
+        UIView.animate(withDuration: 1.5, animations: {
                 self.cardTitle.alpha = 1.0
             }, completion: { finished in
                 if(finished) {
@@ -52,7 +52,7 @@ class WelcomeZeroViewController: UIViewController {
     }
     
     func animateTheOtherStuff(){
-        UIView.animateWithDuration(0.7, animations: {
+        UIView.animate(withDuration: 0.7, animations: {
             self.cardImageView.alpha = 1.0
             self.cardDescription.alpha = 1.0
         })

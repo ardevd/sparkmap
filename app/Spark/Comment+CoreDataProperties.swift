@@ -15,7 +15,7 @@ import CoreData
 extension Comment {
 
     @NSManaged var comment: String?
-    @NSManaged var commentDate: NSTimeInterval
+    @NSManaged var commentDate: TimeInterval
     @NSManaged var commentId: String?
     @NSManaged var rating: Int32
     @NSManaged var username: String?

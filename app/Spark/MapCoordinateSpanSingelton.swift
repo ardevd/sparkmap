@@ -8,10 +8,10 @@
 
 import MapKit
 
-public class MapCoordinateSpanSingelton {
+open class MapCoordinateSpanSingelton {
     var mapSpan = MKCoordinateSpan(latitudeDelta: 0.00, longitudeDelta: 0.00)
     static let span : MapCoordinateSpanSingelton = MapCoordinateSpanSingelton()
     
-    private init() {}
+    fileprivate init() {}
     
 }

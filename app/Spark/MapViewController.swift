@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentationControllerDelegate, UISearchBarDelegate, ClusterManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentationControllerDelegate, UISearchBarDelegate {
     
     var chargers: [ChargerPrimary] = [ChargerPrimary]()
     lazy var dataManager: DataManager = DataManager()
@@ -17,7 +17,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     var haveSearchResult: Bool = false
     var haveLoadedInitialChargerData: Bool = false
     var locationManager: LocationManager = LocationManager()
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     var useClustering = false
     
     lazy var searchController:UISearchController  = { [unowned self] in
@@ -35,8 +35,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     var localSearch:MKLocalSearch!
     var localSearchResponse:MKLocalSearchResponse!
     
-    var clusterManager = ClusterManager()
-    
     // Views
     @IBOutlet var mapView: MKMapView!
     @IBOutlet weak var actionButton: UIBarButtonItem!
@@ -48,32 +46,30 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         super.viewDidLoad()
         
         // Format UINavBar
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         //Customize appearance
         self.navigationController!.navigationBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
-        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         
         self.tabBarController?.tabBar.tintColor = UIColor(red: 221/255, green: 106/255, blue: 88/255, alpha: 1.0)
         self.tabBarController?.tabBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
-        
-        clusterManager.delegate = self
         
         // Clean up stored charging data
         dataManager.removeOldChargerData()
         dataManager.getDataFilesSize()
         
-        useClustering = defaults.boolForKey("useClustering")
+        useClustering = defaults.bool(forKey: "useClustering")
         
         if isDoneWithFirstRun(){
             registerNotificationListeners()
             verifyOrRequestLocationAuthorization()
         } else {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.welcomeModuleIsDone(_:)), name: "WelcomeModuleDone", object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.welcomeModuleIsDone(_:)), name: NSNotification.Name(rawValue: "WelcomeModuleDone"), object: nil)
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         showWelcomeIfApplicable()
     }
     
@@ -82,10 +78,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         let authStatus = CLLocationManager.authorizationStatus()
         
         switch authStatus {
-        case CLAuthorizationStatus.AuthorizedWhenInUse:
+        case CLAuthorizationStatus.authorizedWhenInUse:
             locationManager.requestStartLocationUpdate()
             mapView.showsUserLocation = true
-            mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: true)
+            mapView.setUserTrackingMode(MKUserTrackingMode.follow, animated: true)
         default:
             // Request permission
             locationManager.requestStartLocationUpdate()
@@ -95,8 +91,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     }
     
     func isDoneWithFirstRun() -> Bool {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let notFirstRun = defaults.boolForKey("isDoneWithFirstRun")
+        let defaults = UserDefaults.standard
+        let notFirstRun = defaults.bool(forKey: "isDoneWithFirstRun")
         
         return notFirstRun
     }
@@ -107,9 +103,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             // Create a new "WelcomeStoryBoard" instance.
             let storyboard = UIStoryboard(name: "WelcomeStoryboard", bundle: nil)
             // Create an instance of the storyboard's initial view controller.
-            let controller = storyboard.instantiateViewControllerWithIdentifier("InitialController") as UIViewController
+            let controller = storyboard.instantiateViewController(withIdentifier: "InitialController") as UIViewController
             // Display the new view controller.
-            presentViewController(controller, animated: true, completion: nil)
+            present(controller, animated: true, completion: nil)
             return true
         }
         
@@ -122,15 +118,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         let oldCenter = MapCenterCoordinateSingelton.center.coordinate
         let oldCenterLocation = CLLocation(latitude: oldCenter.latitude, longitude: oldCenter.longitude)
         
-        if newCenterLocation.distanceFromLocation(oldCenterLocation) > 100 {
+        if newCenterLocation.distance(from: oldCenterLocation) > 100 {
             return true
         }
         
         return false
-    }
-    
-    func cellSizeFactorForManager(manager: ClusterManager) -> CGFloat {
-        return 1.0
     }
     
     override func viewDidLayoutSubviews() {
@@ -140,33 +132,33 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     
     func registerNotificationListeners() {
         // Register notification listeners
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updateAnnotationsFromNotification(_:)), name: "ChargerDataUpdate", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updatedSettingsRefresh(_:)), name: "SettingsUpdate", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.updateRegionFromNotification(_:)), name: "LocationUpdate", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.enableUserLocationInMap(_:)), name: "LocationAuthorized", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.updateAnnotationsFromNotification(_:)), name: NSNotification.Name(rawValue: "ChargerDataUpdate"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.updatedSettingsRefresh(_:)), name: NSNotification.Name(rawValue: "SettingsUpdate"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.updateRegionFromNotification(_:)), name: NSNotification.Name(rawValue: "LocationUpdate"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.enableUserLocationInMap(_:)), name: NSNotification.Name(rawValue: "LocationAuthorized"), object: nil)
     }
     
-    func enableUserLocationInMap(notification: NSNotification) {
+    func enableUserLocationInMap(_ notification: Notification) {
         mapView.showsUserLocation = true
     }
     
-    func welcomeModuleIsDone(notification: NSNotification) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setBool(true, forKey: "isDoneWithFirstRun")
+    func welcomeModuleIsDone(_ notification: Notification) {
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "isDoneWithFirstRun")
         registerNotificationListeners()
         verifyOrRequestLocationAuthorization()
     }
     
-    func updateRegionFromNotification(notification: NSNotification) {
+    func updateRegionFromNotification(_ notification: Notification) {
         
-        if let searchResultAnnotation = notification.userInfo?["searchResultAnnotation"] as? MKPointAnnotation {
+        if let searchResultAnnotation = (notification as NSNotification).userInfo?["searchResultAnnotation"] as? MKPointAnnotation {
             //mapView.addAnnotation(searchResultAnnotation)
             searchAnnotation = searchResultAnnotation
             haveSearchResult = true
         }
         
-        if let latValue = notification.userInfo?["latitude"] as? CLLocationDegrees {
-            if let longValue = notification.userInfo?["longitude"] as? CLLocationDegrees {
+        if let latValue = (notification as NSNotification).userInfo?["latitude"] as? CLLocationDegrees {
+            if let longValue = (notification as NSNotification).userInfo?["longitude"] as? CLLocationDegrees {
                 let locationCoordinate : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latValue, longitude: longValue)
                 updateCurrentMapRegion(locationCoordinate, distance: 3000)
                 updateLastDataUpdateLocationSingelton()
@@ -174,28 +166,28 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         }
     }
     
-    func updateAnnotationsFromNotification(notification: NSNotification){
+    func updateAnnotationsFromNotification(_ notification: Notification){
         updateMapViewSingeltons()
         updateAnnotations()
     }
     
-    func updatedSettingsRefresh(notifcation: NSNotification){
-        useClustering = defaults.boolForKey("useClustering")
+    func updatedSettingsRefresh(_ notifcation: Notification){
+        useClustering = defaults.bool(forKey: "useClustering")
         updateAnnotations()
         updateMapTypeFromSettings()
     }
     
     func updateMapTypeFromSettings() {
-        let mapTypeFromSettings = NSUserDefaults.standardUserDefaults().integerForKey("mapType")
+        let mapTypeFromSettings = UserDefaults.standard.integer(forKey: "mapType")
         
         switch mapTypeFromSettings
         {
         case 0:
-            mapView.mapType = .Standard
+            mapView.mapType = .standard
         case 1:
-            mapView.mapType = .Satellite
+            mapView.mapType = .satellite
         case 2:
-            mapView.mapType = .Hybrid
+            mapView.mapType = .hybrid
         default:
             break;
         }
@@ -204,7 +196,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     
     func updateAnnotations() {
         // Needs to be executed on the main queue as it will update the UI.
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        DispatchQueue.main.async(execute: { () -> Void in
             // Remove existing annotations
             if self.mapView.annotations.count != 0{
                 var annotations: [MKAnnotation] = [MKAnnotation]()
@@ -225,13 +217,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
                 self.haveLoadedInitialChargerData = true
             }
             
-            if self.useClustering {
-                self.clusterManager = ClusterManager()
-                self.clusterManager.addAnnotations(annotations)
-                self.updateClusteringAnnotations()
-            } else {
+            
                 self.mapView.addAnnotations(annotations)
-            }
+            
             
             if (self.haveSearchResult) {
                 self.mapView.addAnnotation(self.searchAnnotation)
@@ -241,15 +229,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         
     }
     
-    func updateClusteringAnnotations(){
-        NSOperationQueue().addOperationWithBlock { [unowned self] in
-            let mapBoundsWidth = Double(self.mapView.bounds.size.width)
-            let mapRectWidth:Double = self.mapView.visibleMapRect.size.width
-            let scale:Double = mapBoundsWidth / mapRectWidth
-            let annotationArray = self.clusterManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
-            self.clusterManager.displayAnnotations(annotationArray, mapView: self.mapView)
-        }
-    }
+
     
     @IBAction func refreshDataFromCurrentLocation(){
         let coordinate = mapView.centerCoordinate
@@ -260,56 +240,41 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     
     @IBAction func updateCurrentLocation(){
         locationManager.requestStartLocationUpdate()
-        mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: true)
+        mapView.setUserTrackingMode(MKUserTrackingMode.follow, animated: true)
     }
     
-    func getAnnotationsFromNewLocation(coordinate: CLLocationCoordinate2D){
+    func getAnnotationsFromNewLocation(_ coordinate: CLLocationCoordinate2D){
         dataManager.downloadNearbyChargers(Latitude: coordinate.latitude, Longitude: coordinate.longitude, Distance: (getCurrentMapBoundsDistance() * 0.8) / 1000)
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        var pin = mapView.dequeueReusableAnnotationViewWithIdentifier("net.zygotelabs.annotation")
+        var pin = mapView.dequeueReusableAnnotationView(withIdentifier: "net.zygotelabs.annotation")
         
         if pin == nil {
             // If the pin is not in the cache, we create it.
             pin = MKAnnotationView(annotation: annotation, reuseIdentifier: "net.zygotelabs.annotation")
         }
         
-        if annotation.isKindOfClass(AnnotationCluster) {
-            if let clusterAnnotation = annotation as? AnnotationCluster {
-                let reuseId = "cluster"
-                if let clusterView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? AnnotationClusterView {
-                    clusterView.reuseWithAnnotation(clusterAnnotation)
-                    return clusterView
-                }
-                else {
-                    let clusterView = AnnotationClusterView(annotation: clusterAnnotation, reuseIdentifier: reuseId, options: nil)
-                    return clusterView
-                }
-            } else {
-                return nil
-            }
-        }
         
         if (annotation is AnnotationCharger) {
             if let chargerAnnotationView = annotation as? AnnotationCharger {
                 let charger = chargerAnnotationView.charger
                 let numberOfPoints = charger.chargerNumberOfPoints
                 
-                let connectionCountLabel = UILabel(frame: CGRectMake(0, 0, 29, 29))
+                let connectionCountLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 29, height: 29))
                 connectionCountLabel.textColor = UIColor(red: 223/255, green: 105/225, blue: 93/225, alpha: 1.0)
                 if (numberOfPoints > 0) {
                     connectionCountLabel.text = String(numberOfPoints)
                 }
                 pin?.leftCalloutAccessoryView = connectionCountLabel
-                pin?.enabled = true
+                pin?.isEnabled = true
                 pin?.canShowCallout = true
-                pin?.selected = true
+                pin?.isSelected = true
                 pin?.image = ChargerImageHelper.getChargerAnnotationImage(charger)
                 
                 pin?.frame.size = CGSize(width: 30.0, height: 30.0)
-                let button = UIButton(type: UIButtonType.DetailDisclosure)
+                let button = UIButton(type: UIButtonType.detailDisclosure)
                 pin?.rightCalloutAccessoryView = button
             }
         } else {
@@ -320,7 +285,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     }
     
     
-    func mapView(mapView: MKMapView, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    func mapView(_ mapView: MKMapView, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
         if control == annotationView.rightCalloutAccessoryView {
             if let chargerAnnotation = annotationView.annotation as? AnnotationCharger {
@@ -330,16 +295,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
                 vc.charger = charger
                 vc.connections = charger.chargerDetails?.connections?.allObjects as! [Connection]
                 vc.hidesBottomBarWhenPushed = true
-                showViewController(vc, sender: nil)
+                show(vc, sender: nil)
             }
         }
     }
     
-    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         // Map region was updated. Update data if we think the user dragged the map.
-        if useClustering {
-            updateClusteringAnnotations()
-        }
+
         if (!userInteractionOverride && haveLoadedInitialChargerData) {
             if (DistanceToLocationManager.distanceFromLastDataUpdateLocation(CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)) > getCurrentMapBoundsDistance()) {
                 // Show stored annotations for the new location
@@ -361,21 +324,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         let swMapCoordinate = MKCoordinateForMapPoint(swMapPoint);
         let neMapLocation = CLLocation(latitude: neMapCoordinate.latitude, longitude: neMapCoordinate.longitude)
         let swMapLocation = CLLocation(latitude: swMapCoordinate.latitude, longitude: swMapCoordinate.longitude)
-        let mapRegionDistance = neMapLocation.distanceFromLocation(swMapLocation)
+        let mapRegionDistance = neMapLocation.distance(from: swMapLocation)
         return mapRegionDistance
     }
     
     
-    @IBAction func showSearchBar(sender: AnyObject) {
+    @IBAction func showSearchBar(_ sender: AnyObject) {
         
-        presentViewController(searchController, animated: true, completion: nil)
+        present(searchController, animated: true, completion: nil)
     }
     
     // When user submits search query
-    func searchBarSearchButtonClicked(searchBar: UISearchBar){
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
         // resign first responder and dismiss the searchbar.
         searchBar.resignFirstResponder()
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
         
         // Create and start search request
         localSearchRequest = MKLocalSearchRequest()
@@ -383,14 +346,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         localSearchRequest.region = mapView.region
         localSearch = MKLocalSearch(request: localSearchRequest)
         
-        localSearch.startWithCompletionHandler { (localSearchResponse, error) -> Void in
+        localSearch.start { (localSearchResponse, error) -> Void in
             
-            guard let localSearchResponse = localSearchResponse, mapItem = localSearchResponse.mapItems.first else {
+            guard let localSearchResponse = localSearchResponse, let mapItem = localSearchResponse.mapItems.first else {
                 let placeNotFoundString = NSLocalizedString("Place not found", comment: "User search location not found")
                 let dismissString = NSLocalizedString("Dismiss", comment: "Dismiss")
-                let alertController = UIAlertController(title: nil, message: placeNotFoundString, preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: dismissString, style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alertController, animated: true, completion: nil)
+                let alertController = UIAlertController(title: nil, message: placeNotFoundString, preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: dismissString, style: UIAlertActionStyle.default, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
                 return
             }
             
@@ -401,7 +364,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             annotation.title = mapItem.placemark.title
             self.userInteractionOverride = true
             self.mapView.setRegion(localSearchResponse.boundingRegion, animated: true)
-            NSNotificationCenter.defaultCenter().postNotificationName("LocationUpdate", object: nil, userInfo: ["latitude": center.latitude, "longitude": center.longitude, "searchResultAnnotation": annotation])
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "LocationUpdate"), object: nil, userInfo: ["latitude": center.latitude, "longitude": center.longitude, "searchResultAnnotation": annotation])
             
         }
         
@@ -413,10 +376,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    func updateCurrentMapRegion(coordinate: CLLocationCoordinate2D, distance: CLLocationDistance) {
+    func updateCurrentMapRegion(_ coordinate: CLLocationCoordinate2D, distance: CLLocationDistance) {
         let region = MKCoordinateRegionMakeWithDistance(coordinate, distance, distance)
         userInteractionOverride = true
         mapView.region = region

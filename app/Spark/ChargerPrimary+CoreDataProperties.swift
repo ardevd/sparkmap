@@ -14,7 +14,7 @@ import CoreData
 
 extension ChargerPrimary {
 
-    @NSManaged var chargerDataLastUpdate: NSTimeInterval
+    @NSManaged var chargerDataLastUpdate: TimeInterval
     @NSManaged var chargerDataQualityLevel: Int64
     @NSManaged var chargerDistance: Double
     @NSManaged var chargerId: String?

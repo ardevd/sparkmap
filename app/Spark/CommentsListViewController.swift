@@ -27,8 +27,8 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         super.viewDidLoad()
         // Configure TableView
         let nib = UINib(nibName: "CommentTableViewCell", bundle: nil)
-        chargerCommentsTableView.registerNib(nib, forCellReuseIdentifier: "net.zygotelabs.commentcell")
-        chargerCommentsTableView.tableFooterView = UIView(frame: CGRectZero)
+        chargerCommentsTableView.register(nib, forCellReuseIdentifier: "net.zygotelabs.commentcell")
+        chargerCommentsTableView.tableFooterView = UIView(frame: CGRect.zero)
         self.navigationItem.backBarButtonItem?.title = ""
         
         chargerTitleLabel.text = charger?.chargerTitle
@@ -41,8 +41,8 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         noCommentsView.alpha = 0
         
         // Register notification observer
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentsListViewController.requestUpdatedData(_:)), name: "DataUpdateRequired", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentsListViewController.updateChargerDetails(_:)), name: "ChargerDataUpdate", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CommentsListViewController.requestUpdatedData(_:)), name: NSNotification.Name(rawValue: "DataUpdateRequired"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CommentsListViewController.updateChargerDetails(_:)), name: NSNotification.Name(rawValue: "ChargerDataUpdate"), object: nil)
         
         if (comments.count == 0) {
             showNoCommentsView()
@@ -56,16 +56,16 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
         func displayView()
         {
             // Animate the fade in of the image
-            UIView.animateWithDuration(0.7, animations: {
+            UIView.animate(withDuration: 0.7, animations: {
                 self.noCommentsView.alpha = 0
                 self.noCommentsView.alpha = 1.0
             })
         }
         
-        dispatch_async(dispatch_get_main_queue(), displayView)
+        DispatchQueue.main.async(execute: displayView)
     }
     
-    func updateChargerDetails(notification: NSNotification) {
+    func updateChargerDetails(_ notification: Notification) {
         // New data downloaded. Update comments list.
         let dataManager = DataManager()
         var chargers: [ChargerPrimary] = [ChargerPrimary]()
@@ -75,17 +75,17 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
                 self.charger = newCharger
                 self.comments = self.charger.chargerDetails?.comments?.allObjects as! [Comment]
                 // Reload table view data in the main queue
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                DispatchQueue.main.async(execute: { () -> Void in
                     self.sortCommentsList()
                 })
             }
         }
     }
     
-    func requestUpdatedData(notification: NSNotification) {
+    func requestUpdatedData(_ notification: Notification) {
         // Download data for this charging station.
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) {
+        let delayTime = DispatchTime.now() + Double(Int64(2 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.low).asyncAfter(deadline: delayTime) {
             let distance = CLLocationDistance(1)
             let dataManager = DataManager()
             dataManager.downloadNearbyChargers(Latitude: self.charger.chargerLatitude, Longitude: self.charger.chargerLongitude, Distance: distance)
@@ -95,7 +95,7 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
     func generateCommentButton() {
         var navigationButtonItems = [UIBarButtonItem]()
         // Button that lets user submit a comment
-        let commentButtonItem = UIBarButtonItem(barButtonSystemItem: .Compose, target: self, action: #selector(CommentsListViewController.commentButtonTapped))
+        let commentButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(CommentsListViewController.commentButtonTapped))
         
         navigationButtonItems.append(commentButtonItem)
         self.navigationItem.setRightBarButtonItems(navigationButtonItems, animated: true)
@@ -110,41 +110,41 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
                 let vc = CommentComposerViewController()
                 vc.chargerID = Int(chargerId)
                 vc.chargingStationTitle = charger?.chargerTitle
-                showViewController(vc, sender: nil)
+                show(vc, sender: nil)
             } else {
                 let vc = OCMSignInViewController()
                 vc.showBackButton = true
-                showViewController(vc, sender: nil)
+                show(vc, sender: nil)
             }
         }
     }
     
     func sortCommentsList() {
-        comments.sortInPlace() { $0.commentDate > $1.commentDate } // sort the comment by date
+        comments.sort() { $0.commentDate > $1.commentDate } // sort the comment by date
         commentsTableView.reloadData(); // notify the table view the data has changed
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(_ tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("net.zygotelabs.commentcell", forIndexPath: indexPath) as! CommentTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "net.zygotelabs.commentcell", for: indexPath) as! CommentTableViewCell
         
-        cell.commentTextLabel?.text = (comments[indexPath.row] as Comment).comment
-        cell.commentUsernameLabel?.text = (comments[indexPath.row] as Comment).username
-        let commentDate = (comments[indexPath.row] as Comment).commentDate
-        let date = NSDate(timeIntervalSinceReferenceDate: commentDate)
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        let convertedDate = dateFormatter.stringFromDate(date)
+        cell.commentTextLabel?.text = (comments[(indexPath as NSIndexPath).row] as Comment).comment
+        cell.commentUsernameLabel?.text = (comments[(indexPath as NSIndexPath).row] as Comment).username
+        let commentDate = (comments[(indexPath as NSIndexPath).row] as Comment).commentDate
+        let date = Date(timeIntervalSinceReferenceDate: commentDate)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        let convertedDate = dateFormatter.string(from: date)
         cell.commentDateLabel?.text = convertedDate
         
-        let rating = String((comments[indexPath.row] as Comment).rating)
+        let rating = String((comments[(indexPath as NSIndexPath).row] as Comment).rating)
         if rating == "5" {
             cell.commentRatingView?.backgroundColor = UIColor(red: 107/255, green: 211/255, blue: 124/255, alpha: 1.0)
         } else if rating == "4" {
@@ -165,7 +165,7 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func didReceiveMemoryWarning() {

@@ -11,14 +11,14 @@ import UIKit
 class UserPhotoSubmissionManager: NSObject {
     
     
-    func userPhotoUploadRequest(userImageView: UIImageView, chargerId: String)
+    func userPhotoUploadRequest(_ userImageView: UIImageView, chargerId: String)
     {
         
         let userImage = resizeAndProcessImage(userImageView.image!)
         
-        let photoUploadUrl = NSURL(string: "https://sparkmap.zygotelabs.net/photo_upload.php");
-        let request = NSMutableURLRequest(URL:photoUploadUrl!);
-        request.HTTPMethod = "POST";
+        let photoUploadUrl = URL(string: "https://sparkmap.zygotelabs.net/photo_upload.php");
+        let request = NSMutableURLRequest(url:photoUploadUrl!);
+        request.httpMethod = "POST";
         
         let boundary = generateBoundaryString()
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
@@ -31,12 +31,12 @@ class UserPhotoSubmissionManager: NSObject {
             return
         }
         
-        request.HTTPBody = createBodyWithParameters(chargerId, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
+        request.httpBody = createBodyWithParameters(chargerId, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
         
         //TODO: Add an activity indicator and use it here.
         //myActivityIndicator.startAnimating();
         
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+        let task = URLSession.shared.dataTask(with: request, completionHandler: {
             data, response, error in
             
             if error != nil {
@@ -45,7 +45,7 @@ class UserPhotoSubmissionManager: NSObject {
                 return
             }
             
-            if let httpResponse = response as? NSHTTPURLResponse {
+            if let httpResponse = response as? HTTPURLResponse {
                 let responseCode = httpResponse.statusCode
                 if responseCode == 200 {
                     self.postSuccessNotification()
@@ -62,58 +62,58 @@ class UserPhotoSubmissionManager: NSObject {
             // NSLog("****** response data = \(responseString!)")
             
             
-            dispatch_async(dispatch_get_main_queue(),{
+            DispatchQueue.main.async(execute: {
                 //TODO: Dismiss user feedback
                 //self.myActivityIndicator.stopAnimating()
             });
-        }
+        }) 
         
         task.resume()
         
     }
     
     func postSuccessNotification(){
-        NSNotificationCenter.defaultCenter().postNotificationName("PhotoPostSuccess", object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "PhotoPostSuccess"), object: nil)
     }
     
     func postFailureNotification(){
-        NSNotificationCenter.defaultCenter().postNotificationName("PhotoPostFailed", object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "PhotoPostFailed"), object: nil)
     }
     
     
-    func createBodyWithParameters(chargerId: String, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
+    func createBodyWithParameters(_ chargerId: String, filePathKey: String?, imageDataKey: Data, boundary: String) -> Data {
         let body = NSMutableData();
-        let timeInterval = NSDate().timeIntervalSince1970
+        let timeInterval = Date().timeIntervalSince1970
         let filename = "\(chargerId)_\(timeInterval).jpg"
         let mimetype = "image/jpg"
         
         body.appendString("--\(boundary)\r\n")
         body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
         body.appendString("Content-Type: \(mimetype)\r\n\r\n")
-        body.appendData(imageDataKey)
+        body.append(imageDataKey)
         body.appendString("\r\n")
         body.appendString("--\(boundary)--\r\n")
         
-        return body
+        return body as Data
     }
     
     func generateBoundaryString() -> String {
-        return "Boundary-\(NSUUID().UUIDString)"
+        return "Boundary-\(UUID().uuidString)"
     }
     
-    func resizeAndProcessImage(userImage: UIImage) -> UIImage {
+    func resizeAndProcessImage(_ userImage: UIImage) -> UIImage {
         let image = userImage
         
-        let size = CGSizeApplyAffineTransform(image.size, CGAffineTransformMakeScale(0.5, 0.5))
+        let size = image.size.applying(CGAffineTransform(scaleX: 0.5, y: 0.5))
         let hasAlpha = false
         let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
         
         UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
-        image.drawInRect(CGRect(origin: CGPointZero, size: size))
+        image.draw(in: CGRect(origin: CGPoint.zero, size: size))
         
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return scaledImage
+        return scaledImage!
     }
     
     
@@ -121,8 +121,8 @@ class UserPhotoSubmissionManager: NSObject {
 }
 extension NSMutableData {
     
-    func appendString(string: String) {
-        let data = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
-        appendData(data!)
+    func appendString(_ string: String) {
+        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        append(data!)
     }
 }

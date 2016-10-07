@@ -35,8 +35,8 @@ class CommentComposerViewController: UIViewController {
         commentTextView.becomeFirstResponder()
         
         // Register to be notified if the keyboard is changing size
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.keyboardWillShowOrHide(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.keyboardWillShowOrHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CommentComposerViewController.keyboardWillShowOrHide(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CommentComposerViewController.keyboardWillShowOrHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         // Set the charging station title text.
         chargingStationTitleLabel.text = chargingStationTitle
@@ -50,16 +50,16 @@ class CommentComposerViewController: UIViewController {
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    func keyboardWillShowOrHide(notification: NSNotification) {
+    func keyboardWillShowOrHide(_ notification: Notification) {
         
         // Pull a bunch of info out of the notification
-        if let scrollView = scrollView, userInfo = notification.userInfo, endValue = userInfo[UIKeyboardFrameEndUserInfoKey], durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] {
+        if let scrollView = scrollView, let userInfo = (notification as NSNotification).userInfo, let endValue = userInfo[UIKeyboardFrameEndUserInfoKey], let durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] {
             
             // Transform the keyboard's frame into our view's coordinate system
-            let endRect = view.convertRect(endValue.CGRectValue, fromView: view.window)
+            let endRect = view.convert((endValue as AnyObject).cgRectValue, from: view.window)
             
             // Find out how much the keyboard overlaps the scroll view
             // We can do this because our scroll view's frame is already in our view's coordinate system
@@ -70,8 +70,8 @@ class CommentComposerViewController: UIViewController {
             scrollView.contentInset.bottom = keyboardOverlap
             scrollView.scrollIndicatorInsets.bottom = keyboardOverlap
             
-            let duration = durationValue.doubleValue
-            UIView.animateWithDuration(duration, delay: 0, options: .BeginFromCurrentState, animations: {
+            let duration = (durationValue as AnyObject).doubleValue
+            UIView.animate(withDuration: duration!, delay: 0, options: .beginFromCurrentState, animations: {
                 self.view.layoutIfNeeded()
                 }, completion: nil)
         }
@@ -82,24 +82,24 @@ class CommentComposerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func tapOutsideTextView(gesture: UITapGestureRecognizer) {
+    func tapOutsideTextView(_ gesture: UITapGestureRecognizer) {
         // Resign first responder from commentTextview if user taps outside the keyboard area.
         commentTextView.resignFirstResponder()
     }
     
     func formatTextView() {
         self.commentTextView.layer.borderWidth = 1.0
-        self.commentTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        self.commentTextView.layer.borderColor = UIColor.lightGray.cgColor
         self.commentTextView.layer.cornerRadius = 5.0
     }
     
     @IBAction func postCommentAction(){
         // Register notification listeners
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.failedToGetNewAccessToken(_:)), name: "OCMLoginFailed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.gotNewAccessToken(_:)), name: "OCMLoginSuccess", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CommentComposerViewController.failedToGetNewAccessToken(_:)), name: NSNotification.Name(rawValue: "OCMLoginFailed"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CommentComposerViewController.gotNewAccessToken(_:)), name: NSNotification.Name(rawValue: "OCMLoginSuccess"), object: nil)
         updateAccessToken()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.commentNotPosted(_:)), name: "OCMCommentPostError", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentComposerViewController.commentPostedSuccessfully(_:)), name: "OCMCommentPostSuccess", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CommentComposerViewController.commentNotPosted(_:)), name: NSNotification.Name(rawValue: "OCMCommentPostError"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CommentComposerViewController.commentPostedSuccessfully(_:)), name: NSNotification.Name(rawValue: "OCMCommentPostSuccess"), object: nil)
         
         // Authenticate to OCM and get a new access token
         updateAccessToken()
@@ -112,16 +112,16 @@ class CommentComposerViewController: UIViewController {
         SwiftSpinner.show(postingCommentSpinnerString)
     }
     
-    func gotNewAccessToken(notification: NSNotification){
+    func gotNewAccessToken(_ notification: Notification){
         // New access token received. Go ahead and post comment
-        if let accessToken = notification.userInfo?["accessToken"] as? NSString {
+        if let accessToken = (notification as NSNotification).userInfo?["accessToken"] as? NSString {
             submitCommentToOCM(String(accessToken))
         }
     }
     
-    func failedToGetNewAccessToken(notification: NSNotification) {
+    func failedToGetNewAccessToken(_ notification: Notification) {
         // Notify user that authentication failed. Notification includes error message.
-        if let errorMessage = notification.userInfo?["errorMesssage"] as? NSString {
+        if let errorMessage = (notification as NSNotification).userInfo?["errorMesssage"] as? NSString {
             SwiftSpinner.show(String(errorMessage), animated: false).addTapHandler({
                 SwiftSpinner.hide()
             })
@@ -132,27 +132,27 @@ class CommentComposerViewController: UIViewController {
         AuthenticationManager.authenticateUserWithStoredCredentials()
     }
     
-    func commentPostedSuccessfully(notification: NSNotification) {
+    func commentPostedSuccessfully(_ notification: Notification) {
         // Comment posted. Post notification and pop view controller.
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        DispatchQueue.main.async(execute: { () -> Void in
             SwiftSpinner.hide()
-            NSNotificationCenter.defaultCenter().postNotificationName("DataUpdateRequired", object: nil)
-            self.navigationController?.popViewControllerAnimated(true)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "DataUpdateRequired"), object: nil)
+            self.navigationController?.popViewController(animated: true)
         })
     }
     
-    func commentNotPosted(notification: NSNotification) {
+    func commentNotPosted(_ notification: Notification) {
         // Notify user that the comment was not posted. Notification includes error message.
-        if let errorMessage = notification.userInfo?["errorMesssage"] as? NSString {
+        if let errorMessage = (notification as NSNotification).userInfo?["errorMesssage"] as? NSString {
             SwiftSpinner.show(String(errorMessage), animated: false).addTapHandler({
                 SwiftSpinner.hide()
             })
         }
     }
     
-    func submitCommentToOCM(accessToken: String){
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "OCMLoginFailed", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "OCMLoginSuccess", object: nil)
+    func submitCommentToOCM(_ accessToken: String){
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "OCMLoginFailed"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "OCMLoginSuccess"), object: nil)
         CommentSubmissionManager.submitComment(chargerID, commentText: commentTextView.text, rating: ratingSegmentedControl.selectedSegmentIndex, accessToken: accessToken)
     }
 }

@@ -24,11 +24,11 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
         super.viewDidLoad()
         
         // Format UINavBar
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         //Customize appearance
         self.navigationController!.navigationBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
-        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         
         // Register 3d Touch capabilties
         registerForceTouchCapability()
@@ -38,7 +38,7 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
         
         updateChargersListFromMapCenter()
         let nib = UINib(nibName: "NearbyTableViewCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: "net.zygotelabs.cell")
+        tableView.register(nib, forCellReuseIdentifier: "net.zygotelabs.cell")
     }
     
     func updateChargersListFromMapCenter(){
@@ -48,19 +48,19 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
     }
     
     func registerNotificationObservers(){
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateTableView(_:)), name: "ChargerDataUpdate", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateChargersFromLocation(_:)), name: "LocationUpdate", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.updateTableView(_:)), name: NSNotification.Name(rawValue: "ChargerDataUpdate"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.updateChargersFromLocation(_:)), name: NSNotification.Name(rawValue: "LocationUpdate"), object: nil)
     }
     
     func sortChargersArray(){
-        let queue = dispatch_queue_create("net.zygotelabs.sortqueue", DISPATCH_QUEUE_SERIAL)
-        dispatch_async(queue) { () -> Void in
+        let queue = DispatchQueue(label: "net.zygotelabs.sortqueue", attributes: [])
+        queue.async { () -> Void in
             // Sort chargers
-            self.chargers.sortInPlace { (charger1, charger2) -> Bool in
+            self.chargers.sort { (charger1, charger2) -> Bool in
                 DistanceToLocationManager.compareChargerDistance(charger1, secondCharger: charger2)
             }
             // Reload table view data in the main queue
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
                 self.tableView.reloadData()
             })
         }
@@ -68,18 +68,18 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
     
     
     func registerForceTouchCapability(){
-        if(traitCollection.forceTouchCapability == .Available){
-            registerForPreviewingWithDelegate(self, sourceView: tableView)
+        if(traitCollection.forceTouchCapability == .available){
+            registerForPreviewing(with: self, sourceView: tableView)
         }
     }
     
-    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         
         // Set up peeking
-        guard let indexPath = tableView?.indexPathForRowAtPoint(location) else { return nil }
-        guard let cell = tableView?.cellForRowAtIndexPath(indexPath) else { return nil }
+        guard let indexPath = tableView?.indexPathForRow(at: location) else { return nil }
+        guard let cell = tableView?.cellForRow(at: indexPath) else { return nil }
         
-        let charger = chargers[indexPath.row]
+        let charger = chargers[(indexPath as NSIndexPath).row]
         let vc = ChargerDetailViewController()
         vc.charger = charger
         vc.connections = charger.chargerDetails?.connections?.allObjects as! [Connection]
@@ -89,42 +89,42 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
         
     }
     
-    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         // Set up Popping
-        showViewController(viewControllerToCommit, sender: self)
+        show(viewControllerToCommit, sender: self)
     }
     
-    func updateChargersFromLocation(notification: NSNotification) {
-        if let latValue = notification.userInfo?["latitude"] as? CLLocationDegrees {
-            if let longValue = notification.userInfo?["longitude"] as? CLLocationDegrees {
+    func updateChargersFromLocation(_ notification: Notification) {
+        if let latValue = (notification as NSNotification).userInfo?["latitude"] as? CLLocationDegrees {
+            if let longValue = (notification as NSNotification).userInfo?["longitude"] as? CLLocationDegrees {
                 chargers = dataManager.retrieveNearbyChargerData(Latitude: latValue, Longitude: longValue)!
                 sortChargersArray()
             }
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(_ tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chargers.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("net.zygotelabs.cell", forIndexPath: indexPath) as! NearbyTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "net.zygotelabs.cell", for: indexPath) as! NearbyTableViewCell
         
-        if let selectedCharger = chargers[indexPath.row] as ChargerPrimary? {
+        if let selectedCharger = chargers[(indexPath as NSIndexPath).row] as ChargerPrimary? {
             
-            cell.cellTitle?.text = (chargers[indexPath.row] as ChargerPrimary).chargerTitle
-            cell.cellDescription?.text = (chargers[indexPath.row] as ChargerPrimary).chargerSubtitle
-            cell.cellAnnotationImageView?.image = ChargerImageHelper.getChargerAnnotationImage(chargers[indexPath.row])
+            cell.cellTitle?.text = (chargers[(indexPath as NSIndexPath).row] as ChargerPrimary).chargerTitle
+            cell.cellDescription?.text = (chargers[(indexPath as NSIndexPath).row] as ChargerPrimary).chargerSubtitle
+            cell.cellAnnotationImageView?.image = ChargerImageHelper.getChargerAnnotationImage(chargers[(indexPath as NSIndexPath).row])
             // Calculate distance from current map center location
             // TODO: Figure out how we can use the value directly from the sorting fuction we already do instead of having to do it twice.
             let chargerLocation = CLLocation(latitude: selectedCharger.chargerLatitude, longitude: selectedCharger.chargerLongitude)
             let mapLocationCoordinate = MapCenterCoordinateSingelton.center.coordinate
             let mapLocation = CLLocation(latitude: mapLocationCoordinate.latitude, longitude: mapLocationCoordinate.longitude)
-            let distance = chargerLocation.distanceFromLocation(mapLocation)
+            let distance = chargerLocation.distance(from: mapLocation)
             let metersString = NSLocalizedString("meters", comment: "Meters")
             cell.cellDistance?.text = String(Int(distance)) + " " + metersString
         }
@@ -133,7 +133,7 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -145,20 +145,20 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
         updateChargersListFromMapCenter()
     }
     
-    func updateTableView(notification: NSNotification){
+    func updateTableView(_ notification: Notification){
         //TODO: This seems to lock up the app. Do more testing
         //updateChargersListFromMapCenter()
         sortChargersArray()
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(_ tableView: UITableView!, didSelectRowAtIndexPath indexPath: IndexPath!) {
         let charger = chargers[indexPath.row]
         print(charger.chargerTitle)
         let vc = ChargerDetailViewController()
         vc.charger = charger
         vc.connections = charger.chargerDetails?.connections?.allObjects as! [Connection]
         vc.hidesBottomBarWhenPushed = true
-        showViewController(vc, sender: nil)
+        show(vc, sender: nil)
     }
 }
 

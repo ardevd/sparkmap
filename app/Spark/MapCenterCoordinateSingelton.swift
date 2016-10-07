@@ -8,10 +8,10 @@
 
 import MapKit
 
-public class MapCenterCoordinateSingelton {
+open class MapCenterCoordinateSingelton {
     var coordinate = CLLocationCoordinate2D(latitude: 0.00, longitude: 0.00)
     static let center : MapCenterCoordinateSingelton = MapCenterCoordinateSingelton()
     
-    private init() {}
+    fileprivate init() {}
     
 }

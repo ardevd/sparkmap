@@ -10,19 +10,19 @@ import MapKit
 
 class DistanceToLocationManager {
     
-    static func distanceFromLastDataUpdateLocation(currentLocation: CLLocation) -> Double {
+    static func distanceFromLastDataUpdateLocation(_ currentLocation: CLLocation) -> Double {
         let lastDataUpdateLocation =  LastUpdateLocationSingelton.center.location
-        return currentLocation.distanceFromLocation(lastDataUpdateLocation)
+        return currentLocation.distance(from: lastDataUpdateLocation)
     }
     
-    static func compareChargerDistance(firstCharger: ChargerPrimary, secondCharger: ChargerPrimary) -> Bool {
+    static func compareChargerDistance(_ firstCharger: ChargerPrimary, secondCharger: ChargerPrimary) -> Bool {
         
         let location1 = CLLocation(latitude: firstCharger.chargerLatitude, longitude: firstCharger.chargerLongitude)
         let location2 = CLLocation(latitude: secondCharger.chargerLatitude, longitude: secondCharger.chargerLongitude)
         let mapLocationCoordinate = MapCenterCoordinateSingelton.center.coordinate
         let mapLocation = CLLocation(latitude: mapLocationCoordinate.latitude, longitude: mapLocationCoordinate.longitude)
-        let distanceToFirstLocation = location1.distanceFromLocation(mapLocation)
-        let distanceToSecondLocation = location2.distanceFromLocation(mapLocation)
+        let distanceToFirstLocation = location1.distance(from: mapLocation)
+        let distanceToSecondLocation = location2.distance(from: mapLocation)
         
         if (distanceToFirstLocation < distanceToSecondLocation) {
             return true

@@ -18,31 +18,31 @@ class UserManager {
     
     func commitUserData() {
         // Store user data.
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
         if let ocmUsername = username {
-            defaults.setObject(ocmUsername, forKey: "ocmUserNick")
+            defaults.set(ocmUsername, forKey: "ocmUserNick")
         }
         
         if let ocmReputation = reputation {
-            defaults.setInteger(ocmReputation, forKey: "ocmReputation")
+            defaults.set(ocmReputation, forKey: "ocmReputation")
         }
         
         if let ocmEmailAddress  = emailAddress {
-            defaults.setObject(ocmEmailAddress, forKey: "ocmEmailAddress")
+            defaults.set(ocmEmailAddress, forKey: "ocmEmailAddress")
         }
         
         if let ocmLocation = location {
-            defaults.setObject(ocmLocation, forKey: "ocmLocation")
+            defaults.set(ocmLocation, forKey: "ocmLocation")
         }
     }
     
     func loadUserDataFromUserDefaults() {
         // Load stored user data
-        let defaults = NSUserDefaults.standardUserDefaults()
-        username = defaults.objectForKey("ocmUserNick") as? String
-        reputation = defaults.integerForKey("ocmReputation")
-        emailAddress = defaults.objectForKey("ocmEmailAddress") as? String
-        location = defaults.objectForKey("ocmLocation") as? String
+        let defaults = UserDefaults.standard
+        username = defaults.object(forKey: "ocmUserNick") as? String
+        reputation = defaults.integer(forKey: "ocmReputation")
+        emailAddress = defaults.object(forKey: "ocmEmailAddress") as? String
+        location = defaults.object(forKey: "ocmLocation") as? String
     }
 }

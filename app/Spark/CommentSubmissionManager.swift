@@ -10,50 +10,50 @@ import Foundation
 
 class CommentSubmissionManager {
     
-    static func submitComment(chargerId: Int, commentText: String, rating: Int, accessToken: String) {
+    static func submitComment(_ chargerId: Int, commentText: String, rating: Int, accessToken: String) {
         let commentSubmissionURL = "https://api.openchargemap.io/v3/comment"
-        guard let url = NSURL(string: commentSubmissionURL) else { return }
+        guard let url = URL(string: commentSubmissionURL) else { return }
         
-        let json = [ "ChargePointID": chargerId , "UserCommentTypeID": 10, "Comment": commentText, "Rating": rating, "CheckinStatusTypeID": 10 ]
+        let json = [ "ChargePointID": chargerId , "UserCommentTypeID": 10, "Comment": commentText, "Rating": rating, "CheckinStatusTypeID": 10 ] as [String : Any]
         do {
-            let jsonData = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
             // For a HTTP POST, do the following.
-            let urlRequest = NSMutableURLRequest(URL: url)
+            let urlRequest = NSMutableURLRequest(url: url)
             urlRequest.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-            urlRequest.HTTPMethod = "POST"
+            urlRequest.httpMethod = "POST"
             // insert json data to the request
-            urlRequest.HTTPBody = jsonData
+            urlRequest.httpBody = jsonData
             
             
-            let task = NSURLSession.sharedSession().dataTaskWithRequest(urlRequest){ data, response, error in
+            let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, response, error in
                 if error != nil{
                     print("Error -> \(error)")
-                    NSNotificationCenter.defaultCenter().postNotificationName("OCMCommentPostError", object: nil, userInfo:
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: "OCMCommentPostError"), object: nil, userInfo:
                         ["errorMesssage": error!.localizedDescription])
                     return
                 }
                 
                 do {
-                    if let httpResponse = response as? NSHTTPURLResponse {
+                    if let httpResponse = response as? HTTPURLResponse {
                         let responseCode = httpResponse.statusCode
                         print(responseCode)
                         if responseCode == 200 {
-                            NSNotificationCenter.defaultCenter().postNotificationName("OCMCommentPostSuccess", object: nil)
+                            NotificationCenter.default.post(name: Notification.Name(rawValue: "OCMCommentPostSuccess"), object: nil)
                         } else if responseCode == 401 {
                             let unauthorizedErrorString = NSLocalizedString("Authentication Failed", comment: "Authentication Failed Message")
                             let errorMessage = unauthorizedErrorString
-                            NSNotificationCenter.defaultCenter().postNotificationName("OCMCommentPostError", object: nil, userInfo:
+                            NotificationCenter.default.post(name: Notification.Name(rawValue: "OCMCommentPostError"), object: nil, userInfo:
                                 ["errorMesssage": errorMessage])
                         } else {
                             let unauthorizedErrorString = NSLocalizedString("Invalid Response from server", comment: "Invalid Response From Server")
                             let errorMessage = unauthorizedErrorString
-                            NSNotificationCenter.defaultCenter().postNotificationName("OCMCommentPostError", object: nil, userInfo:
+                            NotificationCenter.default.post(name: Notification.Name(rawValue: "OCMCommentPostError"), object: nil, userInfo:
                                 ["errorMesssage": errorMessage])
                         }
                     }
                     
                 }
-            }
+            })
             task.resume()
         } catch {
             print(error)

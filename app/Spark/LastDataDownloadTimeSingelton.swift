@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class LastDataDownloadTimeSingelton {
+open class LastDataDownloadTimeSingelton {
     
-    var time = UInt64(floor(NSDate().timeIntervalSince1970)-2)
+    var time = UInt64(floor(Date().timeIntervalSince1970)-2)
     static let lastDataDownload : LastDataDownloadTimeSingelton = LastDataDownloadTimeSingelton()
     
-    private init() {}
+    fileprivate init() {}
     
 }

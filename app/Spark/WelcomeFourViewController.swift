@@ -21,10 +21,10 @@ class WelcomeFourViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func doneButtonTapped(sender: AnyObject) {
+    @IBAction func doneButtonTapped(_ sender: AnyObject) {
         // Notify that welcome module is complete
-        NSNotificationCenter.defaultCenter().postNotificationName("WelcomeModuleDone", object: nil)
-        dismissViewControllerAnimated(true, completion: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "WelcomeModuleDone"), object: nil)
+        dismiss(animated: true, completion: nil)
     }
 
 }

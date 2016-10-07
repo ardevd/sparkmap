@@ -43,7 +43,7 @@ class SettingsViewController: UITableViewController {
         
         // Customize navigation bar appearance.
         self.navigationController!.navigationBar.barTintColor = UIColor(red: 42/255, green: 61/255, blue: 77/255, alpha: 1.0)
-        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         
     }
     
@@ -72,14 +72,14 @@ class SettingsViewController: UITableViewController {
         // Create a new "WelcomeStoryBoard" instance.
         let storyboard = UIStoryboard(name: "WelcomeStoryboard", bundle: nil)
         // Create an instance of the storyboard's initial view controller.
-        let controller = storyboard.instantiateViewControllerWithIdentifier("InitialController") as UIViewController
+        let controller = storyboard.instantiateViewController(withIdentifier: "InitialController") as UIViewController
         // Display the new view controller.
-        presentViewController(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
     }
     
     func displayAppVersionString(){
-        if let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String {
-            self.buttonAppVersion.setTitle(version, forState: .Normal)
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            self.buttonAppVersion.setTitle(version, for: UIControlState())
         }
     }
     
@@ -90,80 +90,80 @@ class SettingsViewController: UITableViewController {
     
     func loadUserSettingsToViews(){
         UserPreferenceHelper.getClusteringThresholdValue()
-        let defaults = NSUserDefaults.standardUserDefaults()
-        switchOfflineMode.setOn(defaults.boolForKey("offlineMode"), animated: true)
-        switchShowDownloadDialog.setOn(defaults.boolForKey("showDownloadDialog"), animated: true)
-        switchFastcharge.setOn(defaults.boolForKey("fastchargeOnly"), animated: true)
-        switchClustering.setOn(defaults.boolForKey("useClustering"), animated: true)
-        clusteringThresholdLabel.text = String(defaults.integerForKey("clusteringThreshold"))
-        stepperClusteringThreshold.value = Double(defaults.integerForKey("clusteringThreshold"))
-        if let connectionTypeIDsFromSettings = NSUserDefaults.standardUserDefaults().arrayForKey("connectionFilterIds") {
+        let defaults = UserDefaults.standard
+        switchOfflineMode.setOn(defaults.bool(forKey: "offlineMode"), animated: true)
+        switchShowDownloadDialog.setOn(defaults.bool(forKey: "showDownloadDialog"), animated: true)
+        switchFastcharge.setOn(defaults.bool(forKey: "fastchargeOnly"), animated: true)
+        switchClustering.setOn(defaults.bool(forKey: "useClustering"), animated: true)
+        clusteringThresholdLabel.text = String(defaults.integer(forKey: "clusteringThreshold"))
+        stepperClusteringThreshold.value = Double(defaults.integer(forKey: "clusteringThreshold"))
+        if let connectionTypeIDsFromSettings = UserDefaults.standard.array(forKey: "connectionFilterIds") {
             
             for id in connectionTypeIDsFromSettings {
                 let idAsInt = id as! Int
                 connectionTypeIDs.append(idAsInt)
                 if (idAsInt == CONNECTION_ID_SCHUKO){
-                   cellSchuko.accessoryType = .Checkmark
+                   cellSchuko.accessoryType = .checkmark
                 } else if (idAsInt == CONNECTION_ID_TYPE2) {
-                    cellType2.accessoryType = .Checkmark
+                    cellType2.accessoryType = .checkmark
                 } else if (idAsInt == CONNECTION_ID_CHADEMO) {
-                    cellChademo.accessoryType = .Checkmark
+                    cellChademo.accessoryType = .checkmark
                 } else if (idAsInt == CONNECTION_ID_TESLA_SUPERCHARGER) {
-                    cellTesla.accessoryType = .Checkmark
+                    cellTesla.accessoryType = .checkmark
                 } else if (idAsInt == CONNECTION_ID_CCS) {
-                    cellCCS.accessoryType = .Checkmark
+                    cellCCS.accessoryType = .checkmark
                 }
             }
         }
         
-        let ampsMinimumFromSettings = NSUserDefaults.standardUserDefaults().integerForKey("minAmps")
+        let ampsMinimumFromSettings = UserDefaults.standard.integer(forKey: "minAmps")
         if (ampsMinimumFromSettings > 0) {
             textFieldAmps.text = String(ampsMinimumFromSettings)
         }
     
-        segmentControlMapType.selectedSegmentIndex = NSUserDefaults.standardUserDefaults().integerForKey("mapType")
+        segmentControlMapType.selectedSegmentIndex = UserDefaults.standard.integer(forKey: "mapType")
 
     }
     
     func saveUserSettings(){
         
         // Store user preferences
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         // Offline Mode
-        defaults.setBool(switchOfflineMode.on, forKey: "offlineMode")
+        defaults.set(switchOfflineMode.isOn, forKey: "offlineMode")
         // Show Download Dialog
-        defaults.setBool(switchShowDownloadDialog.on, forKey: "showDownloadDialog")
+        defaults.set(switchShowDownloadDialog.isOn, forKey: "showDownloadDialog")
         // Clustering Settings
-        defaults.setBool(switchClustering.on, forKey: "useClustering")
-        defaults.setInteger(Int(stepperClusteringThreshold.value), forKey: "clusteringThreshold")
+        defaults.set(switchClustering.isOn, forKey: "useClustering")
+        defaults.set(Int(stepperClusteringThreshold.value), forKey: "clusteringThreshold")
         // Fastcharging Only
-        defaults.setBool(switchFastcharge.on, forKey: "fastchargeOnly")
+        defaults.set(switchFastcharge.isOn, forKey: "fastchargeOnly")
         // Map Type
-        defaults.setInteger(segmentControlMapType.selectedSegmentIndex, forKey: "mapType")
+        defaults.set(segmentControlMapType.selectedSegmentIndex, forKey: "mapType")
         // Connection Type IDs
-        defaults.setObject(connectionTypeIDs, forKey: "connectionFilterIds")
+        defaults.set(connectionTypeIDs, forKey: "connectionFilterIds")
         // Min Amps
         let minAmps = Int(textFieldAmps.text!)
         if minAmps != nil {
-            defaults.setInteger(minAmps!, forKey: "minAmps")
+            defaults.set(minAmps!, forKey: "minAmps")
         } else {
-            defaults.setInteger(0, forKey: "minAmps")
+            defaults.set(0, forKey: "minAmps")
         }
         
         // Post Notification
-        NSNotificationCenter.defaultCenter().postNotificationName("SettingsUpdate", object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "SettingsUpdate"), object: nil, userInfo: nil)
         
     }
     
     func dismissSettingsViewController(){
-        dismissViewControllerAnimated(true) { () -> Void in
+        dismiss(animated: true) { () -> Void in
             
         }
         
     }
     
-    func connectionTypeFilterToggle(connectionType: Int) -> Bool {
-        if let _ = connectionTypeIDs.indexOf(connectionType){
+    func connectionTypeFilterToggle(_ connectionType: Int) -> Bool {
+        if let _ = connectionTypeIDs.index(of: connectionType){
             deleteTypeFromConnectionFilterArray(connectionType)
             //connectionTypeIDs.removeAtIndex(foundAtIndex)
             return false
@@ -174,67 +174,67 @@ class SettingsViewController: UITableViewController {
         }
     }
 
-    func deleteTypeFromConnectionFilterArray(connectionType: Int){
+    func deleteTypeFromConnectionFilterArray(_ connectionType: Int){
         connectionTypeIDs = connectionTypeIDs.filter{$0 != connectionType}
     }
     
-    @IBAction func stepperValueChanged(sender: UIStepper) {
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
         clusteringThresholdLabel.text = Int(sender.value).description
     }
     
     func showSourceCodeOnGitHub(){
         // Send user to the GitHub repo page
-        let safariViewController = SFSafariViewController(URL: NSURL(string: "https://github.com/archpoint/sparkmap")!)
-        self.presentViewController(safariViewController, animated: true, completion: nil)
+        let safariViewController = SFSafariViewController(url: URL(string: "https://github.com/archpoint/sparkmap")!)
+        self.present(safariViewController, animated: true, completion: nil)
     }
     
     func userWantsToRateApp(){
-        UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1081587641")!)
+        UIApplication.shared.openURL(URL(string : "itms-apps://itunes.apple.com/app/id1081587641")!)
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        let section = indexPath.section
-        let row = indexPath.row
+        let cell = tableView.cellForRow(at: indexPath)
+        let section = (indexPath as NSIndexPath).section
+        let row = (indexPath as NSIndexPath).row
         
         if (section == 1){
             if (row == 0) {
                 //CCS
                 if (connectionTypeFilterToggle(CONNECTION_ID_CCS)){
-                    cell?.accessoryType = .Checkmark
+                    cell?.accessoryType = .checkmark
                 } else {
-                    cell?.accessoryType = .None
+                    cell?.accessoryType = .none
                 }
                 }
             if (row == 1) {
                 //Chuko
                 if (connectionTypeFilterToggle(CONNECTION_ID_SCHUKO)){
-                    cell?.accessoryType = .Checkmark
+                    cell?.accessoryType = .checkmark
                 } else {
-                    cell?.accessoryType = .None
+                    cell?.accessoryType = .none
                 }
             } else if (row == 2) {
                 //Chademo
                 if (connectionTypeFilterToggle(CONNECTION_ID_CHADEMO)){
-                    cell?.accessoryType = .Checkmark
+                    cell?.accessoryType = .checkmark
                 } else {
-                    cell?.accessoryType = .None
+                    cell?.accessoryType = .none
                 }
 
             } else if (row == 3) {
                 // Type 2
                 if (connectionTypeFilterToggle(CONNECTION_ID_TYPE2)){
-                    cell?.accessoryType = .Checkmark
+                    cell?.accessoryType = .checkmark
                 } else {
-                    cell?.accessoryType = .None
+                    cell?.accessoryType = .none
                 }
             } else if (row == 4) {
                 // Tesla Supercharger
                 if (connectionTypeFilterToggle(CONNECTION_ID_TESLA_SUPERCHARGER)){
-                    cell?.accessoryType = .Checkmark
+                    cell?.accessoryType = .checkmark
                 } else {
-                    cell?.accessoryType = .None
+                    cell?.accessoryType = .none
                 }
             }
         } else if (section == 4) {

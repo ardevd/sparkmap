@@ -63,8 +63,8 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         
         // Formatting the tableView
         let nib = UINib(nibName: "ConnectionTableViewCell", bundle: nil)
-        chargingPointTableView.registerNib(nib, forCellReuseIdentifier: "net.zygotelabs.connectioncell")
-        chargingPointTableView.tableFooterView = UIView(frame: CGRectZero)
+        chargingPointTableView.register(nib, forCellReuseIdentifier: "net.zygotelabs.connectioncell")
+        chargingPointTableView.tableFooterView = UIView(frame: CGRect.zero)
         
         
         // Download charger thumbnail image
@@ -73,7 +73,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         } else {
             // Add gestureRecognizer that lets user take and upload photo
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(ChargerDetailViewController.grabAndLoadUserPhoto(_:)))
-            imageThumbnail.userInteractionEnabled = true
+            imageThumbnail.isUserInteractionEnabled = true
             imageThumbnail.addGestureRecognizer(tapGestureRecognizer)
             
             if let image = UIImage(named: "PlaceholderImageIcon") {
@@ -99,16 +99,16 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     }
     
     func registerForceTouchCapability(){
-        if(traitCollection.forceTouchCapability == .Available){
-            registerForPreviewingWithDelegate(self, sourceView: imageThumbnail)
+        if(traitCollection.forceTouchCapability == .available){
+            registerForPreviewing(with: self, sourceView: imageThumbnail)
         }
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         
         // Set up peeking
         let vc = ChargingStationPhotoViewController()
@@ -118,21 +118,21 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         return vc
     }
     
-    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         // Set up Popping
         if showingLargeImage != nil {
             if showingLargeImage! {
                 toggleFullThumbnilImage()
             }
         }
-        showViewController(viewControllerToCommit, sender: self)
+        show(viewControllerToCommit, sender: self)
     }
     
     func checkLocationAuthorization() -> Bool{
         let authStatus = CLLocationManager.authorizationStatus()
         
         switch authStatus {
-        case CLAuthorizationStatus.AuthorizedWhenInUse:
+        case CLAuthorizationStatus.authorizedWhenInUse:
             // Permission already granted
             locationManager = CLLocationManager()
             locationManager?.delegate = self
@@ -146,7 +146,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     func generateNavigationButton() -> UIBarButtonItem {
         // Button that lets user navigate to charger address.
-        let navigationButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: #selector(ChargerDetailViewController.navigateButtonTapped))
+        let navigationButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(ChargerDetailViewController.navigateButtonTapped))
         navigationButtonItem.image = UIImage(named: "CarIcon")
         
         return navigationButtonItem
@@ -155,7 +155,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     func generateCallButton() -> UIBarButtonItem {
         // Button that lets user call the number associated wtih the charging station.
-        let callButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: #selector(ChargerDetailViewController.callButtonTapped))
+        let callButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(ChargerDetailViewController.callButtonTapped))
         callButtonItem.image = UIImage(named: "CallIcon")
         
         return callButtonItem
@@ -165,14 +165,14 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         startNavigation()
     }
     
-    func etaLabelTapped(gesture: UITapGestureRecognizer) {
+    func etaLabelTapped(_ gesture: UITapGestureRecognizer) {
         if gotETA {
             startNavigation()
         }
     }
     
     func startNavigation() {
-        let addressDictionary = [String(CNPostalAddressStreetKey): labelSubtitle.text as! AnyObject]
+        let addressDictionary = [String(CNPostalAddressStreetKey): labelSubtitle.text as AnyObject]
         let chargingPointPlaceCoordinate = CLLocationCoordinate2D(latitude: (charger?.chargerLatitude)!, longitude: (charger?.chargerLongitude)!)
         let placemark = MKPlacemark(coordinate: chargingPointPlaceCoordinate, addressDictionary: addressDictionary)
         let mapItem = MKMapItem(placemark: placemark)
@@ -181,19 +181,19 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         let options = [MKLaunchOptionsDirectionsModeKey:
             MKLaunchOptionsDirectionsModeDriving]
         
-        mapItem.openInMapsWithLaunchOptions(options)
+        mapItem.openInMaps(launchOptions: options)
     }
     
     func callButtonTapped() {
-        let phoneNumber = charger?.chargerDetails?.chargerPrimaryContactNumber?.stringByReplacingOccurrencesOfString(" ", withString: "")
+        let phoneNumber = charger?.chargerDetails?.chargerPrimaryContactNumber?.replacingOccurrences(of: " ", with: "")
         
-        if let callUrl = NSURL(string: "tel:\(phoneNumber!)") {
-            UIApplication.sharedApplication().openURL(callUrl)
+        if let callUrl = URL(string: "tel:\(phoneNumber!)") {
+            UIApplication.shared.openURL(callUrl)
         }
     }
     
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         manipulateThumbnailImage()
         setChargerInfoToOutlets()
@@ -208,7 +208,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     }
     
     @IBAction func animateDateView() {
-        UIView.animateWithDuration(0.5, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             if (self.viewLastUpdateTime.alpha > 0){
                 self.viewLastUpdateTime.alpha = 0.0
             }else {
@@ -219,8 +219,8 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     @IBAction func editChargingStation() {
         if let chargerId = self.charger?.chargerId{
-            let safariViewController = SFSafariViewController(URL: NSURL(string: "http://openchargemap.org/site/poi/edit/\(chargerId)")!)
-            self.presentViewController(safariViewController, animated: true, completion: nil)
+            let safariViewController = SFSafariViewController(url: URL(string: "http://openchargemap.org/site/poi/edit/\(chargerId)")!)
+            self.present(safariViewController, animated: true, completion: nil)
         }
     }
     
@@ -229,7 +229,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             if isRecentlyVerified {
                 self.viewRecentlyVerified.frame.size.width = 0
                 // Charger was recently verified. Show the badge.
-                UIView.animateWithDuration(0.5, animations: {
+                UIView.animate(withDuration: 0.5, animations: {
                     self.viewRecentlyVerified.alpha = 1.0
                     self.viewRecentlyVerified.frame.size.width = 123
                 })
@@ -239,9 +239,9 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     
     func addViewAppearanceElements(){
         viewNumberOfPoints.layer.borderWidth = 0.25
-        viewNumberOfPoints.layer.borderColor = UIColor.whiteColor().CGColor
+        viewNumberOfPoints.layer.borderColor = UIColor.white.cgColor
         viewChargerStatus.layer.borderWidth = 0.25
-        viewChargerStatus.layer.borderColor = UIColor.whiteColor().CGColor
+        viewChargerStatus.layer.borderColor = UIColor.white.cgColor
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors =  [
@@ -253,7 +253,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         self.viewNumberOfPoints.layer.addSublayer(gradientLayer)
     }
     
-    func grabAndLoadUserPhoto(img: AnyObject)
+    func grabAndLoadUserPhoto(_ img: AnyObject)
     {
         /* Define a UIImagePickerController that lets the user
          supply a photo of a charging station */
@@ -263,35 +263,35 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         
         // Camera Source Action
         let cameraSourceString = NSLocalizedString("Camera", comment: "Camera Source")
-        let cameraSourceAction = UIAlertAction(title: cameraSourceString, style: .Default) { (alert: UIAlertAction!) -> Void in
-            self.imagePicker.sourceType = .Camera
-            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+        let cameraSourceAction = UIAlertAction(title: cameraSourceString, style: .default) { (alert: UIAlertAction!) -> Void in
+            self.imagePicker.sourceType = .camera
+            self.present(self.imagePicker, animated: true, completion: nil)
         }
         
         // Album Source Action
         let albumSourceString = NSLocalizedString("Photo Library", comment: "Library Source")
-        let albumSourceAction = UIAlertAction(title: albumSourceString, style: .Default) { (alert: UIAlertAction!) -> Void in
-            self.imagePicker.sourceType = .PhotoLibrary
-            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+        let albumSourceAction = UIAlertAction(title: albumSourceString, style: .default) { (alert: UIAlertAction!) -> Void in
+            self.imagePicker.sourceType = .photoLibrary
+            self.present(self.imagePicker, animated: true, completion: nil)
         }
         
         // Dismiss Action
         let cancelActionTitle = NSLocalizedString("Cancel", comment: "Cancel Action Text")
-        let cancelAction = UIAlertAction(title: cancelActionTitle, style: .Cancel) { (alert: UIAlertAction!) -> Void in
+        let cancelAction = UIAlertAction(title: cancelActionTitle, style: .cancel) { (alert: UIAlertAction!) -> Void in
         }
         
         // Ask user whether to grab photo from the camera or the photo album.
         let photoSubmissionTitleString = NSLocalizedString("Photo Submission", comment: "Photo Submission")
         let photoSubmissionMessageString = NSLocalizedString("Submit a photo for this charging station", comment: "Submit a photo description text")
-        let photoSourcePromptAlert = UIAlertController(title: photoSubmissionTitleString, message: photoSubmissionMessageString, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let photoSourcePromptAlert = UIAlertController(title: photoSubmissionTitleString, message: photoSubmissionMessageString, preferredStyle: UIAlertControllerStyle.actionSheet)
         photoSourcePromptAlert.addAction(cameraSourceAction)
         photoSourcePromptAlert.addAction(albumSourceAction)
         photoSourcePromptAlert.addAction(cancelAction)
-        self.presentViewController(photoSourcePromptAlert, animated: true, completion: nil)
+        self.present(photoSourcePromptAlert, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        imagePicker.dismiss(animated: true, completion: nil)
         imageThumbnail.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
         // Ask user for confirmation before uploading photo.
@@ -299,7 +299,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         let yesString = NSLocalizedString("Yes", comment: "Yes")
         let noString = NSLocalizedString("No", comment: "No")
         
-        let photoUploadAction = UIAlertAction(title: yesString, style: .Default) { (alert: UIAlertAction!) -> Void in
+        let photoUploadAction = UIAlertAction(title: yesString, style: .default) { (alert: UIAlertAction!) -> Void in
             // User confirmed. Post the photo
             let userPhotoSubmissionManager = UserPhotoSubmissionManager()
             if let chargerId = self.charger?.chargerId{
@@ -311,43 +311,43 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         //AlertController
         let photoSubmissionConfirmationRequestString = NSLocalizedString("Awesome. Go ahead and upload the photo?", comment: "Photo submission request message")
         let photoSubmissionConfirmationTitleString = NSLocalizedString("Upload photo", comment: "Photo Submitted")
-        let photoSubmissionRequestAlert = UIAlertController(title: photoSubmissionConfirmationTitleString, message: photoSubmissionConfirmationRequestString, preferredStyle: UIAlertControllerStyle.Alert)
-        photoSubmissionRequestAlert.addAction(UIAlertAction(title: noString, style: UIAlertActionStyle.Default, handler: nil))
+        let photoSubmissionRequestAlert = UIAlertController(title: photoSubmissionConfirmationTitleString, message: photoSubmissionConfirmationRequestString, preferredStyle: UIAlertControllerStyle.alert)
+        photoSubmissionRequestAlert.addAction(UIAlertAction(title: noString, style: UIAlertActionStyle.default, handler: nil))
         photoSubmissionRequestAlert.addAction(photoUploadAction)
-        self.presentViewController(photoSubmissionRequestAlert, animated: true, completion: nil)
+        self.present(photoSubmissionRequestAlert, animated: true, completion: nil)
         
     }
     
     func registerPhotoUploadNotificationObservers() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChargerDetailViewController.userPhotoPostSuccess(_:)), name: "PhotoPostSuccess", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChargerDetailViewController.userPhotoPostFailed(_:)), name: "PhotoPostFailed", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChargerDetailViewController.userPhotoPostSuccess(_:)), name: NSNotification.Name(rawValue: "PhotoPostSuccess"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChargerDetailViewController.userPhotoPostFailed(_:)), name: NSNotification.Name(rawValue: "PhotoPostFailed"), object: nil)
     }
     
-    func userPhotoPostSuccess(notification: NSNotification) {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+    func userPhotoPostSuccess(_ notification: Notification) {
+        DispatchQueue.main.async(execute: { () -> Void in
             self.indicatorImageLoader.stopAnimating()
         })
     }
     
-    func userPhotoPostFailed(notification: NSNotification) {
+    func userPhotoPostFailed(_ notification: Notification) {
         // User image posting failed. Alert user
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        DispatchQueue.main.async(execute: { () -> Void in
             self.indicatorImageLoader.stopAnimating()
             let okString = NSLocalizedString("OK", comment: "OK")
             let photoSubmissionFailedTitleString = NSLocalizedString("Photo upload failed.", comment: "User photo upload failed")
             let photoSubmissionFailedDescriptionString = NSLocalizedString("Could not post the photo. Please try again later.", comment: "User photo upload failed description message.")
-            let photoSubmissionFailedAlert = UIAlertController(title: photoSubmissionFailedTitleString, message: photoSubmissionFailedDescriptionString, preferredStyle: UIAlertControllerStyle.Alert)
-            photoSubmissionFailedAlert.addAction(UIAlertAction(title: okString, style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(photoSubmissionFailedAlert, animated: true, completion: nil)
+            let photoSubmissionFailedAlert = UIAlertController(title: photoSubmissionFailedTitleString, message: photoSubmissionFailedDescriptionString, preferredStyle: UIAlertControllerStyle.alert)
+            photoSubmissionFailedAlert.addAction(UIAlertAction(title: okString, style: UIAlertActionStyle.default, handler: nil))
+            self.present(photoSubmissionFailedAlert, animated: true, completion: nil)
         })
     }
     
-    func toggleFullImage(img: AnyObject) {
+    func toggleFullImage(_ img: AnyObject) {
         toggleFullThumbnilImage()
     }
     
     func toggleFullThumbnilImage(){
-        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.95, initialSpringVelocity: 8, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.95, initialSpringVelocity: 8, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
             
             if (self.imageThumbnail.frame == self.viewHeader.layer.bounds){
                 self.imageThumbnail.frame = self.originalThumbnailImageFrame!
@@ -381,7 +381,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         
         self.imageThumbnail.layer.borderWidth = 1.0
         self.imageThumbnail.layer.masksToBounds = false
-        self.imageThumbnail.layer.borderColor = UIColor.whiteColor().CGColor
+        self.imageThumbnail.layer.borderColor = UIColor.white.cgColor
         self.imageThumbnail.layer.cornerRadius = self.imageThumbnail.frame.size.width/2
         self.imageThumbnail.clipsToBounds = true
         
@@ -405,7 +405,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             if operatorName == "(Unknown Operator)" {
                 buttonOperator.alpha = 0
             }
-            buttonOperator.setTitle(operatorName, forState: .Normal)
+            buttonOperator.setTitle(operatorName, for: UIControlState())
         }
         
         if let primaryPhoneNumber = charger?.chargerDetails?.chargerPrimaryContactNumber {
@@ -424,10 +424,10 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         }
         
         if let dataLastUpdateTime = charger?.chargerDataLastUpdate {
-            let date = NSDate(timeIntervalSinceReferenceDate: dataLastUpdateTime)
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-            let convertedDate = dateFormatter.stringFromDate(date)
+            let date = Date(timeIntervalSinceReferenceDate: dataLastUpdateTime)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = DateFormatter.Style.medium
+            let convertedDate = dateFormatter.string(from: date)
             dataLastUpdateTimeLabel.text = convertedDate
             
         }
@@ -482,7 +482,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         
     }
     
-    func updateChargerOperationalStatus(isOperational: Bool){
+    func updateChargerOperationalStatus(_ isOperational: Bool){
         //TODO: Implement "Offline" Indication.
         if (isOperational){
             let statusOperationalString = NSLocalizedString("Operational", comment: "Charging Status Operational")
@@ -490,7 +490,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         } else {
             let statusUnknownString = NSLocalizedString("Unknown", comment: "Charging Status Unknown")
             labelStatus.text = statusUnknownString
-            UIView.animateWithDuration(1.0, animations: {
+            UIView.animate(withDuration: 1.0, animations: {
                 self.viewChargerStatus.backgroundColor = UIColor(red: 234/255, green: 155/255, blue: 3/255, alpha: 1.0)
             })
         }
@@ -501,12 +501,12 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         // Dispose of any resources that can be recreated.
     }
     
-    func downloadThumbnailImage(imageUrl: String){
-        if let url = NSURL(string: imageUrl) {
+    func downloadThumbnailImage(_ imageUrl: String){
+        if let url = URL(string: imageUrl) {
             indicatorImageLoader.startAnimating()
-            let request: NSURLRequest = NSURLRequest(URL: url)
-            let session = NSURLSession.sharedSession()
-            let task = session.dataTaskWithRequest(request){
+            let request: URLRequest = URLRequest(url: url)
+            let session = URLSession.shared
+            let task = session.dataTask(with: request, completionHandler: {
                 (data, response, error) -> Void in
                 
                 if (error == nil && data != nil)
@@ -514,7 +514,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                     func displayImage()
                     {
                         // Animate the fade in of the image
-                        UIView.animateWithDuration(1.0, animations: {
+                        UIView.animate(withDuration: 1.0, animations: {
                             self.imageThumbnail.alpha = 0.0
                             self.imageThumbnail.image = UIImage(data: data!)
                             self.imageThumbnail.alpha = 1.0
@@ -524,46 +524,46 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
                             
                             // Add gestureRecognizer
                             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(ChargerDetailViewController.toggleFullImage(_:)))
-                            self.imageThumbnail.userInteractionEnabled = true
+                            self.imageThumbnail.isUserInteractionEnabled = true
                             self.imageThumbnail.addGestureRecognizer(tapGestureRecognizer)
                         })
                     }
                     
-                    dispatch_async(dispatch_get_main_queue(), displayImage)
+                    DispatchQueue.main.async(execute: displayImage)
                 }
                 
                 func dismissActivityIndicator(){
                     self.indicatorImageLoader.stopAnimating()
                 }
                 
-                dispatch_async(dispatch_get_main_queue(), dismissActivityIndicator)
-            }
+                DispatchQueue.main.async(execute: dismissActivityIndicator)
+            })
             
             task.resume()
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(_ tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return connections.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("net.zygotelabs.connectioncell", forIndexPath: indexPath) as! ConnectionTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "net.zygotelabs.connectioncell", for: indexPath) as! ConnectionTableViewCell
         
-        let connectionTypeId = (connections[indexPath.row] as Connection).connectionTypeId
+        let connectionTypeId = (connections[(indexPath as NSIndexPath).row] as Connection).connectionTypeId
         if connectionTypeId == 33 {
             let connectionTypeCCSString = NSLocalizedString("CCS Combo", comment: "Navigate")
             cell.connectionTypeLabel?.text = connectionTypeCCSString
         } else {
-            cell.connectionTypeLabel?.text = (connections[indexPath.row] as Connection).connectionTypeTitle
+            cell.connectionTypeLabel?.text = (connections[(indexPath as NSIndexPath).row] as Connection).connectionTypeTitle
         }
         
         //Only show Quantity if > 0
-        let connectionQuantity = (connections[indexPath.row] as Connection).connectionQuantity
+        let connectionQuantity = (connections[(indexPath as NSIndexPath).row] as Connection).connectionQuantity
         if (connectionQuantity > 0) {
             cell.connectionQuantityLabel?.text = String(connectionQuantity)
             // If total connection quantity is unavaible, we calculate and display.
@@ -575,24 +575,24 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         }
         
         var connectionPowerParams = ""
-        let connectionCurrent = (connections[indexPath.row] as Connection).connectionAmp
+        let connectionCurrent = (connections[(indexPath as NSIndexPath).row] as Connection).connectionAmp
         var gotCurrent = false
         if (connectionCurrent > 0){
-            connectionPowerParams = String((connections[indexPath.row] as Connection).connectionAmp) + "A"
+            connectionPowerParams = String((connections[(indexPath as NSIndexPath).row] as Connection).connectionAmp) + "A"
             gotCurrent = true
         }
-        let connectionPower = (connections[indexPath.row] as Connection).connectionPowerKW
+        let connectionPower = (connections[(indexPath as NSIndexPath).row] as Connection).connectionPowerKW
         if (connectionPower > 0) {
             if gotCurrent {
                 connectionPowerParams += "/"
             }
-            connectionPowerParams += (String((connections[indexPath.row] as Connection).connectionPowerKW) + "KW")
+            connectionPowerParams += (String((connections[(indexPath as NSIndexPath).row] as Connection).connectionPowerKW) + "KW")
         }
         
         cell.connectionAmpLabel?.text = connectionPowerParams
         
         // Show status indicator if applicable
-        let connectionStatusTypeID = (connections[indexPath.row] as Connection).connectionStatusTypeID
+        let connectionStatusTypeID = (connections[(indexPath as NSIndexPath).row] as Connection).connectionStatusTypeID
         if connectionStatusTypeID == 100 {
             cell.connectionStatusView.backgroundColor = UIColor(red: 223/255, green: 105/255, blue: 93/255, alpha: 1.0)
         } else if connectionStatusTypeID == 50{
@@ -606,23 +606,23 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         return cell
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // Location has been updated.
         if let location = locations.last {
             calculateDestinationETA(location.coordinate)
         }
     }
     
-    func calculateDestinationETA(userLocation: CLLocationCoordinate2D){
+    func calculateDestinationETA(_ userLocation: CLLocationCoordinate2D){
         // Calulcate driving ETA to charger
         let request = MKDirectionsRequest()
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: userLocation, addressDictionary: nil))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: (charger?.chargerLatitude)!, longitude: (charger?.chargerLongitude)!), addressDictionary: nil))
-        request.transportType = .Automobile
+        request.transportType = .automobile
         let directions = MKDirections(request: request)
-        directions.calculateETAWithCompletionHandler { response, error -> Void in
+        directions.calculateETA { response, error -> Void in
             if let err = error {
-                self.labelTransportETA.text = err.userInfo["NSLocalizedFailureReason"] as? String
+                self.labelTransportETA.text = (err as NSError).userInfo["NSLocalizedFailureReason"] as? String
                 self.gotETA = false
                 return
             }
@@ -639,7 +639,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         if (numberOfComments > 0) {
             // We have comments. Show filled icon
             let image = UIImage(named: "ChatFilledIcon")
-            buttonComments.setImage(image, forState: .Normal)
+            buttonComments.setImage(image, for: UIControlState())
             labelNumberOfComments.text = String(numberOfComments)
         }
     }
@@ -647,9 +647,9 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
     @IBAction func showOperatorWebsite(){
         
         if let operatorWebsiteURLString = charger?.chargerOperator?.operatorWeb {
-            if let url = NSURL(string: operatorWebsiteURLString) {
-                let safariViewController = SFSafariViewController(URL: url)
-                self.presentViewController(safariViewController, animated: true, completion: nil)
+            if let url = URL(string: operatorWebsiteURLString) {
+                let safariViewController = SFSafariViewController(url: url)
+                self.present(safariViewController, animated: true, completion: nil)
             }
         }
     }
@@ -660,13 +660,13 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         vc.charger = charger
         vc.comments = charger!.chargerDetails?.comments?.allObjects as! [Comment]
         vc.hidesBottomBarWhenPushed = true
-        showViewController(vc, sender: nil)
+        show(vc, sender: nil)
     }
     
     func showChargingStationPhotoViewController(){
         let vc = ChargingStationPhotoViewController()
         vc.chargingStationImageUrl = self.charger?.chargerImage
         vc.hidesBottomBarWhenPushed = true
-        self.showViewController(vc, sender: nil)
+        self.show(vc, sender: nil)
     }
 }
