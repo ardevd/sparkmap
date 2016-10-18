@@ -18,14 +18,14 @@ class CommentSubmissionManager {
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
             // For a HTTP POST, do the following.
-            let urlRequest = NSMutableURLRequest(url: url)
+            var urlRequest = URLRequest(url: url)
             urlRequest.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
             urlRequest.httpMethod = "POST"
             // insert json data to the request
             urlRequest.httpBody = jsonData
             
-            
-            let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, response, error in
+            URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+                //URLSession.shared.dataTask(with: request) {data, response, err in
                 if error != nil{
                     print("Error -> \(error)")
                     NotificationCenter.default.post(name: Notification.Name(rawValue: "OCMCommentPostError"), object: nil, userInfo:
@@ -53,8 +53,7 @@ class CommentSubmissionManager {
                     }
                     
                 }
-            })
-            task.resume()
+            }.resume()
         } catch {
             print(error)
         }

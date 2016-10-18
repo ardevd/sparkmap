@@ -17,7 +17,7 @@ class UserPhotoSubmissionManager: NSObject {
         let userImage = resizeAndProcessImage(userImageView.image!)
         
         let photoUploadUrl = URL(string: "https://sparkmap.zygotelabs.net/photo_upload.php");
-        let request = NSMutableURLRequest(url:photoUploadUrl!);
+        var request = URLRequest(url:photoUploadUrl!);
         request.httpMethod = "POST";
         
         let boundary = generateBoundaryString()
