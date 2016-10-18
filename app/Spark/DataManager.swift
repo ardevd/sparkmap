@@ -270,7 +270,7 @@ class DataManager: NSObject {
                     }, subtitle: tapToHideSubtitleString)
             }
             // dataTaskWithRequest will handle threading.
-            let dataTask = urlSession.dataTask(with: urlRequest, completionHandler: { (data: Data?, response: URLResponse?, errorSession: NSError?) -> Void in
+            URLSession.shared.dataTask(with: urlRequest) {data, response, errorSession -> Void in
                 
                 if let err = errorSession {
                     SwiftSpinner.show("\(err.localizedDescription)", animated: false).addTapHandler({
@@ -578,9 +578,7 @@ class DataManager: NSObject {
                         NSLog("No data available")
                     }
                 }
-            } as! (Data?, URLResponse?, Error?) -> Void) 
-            // if you forget this line, nothing will happen
-            dataTask.resume()
+            }.resume()
         }
     }
     
