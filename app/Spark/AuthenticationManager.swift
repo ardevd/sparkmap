@@ -32,7 +32,7 @@ class AuthenticationManager {
         let authenticationURLString = "https://api.openchargemap.io/v3/profile/authenticate/"
         guard let url = URL(string: authenticationURLString) else { return }
         
-        let json = [ "emailaddress": String(username) , "password": String(password) ]
+        let json = [ "emailaddress": username , "password": password ]
         
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
@@ -42,7 +42,7 @@ class AuthenticationManager {
             // insert json data to the request
             urlRequest.httpBody = jsonData
             
-            let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, response, error in
+            URLSession.shared.dataTask(with: urlRequest) { data, response, error -> Void in
                 if error != nil{
                     print("Error -> \(error)")
                     NotificationCenter.default.post(name: Notification.Name(rawValue: "OCMLoginFailed"), object: nil, userInfo:
@@ -106,8 +106,7 @@ class AuthenticationManager {
                     NotificationCenter.default.post(name: Notification.Name(rawValue: "OCMLoginFailed"), object: nil, userInfo:
                         ["errorMesssage": errorMessage, "errorCode": errorCode])
                 }
-            })
-            task.resume()
+            }.resume()
         } catch {
             print(error)
         }
