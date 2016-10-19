@@ -85,7 +85,7 @@ class CommentsListViewController: UIViewController, UITableViewDelegate, UINavig
     func requestUpdatedData(_ notification: Notification) {
         // Download data for this charging station.
         let delayTime = DispatchTime.now() + Double(Int64(2 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.low).asyncAfter(deadline: delayTime) {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).asyncAfter(deadline: delayTime) {
             let distance = CLLocationDistance(1)
             let dataManager = DataManager()
             dataManager.downloadNearbyChargers(Latitude: self.charger.chargerLatitude, Longitude: self.charger.chargerLongitude, Distance: distance)
