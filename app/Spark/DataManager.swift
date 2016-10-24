@@ -105,38 +105,34 @@ class DataManager: NSObject {
     
     func removeAllChargerData(){
         // Remove all charging data from persistent storage
-        let fetchRequest = NSFetchRequest<ChargerPrimary>()
-        //let entity = NSEntityDescription.entity(forEntityName: "ChargerPrimary", in: self.moc)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ChargerPrimary")
         let entity = NSEntityDescription.entity(forEntityName: "ChargerPrimary", in: self.secondMoc)
-        //fetchRequest.entity = entity
-//        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-//        do {
-//            var error : NSError?
-//            try persistentStoreCoordinator.executeRequest(deleteRequest, error: &error) as NSBatchUpdateResult
-//        } catch {
-//            let deleteError = error as NSError
-//            NSLog("\(deleteError), \(deleteError.localizedDescription)")
-//        }
+        fetchRequest.entity = entity
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try self.secondMoc.execute(deleteRequest)
+        } catch {
+            let deleteError = error as NSError
+            NSLog("\(deleteError), \(deleteError.localizedDescription)")
+        }
     }
     
     func removeOldChargerData(){
         // Remove old charger data to prevent database from growing too big
         // Delete chargers older than 30 days
-       let fetchRequest = NSFetchRequest<ChargerPrimary>(entityName: "ChargerPrimary")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ChargerPrimary")
         let timestampThirtyDaysAgo = Date().timeIntervalSince1970 - 2505600
         fetchRequest.predicate = NSPredicate(format: "chargerWasAddedDate =< %f", timestampThirtyDaysAgo)
         let entity = NSEntityDescription.entity(forEntityName: "ChargerPrimary", in: self.secondMoc)
         fetchRequest.entity = entity
-//        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-//        
-//        do {
-//            //try self.secondMoc.execute(deleteRequest)
-//            var error : NSError?
-//            try self.secondMoc!.executeRequest(deleteRequest, error: &error) as NSBatchUpdateResult
-//        } catch {
-//            let deleteError = error as NSError
-//            NSLog("\(deleteError), \(deleteError.localizedDescription)")
-//        }
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try self.secondMoc.execute(deleteRequest)
+        } catch {
+            let deleteError = error as NSError
+            NSLog("\(deleteError), \(deleteError.localizedDescription)")
+        }
     }
     
     
