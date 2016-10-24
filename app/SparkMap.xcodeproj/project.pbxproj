@@ -25,13 +25,6 @@
 		DC1ED17B1BE29572007C09D1 /* SparkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED17A1BE29572007C09D1 /* SparkTests.swift */; };
 		DC1ED1861BE29572007C09D1 /* SparkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1ED1851BE29572007C09D1 /* SparkUITests.swift */; };
 		DC24E3601C5B83760070AC3E /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */; };
-		DC394B651D28659C003D6C81 /* ClusterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC394B5E1D28659C003D6C81 /* ClusterManager.swift */; };
-		DC394B661D28659C003D6C81 /* AnnotationClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC394B5F1D28659C003D6C81 /* AnnotationClusterView.swift */; };
-		DC394B671D28659C003D6C81 /* AnnotationCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC394B601D28659C003D6C81 /* AnnotationCluster.swift */; };
-		DC3D5F491D286AAB001A7D71 /* QuadTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D5F461D286AAB001A7D71 /* QuadTreeNode.swift */; };
-		DC3D5F4A1D286AAB001A7D71 /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D5F471D286AAB001A7D71 /* QuadTree.swift */; };
-		DC3D5F4B1D286AAB001A7D71 /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D5F481D286AAB001A7D71 /* BoundingBox.swift */; };
-		DC3D5F4D1D299494001A7D71 /* UserPreferenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D5F4C1D299494001A7D71 /* UserPreferenceHelper.swift */; };
 		DC4843831D7B03F700FB329A /* FileStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4843821D7B03F700FB329A /* FileStorageManager.swift */; };
 		DC4EB7AD1BE9717800B75FFC /* NearbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4EB7AB1BE9717800B75FFC /* NearbyTableViewCell.swift */; };
 		DC4EB7AE1BE9717800B75FFC /* NearbyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4EB7AC1BE9717800B75FFC /* NearbyTableViewCell.xib */; };
@@ -140,13 +133,6 @@
 		DC24E35F1C5B83760070AC3E /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
 		DC2A2FB51D3E3FCD00D9E8C7 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/WelcomeStoryboard.strings; sourceTree = "<group>"; };
 		DC2F421B1C68C4A300579F18 /* Spark v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Spark v2.xcdatamodel"; sourceTree = "<group>"; };
-		DC394B5E1D28659C003D6C81 /* ClusterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterManager.swift; sourceTree = "<group>"; };
-		DC394B5F1D28659C003D6C81 /* AnnotationClusterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationClusterView.swift; sourceTree = "<group>"; };
-		DC394B601D28659C003D6C81 /* AnnotationCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationCluster.swift; sourceTree = "<group>"; };
-		DC3D5F461D286AAB001A7D71 /* QuadTreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadTreeNode.swift; sourceTree = "<group>"; };
-		DC3D5F471D286AAB001A7D71 /* QuadTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadTree.swift; sourceTree = "<group>"; };
-		DC3D5F481D286AAB001A7D71 /* BoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
-		DC3D5F4C1D299494001A7D71 /* UserPreferenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPreferenceHelper.swift; sourceTree = "<group>"; };
 		DC46AC001D247E0000A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC46AC021D247E5D00A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		DC46AC041D247E7300A5230F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -291,12 +277,6 @@
 		DC1ED1611BE29572007C09D1 /* Spark */ = {
 			isa = PBXGroup;
 			children = (
-				DC3D5F461D286AAB001A7D71 /* QuadTreeNode.swift */,
-				DC3D5F471D286AAB001A7D71 /* QuadTree.swift */,
-				DC3D5F481D286AAB001A7D71 /* BoundingBox.swift */,
-				DC394B5E1D28659C003D6C81 /* ClusterManager.swift */,
-				DC394B5F1D28659C003D6C81 /* AnnotationClusterView.swift */,
-				DC394B601D28659C003D6C81 /* AnnotationCluster.swift */,
 				DC14112E1CC00DEE00F68C83 /* Localizable.strings */,
 				DC68F6811BE34B11000EFFF4 /* ChargerOperator+CoreDataProperties.swift */,
 				DC68F6821BE34B11000EFFF4 /* ChargerOperator.swift */,
@@ -443,7 +423,6 @@
 				DC7C8C601C7F3A06003D5C37 /* DistanceToLocationManager.swift */,
 				DCD04B771CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift */,
 				DC81E47C1D172D750013A22F /* ChargerImageHelper.swift */,
-				DC3D5F4C1D299494001A7D71 /* UserPreferenceHelper.swift */,
 				DCC70A391D40FF7C00CF591E /* AuthenticationManager.swift */,
 				DCC70A431D429BB900CF591E /* CommentSubmissionManager.swift */,
 				DC5B5EA11D59606000BE6194 /* UserManager.swift */,
@@ -515,12 +494,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Zygote Labs";
 				TargetAttributes = {
 					DC1ED15E1BE29572007C09D1 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = WAEHDX6R94;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 0;
@@ -529,10 +510,12 @@
 					};
 					DC1ED1751BE29572007C09D1 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = DC1ED15E1BE29572007C09D1;
 					};
 					DC1ED1801BE29572007C09D1 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = DC1ED15E1BE29572007C09D1;
 					};
 				};
@@ -623,16 +606,12 @@
 				DCD04B781CA1D2A200D7F280 /* UserPhotoSubmissionManager.swift in Sources */,
 				DC7C8C5F1C7F38EE003D5C37 /* LastDataUpdateLocationSingelton.swift in Sources */,
 				DC7830CD1CE9C79A005B315E /* CommentsListViewController.swift in Sources */,
-				DC3D5F4A1D286AAB001A7D71 /* QuadTree.swift in Sources */,
 				DCC4274E1D367AE100CAFD3E /* WelcomeZeroViewController.swift in Sources */,
-				DC3D5F4D1D299494001A7D71 /* UserPreferenceHelper.swift in Sources */,
 				DC81E47D1D172D750013A22F /* ChargerImageHelper.swift in Sources */,
 				DC4843831D7B03F700FB329A /* FileStorageManager.swift in Sources */,
 				DC68F6791BE345B4000EFFF4 /* Connection+CoreDataProperties.swift in Sources */,
-				DC394B651D28659C003D6C81 /* ClusterManager.swift in Sources */,
 				DC68F6741BE345B4000EFFF4 /* ChargerPrimary.swift in Sources */,
 				DC68F6731BE345B4000EFFF4 /* ChargerPrimary+CoreDataProperties.swift in Sources */,
-				DC394B661D28659C003D6C81 /* AnnotationClusterView.swift in Sources */,
 				DC68F6781BE345B4000EFFF4 /* ChargerDetails.swift in Sources */,
 				DC1ED1651BE29572007C09D1 /* ViewController.swift in Sources */,
 				DC68F67C1BE345B4000EFFF4 /* Comment.swift in Sources */,
@@ -642,10 +621,7 @@
 				DCC4275A1D3BEF0C00CAFD3E /* WelcomeFourViewController.swift in Sources */,
 				DCD7983B1BE5814F00C62863 /* AnnotationCharger.swift in Sources */,
 				DC1ED1631BE29572007C09D1 /* AppDelegate.swift in Sources */,
-				DC3D5F4B1D286AAB001A7D71 /* BoundingBox.swift in Sources */,
-				DC394B671D28659C003D6C81 /* AnnotationCluster.swift in Sources */,
 				DC68F6841BE34B11000EFFF4 /* ChargerOperator.swift in Sources */,
-				DC3D5F491D286AAB001A7D71 /* QuadTreeNode.swift in Sources */,
 				DC5B5EA21D59606000BE6194 /* UserManager.swift in Sources */,
 				DCC70A411D429B2300CF591E /* CommentComposerViewController.swift in Sources */,
 				DCDC2C371C613A42004BEF91 /* SettingsViewController.swift in Sources */,
@@ -793,6 +769,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -802,8 +779,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -825,7 +804,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -838,6 +817,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -847,8 +827,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -864,9 +846,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -878,6 +861,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WAEHDX6R94;
 				INFOPLIST_FILE = Spark/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -885,6 +869,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.zygotelabs.sparkmap;
 				PRODUCT_NAME = SparkMap;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -894,6 +879,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WAEHDX6R94;
 				INFOPLIST_FILE = Spark/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -901,6 +887,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.zygotelabs.sparkmap;
 				PRODUCT_NAME = SparkMap;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -912,6 +899,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.zygotelabs.SparkTests;
 				PRODUCT_NAME = SparkMap;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SparkMap.app/SparkMap";
 			};
 			name = Debug;
@@ -924,6 +912,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.zygotelabs.SparkTests;
 				PRODUCT_NAME = SparkMap;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SparkMap.app/SparkMap";
 			};
 			name = Release;
@@ -935,6 +924,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.zygotelabs.SparkUITests;
 				PRODUCT_NAME = SparkMap;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Spark;
 				USES_XCTRUNNER = YES;
 			};
@@ -947,6 +937,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.zygotelabs.SparkUITests;
 				PRODUCT_NAME = SparkMap;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Spark;
 				USES_XCTRUNNER = YES;
 			};
