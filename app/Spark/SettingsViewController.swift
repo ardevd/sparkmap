@@ -14,7 +14,6 @@ class SettingsViewController: UITableViewController {
     @IBOutlet var switchOfflineMode: UISwitch!
     @IBOutlet var switchShowDownloadDialog: UISwitch!
     @IBOutlet var switchFastcharge: UISwitch!
-    @IBOutlet var switchClustering: UISwitch!
     @IBOutlet var segmentControlMapType: UISegmentedControl!
     @IBOutlet var cellSchuko: UITableViewCell!
     @IBOutlet var cellChademo: UITableViewCell!
@@ -25,8 +24,6 @@ class SettingsViewController: UITableViewController {
     @IBOutlet var labelCacheSize: UILabel!
     @IBOutlet var buttonDeleteCache: UIButton!
     @IBOutlet var buttonAppVersion: UIButton!
-    @IBOutlet var stepperClusteringThreshold: UIStepper!
-    @IBOutlet var clusteringThresholdLabel: UILabel!
     
     let CONNECTION_ID_SCHUKO = 28
     let CONNECTION_ID_CHADEMO = 2
@@ -89,14 +86,10 @@ class SettingsViewController: UITableViewController {
     }
     
     func loadUserSettingsToViews(){
-        UserPreferenceHelper.getClusteringThresholdValue()
         let defaults = UserDefaults.standard
         switchOfflineMode.setOn(defaults.bool(forKey: "offlineMode"), animated: true)
         switchShowDownloadDialog.setOn(defaults.bool(forKey: "showDownloadDialog"), animated: true)
         switchFastcharge.setOn(defaults.bool(forKey: "fastchargeOnly"), animated: true)
-        switchClustering.setOn(defaults.bool(forKey: "useClustering"), animated: true)
-        clusteringThresholdLabel.text = String(defaults.integer(forKey: "clusteringThreshold"))
-        stepperClusteringThreshold.value = Double(defaults.integer(forKey: "clusteringThreshold"))
         if let connectionTypeIDsFromSettings = UserDefaults.standard.array(forKey: "connectionFilterIds") {
             
             for id in connectionTypeIDsFromSettings {
@@ -133,9 +126,6 @@ class SettingsViewController: UITableViewController {
         defaults.set(switchOfflineMode.isOn, forKey: "offlineMode")
         // Show Download Dialog
         defaults.set(switchShowDownloadDialog.isOn, forKey: "showDownloadDialog")
-        // Clustering Settings
-        defaults.set(switchClustering.isOn, forKey: "useClustering")
-        defaults.set(Int(stepperClusteringThreshold.value), forKey: "clusteringThreshold")
         // Fastcharging Only
         defaults.set(switchFastcharge.isOn, forKey: "fastchargeOnly")
         // Map Type
@@ -176,10 +166,6 @@ class SettingsViewController: UITableViewController {
 
     func deleteTypeFromConnectionFilterArray(_ connectionType: Int){
         connectionTypeIDs = connectionTypeIDs.filter{$0 != connectionType}
-    }
-    
-    @IBAction func stepperValueChanged(_ sender: UIStepper) {
-        clusteringThresholdLabel.text = Int(sender.value).description
     }
     
     func showSourceCodeOnGitHub(){
