@@ -1,10 +1,3 @@
-//
-//  SettingsViewController.swift
-//  Spark
-//
-//  Created by Edvard Holst on 02/02/16.
-//  Copyright © 2016 Zygote Labs. All rights reserved.
-//
 
 import UIKit
 import SafariServices
