@@ -148,7 +148,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         // Button that lets user navigate to charger address.
         let navigationButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(ChargerDetailViewController.navigateButtonTapped))
         navigationButtonItem.image = UIImage(named: "CarIcon")
-        
+        navigationButtonItem.title = " "
         return navigationButtonItem
         
     }
@@ -157,7 +157,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         // Button that lets user call the number associated wtih the charging station.
         let callButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(ChargerDetailViewController.callButtonTapped))
         callButtonItem.image = UIImage(named: "CallIcon")
-        
+        callButtonItem.title = " "
         return callButtonItem
     }
     
@@ -387,13 +387,8 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
         
     }
     
-    func setChargerInfoToOutlets(){
+    func manageNavigationButtons(){
         var navigationButtonItems = [UIBarButtonItem]()
-        
-        
-        if let title = charger?.chargerTitle {
-            self.title = title
-        }
         
         if let subtitle = charger?.chargerSubtitle {
             labelSubtitle.text = subtitle
@@ -401,17 +396,26 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             navigationButtonItems.append(generateNavigationButton())
         }
         
+        if let primaryPhoneNumber = charger?.chargerDetails?.chargerPrimaryContactNumber {
+            if primaryPhoneNumber.characters.count > 3 {
+                navigationButtonItems.append(generateCallButton())
+            }
+        }
+        
+        self.navigationItem.setRightBarButtonItems(navigationButtonItems, animated: true)
+    }
+    
+    func setChargerInfoToOutlets(){
+
+        if let title = charger?.chargerTitle {
+            self.title = title
+        }
+        
         if let operatorName = charger?.chargerOperator?.operatorName {
             if operatorName == "(Unknown Operator)" {
                 buttonOperator.alpha = 0
             }
             buttonOperator.setTitle(operatorName, for: UIControlState())
-        }
-        
-        if let primaryPhoneNumber = charger?.chargerDetails?.chargerPrimaryContactNumber {
-            if primaryPhoneNumber.characters.count > 3 {
-                navigationButtonItems.append(generateCallButton())
-            }
         }
         
         if let numberOfPoints = charger?.chargerNumberOfPoints {
@@ -478,7 +482,7 @@ class ChargerDetailViewController: UIViewController, UITableViewDelegate, UINavi
             updateChargerOperationalStatus(chargerIsOperational)
         }
         
-        self.navigationItem.setRightBarButtonItems(navigationButtonItems, animated: true)
+        manageNavigationButtons()
         
     }
     
