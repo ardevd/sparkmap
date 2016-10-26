@@ -493,7 +493,6 @@ class DataManager: NSObject {
                                         
                                     }
                                     
-                                    
                                     if let recentlyVerified = element["IsRecentlyVerified"] as? Bool {
                                         chargerDetails.chargerRecentlyVerified = recentlyVerified
                                     }
